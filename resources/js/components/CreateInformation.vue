@@ -1804,6 +1804,644 @@
                         </div>
                     </div>
                 </tab-content>
+                <tab-content
+                title="Checklist"
+                icon="ti-check"
+                >
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="card shipping_address_card">
+                                <div class="card-body">
+                                    <div class="row" v-if="form_data.itemType === 'Pump'">
+                                        <div class="col-md-6">
+                                            <div class="mb-3">
+                                                <label class="form-label w-100 text-capitalize">
+                                                    VFD or not
+                                                    <span class="error">*</span>
+                                                </label>
+                                                <select class="form-select mb-text-only" aria-label="Default select example"
+                                                        v-model.trim="form_data.itemType"
+                                                >
+                                                    <option selected disabled>Open this select menu</option>
+                                                    <option>Yes</option>
+                                                    <option>No</option>
+                                                    <option>Nos</option>
+                                                </select>
+                                                <!--                                            <Select2 v-model="form_data.itemType" :options="itemTypes" @change="itemTypeChangeEvent($event)" />-->
+                                                <div class="error" v-if="v$.form_data.itemType.required.$invalid && show_error_eleven">
+                                                    Item type is required
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="mb-3">
+                                                <label class="form-label w-100 text-capitalize">
+                                                    VFD setting
+                                                    <span class="error">*</span>
+                                                </label>
+                                                <select class="form-select mb-text-only" aria-label="Default select example"
+                                                        v-model.trim="form_data.itemType"
+                                                >
+                                                    <option selected disabled>Open this select menu</option>
+                                                    <option>Yes</option>
+                                                    <option>No</option>
+                                                    <option>Nos</option>
+                                                </select>
+                                                <!--                                            <Select2 v-model="form_data.itemType" :options="itemTypes" @change="itemTypeChangeEvent($event)" />-->
+                                                <div class="error" v-if="v$.form_data.itemType.required.$invalid && show_error_eleven">
+                                                    Item type is required
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="mb-3">
+                                                <label class="form-label w-100 text-capitalize">
+                                                    Pump throttling
+                                                    <span class="error">*</span>
+                                                </label>
+                                                <select class="form-select mb-text-only" aria-label="Default select example"
+                                                        v-model.trim="form_data.itemType"
+                                                >
+                                                    <option selected disabled>Open this select menu</option>
+                                                    <option>Yes</option>
+                                                    <option>No</option>
+                                                    <option>Nos</option>
+                                                </select>
+                                                <!--                                            <Select2 v-model="form_data.itemType" :options="itemTypes" @change="itemTypeChangeEvent($event)" />-->
+                                                <div class="error" v-if="v$.form_data.itemType.required.$invalid && show_error_eleven">
+                                                    Item type is required
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="mb-3">
+                                                <label class="form-label w-100 text-capitalize">
+                                                    Flow Modulation required
+                                                    <span class="error">*</span>
+                                                </label>
+                                                <select class="form-select mb-text-only" aria-label="Default select example"
+                                                        v-model.trim="form_data.itemType"
+                                                >
+                                                    <option selected disabled>Open this select menu</option>
+                                                    <option>Yes</option>
+                                                    <option>No</option>
+                                                    <option>Nos</option>
+                                                </select>
+                                                <!--                                            <Select2 v-model="form_data.itemType" :options="itemTypes" @change="itemTypeChangeEvent($event)" />-->
+                                                <div class="error" v-if="v$.form_data.itemType.required.$invalid && show_error_eleven">
+                                                    Item type is required
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="mb-3">
+                                                <label class="form-label w-100 text-capitalize">
+                                                    Parallel pump operation
+                                                    <span class="error">*</span>
+                                                </label>
+                                                <select class="form-select mb-text-only" aria-label="Default select example"
+                                                        v-model.trim="form_data.itemType"
+                                                >
+                                                    <option selected disabled>Open this select menu</option>
+                                                    <option>Yes</option>
+                                                    <option>No</option>
+                                                    <option>Nos</option>
+                                                </select>
+                                                <!--                                            <Select2 v-model="form_data.itemType" :options="itemTypes" @change="itemTypeChangeEvent($event)" />-->
+                                                <div class="error" v-if="v$.form_data.itemType.required.$invalid && show_error_eleven">
+                                                    Item type is required
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="mb-3">
+                                                <label class="form-label w-100 text-capitalize">
+                                                    Nos. of rewiding of motor
+                                                    <span class="error">*</span>
+                                                </label>
+                                                <select class="form-select mb-text-only" aria-label="Default select example"
+                                                        v-model.trim="form_data.itemType"
+                                                >
+                                                    <option selected disabled>Open this select menu</option>
+                                                    <option>Yes</option>
+                                                    <option>No</option>
+                                                    <option>Nos</option>
+                                                </select>
+                                                <!--                                            <Select2 v-model="form_data.itemType" :options="itemTypes" @change="itemTypeChangeEvent($event)" />-->
+                                                <div class="error" v-if="v$.form_data.itemType.required.$invalid && show_error_eleven">
+                                                    Item type is required
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="mb-3">
+                                                <label class="form-label w-100 text-capitalize">
+                                                    Check cavitation
+                                                    <span class="error">*</span>
+                                                </label>
+                                                <select class="form-select mb-text-only" aria-label="Default select example"
+                                                        v-model.trim="form_data.itemType"
+                                                >
+                                                    <option selected disabled>Open this select menu</option>
+                                                    <option>Yes</option>
+                                                    <option>No</option>
+                                                    <option>Nos</option>
+                                                </select>
+                                                <!--                                            <Select2 v-model="form_data.itemType" :options="itemTypes" @change="itemTypeChangeEvent($event)" />-->
+                                                <div class="error" v-if="v$.form_data.itemType.required.$invalid && show_error_eleven">
+                                                    Item type is required
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="mb-3">
+                                                <label class="form-label w-100 text-capitalize">
+                                                    Operating Hours
+                                                    <span class="error">*</span>
+                                                </label>
+                                                <select class="form-select mb-text-only" aria-label="Default select example"
+                                                        v-model.trim="form_data.itemType"
+                                                >
+                                                    <option selected disabled>Open this select menu</option>
+                                                    <option>Yes</option>
+                                                    <option>No</option>
+                                                    <option>Nos</option>
+                                                </select>
+                                                <!--                                            <Select2 v-model="form_data.itemType" :options="itemTypes" @change="itemTypeChangeEvent($event)" />-->
+                                                <div class="error" v-if="v$.form_data.itemType.required.$invalid && show_error_eleven">
+                                                    Item type is required
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row" v-if="form_data.itemType === 'Fan'">
+                                        <div class="col-md-6">
+                                            <div class="mb-3">
+                                                <label class="form-label w-100 text-capitalize">
+                                                    VFD or not
+                                                    <span class="error">*</span>
+                                                </label>
+                                                <select class="form-select mb-text-only" aria-label="Default select example"
+                                                        v-model.trim="form_data.itemType"
+                                                >
+                                                    <option selected disabled>Open this select menu</option>
+                                                    <option>Yes</option>
+                                                    <option>No</option>
+                                                    <option>Nos</option>
+                                                </select>
+                                                <!--                                            <Select2 v-model="form_data.itemType" :options="itemTypes" @change="itemTypeChangeEvent($event)" />-->
+                                                <div class="error" v-if="v$.form_data.itemType.required.$invalid && show_error_eleven">
+                                                    Item type is required
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="mb-3">
+                                                <label class="form-label w-100 text-capitalize">
+                                                    VFD setting
+                                                    <span class="error">*</span>
+                                                </label>
+                                                <select class="form-select mb-text-only" aria-label="Default select example"
+                                                        v-model.trim="form_data.itemType"
+                                                >
+                                                    <option selected disabled>Open this select menu</option>
+                                                    <option>Yes</option>
+                                                    <option>No</option>
+                                                    <option>Nos</option>
+                                                </select>
+                                                <!--                                            <Select2 v-model="form_data.itemType" :options="itemTypes" @change="itemTypeChangeEvent($event)" />-->
+                                                <div class="error" v-if="v$.form_data.itemType.required.$invalid && show_error_eleven">
+                                                    Item type is required
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="mb-3">
+                                                <label class="form-label w-100 text-capitalize">
+                                                    Valve opening %
+                                                    <span class="error">*</span>
+                                                </label>
+                                                <select class="form-select mb-text-only" aria-label="Default select example"
+                                                        v-model.trim="form_data.itemType"
+                                                >
+                                                    <option selected disabled>Open this select menu</option>
+                                                    <option>Yes</option>
+                                                    <option>No</option>
+                                                    <option>Nos</option>
+                                                </select>
+                                                <!--                                            <Select2 v-model="form_data.itemType" :options="itemTypes" @change="itemTypeChangeEvent($event)" />-->
+                                                <div class="error" v-if="v$.form_data.itemType.required.$invalid && show_error_eleven">
+                                                    Item type is required
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="mb-3">
+                                                <label class="form-label w-100 text-capitalize">
+                                                    Flow Modulation required
+                                                    <span class="error">*</span>
+                                                </label>
+                                                <select class="form-select mb-text-only" aria-label="Default select example"
+                                                        v-model.trim="form_data.itemType"
+                                                >
+                                                    <option selected disabled>Open this select menu</option>
+                                                    <option>Yes</option>
+                                                    <option>No</option>
+                                                    <option>Nos</option>
+                                                </select>
+                                                <!--                                            <Select2 v-model="form_data.itemType" :options="itemTypes" @change="itemTypeChangeEvent($event)" />-->
+                                                <div class="error" v-if="v$.form_data.itemType.required.$invalid && show_error_eleven">
+                                                    Item type is required
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="mb-3">
+                                                <label class="form-label w-100 text-capitalize">
+                                                    Parallel fan operation
+                                                    <span class="error">*</span>
+                                                </label>
+                                                <select class="form-select mb-text-only" aria-label="Default select example"
+                                                        v-model.trim="form_data.itemType"
+                                                >
+                                                    <option selected disabled>Open this select menu</option>
+                                                    <option>Yes</option>
+                                                    <option>No</option>
+                                                    <option>Nos</option>
+                                                </select>
+                                                <!--                                            <Select2 v-model="form_data.itemType" :options="itemTypes" @change="itemTypeChangeEvent($event)" />-->
+                                                <div class="error" v-if="v$.form_data.itemType.required.$invalid && show_error_eleven">
+                                                    Item type is required
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="mb-3">
+                                                <label class="form-label w-100 text-capitalize">
+                                                    Nos. of rewiding of motor
+                                                    <span class="error">*</span>
+                                                </label>
+                                                <select class="form-select mb-text-only" aria-label="Default select example"
+                                                        v-model.trim="form_data.itemType"
+                                                >
+                                                    <option selected disabled>Open this select menu</option>
+                                                    <option>Yes</option>
+                                                    <option>No</option>
+                                                    <option>Nos</option>
+                                                </select>
+                                                <!--                                            <Select2 v-model="form_data.itemType" :options="itemTypes" @change="itemTypeChangeEvent($event)" />-->
+                                                <div class="error" v-if="v$.form_data.itemType.required.$invalid && show_error_eleven">
+                                                    Item type is required
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="mb-3">
+                                                <label class="form-label w-100 text-capitalize">
+                                                    Operating Hours
+                                                    <span class="error">*</span>
+                                                </label>
+                                                <select class="form-select mb-text-only" aria-label="Default select example"
+                                                        v-model.trim="form_data.itemType"
+                                                >
+                                                    <option selected disabled>Open this select menu</option>
+                                                    <option>Yes</option>
+                                                    <option>No</option>
+                                                    <option>Nos</option>
+                                                </select>
+                                                <!--                                            <Select2 v-model="form_data.itemType" :options="itemTypes" @change="itemTypeChangeEvent($event)" />-->
+                                                <div class="error" v-if="v$.form_data.itemType.required.$invalid && show_error_eleven">
+                                                    Item type is required
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row" v-if="form_data.itemType === 'Air Compressor'">
+                                        <div class="col-md-6">
+                                            <div class="mb-3">
+                                                <label class="form-label w-100 text-capitalize">
+                                                    VFD or not
+                                                    <span class="error">*</span>
+                                                </label>
+                                                <select class="form-select mb-text-only" aria-label="Default select example"
+                                                        v-model.trim="form_data.itemType"
+                                                >
+                                                    <option selected disabled>Open this select menu</option>
+                                                    <option>Yes</option>
+                                                    <option>No</option>
+                                                    <option>Nos</option>
+                                                </select>
+                                                <!--                                            <Select2 v-model="form_data.itemType" :options="itemTypes" @change="itemTypeChangeEvent($event)" />-->
+                                                <div class="error" v-if="v$.form_data.itemType.required.$invalid && show_error_eleven">
+                                                    Item type is required
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="mb-3">
+                                                <label class="form-label w-100 text-capitalize">
+                                                    Nos. of rewiding of motor
+                                                    <span class="error">*</span>
+                                                </label>
+                                                <select class="form-select mb-text-only" aria-label="Default select example"
+                                                        v-model.trim="form_data.itemType"
+                                                >
+                                                    <option selected disabled>Open this select menu</option>
+                                                    <option>Yes</option>
+                                                    <option>No</option>
+                                                    <option>Nos</option>
+                                                </select>
+                                                <!--                                            <Select2 v-model="form_data.itemType" :options="itemTypes" @change="itemTypeChangeEvent($event)" />-->
+                                                <div class="error" v-if="v$.form_data.itemType.required.$invalid && show_error_eleven">
+                                                    Item type is required
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="mb-3">
+                                                <label class="form-label w-100 text-capitalize">
+                                                    Check Required pressure
+                                                    <span class="error">*</span>
+                                                </label>
+                                                <select class="form-select mb-text-only" aria-label="Default select example"
+                                                        v-model.trim="form_data.itemType"
+                                                >
+                                                    <option selected disabled>Open this select menu</option>
+                                                    <option>Yes</option>
+                                                    <option>No</option>
+                                                    <option>Nos</option>
+                                                </select>
+                                                <!--                                            <Select2 v-model="form_data.itemType" :options="itemTypes" @change="itemTypeChangeEvent($event)" />-->
+                                                <div class="error" v-if="v$.form_data.itemType.required.$invalid && show_error_eleven">
+                                                    Item type is required
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="mb-3">
+                                                <label class="form-label w-100 text-capitalize">
+                                                    Check Pressure drop
+                                                    <span class="error">*</span>
+                                                </label>
+                                                <select class="form-select mb-text-only" aria-label="Default select example"
+                                                        v-model.trim="form_data.itemType"
+                                                >
+                                                    <option selected disabled>Open this select menu</option>
+                                                    <option>Yes</option>
+                                                    <option>No</option>
+                                                    <option>Nos</option>
+                                                </select>
+                                                <!--                                            <Select2 v-model="form_data.itemType" :options="itemTypes" @change="itemTypeChangeEvent($event)" />-->
+                                                <div class="error" v-if="v$.form_data.itemType.required.$invalid && show_error_eleven">
+                                                    Item type is required
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="mb-3">
+                                                <label class="form-label w-100 text-capitalize">
+                                                    Operating Hours
+                                                    <span class="error">*</span>
+                                                </label>
+                                                <select class="form-select mb-text-only" aria-label="Default select example"
+                                                        v-model.trim="form_data.itemType"
+                                                >
+                                                    <option selected disabled>Open this select menu</option>
+                                                    <option>Yes</option>
+                                                    <option>No</option>
+                                                    <option>Nos</option>
+                                                </select>
+                                                <!--                                            <Select2 v-model="form_data.itemType" :options="itemTypes" @change="itemTypeChangeEvent($event)" />-->
+                                                <div class="error" v-if="v$.form_data.itemType.required.$invalid && show_error_eleven">
+                                                    Item type is required
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row" v-if="form_data.itemType === 'Chiller'">
+                                        <div class="col-md-6">
+                                            <div class="mb-3">
+                                                <label class="form-label w-100 text-capitalize">
+                                                    VFD or not
+                                                    <span class="error">*</span>
+                                                </label>
+                                                <select class="form-select mb-text-only" aria-label="Default select example"
+                                                        v-model.trim="form_data.itemType"
+                                                >
+                                                    <option selected disabled>Open this select menu</option>
+                                                    <option>Yes</option>
+                                                    <option>No</option>
+                                                    <option>Nos</option>
+                                                </select>
+                                                <!--                                            <Select2 v-model="form_data.itemType" :options="itemTypes" @change="itemTypeChangeEvent($event)" />-->
+                                                <div class="error" v-if="v$.form_data.itemType.required.$invalid && show_error_eleven">
+                                                    Item type is required
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="mb-3">
+                                                <label class="form-label w-100 text-capitalize">
+                                                    Check set temp.
+                                                    <span class="error">*</span>
+                                                </label>
+                                                <select class="form-select mb-text-only" aria-label="Default select example"
+                                                        v-model.trim="form_data.itemType"
+                                                >
+                                                    <option selected disabled>Open this select menu</option>
+                                                    <option>Yes</option>
+                                                    <option>No</option>
+                                                    <option>Nos</option>
+                                                </select>
+                                                <!--                                            <Select2 v-model="form_data.itemType" :options="itemTypes" @change="itemTypeChangeEvent($event)" />-->
+                                                <div class="error" v-if="v$.form_data.itemType.required.$invalid && show_error_eleven">
+                                                    Item type is required
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="mb-3">
+                                                <label class="form-label w-100 text-capitalize">
+                                                    Check condenser condition
+                                                    <span class="error">*</span>
+                                                </label>
+                                                <select class="form-select mb-text-only" aria-label="Default select example"
+                                                        v-model.trim="form_data.itemType"
+                                                >
+                                                    <option selected disabled>Open this select menu</option>
+                                                    <option>Yes</option>
+                                                    <option>No</option>
+                                                    <option>Nos</option>
+                                                </select>
+                                                <!--                                            <Select2 v-model="form_data.itemType" :options="itemTypes" @change="itemTypeChangeEvent($event)" />-->
+                                                <div class="error" v-if="v$.form_data.itemType.required.$invalid && show_error_eleven">
+                                                    Item type is required
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="mb-3">
+                                                <label class="form-label w-100 text-capitalize">
+                                                    Operating Hours
+                                                    <span class="error">*</span>
+                                                </label>
+                                                <select class="form-select mb-text-only" aria-label="Default select example"
+                                                        v-model.trim="form_data.itemType"
+                                                >
+                                                    <option selected disabled>Open this select menu</option>
+                                                    <option>Yes</option>
+                                                    <option>No</option>
+                                                    <option>Nos</option>
+                                                </select>
+                                                <!--                                            <Select2 v-model="form_data.itemType" :options="itemTypes" @change="itemTypeChangeEvent($event)" />-->
+                                                <div class="error" v-if="v$.form_data.itemType.required.$invalid && show_error_eleven">
+                                                    Item type is required
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row" v-if="form_data.itemType === 'Motors'">
+                                        <div class="col-md-6">
+                                            <div class="mb-3">
+                                                <label class="form-label w-100 text-capitalize">
+                                                    VFD or not
+                                                    <span class="error">*</span>
+                                                </label>
+                                                <select class="form-select mb-text-only" aria-label="Default select example"
+                                                        v-model.trim="form_data.itemType"
+                                                >
+                                                    <option selected disabled>Open this select menu</option>
+                                                    <option>Yes</option>
+                                                    <option>No</option>
+                                                    <option>Nos</option>
+                                                </select>
+                                                <!--                                            <Select2 v-model="form_data.itemType" :options="itemTypes" @change="itemTypeChangeEvent($event)" />-->
+                                                <div class="error" v-if="v$.form_data.itemType.required.$invalid && show_error_eleven">
+                                                    Item type is required
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="mb-3">
+                                                <label class="form-label w-100 text-capitalize">
+                                                    Check per phase current
+                                                    <span class="error">*</span>
+                                                </label>
+                                                <select class="form-select mb-text-only" aria-label="Default select example"
+                                                        v-model.trim="form_data.itemType"
+                                                >
+                                                    <option selected disabled>Open this select menu</option>
+                                                    <option>Yes</option>
+                                                    <option>No</option>
+                                                    <option>Nos</option>
+                                                </select>
+                                                <!--                                            <Select2 v-model="form_data.itemType" :options="itemTypes" @change="itemTypeChangeEvent($event)" />-->
+                                                <div class="error" v-if="v$.form_data.itemType.required.$invalid && show_error_eleven">
+                                                    Item type is required
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="mb-3">
+                                                <label class="form-label w-100 text-capitalize">
+                                                    Check Phasor
+                                                    <span class="error">*</span>
+                                                </label>
+                                                <select class="form-select mb-text-only" aria-label="Default select example"
+                                                        v-model.trim="form_data.itemType"
+                                                >
+                                                    <option selected disabled>Open this select menu</option>
+                                                    <option>Yes</option>
+                                                    <option>No</option>
+                                                    <option>Nos</option>
+                                                </select>
+                                                <!--                                            <Select2 v-model="form_data.itemType" :options="itemTypes" @change="itemTypeChangeEvent($event)" />-->
+                                                <div class="error" v-if="v$.form_data.itemType.required.$invalid && show_error_eleven">
+                                                    Item type is required
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="mb-3">
+                                                <label class="form-label w-100 text-capitalize">
+                                                    Nos. of rewiding of motor
+                                                    <span class="error">*</span>
+                                                </label>
+                                                <select class="form-select mb-text-only" aria-label="Default select example"
+                                                        v-model.trim="form_data.itemType"
+                                                >
+                                                    <option selected disabled>Open this select menu</option>
+                                                    <option>Yes</option>
+                                                    <option>No</option>
+                                                    <option>Nos</option>
+                                                </select>
+                                                <!--                                            <Select2 v-model="form_data.itemType" :options="itemTypes" @change="itemTypeChangeEvent($event)" />-->
+                                                <div class="error" v-if="v$.form_data.itemType.required.$invalid && show_error_eleven">
+                                                    Item type is required
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="mb-3">
+                                                <label class="form-label w-100 text-capitalize">
+                                                    Operating Hours
+                                                    <span class="error">*</span>
+                                                </label>
+                                                <select class="form-select mb-text-only" aria-label="Default select example"
+                                                        v-model.trim="form_data.itemType"
+                                                >
+                                                    <option selected disabled>Open this select menu</option>
+                                                    <option>Yes</option>
+                                                    <option>No</option>
+                                                    <option>Nos</option>
+                                                </select>
+                                                <!--                                            <Select2 v-model="form_data.itemType" :options="itemTypes" @change="itemTypeChangeEvent($event)" />-->
+                                                <div class="error" v-if="v$.form_data.itemType.required.$invalid && show_error_eleven">
+                                                    Item type is required
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </tab-content>
+
+                <tab-content
+                title="Observation & Image"
+                icon="ti-image"
+                >
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="card shipping_address_card">
+                                <div class="card-body">
+                                    <div class="row">Camera to take picture</div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="mb-3">
+                                                <label class="form-label w-100 text-capitalize">
+                                                    Observations
+                                                    <span class="error">*</span>
+                                                </label>
+                                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="5" placeholder="Write the observations here..."></textarea>
+                                                <!--                                            <Select2 v-model="form_data.itemType" :options="itemTypes" @change="itemTypeChangeEvent($event)" />-->
+                                                <div class="error" v-if="v$.form_data.itemType.required.$invalid && show_error_eleven">
+                                                    Item type is required
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </tab-content>
             </form-wizard>
         </form>
     </div>

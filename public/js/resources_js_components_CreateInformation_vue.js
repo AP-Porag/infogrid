@@ -3084,7 +3084,1224 @@ var render = function render() {
     }, [_vm._v(_vm._s(grade.name))]);
   })], 2), _vm._v(" "), _vm.v$.form_data.crossover_minimum_grade.required.$invalid && _vm.show_error_sixteen ? _c("div", {
     staticClass: "error"
-  }, [_vm._v("\n                                                            Minimum grade is required\n                                                        ")]) : _vm._e()])])])])])])])]) : _vm._e()])])], 1)], 1)]);
+  }, [_vm._v("\n                                                            Minimum grade is required\n                                                        ")]) : _vm._e()])])])])])])])]) : _vm._e()])]), _vm._v(" "), _c("tab-content", {
+    attrs: {
+      title: "Checklist",
+      icon: "ti-check"
+    }
+  }, [_c("div", {
+    staticClass: "row"
+  }, [_c("div", {
+    staticClass: "col-md-12"
+  }, [_c("div", {
+    staticClass: "card shipping_address_card"
+  }, [_c("div", {
+    staticClass: "card-body"
+  }, [_vm.form_data.itemType === "Pump" ? _c("div", {
+    staticClass: "row"
+  }, [_c("div", {
+    staticClass: "col-md-6"
+  }, [_c("div", {
+    staticClass: "mb-3"
+  }, [_c("label", {
+    staticClass: "form-label w-100 text-capitalize"
+  }, [_vm._v("\n                                                    VFD or not\n                                                    "), _c("span", {
+    staticClass: "error"
+  }, [_vm._v("*")])]), _vm._v(" "), _c("select", {
+    directives: [{
+      name: "model",
+      rawName: "v-model.trim",
+      value: _vm.form_data.itemType,
+      expression: "form_data.itemType",
+      modifiers: {
+        trim: true
+      }
+    }],
+    staticClass: "form-select mb-text-only",
+    attrs: {
+      "aria-label": "Default select example"
+    },
+    on: {
+      change: function change($event) {
+        var $$selectedVal = Array.prototype.filter.call($event.target.options, function (o) {
+          return o.selected;
+        }).map(function (o) {
+          var val = "_value" in o ? o._value : o.value;
+          return val;
+        });
+        _vm.$set(_vm.form_data, "itemType", $event.target.multiple ? $$selectedVal : $$selectedVal[0]);
+      }
+    }
+  }, [_c("option", {
+    attrs: {
+      selected: "",
+      disabled: ""
+    }
+  }, [_vm._v("Open this select menu")]), _vm._v(" "), _c("option", [_vm._v("Yes")]), _vm._v(" "), _c("option", [_vm._v("No")]), _vm._v(" "), _c("option", [_vm._v("Nos")])]), _vm._v(" "), _vm.v$.form_data.itemType.required.$invalid && _vm.show_error_eleven ? _c("div", {
+    staticClass: "error"
+  }, [_vm._v("\n                                                    Item type is required\n                                                ")]) : _vm._e()])]), _vm._v(" "), _c("div", {
+    staticClass: "col-md-6"
+  }, [_c("div", {
+    staticClass: "mb-3"
+  }, [_c("label", {
+    staticClass: "form-label w-100 text-capitalize"
+  }, [_vm._v("\n                                                    VFD setting\n                                                    "), _c("span", {
+    staticClass: "error"
+  }, [_vm._v("*")])]), _vm._v(" "), _c("select", {
+    directives: [{
+      name: "model",
+      rawName: "v-model.trim",
+      value: _vm.form_data.itemType,
+      expression: "form_data.itemType",
+      modifiers: {
+        trim: true
+      }
+    }],
+    staticClass: "form-select mb-text-only",
+    attrs: {
+      "aria-label": "Default select example"
+    },
+    on: {
+      change: function change($event) {
+        var $$selectedVal = Array.prototype.filter.call($event.target.options, function (o) {
+          return o.selected;
+        }).map(function (o) {
+          var val = "_value" in o ? o._value : o.value;
+          return val;
+        });
+        _vm.$set(_vm.form_data, "itemType", $event.target.multiple ? $$selectedVal : $$selectedVal[0]);
+      }
+    }
+  }, [_c("option", {
+    attrs: {
+      selected: "",
+      disabled: ""
+    }
+  }, [_vm._v("Open this select menu")]), _vm._v(" "), _c("option", [_vm._v("Yes")]), _vm._v(" "), _c("option", [_vm._v("No")]), _vm._v(" "), _c("option", [_vm._v("Nos")])]), _vm._v(" "), _vm.v$.form_data.itemType.required.$invalid && _vm.show_error_eleven ? _c("div", {
+    staticClass: "error"
+  }, [_vm._v("\n                                                    Item type is required\n                                                ")]) : _vm._e()])]), _vm._v(" "), _c("div", {
+    staticClass: "col-md-6"
+  }, [_c("div", {
+    staticClass: "mb-3"
+  }, [_c("label", {
+    staticClass: "form-label w-100 text-capitalize"
+  }, [_vm._v("\n                                                    Pump throttling\n                                                    "), _c("span", {
+    staticClass: "error"
+  }, [_vm._v("*")])]), _vm._v(" "), _c("select", {
+    directives: [{
+      name: "model",
+      rawName: "v-model.trim",
+      value: _vm.form_data.itemType,
+      expression: "form_data.itemType",
+      modifiers: {
+        trim: true
+      }
+    }],
+    staticClass: "form-select mb-text-only",
+    attrs: {
+      "aria-label": "Default select example"
+    },
+    on: {
+      change: function change($event) {
+        var $$selectedVal = Array.prototype.filter.call($event.target.options, function (o) {
+          return o.selected;
+        }).map(function (o) {
+          var val = "_value" in o ? o._value : o.value;
+          return val;
+        });
+        _vm.$set(_vm.form_data, "itemType", $event.target.multiple ? $$selectedVal : $$selectedVal[0]);
+      }
+    }
+  }, [_c("option", {
+    attrs: {
+      selected: "",
+      disabled: ""
+    }
+  }, [_vm._v("Open this select menu")]), _vm._v(" "), _c("option", [_vm._v("Yes")]), _vm._v(" "), _c("option", [_vm._v("No")]), _vm._v(" "), _c("option", [_vm._v("Nos")])]), _vm._v(" "), _vm.v$.form_data.itemType.required.$invalid && _vm.show_error_eleven ? _c("div", {
+    staticClass: "error"
+  }, [_vm._v("\n                                                    Item type is required\n                                                ")]) : _vm._e()])]), _vm._v(" "), _c("div", {
+    staticClass: "col-md-6"
+  }, [_c("div", {
+    staticClass: "mb-3"
+  }, [_c("label", {
+    staticClass: "form-label w-100 text-capitalize"
+  }, [_vm._v("\n                                                    Flow Modulation required\n                                                    "), _c("span", {
+    staticClass: "error"
+  }, [_vm._v("*")])]), _vm._v(" "), _c("select", {
+    directives: [{
+      name: "model",
+      rawName: "v-model.trim",
+      value: _vm.form_data.itemType,
+      expression: "form_data.itemType",
+      modifiers: {
+        trim: true
+      }
+    }],
+    staticClass: "form-select mb-text-only",
+    attrs: {
+      "aria-label": "Default select example"
+    },
+    on: {
+      change: function change($event) {
+        var $$selectedVal = Array.prototype.filter.call($event.target.options, function (o) {
+          return o.selected;
+        }).map(function (o) {
+          var val = "_value" in o ? o._value : o.value;
+          return val;
+        });
+        _vm.$set(_vm.form_data, "itemType", $event.target.multiple ? $$selectedVal : $$selectedVal[0]);
+      }
+    }
+  }, [_c("option", {
+    attrs: {
+      selected: "",
+      disabled: ""
+    }
+  }, [_vm._v("Open this select menu")]), _vm._v(" "), _c("option", [_vm._v("Yes")]), _vm._v(" "), _c("option", [_vm._v("No")]), _vm._v(" "), _c("option", [_vm._v("Nos")])]), _vm._v(" "), _vm.v$.form_data.itemType.required.$invalid && _vm.show_error_eleven ? _c("div", {
+    staticClass: "error"
+  }, [_vm._v("\n                                                    Item type is required\n                                                ")]) : _vm._e()])]), _vm._v(" "), _c("div", {
+    staticClass: "col-md-6"
+  }, [_c("div", {
+    staticClass: "mb-3"
+  }, [_c("label", {
+    staticClass: "form-label w-100 text-capitalize"
+  }, [_vm._v("\n                                                    Parallel pump operation\n                                                    "), _c("span", {
+    staticClass: "error"
+  }, [_vm._v("*")])]), _vm._v(" "), _c("select", {
+    directives: [{
+      name: "model",
+      rawName: "v-model.trim",
+      value: _vm.form_data.itemType,
+      expression: "form_data.itemType",
+      modifiers: {
+        trim: true
+      }
+    }],
+    staticClass: "form-select mb-text-only",
+    attrs: {
+      "aria-label": "Default select example"
+    },
+    on: {
+      change: function change($event) {
+        var $$selectedVal = Array.prototype.filter.call($event.target.options, function (o) {
+          return o.selected;
+        }).map(function (o) {
+          var val = "_value" in o ? o._value : o.value;
+          return val;
+        });
+        _vm.$set(_vm.form_data, "itemType", $event.target.multiple ? $$selectedVal : $$selectedVal[0]);
+      }
+    }
+  }, [_c("option", {
+    attrs: {
+      selected: "",
+      disabled: ""
+    }
+  }, [_vm._v("Open this select menu")]), _vm._v(" "), _c("option", [_vm._v("Yes")]), _vm._v(" "), _c("option", [_vm._v("No")]), _vm._v(" "), _c("option", [_vm._v("Nos")])]), _vm._v(" "), _vm.v$.form_data.itemType.required.$invalid && _vm.show_error_eleven ? _c("div", {
+    staticClass: "error"
+  }, [_vm._v("\n                                                    Item type is required\n                                                ")]) : _vm._e()])]), _vm._v(" "), _c("div", {
+    staticClass: "col-md-6"
+  }, [_c("div", {
+    staticClass: "mb-3"
+  }, [_c("label", {
+    staticClass: "form-label w-100 text-capitalize"
+  }, [_vm._v("\n                                                    Nos. of rewiding of motor\n                                                    "), _c("span", {
+    staticClass: "error"
+  }, [_vm._v("*")])]), _vm._v(" "), _c("select", {
+    directives: [{
+      name: "model",
+      rawName: "v-model.trim",
+      value: _vm.form_data.itemType,
+      expression: "form_data.itemType",
+      modifiers: {
+        trim: true
+      }
+    }],
+    staticClass: "form-select mb-text-only",
+    attrs: {
+      "aria-label": "Default select example"
+    },
+    on: {
+      change: function change($event) {
+        var $$selectedVal = Array.prototype.filter.call($event.target.options, function (o) {
+          return o.selected;
+        }).map(function (o) {
+          var val = "_value" in o ? o._value : o.value;
+          return val;
+        });
+        _vm.$set(_vm.form_data, "itemType", $event.target.multiple ? $$selectedVal : $$selectedVal[0]);
+      }
+    }
+  }, [_c("option", {
+    attrs: {
+      selected: "",
+      disabled: ""
+    }
+  }, [_vm._v("Open this select menu")]), _vm._v(" "), _c("option", [_vm._v("Yes")]), _vm._v(" "), _c("option", [_vm._v("No")]), _vm._v(" "), _c("option", [_vm._v("Nos")])]), _vm._v(" "), _vm.v$.form_data.itemType.required.$invalid && _vm.show_error_eleven ? _c("div", {
+    staticClass: "error"
+  }, [_vm._v("\n                                                    Item type is required\n                                                ")]) : _vm._e()])]), _vm._v(" "), _c("div", {
+    staticClass: "col-md-6"
+  }, [_c("div", {
+    staticClass: "mb-3"
+  }, [_c("label", {
+    staticClass: "form-label w-100 text-capitalize"
+  }, [_vm._v("\n                                                    Check cavitation\n                                                    "), _c("span", {
+    staticClass: "error"
+  }, [_vm._v("*")])]), _vm._v(" "), _c("select", {
+    directives: [{
+      name: "model",
+      rawName: "v-model.trim",
+      value: _vm.form_data.itemType,
+      expression: "form_data.itemType",
+      modifiers: {
+        trim: true
+      }
+    }],
+    staticClass: "form-select mb-text-only",
+    attrs: {
+      "aria-label": "Default select example"
+    },
+    on: {
+      change: function change($event) {
+        var $$selectedVal = Array.prototype.filter.call($event.target.options, function (o) {
+          return o.selected;
+        }).map(function (o) {
+          var val = "_value" in o ? o._value : o.value;
+          return val;
+        });
+        _vm.$set(_vm.form_data, "itemType", $event.target.multiple ? $$selectedVal : $$selectedVal[0]);
+      }
+    }
+  }, [_c("option", {
+    attrs: {
+      selected: "",
+      disabled: ""
+    }
+  }, [_vm._v("Open this select menu")]), _vm._v(" "), _c("option", [_vm._v("Yes")]), _vm._v(" "), _c("option", [_vm._v("No")]), _vm._v(" "), _c("option", [_vm._v("Nos")])]), _vm._v(" "), _vm.v$.form_data.itemType.required.$invalid && _vm.show_error_eleven ? _c("div", {
+    staticClass: "error"
+  }, [_vm._v("\n                                                    Item type is required\n                                                ")]) : _vm._e()])]), _vm._v(" "), _c("div", {
+    staticClass: "col-md-6"
+  }, [_c("div", {
+    staticClass: "mb-3"
+  }, [_c("label", {
+    staticClass: "form-label w-100 text-capitalize"
+  }, [_vm._v("\n                                                    Operating Hours\n                                                    "), _c("span", {
+    staticClass: "error"
+  }, [_vm._v("*")])]), _vm._v(" "), _c("select", {
+    directives: [{
+      name: "model",
+      rawName: "v-model.trim",
+      value: _vm.form_data.itemType,
+      expression: "form_data.itemType",
+      modifiers: {
+        trim: true
+      }
+    }],
+    staticClass: "form-select mb-text-only",
+    attrs: {
+      "aria-label": "Default select example"
+    },
+    on: {
+      change: function change($event) {
+        var $$selectedVal = Array.prototype.filter.call($event.target.options, function (o) {
+          return o.selected;
+        }).map(function (o) {
+          var val = "_value" in o ? o._value : o.value;
+          return val;
+        });
+        _vm.$set(_vm.form_data, "itemType", $event.target.multiple ? $$selectedVal : $$selectedVal[0]);
+      }
+    }
+  }, [_c("option", {
+    attrs: {
+      selected: "",
+      disabled: ""
+    }
+  }, [_vm._v("Open this select menu")]), _vm._v(" "), _c("option", [_vm._v("Yes")]), _vm._v(" "), _c("option", [_vm._v("No")]), _vm._v(" "), _c("option", [_vm._v("Nos")])]), _vm._v(" "), _vm.v$.form_data.itemType.required.$invalid && _vm.show_error_eleven ? _c("div", {
+    staticClass: "error"
+  }, [_vm._v("\n                                                    Item type is required\n                                                ")]) : _vm._e()])])]) : _vm._e(), _vm._v(" "), _vm.form_data.itemType === "Fan" ? _c("div", {
+    staticClass: "row"
+  }, [_c("div", {
+    staticClass: "col-md-6"
+  }, [_c("div", {
+    staticClass: "mb-3"
+  }, [_c("label", {
+    staticClass: "form-label w-100 text-capitalize"
+  }, [_vm._v("\n                                                    VFD or not\n                                                    "), _c("span", {
+    staticClass: "error"
+  }, [_vm._v("*")])]), _vm._v(" "), _c("select", {
+    directives: [{
+      name: "model",
+      rawName: "v-model.trim",
+      value: _vm.form_data.itemType,
+      expression: "form_data.itemType",
+      modifiers: {
+        trim: true
+      }
+    }],
+    staticClass: "form-select mb-text-only",
+    attrs: {
+      "aria-label": "Default select example"
+    },
+    on: {
+      change: function change($event) {
+        var $$selectedVal = Array.prototype.filter.call($event.target.options, function (o) {
+          return o.selected;
+        }).map(function (o) {
+          var val = "_value" in o ? o._value : o.value;
+          return val;
+        });
+        _vm.$set(_vm.form_data, "itemType", $event.target.multiple ? $$selectedVal : $$selectedVal[0]);
+      }
+    }
+  }, [_c("option", {
+    attrs: {
+      selected: "",
+      disabled: ""
+    }
+  }, [_vm._v("Open this select menu")]), _vm._v(" "), _c("option", [_vm._v("Yes")]), _vm._v(" "), _c("option", [_vm._v("No")]), _vm._v(" "), _c("option", [_vm._v("Nos")])]), _vm._v(" "), _vm.v$.form_data.itemType.required.$invalid && _vm.show_error_eleven ? _c("div", {
+    staticClass: "error"
+  }, [_vm._v("\n                                                    Item type is required\n                                                ")]) : _vm._e()])]), _vm._v(" "), _c("div", {
+    staticClass: "col-md-6"
+  }, [_c("div", {
+    staticClass: "mb-3"
+  }, [_c("label", {
+    staticClass: "form-label w-100 text-capitalize"
+  }, [_vm._v("\n                                                    VFD setting\n                                                    "), _c("span", {
+    staticClass: "error"
+  }, [_vm._v("*")])]), _vm._v(" "), _c("select", {
+    directives: [{
+      name: "model",
+      rawName: "v-model.trim",
+      value: _vm.form_data.itemType,
+      expression: "form_data.itemType",
+      modifiers: {
+        trim: true
+      }
+    }],
+    staticClass: "form-select mb-text-only",
+    attrs: {
+      "aria-label": "Default select example"
+    },
+    on: {
+      change: function change($event) {
+        var $$selectedVal = Array.prototype.filter.call($event.target.options, function (o) {
+          return o.selected;
+        }).map(function (o) {
+          var val = "_value" in o ? o._value : o.value;
+          return val;
+        });
+        _vm.$set(_vm.form_data, "itemType", $event.target.multiple ? $$selectedVal : $$selectedVal[0]);
+      }
+    }
+  }, [_c("option", {
+    attrs: {
+      selected: "",
+      disabled: ""
+    }
+  }, [_vm._v("Open this select menu")]), _vm._v(" "), _c("option", [_vm._v("Yes")]), _vm._v(" "), _c("option", [_vm._v("No")]), _vm._v(" "), _c("option", [_vm._v("Nos")])]), _vm._v(" "), _vm.v$.form_data.itemType.required.$invalid && _vm.show_error_eleven ? _c("div", {
+    staticClass: "error"
+  }, [_vm._v("\n                                                    Item type is required\n                                                ")]) : _vm._e()])]), _vm._v(" "), _c("div", {
+    staticClass: "col-md-6"
+  }, [_c("div", {
+    staticClass: "mb-3"
+  }, [_c("label", {
+    staticClass: "form-label w-100 text-capitalize"
+  }, [_vm._v("\n                                                    Valve opening %\n                                                    "), _c("span", {
+    staticClass: "error"
+  }, [_vm._v("*")])]), _vm._v(" "), _c("select", {
+    directives: [{
+      name: "model",
+      rawName: "v-model.trim",
+      value: _vm.form_data.itemType,
+      expression: "form_data.itemType",
+      modifiers: {
+        trim: true
+      }
+    }],
+    staticClass: "form-select mb-text-only",
+    attrs: {
+      "aria-label": "Default select example"
+    },
+    on: {
+      change: function change($event) {
+        var $$selectedVal = Array.prototype.filter.call($event.target.options, function (o) {
+          return o.selected;
+        }).map(function (o) {
+          var val = "_value" in o ? o._value : o.value;
+          return val;
+        });
+        _vm.$set(_vm.form_data, "itemType", $event.target.multiple ? $$selectedVal : $$selectedVal[0]);
+      }
+    }
+  }, [_c("option", {
+    attrs: {
+      selected: "",
+      disabled: ""
+    }
+  }, [_vm._v("Open this select menu")]), _vm._v(" "), _c("option", [_vm._v("Yes")]), _vm._v(" "), _c("option", [_vm._v("No")]), _vm._v(" "), _c("option", [_vm._v("Nos")])]), _vm._v(" "), _vm.v$.form_data.itemType.required.$invalid && _vm.show_error_eleven ? _c("div", {
+    staticClass: "error"
+  }, [_vm._v("\n                                                    Item type is required\n                                                ")]) : _vm._e()])]), _vm._v(" "), _c("div", {
+    staticClass: "col-md-6"
+  }, [_c("div", {
+    staticClass: "mb-3"
+  }, [_c("label", {
+    staticClass: "form-label w-100 text-capitalize"
+  }, [_vm._v("\n                                                    Flow Modulation required\n                                                    "), _c("span", {
+    staticClass: "error"
+  }, [_vm._v("*")])]), _vm._v(" "), _c("select", {
+    directives: [{
+      name: "model",
+      rawName: "v-model.trim",
+      value: _vm.form_data.itemType,
+      expression: "form_data.itemType",
+      modifiers: {
+        trim: true
+      }
+    }],
+    staticClass: "form-select mb-text-only",
+    attrs: {
+      "aria-label": "Default select example"
+    },
+    on: {
+      change: function change($event) {
+        var $$selectedVal = Array.prototype.filter.call($event.target.options, function (o) {
+          return o.selected;
+        }).map(function (o) {
+          var val = "_value" in o ? o._value : o.value;
+          return val;
+        });
+        _vm.$set(_vm.form_data, "itemType", $event.target.multiple ? $$selectedVal : $$selectedVal[0]);
+      }
+    }
+  }, [_c("option", {
+    attrs: {
+      selected: "",
+      disabled: ""
+    }
+  }, [_vm._v("Open this select menu")]), _vm._v(" "), _c("option", [_vm._v("Yes")]), _vm._v(" "), _c("option", [_vm._v("No")]), _vm._v(" "), _c("option", [_vm._v("Nos")])]), _vm._v(" "), _vm.v$.form_data.itemType.required.$invalid && _vm.show_error_eleven ? _c("div", {
+    staticClass: "error"
+  }, [_vm._v("\n                                                    Item type is required\n                                                ")]) : _vm._e()])]), _vm._v(" "), _c("div", {
+    staticClass: "col-md-6"
+  }, [_c("div", {
+    staticClass: "mb-3"
+  }, [_c("label", {
+    staticClass: "form-label w-100 text-capitalize"
+  }, [_vm._v("\n                                                    Parallel fan operation\n                                                    "), _c("span", {
+    staticClass: "error"
+  }, [_vm._v("*")])]), _vm._v(" "), _c("select", {
+    directives: [{
+      name: "model",
+      rawName: "v-model.trim",
+      value: _vm.form_data.itemType,
+      expression: "form_data.itemType",
+      modifiers: {
+        trim: true
+      }
+    }],
+    staticClass: "form-select mb-text-only",
+    attrs: {
+      "aria-label": "Default select example"
+    },
+    on: {
+      change: function change($event) {
+        var $$selectedVal = Array.prototype.filter.call($event.target.options, function (o) {
+          return o.selected;
+        }).map(function (o) {
+          var val = "_value" in o ? o._value : o.value;
+          return val;
+        });
+        _vm.$set(_vm.form_data, "itemType", $event.target.multiple ? $$selectedVal : $$selectedVal[0]);
+      }
+    }
+  }, [_c("option", {
+    attrs: {
+      selected: "",
+      disabled: ""
+    }
+  }, [_vm._v("Open this select menu")]), _vm._v(" "), _c("option", [_vm._v("Yes")]), _vm._v(" "), _c("option", [_vm._v("No")]), _vm._v(" "), _c("option", [_vm._v("Nos")])]), _vm._v(" "), _vm.v$.form_data.itemType.required.$invalid && _vm.show_error_eleven ? _c("div", {
+    staticClass: "error"
+  }, [_vm._v("\n                                                    Item type is required\n                                                ")]) : _vm._e()])]), _vm._v(" "), _c("div", {
+    staticClass: "col-md-6"
+  }, [_c("div", {
+    staticClass: "mb-3"
+  }, [_c("label", {
+    staticClass: "form-label w-100 text-capitalize"
+  }, [_vm._v("\n                                                    Nos. of rewiding of motor\n                                                    "), _c("span", {
+    staticClass: "error"
+  }, [_vm._v("*")])]), _vm._v(" "), _c("select", {
+    directives: [{
+      name: "model",
+      rawName: "v-model.trim",
+      value: _vm.form_data.itemType,
+      expression: "form_data.itemType",
+      modifiers: {
+        trim: true
+      }
+    }],
+    staticClass: "form-select mb-text-only",
+    attrs: {
+      "aria-label": "Default select example"
+    },
+    on: {
+      change: function change($event) {
+        var $$selectedVal = Array.prototype.filter.call($event.target.options, function (o) {
+          return o.selected;
+        }).map(function (o) {
+          var val = "_value" in o ? o._value : o.value;
+          return val;
+        });
+        _vm.$set(_vm.form_data, "itemType", $event.target.multiple ? $$selectedVal : $$selectedVal[0]);
+      }
+    }
+  }, [_c("option", {
+    attrs: {
+      selected: "",
+      disabled: ""
+    }
+  }, [_vm._v("Open this select menu")]), _vm._v(" "), _c("option", [_vm._v("Yes")]), _vm._v(" "), _c("option", [_vm._v("No")]), _vm._v(" "), _c("option", [_vm._v("Nos")])]), _vm._v(" "), _vm.v$.form_data.itemType.required.$invalid && _vm.show_error_eleven ? _c("div", {
+    staticClass: "error"
+  }, [_vm._v("\n                                                    Item type is required\n                                                ")]) : _vm._e()])]), _vm._v(" "), _c("div", {
+    staticClass: "col-md-6"
+  }, [_c("div", {
+    staticClass: "mb-3"
+  }, [_c("label", {
+    staticClass: "form-label w-100 text-capitalize"
+  }, [_vm._v("\n                                                    Operating Hours\n                                                    "), _c("span", {
+    staticClass: "error"
+  }, [_vm._v("*")])]), _vm._v(" "), _c("select", {
+    directives: [{
+      name: "model",
+      rawName: "v-model.trim",
+      value: _vm.form_data.itemType,
+      expression: "form_data.itemType",
+      modifiers: {
+        trim: true
+      }
+    }],
+    staticClass: "form-select mb-text-only",
+    attrs: {
+      "aria-label": "Default select example"
+    },
+    on: {
+      change: function change($event) {
+        var $$selectedVal = Array.prototype.filter.call($event.target.options, function (o) {
+          return o.selected;
+        }).map(function (o) {
+          var val = "_value" in o ? o._value : o.value;
+          return val;
+        });
+        _vm.$set(_vm.form_data, "itemType", $event.target.multiple ? $$selectedVal : $$selectedVal[0]);
+      }
+    }
+  }, [_c("option", {
+    attrs: {
+      selected: "",
+      disabled: ""
+    }
+  }, [_vm._v("Open this select menu")]), _vm._v(" "), _c("option", [_vm._v("Yes")]), _vm._v(" "), _c("option", [_vm._v("No")]), _vm._v(" "), _c("option", [_vm._v("Nos")])]), _vm._v(" "), _vm.v$.form_data.itemType.required.$invalid && _vm.show_error_eleven ? _c("div", {
+    staticClass: "error"
+  }, [_vm._v("\n                                                    Item type is required\n                                                ")]) : _vm._e()])])]) : _vm._e(), _vm._v(" "), _vm.form_data.itemType === "Air Compressor" ? _c("div", {
+    staticClass: "row"
+  }, [_c("div", {
+    staticClass: "col-md-6"
+  }, [_c("div", {
+    staticClass: "mb-3"
+  }, [_c("label", {
+    staticClass: "form-label w-100 text-capitalize"
+  }, [_vm._v("\n                                                    VFD or not\n                                                    "), _c("span", {
+    staticClass: "error"
+  }, [_vm._v("*")])]), _vm._v(" "), _c("select", {
+    directives: [{
+      name: "model",
+      rawName: "v-model.trim",
+      value: _vm.form_data.itemType,
+      expression: "form_data.itemType",
+      modifiers: {
+        trim: true
+      }
+    }],
+    staticClass: "form-select mb-text-only",
+    attrs: {
+      "aria-label": "Default select example"
+    },
+    on: {
+      change: function change($event) {
+        var $$selectedVal = Array.prototype.filter.call($event.target.options, function (o) {
+          return o.selected;
+        }).map(function (o) {
+          var val = "_value" in o ? o._value : o.value;
+          return val;
+        });
+        _vm.$set(_vm.form_data, "itemType", $event.target.multiple ? $$selectedVal : $$selectedVal[0]);
+      }
+    }
+  }, [_c("option", {
+    attrs: {
+      selected: "",
+      disabled: ""
+    }
+  }, [_vm._v("Open this select menu")]), _vm._v(" "), _c("option", [_vm._v("Yes")]), _vm._v(" "), _c("option", [_vm._v("No")]), _vm._v(" "), _c("option", [_vm._v("Nos")])]), _vm._v(" "), _vm.v$.form_data.itemType.required.$invalid && _vm.show_error_eleven ? _c("div", {
+    staticClass: "error"
+  }, [_vm._v("\n                                                    Item type is required\n                                                ")]) : _vm._e()])]), _vm._v(" "), _c("div", {
+    staticClass: "col-md-6"
+  }, [_c("div", {
+    staticClass: "mb-3"
+  }, [_c("label", {
+    staticClass: "form-label w-100 text-capitalize"
+  }, [_vm._v("\n                                                    Nos. of rewiding of motor\n                                                    "), _c("span", {
+    staticClass: "error"
+  }, [_vm._v("*")])]), _vm._v(" "), _c("select", {
+    directives: [{
+      name: "model",
+      rawName: "v-model.trim",
+      value: _vm.form_data.itemType,
+      expression: "form_data.itemType",
+      modifiers: {
+        trim: true
+      }
+    }],
+    staticClass: "form-select mb-text-only",
+    attrs: {
+      "aria-label": "Default select example"
+    },
+    on: {
+      change: function change($event) {
+        var $$selectedVal = Array.prototype.filter.call($event.target.options, function (o) {
+          return o.selected;
+        }).map(function (o) {
+          var val = "_value" in o ? o._value : o.value;
+          return val;
+        });
+        _vm.$set(_vm.form_data, "itemType", $event.target.multiple ? $$selectedVal : $$selectedVal[0]);
+      }
+    }
+  }, [_c("option", {
+    attrs: {
+      selected: "",
+      disabled: ""
+    }
+  }, [_vm._v("Open this select menu")]), _vm._v(" "), _c("option", [_vm._v("Yes")]), _vm._v(" "), _c("option", [_vm._v("No")]), _vm._v(" "), _c("option", [_vm._v("Nos")])]), _vm._v(" "), _vm.v$.form_data.itemType.required.$invalid && _vm.show_error_eleven ? _c("div", {
+    staticClass: "error"
+  }, [_vm._v("\n                                                    Item type is required\n                                                ")]) : _vm._e()])]), _vm._v(" "), _c("div", {
+    staticClass: "col-md-6"
+  }, [_c("div", {
+    staticClass: "mb-3"
+  }, [_c("label", {
+    staticClass: "form-label w-100 text-capitalize"
+  }, [_vm._v("\n                                                    Check Required pressure\n                                                    "), _c("span", {
+    staticClass: "error"
+  }, [_vm._v("*")])]), _vm._v(" "), _c("select", {
+    directives: [{
+      name: "model",
+      rawName: "v-model.trim",
+      value: _vm.form_data.itemType,
+      expression: "form_data.itemType",
+      modifiers: {
+        trim: true
+      }
+    }],
+    staticClass: "form-select mb-text-only",
+    attrs: {
+      "aria-label": "Default select example"
+    },
+    on: {
+      change: function change($event) {
+        var $$selectedVal = Array.prototype.filter.call($event.target.options, function (o) {
+          return o.selected;
+        }).map(function (o) {
+          var val = "_value" in o ? o._value : o.value;
+          return val;
+        });
+        _vm.$set(_vm.form_data, "itemType", $event.target.multiple ? $$selectedVal : $$selectedVal[0]);
+      }
+    }
+  }, [_c("option", {
+    attrs: {
+      selected: "",
+      disabled: ""
+    }
+  }, [_vm._v("Open this select menu")]), _vm._v(" "), _c("option", [_vm._v("Yes")]), _vm._v(" "), _c("option", [_vm._v("No")]), _vm._v(" "), _c("option", [_vm._v("Nos")])]), _vm._v(" "), _vm.v$.form_data.itemType.required.$invalid && _vm.show_error_eleven ? _c("div", {
+    staticClass: "error"
+  }, [_vm._v("\n                                                    Item type is required\n                                                ")]) : _vm._e()])]), _vm._v(" "), _c("div", {
+    staticClass: "col-md-6"
+  }, [_c("div", {
+    staticClass: "mb-3"
+  }, [_c("label", {
+    staticClass: "form-label w-100 text-capitalize"
+  }, [_vm._v("\n                                                    Check Pressure drop\n                                                    "), _c("span", {
+    staticClass: "error"
+  }, [_vm._v("*")])]), _vm._v(" "), _c("select", {
+    directives: [{
+      name: "model",
+      rawName: "v-model.trim",
+      value: _vm.form_data.itemType,
+      expression: "form_data.itemType",
+      modifiers: {
+        trim: true
+      }
+    }],
+    staticClass: "form-select mb-text-only",
+    attrs: {
+      "aria-label": "Default select example"
+    },
+    on: {
+      change: function change($event) {
+        var $$selectedVal = Array.prototype.filter.call($event.target.options, function (o) {
+          return o.selected;
+        }).map(function (o) {
+          var val = "_value" in o ? o._value : o.value;
+          return val;
+        });
+        _vm.$set(_vm.form_data, "itemType", $event.target.multiple ? $$selectedVal : $$selectedVal[0]);
+      }
+    }
+  }, [_c("option", {
+    attrs: {
+      selected: "",
+      disabled: ""
+    }
+  }, [_vm._v("Open this select menu")]), _vm._v(" "), _c("option", [_vm._v("Yes")]), _vm._v(" "), _c("option", [_vm._v("No")]), _vm._v(" "), _c("option", [_vm._v("Nos")])]), _vm._v(" "), _vm.v$.form_data.itemType.required.$invalid && _vm.show_error_eleven ? _c("div", {
+    staticClass: "error"
+  }, [_vm._v("\n                                                    Item type is required\n                                                ")]) : _vm._e()])]), _vm._v(" "), _c("div", {
+    staticClass: "col-md-6"
+  }, [_c("div", {
+    staticClass: "mb-3"
+  }, [_c("label", {
+    staticClass: "form-label w-100 text-capitalize"
+  }, [_vm._v("\n                                                    Operating Hours\n                                                    "), _c("span", {
+    staticClass: "error"
+  }, [_vm._v("*")])]), _vm._v(" "), _c("select", {
+    directives: [{
+      name: "model",
+      rawName: "v-model.trim",
+      value: _vm.form_data.itemType,
+      expression: "form_data.itemType",
+      modifiers: {
+        trim: true
+      }
+    }],
+    staticClass: "form-select mb-text-only",
+    attrs: {
+      "aria-label": "Default select example"
+    },
+    on: {
+      change: function change($event) {
+        var $$selectedVal = Array.prototype.filter.call($event.target.options, function (o) {
+          return o.selected;
+        }).map(function (o) {
+          var val = "_value" in o ? o._value : o.value;
+          return val;
+        });
+        _vm.$set(_vm.form_data, "itemType", $event.target.multiple ? $$selectedVal : $$selectedVal[0]);
+      }
+    }
+  }, [_c("option", {
+    attrs: {
+      selected: "",
+      disabled: ""
+    }
+  }, [_vm._v("Open this select menu")]), _vm._v(" "), _c("option", [_vm._v("Yes")]), _vm._v(" "), _c("option", [_vm._v("No")]), _vm._v(" "), _c("option", [_vm._v("Nos")])]), _vm._v(" "), _vm.v$.form_data.itemType.required.$invalid && _vm.show_error_eleven ? _c("div", {
+    staticClass: "error"
+  }, [_vm._v("\n                                                    Item type is required\n                                                ")]) : _vm._e()])])]) : _vm._e(), _vm._v(" "), _vm.form_data.itemType === "Chiller" ? _c("div", {
+    staticClass: "row"
+  }, [_c("div", {
+    staticClass: "col-md-6"
+  }, [_c("div", {
+    staticClass: "mb-3"
+  }, [_c("label", {
+    staticClass: "form-label w-100 text-capitalize"
+  }, [_vm._v("\n                                                    VFD or not\n                                                    "), _c("span", {
+    staticClass: "error"
+  }, [_vm._v("*")])]), _vm._v(" "), _c("select", {
+    directives: [{
+      name: "model",
+      rawName: "v-model.trim",
+      value: _vm.form_data.itemType,
+      expression: "form_data.itemType",
+      modifiers: {
+        trim: true
+      }
+    }],
+    staticClass: "form-select mb-text-only",
+    attrs: {
+      "aria-label": "Default select example"
+    },
+    on: {
+      change: function change($event) {
+        var $$selectedVal = Array.prototype.filter.call($event.target.options, function (o) {
+          return o.selected;
+        }).map(function (o) {
+          var val = "_value" in o ? o._value : o.value;
+          return val;
+        });
+        _vm.$set(_vm.form_data, "itemType", $event.target.multiple ? $$selectedVal : $$selectedVal[0]);
+      }
+    }
+  }, [_c("option", {
+    attrs: {
+      selected: "",
+      disabled: ""
+    }
+  }, [_vm._v("Open this select menu")]), _vm._v(" "), _c("option", [_vm._v("Yes")]), _vm._v(" "), _c("option", [_vm._v("No")]), _vm._v(" "), _c("option", [_vm._v("Nos")])]), _vm._v(" "), _vm.v$.form_data.itemType.required.$invalid && _vm.show_error_eleven ? _c("div", {
+    staticClass: "error"
+  }, [_vm._v("\n                                                    Item type is required\n                                                ")]) : _vm._e()])]), _vm._v(" "), _c("div", {
+    staticClass: "col-md-6"
+  }, [_c("div", {
+    staticClass: "mb-3"
+  }, [_c("label", {
+    staticClass: "form-label w-100 text-capitalize"
+  }, [_vm._v("\n                                                    Check set temp.\n                                                    "), _c("span", {
+    staticClass: "error"
+  }, [_vm._v("*")])]), _vm._v(" "), _c("select", {
+    directives: [{
+      name: "model",
+      rawName: "v-model.trim",
+      value: _vm.form_data.itemType,
+      expression: "form_data.itemType",
+      modifiers: {
+        trim: true
+      }
+    }],
+    staticClass: "form-select mb-text-only",
+    attrs: {
+      "aria-label": "Default select example"
+    },
+    on: {
+      change: function change($event) {
+        var $$selectedVal = Array.prototype.filter.call($event.target.options, function (o) {
+          return o.selected;
+        }).map(function (o) {
+          var val = "_value" in o ? o._value : o.value;
+          return val;
+        });
+        _vm.$set(_vm.form_data, "itemType", $event.target.multiple ? $$selectedVal : $$selectedVal[0]);
+      }
+    }
+  }, [_c("option", {
+    attrs: {
+      selected: "",
+      disabled: ""
+    }
+  }, [_vm._v("Open this select menu")]), _vm._v(" "), _c("option", [_vm._v("Yes")]), _vm._v(" "), _c("option", [_vm._v("No")]), _vm._v(" "), _c("option", [_vm._v("Nos")])]), _vm._v(" "), _vm.v$.form_data.itemType.required.$invalid && _vm.show_error_eleven ? _c("div", {
+    staticClass: "error"
+  }, [_vm._v("\n                                                    Item type is required\n                                                ")]) : _vm._e()])]), _vm._v(" "), _c("div", {
+    staticClass: "col-md-6"
+  }, [_c("div", {
+    staticClass: "mb-3"
+  }, [_c("label", {
+    staticClass: "form-label w-100 text-capitalize"
+  }, [_vm._v("\n                                                    Check condenser condition\n                                                    "), _c("span", {
+    staticClass: "error"
+  }, [_vm._v("*")])]), _vm._v(" "), _c("select", {
+    directives: [{
+      name: "model",
+      rawName: "v-model.trim",
+      value: _vm.form_data.itemType,
+      expression: "form_data.itemType",
+      modifiers: {
+        trim: true
+      }
+    }],
+    staticClass: "form-select mb-text-only",
+    attrs: {
+      "aria-label": "Default select example"
+    },
+    on: {
+      change: function change($event) {
+        var $$selectedVal = Array.prototype.filter.call($event.target.options, function (o) {
+          return o.selected;
+        }).map(function (o) {
+          var val = "_value" in o ? o._value : o.value;
+          return val;
+        });
+        _vm.$set(_vm.form_data, "itemType", $event.target.multiple ? $$selectedVal : $$selectedVal[0]);
+      }
+    }
+  }, [_c("option", {
+    attrs: {
+      selected: "",
+      disabled: ""
+    }
+  }, [_vm._v("Open this select menu")]), _vm._v(" "), _c("option", [_vm._v("Yes")]), _vm._v(" "), _c("option", [_vm._v("No")]), _vm._v(" "), _c("option", [_vm._v("Nos")])]), _vm._v(" "), _vm.v$.form_data.itemType.required.$invalid && _vm.show_error_eleven ? _c("div", {
+    staticClass: "error"
+  }, [_vm._v("\n                                                    Item type is required\n                                                ")]) : _vm._e()])]), _vm._v(" "), _c("div", {
+    staticClass: "col-md-6"
+  }, [_c("div", {
+    staticClass: "mb-3"
+  }, [_c("label", {
+    staticClass: "form-label w-100 text-capitalize"
+  }, [_vm._v("\n                                                    Operating Hours\n                                                    "), _c("span", {
+    staticClass: "error"
+  }, [_vm._v("*")])]), _vm._v(" "), _c("select", {
+    directives: [{
+      name: "model",
+      rawName: "v-model.trim",
+      value: _vm.form_data.itemType,
+      expression: "form_data.itemType",
+      modifiers: {
+        trim: true
+      }
+    }],
+    staticClass: "form-select mb-text-only",
+    attrs: {
+      "aria-label": "Default select example"
+    },
+    on: {
+      change: function change($event) {
+        var $$selectedVal = Array.prototype.filter.call($event.target.options, function (o) {
+          return o.selected;
+        }).map(function (o) {
+          var val = "_value" in o ? o._value : o.value;
+          return val;
+        });
+        _vm.$set(_vm.form_data, "itemType", $event.target.multiple ? $$selectedVal : $$selectedVal[0]);
+      }
+    }
+  }, [_c("option", {
+    attrs: {
+      selected: "",
+      disabled: ""
+    }
+  }, [_vm._v("Open this select menu")]), _vm._v(" "), _c("option", [_vm._v("Yes")]), _vm._v(" "), _c("option", [_vm._v("No")]), _vm._v(" "), _c("option", [_vm._v("Nos")])]), _vm._v(" "), _vm.v$.form_data.itemType.required.$invalid && _vm.show_error_eleven ? _c("div", {
+    staticClass: "error"
+  }, [_vm._v("\n                                                    Item type is required\n                                                ")]) : _vm._e()])])]) : _vm._e(), _vm._v(" "), _vm.form_data.itemType === "Motors" ? _c("div", {
+    staticClass: "row"
+  }, [_c("div", {
+    staticClass: "col-md-6"
+  }, [_c("div", {
+    staticClass: "mb-3"
+  }, [_c("label", {
+    staticClass: "form-label w-100 text-capitalize"
+  }, [_vm._v("\n                                                    VFD or not\n                                                    "), _c("span", {
+    staticClass: "error"
+  }, [_vm._v("*")])]), _vm._v(" "), _c("select", {
+    directives: [{
+      name: "model",
+      rawName: "v-model.trim",
+      value: _vm.form_data.itemType,
+      expression: "form_data.itemType",
+      modifiers: {
+        trim: true
+      }
+    }],
+    staticClass: "form-select mb-text-only",
+    attrs: {
+      "aria-label": "Default select example"
+    },
+    on: {
+      change: function change($event) {
+        var $$selectedVal = Array.prototype.filter.call($event.target.options, function (o) {
+          return o.selected;
+        }).map(function (o) {
+          var val = "_value" in o ? o._value : o.value;
+          return val;
+        });
+        _vm.$set(_vm.form_data, "itemType", $event.target.multiple ? $$selectedVal : $$selectedVal[0]);
+      }
+    }
+  }, [_c("option", {
+    attrs: {
+      selected: "",
+      disabled: ""
+    }
+  }, [_vm._v("Open this select menu")]), _vm._v(" "), _c("option", [_vm._v("Yes")]), _vm._v(" "), _c("option", [_vm._v("No")]), _vm._v(" "), _c("option", [_vm._v("Nos")])]), _vm._v(" "), _vm.v$.form_data.itemType.required.$invalid && _vm.show_error_eleven ? _c("div", {
+    staticClass: "error"
+  }, [_vm._v("\n                                                    Item type is required\n                                                ")]) : _vm._e()])]), _vm._v(" "), _c("div", {
+    staticClass: "col-md-6"
+  }, [_c("div", {
+    staticClass: "mb-3"
+  }, [_c("label", {
+    staticClass: "form-label w-100 text-capitalize"
+  }, [_vm._v("\n                                                    Check per phase current\n                                                    "), _c("span", {
+    staticClass: "error"
+  }, [_vm._v("*")])]), _vm._v(" "), _c("select", {
+    directives: [{
+      name: "model",
+      rawName: "v-model.trim",
+      value: _vm.form_data.itemType,
+      expression: "form_data.itemType",
+      modifiers: {
+        trim: true
+      }
+    }],
+    staticClass: "form-select mb-text-only",
+    attrs: {
+      "aria-label": "Default select example"
+    },
+    on: {
+      change: function change($event) {
+        var $$selectedVal = Array.prototype.filter.call($event.target.options, function (o) {
+          return o.selected;
+        }).map(function (o) {
+          var val = "_value" in o ? o._value : o.value;
+          return val;
+        });
+        _vm.$set(_vm.form_data, "itemType", $event.target.multiple ? $$selectedVal : $$selectedVal[0]);
+      }
+    }
+  }, [_c("option", {
+    attrs: {
+      selected: "",
+      disabled: ""
+    }
+  }, [_vm._v("Open this select menu")]), _vm._v(" "), _c("option", [_vm._v("Yes")]), _vm._v(" "), _c("option", [_vm._v("No")]), _vm._v(" "), _c("option", [_vm._v("Nos")])]), _vm._v(" "), _vm.v$.form_data.itemType.required.$invalid && _vm.show_error_eleven ? _c("div", {
+    staticClass: "error"
+  }, [_vm._v("\n                                                    Item type is required\n                                                ")]) : _vm._e()])]), _vm._v(" "), _c("div", {
+    staticClass: "col-md-6"
+  }, [_c("div", {
+    staticClass: "mb-3"
+  }, [_c("label", {
+    staticClass: "form-label w-100 text-capitalize"
+  }, [_vm._v("\n                                                    Check Phasor\n                                                    "), _c("span", {
+    staticClass: "error"
+  }, [_vm._v("*")])]), _vm._v(" "), _c("select", {
+    directives: [{
+      name: "model",
+      rawName: "v-model.trim",
+      value: _vm.form_data.itemType,
+      expression: "form_data.itemType",
+      modifiers: {
+        trim: true
+      }
+    }],
+    staticClass: "form-select mb-text-only",
+    attrs: {
+      "aria-label": "Default select example"
+    },
+    on: {
+      change: function change($event) {
+        var $$selectedVal = Array.prototype.filter.call($event.target.options, function (o) {
+          return o.selected;
+        }).map(function (o) {
+          var val = "_value" in o ? o._value : o.value;
+          return val;
+        });
+        _vm.$set(_vm.form_data, "itemType", $event.target.multiple ? $$selectedVal : $$selectedVal[0]);
+      }
+    }
+  }, [_c("option", {
+    attrs: {
+      selected: "",
+      disabled: ""
+    }
+  }, [_vm._v("Open this select menu")]), _vm._v(" "), _c("option", [_vm._v("Yes")]), _vm._v(" "), _c("option", [_vm._v("No")]), _vm._v(" "), _c("option", [_vm._v("Nos")])]), _vm._v(" "), _vm.v$.form_data.itemType.required.$invalid && _vm.show_error_eleven ? _c("div", {
+    staticClass: "error"
+  }, [_vm._v("\n                                                    Item type is required\n                                                ")]) : _vm._e()])]), _vm._v(" "), _c("div", {
+    staticClass: "col-md-6"
+  }, [_c("div", {
+    staticClass: "mb-3"
+  }, [_c("label", {
+    staticClass: "form-label w-100 text-capitalize"
+  }, [_vm._v("\n                                                    Nos. of rewiding of motor\n                                                    "), _c("span", {
+    staticClass: "error"
+  }, [_vm._v("*")])]), _vm._v(" "), _c("select", {
+    directives: [{
+      name: "model",
+      rawName: "v-model.trim",
+      value: _vm.form_data.itemType,
+      expression: "form_data.itemType",
+      modifiers: {
+        trim: true
+      }
+    }],
+    staticClass: "form-select mb-text-only",
+    attrs: {
+      "aria-label": "Default select example"
+    },
+    on: {
+      change: function change($event) {
+        var $$selectedVal = Array.prototype.filter.call($event.target.options, function (o) {
+          return o.selected;
+        }).map(function (o) {
+          var val = "_value" in o ? o._value : o.value;
+          return val;
+        });
+        _vm.$set(_vm.form_data, "itemType", $event.target.multiple ? $$selectedVal : $$selectedVal[0]);
+      }
+    }
+  }, [_c("option", {
+    attrs: {
+      selected: "",
+      disabled: ""
+    }
+  }, [_vm._v("Open this select menu")]), _vm._v(" "), _c("option", [_vm._v("Yes")]), _vm._v(" "), _c("option", [_vm._v("No")]), _vm._v(" "), _c("option", [_vm._v("Nos")])]), _vm._v(" "), _vm.v$.form_data.itemType.required.$invalid && _vm.show_error_eleven ? _c("div", {
+    staticClass: "error"
+  }, [_vm._v("\n                                                    Item type is required\n                                                ")]) : _vm._e()])]), _vm._v(" "), _c("div", {
+    staticClass: "col-md-6"
+  }, [_c("div", {
+    staticClass: "mb-3"
+  }, [_c("label", {
+    staticClass: "form-label w-100 text-capitalize"
+  }, [_vm._v("\n                                                    Operating Hours\n                                                    "), _c("span", {
+    staticClass: "error"
+  }, [_vm._v("*")])]), _vm._v(" "), _c("select", {
+    directives: [{
+      name: "model",
+      rawName: "v-model.trim",
+      value: _vm.form_data.itemType,
+      expression: "form_data.itemType",
+      modifiers: {
+        trim: true
+      }
+    }],
+    staticClass: "form-select mb-text-only",
+    attrs: {
+      "aria-label": "Default select example"
+    },
+    on: {
+      change: function change($event) {
+        var $$selectedVal = Array.prototype.filter.call($event.target.options, function (o) {
+          return o.selected;
+        }).map(function (o) {
+          var val = "_value" in o ? o._value : o.value;
+          return val;
+        });
+        _vm.$set(_vm.form_data, "itemType", $event.target.multiple ? $$selectedVal : $$selectedVal[0]);
+      }
+    }
+  }, [_c("option", {
+    attrs: {
+      selected: "",
+      disabled: ""
+    }
+  }, [_vm._v("Open this select menu")]), _vm._v(" "), _c("option", [_vm._v("Yes")]), _vm._v(" "), _c("option", [_vm._v("No")]), _vm._v(" "), _c("option", [_vm._v("Nos")])]), _vm._v(" "), _vm.v$.form_data.itemType.required.$invalid && _vm.show_error_eleven ? _c("div", {
+    staticClass: "error"
+  }, [_vm._v("\n                                                    Item type is required\n                                                ")]) : _vm._e()])])]) : _vm._e()])])])])]), _vm._v(" "), _c("tab-content", {
+    attrs: {
+      title: "Observation & Image",
+      icon: "ti-image"
+    }
+  }, [_c("div", {
+    staticClass: "row"
+  }, [_c("div", {
+    staticClass: "col-md-12"
+  }, [_c("div", {
+    staticClass: "card shipping_address_card"
+  }, [_c("div", {
+    staticClass: "card-body"
+  }, [_c("div", {
+    staticClass: "row"
+  }, [_vm._v("Camera to take picture")]), _vm._v(" "), _c("div", {
+    staticClass: "row"
+  }, [_c("div", {
+    staticClass: "col-md-12"
+  }, [_c("div", {
+    staticClass: "mb-3"
+  }, [_c("label", {
+    staticClass: "form-label w-100 text-capitalize"
+  }, [_vm._v("\n                                                    Observations\n                                                    "), _c("span", {
+    staticClass: "error"
+  }, [_vm._v("*")])]), _vm._v(" "), _c("textarea", {
+    staticClass: "form-control",
+    attrs: {
+      id: "exampleFormControlTextarea1",
+      rows: "5",
+      placeholder: "Write the observations here..."
+    }
+  }), _vm._v(" "), _vm.v$.form_data.itemType.required.$invalid && _vm.show_error_eleven ? _c("div", {
+    staticClass: "error"
+  }, [_vm._v("\n                                                    Item type is required\n                                                ")]) : _vm._e()])])])])])])])])], 1)], 1)]);
 };
 var staticRenderFns = [];
 render._withStripped = true;
