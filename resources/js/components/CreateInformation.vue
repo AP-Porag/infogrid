@@ -974,830 +974,3178 @@
                                             </div>
                                         </div>
 
-                                        <div class="col-md-6" v-if="showItemTypeCrossoverBox">
-                                            <div class="mb-3">
-                                                <label class="form-label w-100 text-capitalize">
-                                                    Crossover Item Type
-                                                    <span class="error">*</span>
-                                                </label>
-                                                <select class="form-select mb-text-only" aria-label="Default select example"
-                                                        v-model.trim="v$.form_data.crossover_item_type.$model"
-                                                >
-                                                    <option selected disabled>Open this select menu</option>
-                                                    <option v-for="(coType,index) in crossoverItemTypes" :value="coType.name" :key="coType.id">{{coType.name}}</option>
-                                                </select>
-                                                <!--                                            <Select2 v-model="form_data.crossover_item_type" :options="crossoverItemTypes" />-->
-                                                <div class="error" v-if="v$.form_data.crossover_item_type.required.$invalid && show_error_sixteen">
-                                                    Crossover item type is required
-                                                </div>
-                                            </div>
-                                        </div>
+<!--                                        <div class="col-md-6" v-if="showItemTypeCrossoverBox">-->
+<!--                                            <div class="mb-3">-->
+<!--                                                <label class="form-label w-100 text-capitalize">-->
+<!--                                                    Crossover Item Type-->
+<!--                                                    <span class="error">*</span>-->
+<!--                                                </label>-->
+<!--                                                <select class="form-select mb-text-only" aria-label="Default select example"-->
+<!--                                                        v-model.trim="v$.form_data.crossover_item_type.$model"-->
+<!--                                                >-->
+<!--                                                    <option selected disabled>Open this select menu</option>-->
+<!--                                                    <option v-for="(coType,index) in crossoverItemTypes" :value="coType.name" :key="coType.id">{{coType.name}}</option>-->
+<!--                                                </select>-->
+<!--                                                &lt;!&ndash;                                            <Select2 v-model="form_data.crossover_item_type" :options="crossoverItemTypes" />&ndash;&gt;-->
+<!--                                                <div class="error" v-if="v$.form_data.crossover_item_type.required.$invalid && show_error_sixteen">-->
+<!--                                                    Crossover item type is required-->
+<!--                                                </div>-->
+<!--                                            </div>-->
+<!--                                        </div>-->
 
                                     </div>
                                 </div>
                             </div>
                         </div>
 
-                        <!--item type card-->
+                        <!--item type Pump-->
                         <div class="col-md-12" v-if="showItemTypeCardBox">
                             <div class="card shipping_address_card">
                                 <div class="card-body">
                                     <div class="row">
-                                        <div class="col-md-1">
-                                            <div class="mb-3">
+                                        <div class="col-md-12">
+                                            <div class="row mb-3">
                                                 <label class="form-label w-100">
-                                                    Qty
+                                                    Year of installation
                                                 </label>
-                                                <input
-                                                    type="text"
-                                                    class="form-control"
-                                                    placeholder=""
-                                                    v-model.trim="form_data.item_qty"
-                                                    readonly
-                                                />
-                                                <!--                                                <div class="error" v-if="v$.form_data.contact_name.required.$invalid && show_error_one">-->
-                                                <!--                                                    contact name is required-->
-                                                <!--                                                </div>-->
-                                            </div>
-                                        </div>
-
-                                        <div class="col-md-9">
-                                            <div class="row">
-                                                <div class="col-md-12">
-                                                    <div class="mb-3">
-                                                        <label class="form-label w-100">
-                                                            Description #1   (Year,Manufacturer,Set,Other)
-                                                            <span class="error">*</span>
-                                                        </label>
-                                                        <input
-                                                            type="text"
-                                                            class="form-control"
-                                                            placeholder=""
-                                                            v-model.trim="v$.form_data.card_description_one.$model"
-                                                        />
-                                                        <div class="error" v-if="v$.form_data.card_description_one.required.$invalid && show_error_twelve">
-                                                            Description one is required
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                                <div class="col-md-12">
-                                                    <div class="mb-3">
-                                                        <label class="form-label w-100">
-                                                            Description #2
-                                                            <!--                                                            <span class="error">*</span>-->
-                                                        </label>
-                                                        <input
-                                                            type="text"
-                                                            class="form-control"
-                                                            placeholder=""
-                                                            v-model.trim="form_data.card_description_two"
-                                                        />
-                                                        <!--                                                        <div class="error" v-if="v$.form_data.card_description_two.required.$invalid && show_error_twelve">-->
-                                                        <!--                                                            Description two is required-->
-                                                        <!--                                                        </div>-->
-                                                    </div>
-                                                </div>
-
-                                                <div class="col-md-12">
-                                                    <div class="mb-3">
-                                                        <label class="form-label w-100">
-                                                            Description #3
-                                                            <!--                                                            <span class="error">*</span>-->
-                                                        </label>
-                                                        <input
-                                                            type="text"
-                                                            class="form-control"
-                                                            placeholder=""
-                                                            v-model.trim="form_data.card_description_three"
-                                                        />
-                                                        <!--                                                        <div class="error" v-if="v$.form_data.card_description_three.required.$invalid && show_error_twelve">-->
-                                                        <!--                                                            Description three is required-->
-                                                        <!--                                                        </div>-->
-                                                    </div>
-                                                </div>
-
                                                 <div class="col-md-6">
-                                                    <div class="mb-3">
-                                                        <label class="form-label w-100">
-                                                            Serial Number   (Only if printed directly on item)
-                                                            <!--                                                            <span class="error">*</span>-->
-                                                        </label>
-                                                        <input
-                                                            type="text"
-                                                            class="form-control"
-                                                            placeholder=""
-                                                            v-model.trim="form_data.card_serial_number"
-                                                        />
-                                                        <!--                                                        <div class="error" v-if="v$.form_data.card_serial_number.required.$invalid && show_error_twelve">-->
-                                                        <!--                                                            Serial number is required-->
-                                                        <!--                                                        </div>-->
-                                                    </div>
+                                                    <label class="form-label w-100">
+                                                        Rated Parameter
+                                                    </label>
+                                                    <input
+                                                        type="text"
+                                                        class="form-control"
+                                                        placeholder=""
+                                                        v-model.trim="form_data.item_qty"
+                                                        readonly
+                                                    />
                                                 </div>
-
-                                                <div class="col-md-12">
-                                                    <div class="row">
-                                                        <div class="col-md-4">
-                                                            <div class="mb-3 d-flex justify-content-start" style="margin-top: 25px;">
-                                                                <label class="form-label text-capitalize" style="margin-top: 6px;margin-right: 15px;">
-                                                                    Autographed
-                                                                </label>
-                                                                <input
-                                                                    type="checkbox"
-                                                                    class="form-check"
-                                                                    placeholder=""
-                                                                    v-model.trim="form_data.card_autographed"
-                                                                />
-                                                                <!--                                            <div class="error" v-if="v$.form_data.same_as_billing.required.$invalid && show_error">-->
-                                                                <!--                                                Same as Billing is required-->
-                                                                <!--                                            </div>-->
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-md-4">
-                                                            <div class="mb-3">
-                                                                <label class="form-label w-100 text-capitalize">
-                                                                    Authenticator Name
-                                                                    <span class="error" v-if="form_data.card_autographed">*</span>
-                                                                </label>
-                                                                <select class="form-select mb-text-only" aria-label="Default select example"
-                                                                        v-model.trim="v$.form_data.card_authenticator_name.$model"
-                                                                >
-                                                                    <option selected disabled>Open this select menu</option>
-                                                                    <option v-for="(authenticator,index) in authenticators" :value="authenticator.id" :key="authenticator.id">{{authenticator.name}}</option>
-                                                                </select>
-                                                                <!--                                                            <Select2 v-model="form_data.authenticator_name" :options="authenticators" />-->
-                                                                <div class="error" v-if="v$.form_data.card_authenticator_name.required.$invalid && show_error_twelve">
-                                                                    Authenticator name is required
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-md-4">
-                                                            <div class="mb-3">
-                                                                <label class="form-label w-100">
-                                                                    Authenticator Cert. No.
-                                                                    <span class="error" v-if="form_data.card_autographed">*</span>
-                                                                </label>
-                                                                <input
-                                                                    type="text"
-                                                                    class="form-control"
-                                                                    placeholder=""
-                                                                    v-model.trim="v$.form_data.card_authenticator_cert_no.$model"
-                                                                />
-                                                                <div class="error" v-if="v$.form_data.card_authenticator_cert_no.required.$invalid && show_error_twelve">
-                                                                    Authenticator cert no. is required
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
+                                                <div class="col-md-6">
+                                                    <label class="form-label w-100">
+                                                        Measured Parameter
+                                                    </label>
+                                                    <input
+                                                        type="text"
+                                                        class="form-control"
+                                                        placeholder=""
+                                                        v-model.trim="form_data.item_qty"
+                                                        readonly
+                                                    />
                                                 </div>
                                             </div>
                                         </div>
-
-                                        <div class="col-md-2">
-                                            <div class="mb-3">
-                                                <label class="form-label w-100">
-                                                    Estimated Value
-                                                    <span class="error">*</span>
-                                                </label>
-                                                <input
-                                                    type="number"
-                                                    class="form-control"
-                                                    placeholder=""
-                                                    v-model.trim="v$.form_data.card_estimated_value.$model"
-                                                />
-                                                <div class="error" v-if="v$.form_data.card_estimated_value.required.$invalid && show_error_twelve">
-                                                    Estimated value is required
-                                                </div>
-                                            </div>
-                                        </div>
-
 
                                     </div>
                                 </div>
                             </div>
-                        </div>
-
-                        <!--item type auto authentication-->
-                        <div class="col-md-12" v-if="showItemTypeAutoAthenticationBox">
                             <div class="card shipping_address_card">
                                 <div class="card-body">
                                     <div class="row">
-                                        <div class="col-md-1">
-                                            <div class="mb-3">
+                                        <div class="col-md-12">
+                                            <div class="row mb-3">
                                                 <label class="form-label w-100">
-                                                    Qty
+                                                    Flow
                                                 </label>
-                                                <input
-                                                    type="text"
-                                                    class="form-control"
-                                                    placeholder=""
-                                                    v-model.trim="form_data.item_qty"
-                                                    readonly
-                                                />
-                                                <!--                                                <div class="error" v-if="v$.form_data.contact_name.required.$invalid && show_error_one">-->
-                                                <!--                                                    contact name is required-->
-                                                <!--                                                </div>-->
-                                            </div>
-                                        </div>
-
-                                        <div class="col-md-9">
-                                            <div class="row">
-                                                <div class="col-md-12">
-                                                    <div class="mb-3">
-                                                        <label class="form-label w-100">
-                                                            Description #1   (Year,Manufacturer,Set,Other)
-                                                            <span class="error">*</span>
-                                                        </label>
-                                                        <input
-                                                            type="text"
-                                                            class="form-control"
-                                                            placeholder=""
-                                                            v-model.trim="v$.form_data.auto_authentication_description_one.$model"
-                                                        />
-                                                        <div class="error" v-if="v$.form_data.auto_authentication_description_one.required.$invalid && show_error_thirteen">
-                                                            Description one is required
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                                <div class="col-md-12">
-                                                    <div class="mb-3">
-                                                        <label class="form-label w-100">
-                                                            Description #2
-                                                            <!--                                                            <span class="error">*</span>-->
-                                                        </label>
-                                                        <input
-                                                            type="text"
-                                                            class="form-control"
-                                                            placeholder=""
-                                                            v-model.trim="form_data.auto_authentication_description_two"
-                                                        />
-                                                        <!--                                                        <div class="error" v-if="v$.form_data.auto_authentication_description_two.required.$invalid && show_error_thirteen">-->
-                                                        <!--                                                            Description two is required-->
-                                                        <!--                                                        </div>-->
-                                                    </div>
-                                                </div>
-
-                                                <div class="col-md-12">
-                                                    <div class="mb-3">
-                                                        <label class="form-label w-100">
-                                                            Description #3
-                                                            <!--                                                            <span class="error">*</span>-->
-                                                        </label>
-                                                        <input
-                                                            type="text"
-                                                            class="form-control"
-                                                            placeholder=""
-                                                            v-model.trim="form_data.auto_authentication_description_three"
-                                                        />
-                                                        <!--                                                        <div class="error" v-if="v$.form_data.auto_authentication_description_three.required.$invalid && show_error_thirteen">-->
-                                                        <!--                                                            Description three is required-->
-                                                        <!--                                                        </div>-->
-                                                    </div>
-                                                </div>
-
                                                 <div class="col-md-6">
-                                                    <div class="mb-3">
-                                                        <label class="form-label w-100">
-                                                            Serial Number   (Only if printed directly on item)
-                                                            <!--                                                            <span class="error">*</span>-->
-                                                        </label>
-                                                        <input
-                                                            type="text"
-                                                            class="form-control"
-                                                            placeholder=""
-                                                            v-model.trim="form_data.auto_authentication_serial_number"
-                                                        />
-                                                        <!--                                                        <div class="error" v-if="v$.form_data.contact_name.required.$invalid && show_error_one">-->
-                                                        <!--                                                            contact name is required-->
-                                                        <!--                                                        </div>-->
-                                                    </div>
-                                                </div>
-
-                                                <div class="col-md-12">
-                                                    <div class="row">
-                                                        <div class="col-md-4">
-                                                            <div class="mb-3 d-flex justify-content-start" style="margin-top: 25px;">
-                                                                <label class="form-label text-capitalize" style="margin-top: 6px;margin-right: 15px;">
-                                                                    Autographed
-                                                                </label>
-                                                                <input
-                                                                    type="checkbox"
-                                                                    class="form-check"
-                                                                    placeholder=""
-                                                                    v-model.trim="form_data.auto_authentication_autographed"
-                                                                />
-                                                                <!--                                            <div class="error" v-if="v$.form_data.same_as_billing.required.$invalid && show_error">-->
-                                                                <!--                                                Same as Billing is required-->
-                                                                <!--                                            </div>-->
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-md-4">
-                                                            <div class="mb-3">
-                                                                <label class="form-label w-100 text-capitalize">
-                                                                    Authenticator Name
-                                                                    <span class="error" v-if="form_data.auto_authentication_autographed">*</span>
-                                                                </label>
-                                                                <select class="form-select mb-text-only" aria-label="Default select example"
-                                                                        v-model.trim="v$.form_data.auto_authentication_authenticator_name.$model"
-                                                                >
-                                                                    <option selected disabled>Open this select menu</option>
-                                                                    <option v-for="(authenticator,index) in authenticators" :value="authenticator.id" :key="authenticator.id">{{authenticator.name}}</option>
-                                                                </select>
-                                                                <!--                                                            <Select2 v-model="form_data.authenticator_name_two" :options="authenticators" />-->
-                                                                <div class="error" v-if="v$.form_data.auto_authentication_authenticator_name.required.$invalid && show_error_thirteen">
-                                                                    Authenticator name is required
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-md-4">
-                                                            <div class="mb-3">
-                                                                <label class="form-label w-100">
-                                                                    Authenticator Cert. No.
-                                                                    <span class="error" v-if="form_data.auto_authentication_autographed">*</span>
-                                                                </label>
-                                                                <input
-                                                                    type="text"
-                                                                    class="form-control"
-                                                                    placeholder=""
-                                                                    v-model.trim="v$.form_data.auto_authentication_authenticator_cert_no.$model"
-                                                                />
-                                                                <div class="error" v-if="v$.form_data.auto_authentication_authenticator_cert_no.required.$invalid && show_error_thirteen">
-                                                                    Authenticator cert. no. is required
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-md-2">
-                                            <div class="mb-3">
-                                                <label class="form-label w-100">
-                                                    Estimated Value
-                                                    <span class="error">*</span>
-                                                </label>
-                                                <input
-                                                    type="number"
-                                                    class="form-control"
-                                                    placeholder=""
-                                                    v-model.trim="v$.form_data.auto_authentication_estimated_value.$model"
-                                                />
-                                                <div class="error" v-if="v$.form_data.auto_authentication_estimated_value.required.$invalid && show_error_thirteen">
-                                                    Estimated value is required
-                                                </div>
-                                            </div>
-                                        </div>
-
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!--item type combined service-->
-                        <div class="col-md-12" v-if="showItemTypeCombinedServiceBox">
-                            <div class="card shipping_address_card">
-                                <div class="card-body">
-                                    <div class="row">
-                                        <div class="col-md-1">
-                                            <div class="mb-3">
-                                                <label class="form-label w-100">
-                                                    Qty
-                                                </label>
-                                                <input
-                                                    type="text"
-                                                    class="form-control"
-                                                    placeholder=""
-                                                    v-model.trim="form_data.item_qty"
-                                                    readonly
-                                                />
-                                                <!--                                                <div class="error" v-if="v$.form_data.contact_name.required.$invalid && show_error_one">-->
-                                                <!--                                                    contact name is required-->
-                                                <!--                                                </div>-->
-                                            </div>
-                                        </div>
-
-                                        <div class="col-md-9">
-                                            <div class="row">
-                                                <div class="col-md-12">
-                                                    <div class="mb-3">
-                                                        <label class="form-label w-100">
-                                                            Description #1   (Year,Manufacturer,Set,Other)
-                                                            <span class="error">*</span>
-                                                        </label>
-                                                        <input
-                                                            type="text"
-                                                            class="form-control"
-                                                            placeholder=""
-                                                            v-model.trim="v$.form_data.combined_service_description_one.$model"
-                                                        />
-                                                        <div class="error" v-if="v$.form_data.combined_service_description_one.required.$invalid && show_error_fourteen">
-                                                            Description one is required
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                                <div class="col-md-12">
-                                                    <div class="mb-3">
-                                                        <label class="form-label w-100">
-                                                            Description #2
-                                                            <!--                                                            <span class="error">*</span>-->
-                                                        </label>
-                                                        <input
-                                                            type="text"
-                                                            class="form-control"
-                                                            placeholder=""
-                                                            v-model.trim="form_data.combined_service_description_two"
-                                                        />
-                                                        <!--                                                        <div class="error" v-if="v$.form_data.combined_service_description_two.required.$invalid && show_error_fourteen">-->
-                                                        <!--                                                            Description two is required-->
-                                                        <!--                                                        </div>-->
-                                                    </div>
-                                                </div>
-
-                                                <div class="col-md-12">
-                                                    <div class="mb-3">
-                                                        <label class="form-label w-100">
-                                                            Description #3
-                                                            <!--                                                            <span class="error">*</span>-->
-                                                        </label>
-                                                        <input
-                                                            type="text"
-                                                            class="form-control"
-                                                            placeholder=""
-                                                            v-model.trim="form_data.combined_service_description_three"
-                                                        />
-                                                        <!--                                                        <div class="error" v-if="v$.form_data.combined_service_description_three.required.$invalid && show_error_fourteen">-->
-                                                        <!--                                                            Description three is required-->
-                                                        <!--                                                        </div>-->
-                                                    </div>
-                                                </div>
-
-                                                <div class="col-md-6">
-                                                    <div class="mb-3">
-                                                        <label class="form-label w-100">
-                                                            Serial Number   (Only if printed directly on item)
-                                                            <!--                                                            <span class="error">*</span>-->
-                                                        </label>
-                                                        <input
-                                                            type="text"
-                                                            class="form-control"
-                                                            placeholder=""
-                                                            v-model.trim="form_data.combined_service_serial_number"
-                                                        />
-                                                        <!--                                                        <div class="error" v-if="v$.form_data.contact_name.required.$invalid && show_error_one">-->
-                                                        <!--                                                            contact name is required-->
-                                                        <!--                                                        </div>-->
-                                                    </div>
-                                                </div>
-
-                                                <div class="col-md-12">
-                                                    <div class="row">
-                                                        <div class="col-md-4">
-                                                            <div class="mb-3 d-flex justify-content-start" style="margin-top: 25px;">
-                                                                <label class="form-label text-capitalize" style="margin-top: 6px;margin-right: 15px;">
-                                                                    Autographed
-                                                                </label>
-                                                                <input
-                                                                    type="checkbox"
-                                                                    class="form-check"
-                                                                    placeholder=""
-                                                                    v-model.trim="form_data.combined_service_autographed"
-                                                                />
-                                                                <!--                                            <div class="error" v-if="v$.form_data.same_as_billing.required.$invalid && show_error">-->
-                                                                <!--                                                Same as Billing is required-->
-                                                                <!--                                            </div>-->
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-md-4">
-                                                            <div class="mb-3">
-                                                                <label class="form-label w-100 text-capitalize">
-                                                                    Authenticator Name
-                                                                    <span class="error" v-if="form_data.combined_service_autographed">*</span>
-                                                                </label>
-                                                                <select class="form-select mb-text-only" aria-label="Default select example"
-                                                                        v-model.trim="v$.form_data.combined_service_authenticator_name.$model"
-                                                                >
-                                                                    <option selected disabled>Open this select menu</option>
-                                                                    <option v-for="(authenticator,index) in authenticators" :value="authenticator.id" :key="authenticator.id">{{authenticator.name}}</option>
-                                                                </select>
-                                                                <!--                                                            <Select2 v-model="form_data.authenticator_name_two" :options="authenticators" />-->
-                                                                <div class="error" v-if="v$.form_data.combined_service_authenticator_name.required.$invalid && show_error_fourteen">
-                                                                    Authenticator Name is required
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-md-4">
-                                                            <div class="mb-3">
-                                                                <label class="form-label w-100">
-                                                                    Authenticator Cert. No.
-                                                                    <span class="error" v-if="form_data.combined_service_autographed">*</span>
-                                                                </label>
-                                                                <input
-                                                                    type="text"
-                                                                    class="form-control"
-                                                                    placeholder=""
-                                                                    v-model.trim="v$.form_data.combined_service_authenticator_cert_no.$model"
-                                                                />
-                                                                <div class="error" v-if="v$.form_data.combined_service_authenticator_cert_no.required.$invalid && show_error_fourteen">
-                                                                    Authenticator cert. no. is required
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-md-2">
-                                            <div class="mb-3">
-                                                <label class="form-label w-100">
-                                                    Estimated Value
-                                                    <span class="error">*</span>
-                                                </label>
-                                                <input
-                                                    type="number"
-                                                    class="form-control"
-                                                    placeholder=""
-                                                    v-model.trim="v$.form_data.combined_service_estimated_value.$model"
-                                                />
-                                                <div class="error" v-if="v$.form_data.combined_service_estimated_value.required.$invalid && show_error_fourteen">
-                                                    Estimated value is required
-                                                </div>
-                                            </div>
-                                        </div>
-
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!--item type reholder-->
-                        <div class="col-md-12" v-if="showItemTypeReholderBox">
-                            <div class="card shipping_address_card">
-                                <div class="card-body">
-                                    <div class="row">
-                                        <div class="col-md-1">
-                                            <div class="mb-3">
-                                                <label class="form-label w-100">
-                                                    Qty
-                                                </label>
-                                                <input
-                                                    type="text"
-                                                    class="form-control"
-                                                    placeholder=""
-                                                    v-model.trim="form_data.item_qty"
-                                                    readonly
-                                                />
-                                                <!--                                                <div class="error" v-if="v$.form_data.contact_name.required.$invalid && show_error_one">-->
-                                                <!--                                                    contact name is required-->
-                                                <!--                                                </div>-->
-                                            </div>
-                                        </div>
-
-                                        <div class="col-md-9">
-                                            <div class="row">
-                                                <div class="col-md-12">
-                                                    <div class="mb-3">
-                                                        <label class="form-label w-100">
-                                                            Certification Number
-                                                            <span class="error">*</span>
-                                                        </label>
-                                                        <input
-                                                            type="text"
-                                                            class="form-control"
-                                                            placeholder=""
-                                                            v-model.trim="v$.form_data.reholder_certification_number.$model"
-                                                        />
-                                                        <div class="error" v-if="v$.form_data.reholder_certification_number.required.$invalid && show_error_fifteen">
-                                                            Certification number is required
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-md-2">
-                                            <div class="mb-3">
-                                                <label class="form-label w-100">
-                                                    Estimated Value
-                                                    <span class="error">*</span>
-                                                </label>
-                                                <input
-                                                    type="number"
-                                                    class="form-control"
-                                                    placeholder=""
-                                                    v-model.trim="v$.form_data.reholder_estimated_value.$model"
-                                                />
-                                                <div class="error" v-if="v$.form_data.reholder_estimated_value.required.$invalid && show_error_fifteen">
-                                                    Estimated value is required
-                                                </div>
-                                            </div>
-                                        </div>
-
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!--item type crossover-->
-                        <div class="col-md-12" v-if="showItemTypeCrossoverBox">
-                            <div class="card shipping_address_card">
-                                <div class="card-body">
-                                    <div class="row">
-                                        <div class="col-md-1">
-                                            <div class="mb-3">
-                                                <label class="form-label w-100">
-                                                    Qty
-                                                </label>
-                                                <input
-                                                    type="text"
-                                                    class="form-control"
-                                                    placeholder=""
-                                                    v-model.trim="form_data.item_qty"
-                                                    readonly
-                                                />
-                                                <!--                                                <div class="error" v-if="v$.form_data.contact_name.required.$invalid && show_error_one">-->
-                                                <!--                                                    contact name is required-->
-                                                <!--                                                </div>-->
-                                            </div>
-                                        </div>
-
-                                        <div class="col-md-9">
-                                            <div class="row">
-                                                <div class="col-md-12">
-                                                    <div class="mb-3">
-                                                        <label class="form-label w-100">
-                                                            Description #1   (Year,Manufacturer,Set,Other)
-                                                            <span class="error">*</span>
-                                                        </label>
-                                                        <input
-                                                            type="text"
-                                                            class="form-control"
-                                                            placeholder=""
-                                                            v-model.trim="v$.form_data.crossover_description_one.$model"
-                                                        />
-                                                        <div class="error" v-if="v$.form_data.crossover_description_one.required.$invalid && show_error_sixteen">
-                                                            Description one is required
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                                <div class="col-md-12">
-                                                    <div class="mb-3">
-                                                        <label class="form-label w-100">
-                                                            Description #2
-                                                            <!--                                                            <span class="error">*</span>-->
-                                                        </label>
-                                                        <input
-                                                            type="text"
-                                                            class="form-control"
-                                                            placeholder=""
-                                                            v-model.trim="form_data.crossover_description_two"
-                                                        />
-                                                        <!--                                                        <div class="error" v-if="v$.form_data.crossover_description_two.required.$invalid && show_error_sixteen">-->
-                                                        <!--                                                            Description two is required-->
-                                                        <!--                                                        </div>-->
-                                                    </div>
-                                                </div>
-
-                                                <div class="col-md-12">
-                                                    <div class="mb-3">
-                                                        <label class="form-label w-100">
-                                                            Description #3
-                                                            <!--                                                            <span class="error">*</span>-->
-                                                        </label>
-                                                        <input
-                                                            type="text"
-                                                            class="form-control"
-                                                            placeholder=""
-                                                            v-model.trim="form_data.crossover_description_three"
-                                                        />
-                                                        <!--                                                        <div class="error" v-if="v$.form_data.crossover_description_three.required.$invalid && show_error_sixteen">-->
-                                                        <!--                                                            Description three is required-->
-                                                        <!--                                                        </div>-->
-                                                    </div>
-                                                </div>
-
-                                                <div class="col-md-6">
-                                                    <div class="mb-3">
-                                                        <label class="form-label w-100">
-                                                            Serial Number   (Only if printed directly on item)
-                                                            <!--                                                            <span class="error">*</span>-->
-                                                        </label>
-                                                        <input
-                                                            type="text"
-                                                            class="form-control"
-                                                            placeholder=""
-                                                            v-model.trim="form_data.crossover_serial_number"
-                                                        />
-                                                        <!--                                                        <div class="error" v-if="v$.form_data.contact_name.required.$invalid && show_error_one">-->
-                                                        <!--                                                            contact name is required-->
-                                                        <!--                                                        </div>-->
-                                                    </div>
-                                                </div>
-
-                                                <div class="col-md-12">
-                                                    <div class="row">
-                                                        <div class="col-md-4">
-                                                            <div class="mb-3 d-flex justify-content-start" style="margin-top: 25px;">
-                                                                <label class="form-label text-capitalize" style="margin-top: 6px;margin-right: 15px;">
-                                                                    Autographed
-                                                                </label>
-                                                                <input
-                                                                    type="checkbox"
-                                                                    class="form-check"
-                                                                    placeholder=""
-                                                                    v-model.trim="form_data.crossover_autographed"
-                                                                />
-                                                                <!--                                            <div class="error" v-if="v$.form_data.same_as_billing.required.$invalid && show_error">-->
-                                                                <!--                                                Same as Billing is required-->
-                                                                <!--                                            </div>-->
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-md-4">
-                                                            <div class="mb-3">
-                                                                <label class="form-label w-100 text-capitalize">
-                                                                    Authenticator Name
-                                                                    <span class="error" v-if="form_data.crossover_autographed">*</span>
-                                                                </label>
-                                                                <select class="form-select mb-text-only" aria-label="Default select example"
-                                                                        v-model.trim="v$.form_data.crossover_authenticator_name.$model"
-                                                                >
-                                                                    <option selected disabled>Open this select menu</option>
-                                                                    <option v-for="(authenticator,index) in authenticators" :value="authenticator.id" :key="authenticator.id">{{authenticator.name}}</option>
-                                                                </select>
-                                                                <!--                                                            <Select2 v-model="form_data.authenticator_name_two" :options="authenticators" />-->
-                                                                <div class="error" v-if="v$.form_data.crossover_authenticator_name.required.$invalid && show_error_sixteen">
-                                                                    Authenticator Name is required
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-md-4">
-                                                            <div class="mb-3">
-                                                                <label class="form-label w-100">
-                                                                    Authenticator Cert. No.
-                                                                    <span class="error" v-if="form_data.crossover_autographed">*</span>
-                                                                </label>
-                                                                <input
-                                                                    type="text"
-                                                                    class="form-control"
-                                                                    placeholder=""
-                                                                    v-model.trim="v$.form_data.crossover_authenticator_cert_no.$model"
-                                                                />
-                                                                <div class="error" v-if="v$.form_data.crossover_authenticator_cert_no.required.$invalid && show_error_sixteen">
-                                                                    Authenticator cert. no. is required
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-md-2">
-                                            <div class="row">
-                                                <div class="col-md-12">
-                                                    <div class="mb-3">
-                                                        <label class="form-label w-100">
-                                                            Estimated Value
-                                                            <span class="error">*</span>
-                                                        </label>
+                                                    <label class="form-label w-100">
+                                                        Rated Parameter
+                                                    </label>
+                                                    <div class="d-flex justify-content-between">
                                                         <input
                                                             type="number"
                                                             class="form-control"
                                                             placeholder=""
-                                                            v-model.trim="v$.form_data.crossover_estimated_value.$model"
+                                                            v-model.trim="form_data.item_qty"
                                                         />
-                                                        <div class="error" v-if="v$.form_data.crossover_estimated_value.required.$invalid && show_error_sixteen">
-                                                            Estimated value is required
-                                                        </div>
+                                                        <span class="mt-2" style="margin-left: .5rem;">m3/hr</span>
                                                     </div>
                                                 </div>
-                                                <div class="col-md-12">
-                                                    <div class="mb-3">
-                                                        <label class="form-label w-100 text-capitalize">
-                                                            Minimum Grade
-                                                            <span class="error">*</span>
-                                                        </label>
-                                                        <select class="form-select mb-text-only" aria-label="Default select example"
-                                                                v-model.trim="v$.form_data.crossover_minimum_grade.$model"
-                                                        >
-                                                            <option selected disabled>Open this select menu</option>
-                                                            <option v-for="(grade,index) in minimumGrades" :value="grade.id" :key="grade.id">{{grade.name}}</option>
-                                                        </select>
-                                                        <!--                                                    <Select2 v-model="form_data.minimum_grade" :options="minimumGrades" />-->
-                                                        <div class="error" v-if="v$.form_data.crossover_minimum_grade.required.$invalid && show_error_sixteen">
-                                                            Minimum grade is required
-                                                        </div>
+                                                <div class="col-md-6">
+                                                    <label class="form-label w-100">
+                                                        Measured Parameter
+                                                    </label>
+                                                    <div class="d-flex justify-content-between">
+                                                        <input
+                                                            type="number"
+                                                            class="form-control"
+                                                            placeholder=""
+                                                            v-model.trim="form_data.item_qty"
+                                                        />
+                                                        <span class="mt-2" style="margin-left: .5rem;">m3/hr</span>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card shipping_address_card">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="row mb-3">
+                                                <label class="form-label w-100">
+                                                    Head
+                                                </label>
+                                                <div class="col-md-6">
+                                                    <label class="form-label w-100">
+                                                        Rated Parameter
+                                                    </label>
+                                                    <div class="d-flex justify-content-between">
+                                                        <input
+                                                            type="number"
+                                                            class="form-control"
+                                                            placeholder=""
+                                                            v-model.trim="form_data.item_qty"
+                                                        />
+                                                        <span class="mt-2" style="margin-left: .5rem;">m</span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label class="form-label w-100">
+                                                        Measured Parameter
+                                                    </label>
+                                                    <div class="d-flex justify-content-between">
+                                                        <input
+                                                            type="number"
+                                                            class="form-control"
+                                                            placeholder=""
+                                                            v-model.trim="form_data.item_qty"
+                                                        />
+                                                        <span class="mt-2" style="margin-left: .5rem;">m</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card shipping_address_card">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="row mb-3">
+                                                <label class="form-label w-100">
+                                                    Voltage
+                                                </label>
+                                                <div class="col-md-6">
+                                                    <label class="form-label w-100">
+                                                        Rated Parameter
+                                                    </label>
+                                                    <div class="d-flex justify-content-between">
+                                                        <input
+                                                            type="number"
+                                                            class="form-control"
+                                                            placeholder=""
+                                                            v-model.trim="form_data.item_qty"
+                                                        />
+                                                        <span class="mt-2" style="margin-left: .5rem;">V</span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label class="form-label w-100">
+                                                        Measured Parameter
+                                                    </label>
+                                                    <div class="d-flex justify-content-between">
+                                                        <input
+                                                            type="number"
+                                                            class="form-control"
+                                                            placeholder=""
+                                                            v-model.trim="form_data.item_qty"
+                                                        />
+                                                        <span class="mt-2" style="margin-left: .5rem;">V</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card shipping_address_card">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="row mb-3">
+                                                <label class="form-label w-100">
+                                                    Current
+                                                </label>
+                                                <div class="col-md-6">
+                                                    <label class="form-label w-100">
+                                                        Rated Parameter
+                                                    </label>
+                                                    <div class="d-flex justify-content-between">
+                                                        <input
+                                                            type="number"
+                                                            class="form-control"
+                                                            placeholder=""
+                                                            v-model.trim="form_data.item_qty"
+                                                        />
+                                                        <span class="mt-2" style="margin-left: .5rem;">A</span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label class="form-label w-100">
+                                                        Measured Parameter
+                                                    </label>
+                                                    <div class="d-flex justify-content-between">
+                                                        <input
+                                                            type="number"
+                                                            class="form-control"
+                                                            placeholder=""
+                                                            v-model.trim="form_data.item_qty"
+                                                        />
+                                                        <span class="mt-2" style="margin-left: .5rem;">A</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card shipping_address_card">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="row mb-3">
+                                                <label class="form-label w-100">
+                                                    Power factor
+                                                </label>
+                                                <div class="col-md-6">
+                                                    <label class="form-label w-100">
+                                                        Rated Parameter
+                                                    </label>
+                                                    <div class="d-flex justify-content-between">
+                                                        <input
+                                                            type="number"
+                                                            class="form-control"
+                                                            placeholder=""
+                                                            v-model.trim="form_data.item_qty"
+                                                        />
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label class="form-label w-100">
+                                                        Measured Parameter
+                                                    </label>
+                                                    <div class="d-flex justify-content-between">
+                                                        <input
+                                                            type="number"
+                                                            class="form-control"
+                                                            placeholder=""
+                                                            v-model.trim="form_data.item_qty"
+                                                        />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card shipping_address_card">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="row mb-3">
+                                                <label class="form-label w-100">
+                                                    Motor power
+                                                </label>
+                                                <div class="col-md-6">
+                                                    <label class="form-label w-100">
+                                                        Rated Parameter
+                                                    </label>
+                                                    <div class="d-flex justify-content-between">
+                                                        <input
+                                                            type="number"
+                                                            class="form-control"
+                                                            placeholder=""
+                                                            v-model.trim="form_data.item_qty"
+                                                        />
+                                                        <span class="mt-2" style="margin-left: .5rem;">kW</span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label class="form-label w-100">
+                                                        Measured Parameter
+                                                    </label>
+                                                    <div class="d-flex justify-content-between">
+                                                        <input
+                                                            type="number"
+                                                            class="form-control"
+                                                            placeholder=""
+                                                            v-model.trim="form_data.item_qty"
+                                                        />
+                                                        <span class="mt-2" style="margin-left: .5rem;">kW</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card shipping_address_card">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="row mb-3">
+                                                <label class="form-label w-100">
+                                                    Motor efficiency
+                                                </label>
+                                                <div class="col-md-6">
+                                                    <label class="form-label w-100">
+                                                        Rated Parameter
+                                                    </label>
+                                                    <div class="d-flex justify-content-between">
+                                                        <input
+                                                            type="number"
+                                                            class="form-control"
+                                                            placeholder=""
+                                                            v-model.trim="form_data.item_qty"
+                                                        />
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label class="form-label w-100">
+                                                        Measured Parameter
+                                                    </label>
+                                                    <div class="d-flex justify-content-between">
+                                                        <input
+                                                            type="number"
+                                                            class="form-control"
+                                                            placeholder=""
+                                                            v-model.trim="form_data.item_qty"
+                                                        />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card shipping_address_card">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="row mb-3">
+                                                <label class="form-label w-100">
+                                                    Motor Efficiency class
+                                                </label>
+                                                <div class="col-md-6">
+                                                    <label class="form-label w-100">
+                                                        Rated Parameter
+                                                    </label>
+                                                    <div class="d-flex justify-content-between">
+                                                        <select class="form-select mb-text-only" aria-label="Default select example"
+                                                                v-model.trim="form_data.itemType"
+                                                        >
+                                                            <option>IE2</option>
+                                                            <option>IE3</option>
+                                                            <option>IE5</option>
+                                                            <option>IE5</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label class="form-label w-100">
+                                                        Measured Parameter
+                                                    </label>
+                                                    <div class="d-flex justify-content-between">
+                                                        <select class="form-select mb-text-only" aria-label="Default select example"
+                                                                v-model.trim="form_data.itemType"
+                                                        >
+                                                            <option>IE2</option>
+                                                            <option>IE3</option>
+                                                            <option>IE5</option>
+                                                            <option>IE5</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card shipping_address_card">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="row mb-3">
+                                                <label class="form-label w-100">
+                                                    Motor frame size
+                                                </label>
+                                                <div class="col-md-6">
+                                                    <label class="form-label w-100">
+                                                        Rated Parameter
+                                                    </label>
+                                                    <div class="d-flex justify-content-between">
+                                                        <input
+                                                            type="number"
+                                                            class="form-control"
+                                                            placeholder=""
+                                                            v-model.trim="form_data.item_qty"
+                                                        />
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label class="form-label w-100">
+                                                        Measured Parameter
+                                                    </label>
+                                                    <div class="d-flex justify-content-between">
+                                                        <input
+                                                            type="number"
+                                                            class="form-control"
+                                                            placeholder=""
+                                                            v-model.trim="form_data.item_qty"
+                                                        />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card shipping_address_card">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="row mb-3">
+                                                <label class="form-label w-100">
+                                                    Insulation class
+                                                </label>
+                                                <div class="col-md-6">
+                                                    <label class="form-label w-100">
+                                                        Rated Parameter
+                                                    </label>
+                                                    <div class="d-flex justify-content-between">
+                                                        <input
+                                                            type="number"
+                                                            class="form-control"
+                                                            placeholder=""
+                                                            v-model.trim="form_data.item_qty"
+                                                        />
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label class="form-label w-100">
+                                                        Measured Parameter
+                                                    </label>
+                                                    <div class="d-flex justify-content-between">
+                                                        <input
+                                                            type="number"
+                                                            class="form-control"
+                                                            placeholder=""
+                                                            v-model.trim="form_data.item_qty"
+                                                        />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card shipping_address_card">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="row mb-3">
+                                                <label class="form-label w-100">
+                                                    Suction head
+                                                </label>
+                                                <div class="col-md-6">
+                                                    <label class="form-label w-100">
+                                                        Rated Parameter
+                                                    </label>
+                                                    <div class="d-flex justify-content-between">
+                                                        <input
+                                                            type="number"
+                                                            class="form-control"
+                                                            placeholder=""
+                                                            v-model.trim="form_data.item_qty"
+                                                        />
+                                                        <span class="mt-2" style="margin-left: .5rem;">m</span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label class="form-label w-100">
+                                                        Measured Parameter
+                                                    </label>
+                                                    <div class="d-flex justify-content-between">
+                                                        <input
+                                                            type="number"
+                                                            class="form-control"
+                                                            placeholder=""
+                                                            v-model.trim="form_data.item_qty"
+                                                        />
+                                                        <span class="mt-2" style="margin-left: .5rem;">m</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card shipping_address_card">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="row mb-3">
+                                                <label class="form-label w-100">
+                                                    Discharge head
+                                                </label>
+                                                <div class="col-md-6">
+                                                    <label class="form-label w-100">
+                                                        Rated Parameter
+                                                    </label>
+                                                    <div class="d-flex justify-content-between">
+                                                        <input
+                                                            type="number"
+                                                            class="form-control"
+                                                            placeholder=""
+                                                            v-model.trim="form_data.item_qty"
+                                                        />
+                                                        <span class="mt-2" style="margin-left: .5rem;">m</span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label class="form-label w-100">
+                                                        Measured Parameter
+                                                    </label>
+                                                    <div class="d-flex justify-content-between">
+                                                        <input
+                                                            type="number"
+                                                            class="form-control"
+                                                            placeholder=""
+                                                            v-model.trim="form_data.item_qty"
+                                                        />
+                                                        <span class="mt-2" style="margin-left: .5rem;">m</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card shipping_address_card">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="row mb-3">
+                                                <label class="form-label w-100">
+                                                    Pump efficiency
+                                                </label>
+                                                <div class="col-md-6">
+                                                    <label class="form-label w-100">
+                                                        Rated Parameter
+                                                    </label>
+                                                    <div class="d-flex justify-content-between">
+                                                        <input
+                                                            type="number"
+                                                            class="form-control"
+                                                            placeholder=""
+                                                            v-model.trim="form_data.item_qty"
+                                                        />
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label class="form-label w-100">
+                                                        Measured Parameter
+                                                    </label>
+                                                    <div class="d-flex justify-content-between">
+                                                        <input
+                                                            type="number"
+                                                            class="form-control"
+                                                            placeholder=""
+                                                            v-model.trim="form_data.item_qty"
+                                                        />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!--item type Fan-->
+                        <div class="col-md-12" v-if="showItemTypeAutoAthenticationBox">
+                            <div class="card shipping_address_card">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="row mb-3">
+                                                <label class="form-label w-100">
+                                                    Year of installation
+                                                </label>
+                                                <div class="col-md-6">
+                                                    <label class="form-label w-100">
+                                                        Rated Parameter
+                                                    </label>
+                                                    <input
+                                                        type="text"
+                                                        class="form-control"
+                                                        placeholder=""
+                                                        v-model.trim="form_data.item_qty"
+                                                        readonly
+                                                    />
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label class="form-label w-100">
+                                                        Measured Parameter
+                                                    </label>
+                                                    <input
+                                                        type="text"
+                                                        class="form-control"
+                                                        placeholder=""
+                                                        v-model.trim="form_data.item_qty"
+                                                        readonly
+                                                    />
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card shipping_address_card">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="row mb-3">
+                                                <label class="form-label w-100">
+                                                    Flow
+                                                </label>
+                                                <div class="col-md-6">
+                                                    <label class="form-label w-100">
+                                                        Rated Parameter
+                                                    </label>
+                                                    <div class="d-flex justify-content-between">
+                                                        <input
+                                                            type="number"
+                                                            class="form-control"
+                                                            placeholder=""
+                                                            v-model.trim="form_data.item_qty"
+                                                        />
+                                                        <span class="mt-2" style="margin-left: .5rem;">m3/hr</span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label class="form-label w-100">
+                                                        Measured Parameter
+                                                    </label>
+                                                    <div class="d-flex justify-content-between">
+                                                        <input
+                                                            type="number"
+                                                            class="form-control"
+                                                            placeholder=""
+                                                            v-model.trim="form_data.item_qty"
+                                                        />
+                                                        <span class="mt-2" style="margin-left: .5rem;">m3/hr</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card shipping_address_card">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="row mb-3">
+                                                <label class="form-label w-100">
+                                                    Head
+                                                </label>
+                                                <div class="col-md-6">
+                                                    <label class="form-label w-100">
+                                                        Rated Parameter
+                                                    </label>
+                                                    <div class="d-flex justify-content-between">
+                                                        <input
+                                                            type="number"
+                                                            class="form-control"
+                                                            placeholder=""
+                                                            v-model.trim="form_data.item_qty"
+                                                        />
+                                                        <span class="mt-2" style="margin-left: .5rem;">m</span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label class="form-label w-100">
+                                                        Measured Parameter
+                                                    </label>
+                                                    <div class="d-flex justify-content-between">
+                                                        <input
+                                                            type="number"
+                                                            class="form-control"
+                                                            placeholder=""
+                                                            v-model.trim="form_data.item_qty"
+                                                        />
+                                                        <span class="mt-2" style="margin-left: .5rem;">m</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card shipping_address_card">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="row mb-3">
+                                                <label class="form-label w-100">
+                                                    Voltage
+                                                </label>
+                                                <div class="col-md-6">
+                                                    <label class="form-label w-100">
+                                                        Rated Parameter
+                                                    </label>
+                                                    <div class="d-flex justify-content-between">
+                                                        <input
+                                                            type="number"
+                                                            class="form-control"
+                                                            placeholder=""
+                                                            v-model.trim="form_data.item_qty"
+                                                        />
+                                                        <span class="mt-2" style="margin-left: .5rem;">V</span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label class="form-label w-100">
+                                                        Measured Parameter
+                                                    </label>
+                                                    <div class="d-flex justify-content-between">
+                                                        <input
+                                                            type="number"
+                                                            class="form-control"
+                                                            placeholder=""
+                                                            v-model.trim="form_data.item_qty"
+                                                        />
+                                                        <span class="mt-2" style="margin-left: .5rem;">V</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card shipping_address_card">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="row mb-3">
+                                                <label class="form-label w-100">
+                                                    Current
+                                                </label>
+                                                <div class="col-md-6">
+                                                    <label class="form-label w-100">
+                                                        Rated Parameter
+                                                    </label>
+                                                    <div class="d-flex justify-content-between">
+                                                        <input
+                                                            type="number"
+                                                            class="form-control"
+                                                            placeholder=""
+                                                            v-model.trim="form_data.item_qty"
+                                                        />
+                                                        <span class="mt-2" style="margin-left: .5rem;">A</span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label class="form-label w-100">
+                                                        Measured Parameter
+                                                    </label>
+                                                    <div class="d-flex justify-content-between">
+                                                        <input
+                                                            type="number"
+                                                            class="form-control"
+                                                            placeholder=""
+                                                            v-model.trim="form_data.item_qty"
+                                                        />
+                                                        <span class="mt-2" style="margin-left: .5rem;">A</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card shipping_address_card">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="row mb-3">
+                                                <label class="form-label w-100">
+                                                    Power factor
+                                                </label>
+                                                <div class="col-md-6">
+                                                    <label class="form-label w-100">
+                                                        Rated Parameter
+                                                    </label>
+                                                    <div class="d-flex justify-content-between">
+                                                        <input
+                                                            type="number"
+                                                            class="form-control"
+                                                            placeholder=""
+                                                            v-model.trim="form_data.item_qty"
+                                                        />
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label class="form-label w-100">
+                                                        Measured Parameter
+                                                    </label>
+                                                    <div class="d-flex justify-content-between">
+                                                        <input
+                                                            type="number"
+                                                            class="form-control"
+                                                            placeholder=""
+                                                            v-model.trim="form_data.item_qty"
+                                                        />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card shipping_address_card">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="row mb-3">
+                                                <label class="form-label w-100">
+                                                    Motor power
+                                                </label>
+                                                <div class="col-md-6">
+                                                    <label class="form-label w-100">
+                                                        Rated Parameter
+                                                    </label>
+                                                    <div class="d-flex justify-content-between">
+                                                        <input
+                                                            type="number"
+                                                            class="form-control"
+                                                            placeholder=""
+                                                            v-model.trim="form_data.item_qty"
+                                                        />
+                                                        <span class="mt-2" style="margin-left: .5rem;">kW</span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label class="form-label w-100">
+                                                        Measured Parameter
+                                                    </label>
+                                                    <div class="d-flex justify-content-between">
+                                                        <input
+                                                            type="number"
+                                                            class="form-control"
+                                                            placeholder=""
+                                                            v-model.trim="form_data.item_qty"
+                                                        />
+                                                        <span class="mt-2" style="margin-left: .5rem;">kW</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card shipping_address_card">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="row mb-3">
+                                                <label class="form-label w-100">
+                                                    Motor efficiency
+                                                </label>
+                                                <div class="col-md-6">
+                                                    <label class="form-label w-100">
+                                                        Rated Parameter
+                                                    </label>
+                                                    <div class="d-flex justify-content-between">
+                                                        <input
+                                                            type="number"
+                                                            class="form-control"
+                                                            placeholder=""
+                                                            v-model.trim="form_data.item_qty"
+                                                        />
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label class="form-label w-100">
+                                                        Measured Parameter
+                                                    </label>
+                                                    <div class="d-flex justify-content-between">
+                                                        <input
+                                                            type="number"
+                                                            class="form-control"
+                                                            placeholder=""
+                                                            v-model.trim="form_data.item_qty"
+                                                        />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card shipping_address_card">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="row mb-3">
+                                                <label class="form-label w-100">
+                                                    Motor Efficiency class
+                                                </label>
+                                                <div class="col-md-6">
+                                                    <label class="form-label w-100">
+                                                        Rated Parameter
+                                                    </label>
+                                                    <div class="d-flex justify-content-between">
+                                                        <select class="form-select mb-text-only" aria-label="Default select example"
+                                                                v-model.trim="form_data.itemType"
+                                                        >
+                                                            <option>IE2</option>
+                                                            <option>IE3</option>
+                                                            <option>IE5</option>
+                                                            <option>IE5</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label class="form-label w-100">
+                                                        Measured Parameter
+                                                    </label>
+                                                    <div class="d-flex justify-content-between">
+                                                        <select class="form-select mb-text-only" aria-label="Default select example"
+                                                                v-model.trim="form_data.itemType"
+                                                        >
+                                                            <option>IE2</option>
+                                                            <option>IE3</option>
+                                                            <option>IE5</option>
+                                                            <option>IE5</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card shipping_address_card">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="row mb-3">
+                                                <label class="form-label w-100">
+                                                    Motor frame size
+                                                </label>
+                                                <div class="col-md-6">
+                                                    <label class="form-label w-100">
+                                                        Rated Parameter
+                                                    </label>
+                                                    <div class="d-flex justify-content-between">
+                                                        <input
+                                                            type="number"
+                                                            class="form-control"
+                                                            placeholder=""
+                                                            v-model.trim="form_data.item_qty"
+                                                        />
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label class="form-label w-100">
+                                                        Measured Parameter
+                                                    </label>
+                                                    <div class="d-flex justify-content-between">
+                                                        <input
+                                                            type="number"
+                                                            class="form-control"
+                                                            placeholder=""
+                                                            v-model.trim="form_data.item_qty"
+                                                        />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card shipping_address_card">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="row mb-3">
+                                                <label class="form-label w-100">
+                                                    Insulation class
+                                                </label>
+                                                <div class="col-md-6">
+                                                    <label class="form-label w-100">
+                                                        Rated Parameter
+                                                    </label>
+                                                    <div class="d-flex justify-content-between">
+                                                        <input
+                                                            type="number"
+                                                            class="form-control"
+                                                            placeholder=""
+                                                            v-model.trim="form_data.item_qty"
+                                                        />
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label class="form-label w-100">
+                                                        Measured Parameter
+                                                    </label>
+                                                    <div class="d-flex justify-content-between">
+                                                        <input
+                                                            type="number"
+                                                            class="form-control"
+                                                            placeholder=""
+                                                            v-model.trim="form_data.item_qty"
+                                                        />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card shipping_address_card">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="row mb-3">
+                                                <label class="form-label w-100">
+                                                    Suction Duct Size
+                                                </label>
+                                                <div class="col-md-6">
+                                                    <label class="form-label w-100">
+                                                        Rated Parameter
+                                                    </label>
+                                                    <div class="d-flex justify-content-between">
+                                                        <input
+                                                            type="number"
+                                                            class="form-control"
+                                                            placeholder=""
+                                                            v-model.trim="form_data.item_qty"
+                                                        />
+                                                        <span class="mt-2" style="margin-left: .5rem;">m2</span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label class="form-label w-100">
+                                                        Measured Parameter
+                                                    </label>
+                                                    <div class="d-flex justify-content-between">
+                                                        <input
+                                                            type="number"
+                                                            class="form-control"
+                                                            placeholder=""
+                                                            v-model.trim="form_data.item_qty"
+                                                        />
+                                                        <span class="mt-2" style="margin-left: .5rem;">m2</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card shipping_address_card">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="row mb-3">
+                                                <label class="form-label w-100">
+                                                    Suction Static pressure
+                                                </label>
+                                                <div class="col-md-6">
+                                                    <label class="form-label w-100">
+                                                        Rated Parameter
+                                                    </label>
+                                                    <div class="d-flex justify-content-between">
+                                                        <input
+                                                            type="number"
+                                                            class="form-control"
+                                                            placeholder=""
+                                                            v-model.trim="form_data.item_qty"
+                                                        />
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label class="form-label w-100">
+                                                        Measured Parameter
+                                                    </label>
+                                                    <div class="d-flex justify-content-between">
+                                                        <input
+                                                            type="number"
+                                                            class="form-control"
+                                                            placeholder=""
+                                                            v-model.trim="form_data.item_qty"
+                                                        />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card shipping_address_card">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="row mb-3">
+                                                <label class="form-label w-100">
+                                                    Suction Velocity pressure
+                                                </label>
+                                                <div class="col-md-6">
+                                                    <label class="form-label w-100">
+                                                        Rated Parameter
+                                                    </label>
+                                                    <div class="d-flex justify-content-between">
+                                                        <input
+                                                            type="number"
+                                                            class="form-control"
+                                                            placeholder=""
+                                                            v-model.trim="form_data.item_qty"
+                                                        />
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label class="form-label w-100">
+                                                        Measured Parameter
+                                                    </label>
+                                                    <div class="d-flex justify-content-between">
+                                                        <input
+                                                            type="number"
+                                                            class="form-control"
+                                                            placeholder=""
+                                                            v-model.trim="form_data.item_qty"
+                                                        />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card shipping_address_card">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="row mb-3">
+                                                <label class="form-label w-100">
+                                                    Discharge Duct Size
+                                                </label>
+                                                <div class="col-md-6">
+                                                    <label class="form-label w-100">
+                                                        Rated Parameter
+                                                    </label>
+                                                    <div class="d-flex justify-content-between">
+                                                        <input
+                                                            type="number"
+                                                            class="form-control"
+                                                            placeholder=""
+                                                            v-model.trim="form_data.item_qty"
+                                                        />
+                                                        <span class="mt-2" style="margin-left: .5rem;">m2</span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label class="form-label w-100">
+                                                        Measured Parameter
+                                                    </label>
+                                                    <div class="d-flex justify-content-between">
+                                                        <input
+                                                            type="number"
+                                                            class="form-control"
+                                                            placeholder=""
+                                                            v-model.trim="form_data.item_qty"
+                                                        />
+                                                        <span class="mt-2" style="margin-left: .5rem;">m2</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card shipping_address_card">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="row mb-3">
+                                                <label class="form-label w-100">
+                                                    Discharge Static pressure
+                                                </label>
+                                                <div class="col-md-6">
+                                                    <label class="form-label w-100">
+                                                        Rated Parameter
+                                                    </label>
+                                                    <div class="d-flex justify-content-between">
+                                                        <input
+                                                            type="number"
+                                                            class="form-control"
+                                                            placeholder=""
+                                                            v-model.trim="form_data.item_qty"
+                                                        />
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label class="form-label w-100">
+                                                        Measured Parameter
+                                                    </label>
+                                                    <div class="d-flex justify-content-between">
+                                                        <input
+                                                            type="number"
+                                                            class="form-control"
+                                                            placeholder=""
+                                                            v-model.trim="form_data.item_qty"
+                                                        />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card shipping_address_card">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="row mb-3">
+                                                <label class="form-label w-100">
+                                                    Discharge Velocity pressure
+                                                </label>
+                                                <div class="col-md-6">
+                                                    <label class="form-label w-100">
+                                                        Rated Parameter
+                                                    </label>
+                                                    <div class="d-flex justify-content-between">
+                                                        <input
+                                                            type="number"
+                                                            class="form-control"
+                                                            placeholder=""
+                                                            v-model.trim="form_data.item_qty"
+                                                        />
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label class="form-label w-100">
+                                                        Measured Parameter
+                                                    </label>
+                                                    <div class="d-flex justify-content-between">
+                                                        <input
+                                                            type="number"
+                                                            class="form-control"
+                                                            placeholder=""
+                                                            v-model.trim="form_data.item_qty"
+                                                        />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card shipping_address_card">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="row mb-3">
+                                                <label class="form-label w-100">
+                                                    Fan efficiency
+                                                </label>
+                                                <div class="col-md-6">
+                                                    <label class="form-label w-100">
+                                                        Rated Parameter
+                                                    </label>
+                                                    <div class="d-flex justify-content-between">
+                                                        <input
+                                                            type="number"
+                                                            class="form-control"
+                                                            placeholder=""
+                                                            v-model.trim="form_data.item_qty"
+                                                        />
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label class="form-label w-100">
+                                                        Measured Parameter
+                                                    </label>
+                                                    <div class="d-flex justify-content-between">
+                                                        <input
+                                                            type="number"
+                                                            class="form-control"
+                                                            placeholder=""
+                                                            v-model.trim="form_data.item_qty"
+                                                        />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!--item type Air Compressor-->
+                        <div class="col-md-12" v-if="showItemTypeCombinedServiceBox">
+                            <div class="card shipping_address_card">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="row mb-3">
+                                                <label class="form-label w-100">
+                                                    Year of installation
+                                                </label>
+                                                <div class="col-md-6">
+                                                    <label class="form-label w-100">
+                                                        Rated Parameter
+                                                    </label>
+                                                    <input
+                                                        type="text"
+                                                        class="form-control"
+                                                        placeholder=""
+                                                        v-model.trim="form_data.item_qty"
+                                                        readonly
+                                                    />
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label class="form-label w-100">
+                                                        Measured Parameter
+                                                    </label>
+                                                    <input
+                                                        type="text"
+                                                        class="form-control"
+                                                        placeholder=""
+                                                        v-model.trim="form_data.item_qty"
+                                                        readonly
+                                                    />
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card shipping_address_card">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="row mb-3">
+                                                <label class="form-label w-100">
+                                                    Flow
+                                                </label>
+                                                <div class="col-md-6">
+                                                    <label class="form-label w-100">
+                                                        Rated Parameter
+                                                    </label>
+                                                    <div class="d-flex justify-content-between">
+                                                        <input
+                                                            type="number"
+                                                            class="form-control"
+                                                            placeholder=""
+                                                            v-model.trim="form_data.item_qty"
+                                                        />
+                                                        <span class="mt-2" style="margin-left: .5rem;">m3/hr</span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label class="form-label w-100">
+                                                        Measured Parameter
+                                                    </label>
+                                                    <div class="d-flex justify-content-between">
+                                                        <input
+                                                            type="number"
+                                                            class="form-control"
+                                                            placeholder=""
+                                                            v-model.trim="form_data.item_qty"
+                                                        />
+                                                        <span class="mt-2" style="margin-left: .5rem;">m3/hr</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card shipping_address_card">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="row mb-3">
+                                                <label class="form-label w-100">
+                                                    Pressure
+                                                </label>
+                                                <div class="col-md-6">
+                                                    <label class="form-label w-100">
+                                                        Rated Parameter
+                                                    </label>
+                                                    <div class="d-flex justify-content-between">
+                                                        <input
+                                                            type="number"
+                                                            class="form-control"
+                                                            placeholder=""
+                                                            v-model.trim="form_data.item_qty"
+                                                        />
+                                                        <span class="mt-2" style="margin-left: .5rem;">m</span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label class="form-label w-100">
+                                                        Measured Parameter
+                                                    </label>
+                                                    <div class="d-flex justify-content-between">
+                                                        <input
+                                                            type="number"
+                                                            class="form-control"
+                                                            placeholder=""
+                                                            v-model.trim="form_data.item_qty"
+                                                        />
+                                                        <span class="mt-2" style="margin-left: .5rem;">m</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card shipping_address_card">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="row mb-3">
+                                                <label class="form-label w-100">
+                                                    Voltage
+                                                </label>
+                                                <div class="col-md-6">
+                                                    <label class="form-label w-100">
+                                                        Rated Parameter
+                                                    </label>
+                                                    <div class="d-flex justify-content-between">
+                                                        <input
+                                                            type="number"
+                                                            class="form-control"
+                                                            placeholder=""
+                                                            v-model.trim="form_data.item_qty"
+                                                        />
+                                                        <span class="mt-2" style="margin-left: .5rem;">V</span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label class="form-label w-100">
+                                                        Measured Parameter
+                                                    </label>
+                                                    <div class="d-flex justify-content-between">
+                                                        <input
+                                                            type="number"
+                                                            class="form-control"
+                                                            placeholder=""
+                                                            v-model.trim="form_data.item_qty"
+                                                        />
+                                                        <span class="mt-2" style="margin-left: .5rem;">V</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card shipping_address_card">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="row mb-3">
+                                                <label class="form-label w-100">
+                                                    Current
+                                                </label>
+                                                <div class="col-md-6">
+                                                    <label class="form-label w-100">
+                                                        Rated Parameter
+                                                    </label>
+                                                    <div class="d-flex justify-content-between">
+                                                        <input
+                                                            type="number"
+                                                            class="form-control"
+                                                            placeholder=""
+                                                            v-model.trim="form_data.item_qty"
+                                                        />
+                                                        <span class="mt-2" style="margin-left: .5rem;">A</span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label class="form-label w-100">
+                                                        Measured Parameter
+                                                    </label>
+                                                    <div class="d-flex justify-content-between">
+                                                        <input
+                                                            type="number"
+                                                            class="form-control"
+                                                            placeholder=""
+                                                            v-model.trim="form_data.item_qty"
+                                                        />
+                                                        <span class="mt-2" style="margin-left: .5rem;">A</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card shipping_address_card">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="row mb-3">
+                                                <label class="form-label w-100">
+                                                    Power factor
+                                                </label>
+                                                <div class="col-md-6">
+                                                    <label class="form-label w-100">
+                                                        Rated Parameter
+                                                    </label>
+                                                    <div class="d-flex justify-content-between">
+                                                        <input
+                                                            type="number"
+                                                            class="form-control"
+                                                            placeholder=""
+                                                            v-model.trim="form_data.item_qty"
+                                                        />
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label class="form-label w-100">
+                                                        Measured Parameter
+                                                    </label>
+                                                    <div class="d-flex justify-content-between">
+                                                        <input
+                                                            type="number"
+                                                            class="form-control"
+                                                            placeholder=""
+                                                            v-model.trim="form_data.item_qty"
+                                                        />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card shipping_address_card">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="row mb-3">
+                                                <label class="form-label w-100">
+                                                    Motor power
+                                                </label>
+                                                <div class="col-md-6">
+                                                    <label class="form-label w-100">
+                                                        Rated Parameter
+                                                    </label>
+                                                    <div class="d-flex justify-content-between">
+                                                        <input
+                                                            type="number"
+                                                            class="form-control"
+                                                            placeholder=""
+                                                            v-model.trim="form_data.item_qty"
+                                                        />
+                                                        <span class="mt-2" style="margin-left: .5rem;">kW</span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label class="form-label w-100">
+                                                        Measured Parameter
+                                                    </label>
+                                                    <div class="d-flex justify-content-between">
+                                                        <input
+                                                            type="number"
+                                                            class="form-control"
+                                                            placeholder=""
+                                                            v-model.trim="form_data.item_qty"
+                                                        />
+                                                        <span class="mt-2" style="margin-left: .5rem;">kW</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card shipping_address_card">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="row mb-3">
+                                                <label class="form-label w-100">
+                                                    Motor efficiency
+                                                </label>
+                                                <div class="col-md-6">
+                                                    <label class="form-label w-100">
+                                                        Rated Parameter
+                                                    </label>
+                                                    <div class="d-flex justify-content-between">
+                                                        <input
+                                                            type="number"
+                                                            class="form-control"
+                                                            placeholder=""
+                                                            v-model.trim="form_data.item_qty"
+                                                        />
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label class="form-label w-100">
+                                                        Measured Parameter
+                                                    </label>
+                                                    <div class="d-flex justify-content-between">
+                                                        <input
+                                                            type="number"
+                                                            class="form-control"
+                                                            placeholder=""
+                                                            v-model.trim="form_data.item_qty"
+                                                        />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card shipping_address_card">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="row mb-3">
+                                                <label class="form-label w-100">
+                                                    Motor Efficiency class
+                                                </label>
+                                                <div class="col-md-6">
+                                                    <label class="form-label w-100">
+                                                        Rated Parameter
+                                                    </label>
+                                                    <div class="d-flex justify-content-between">
+                                                        <select class="form-select mb-text-only" aria-label="Default select example"
+                                                                v-model.trim="form_data.itemType"
+                                                        >
+                                                            <option>IE2</option>
+                                                            <option>IE3</option>
+                                                            <option>IE5</option>
+                                                            <option>IE5</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label class="form-label w-100">
+                                                        Measured Parameter
+                                                    </label>
+                                                    <div class="d-flex justify-content-between">
+                                                        <select class="form-select mb-text-only" aria-label="Default select example"
+                                                                v-model.trim="form_data.itemType"
+                                                        >
+                                                            <option>IE2</option>
+                                                            <option>IE3</option>
+                                                            <option>IE5</option>
+                                                            <option>IE5</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card shipping_address_card">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="row mb-3">
+                                                <label class="form-label w-100">
+                                                    Motor frame size
+                                                </label>
+                                                <div class="col-md-6">
+                                                    <label class="form-label w-100">
+                                                        Rated Parameter
+                                                    </label>
+                                                    <div class="d-flex justify-content-between">
+                                                        <input
+                                                            type="number"
+                                                            class="form-control"
+                                                            placeholder=""
+                                                            v-model.trim="form_data.item_qty"
+                                                        />
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label class="form-label w-100">
+                                                        Measured Parameter
+                                                    </label>
+                                                    <div class="d-flex justify-content-between">
+                                                        <input
+                                                            type="number"
+                                                            class="form-control"
+                                                            placeholder=""
+                                                            v-model.trim="form_data.item_qty"
+                                                        />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card shipping_address_card">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="row mb-3">
+                                                <label class="form-label w-100">
+                                                    Insulation class
+                                                </label>
+                                                <div class="col-md-6">
+                                                    <label class="form-label w-100">
+                                                        Rated Parameter
+                                                    </label>
+                                                    <div class="d-flex justify-content-between">
+                                                        <input
+                                                            type="number"
+                                                            class="form-control"
+                                                            placeholder=""
+                                                            v-model.trim="form_data.item_qty"
+                                                        />
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label class="form-label w-100">
+                                                        Measured Parameter
+                                                    </label>
+                                                    <div class="d-flex justify-content-between">
+                                                        <input
+                                                            type="number"
+                                                            class="form-control"
+                                                            placeholder=""
+                                                            v-model.trim="form_data.item_qty"
+                                                        />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card shipping_address_card">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="row mb-3">
+                                                <label class="form-label w-100">
+                                                    Load Pressure
+                                                </label>
+                                                <div class="col-md-6">
+                                                    <label class="form-label w-100">
+                                                        Rated Parameter
+                                                    </label>
+                                                    <div class="d-flex justify-content-between">
+                                                        <input
+                                                            type="number"
+                                                            class="form-control"
+                                                            placeholder=""
+                                                            v-model.trim="form_data.item_qty"
+                                                        />
+                                                        <span class="mt-2" style="margin-left: .5rem;">bar</span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label class="form-label w-100">
+                                                        Measured Parameter
+                                                    </label>
+                                                    <div class="d-flex justify-content-between">
+                                                        <input
+                                                            type="number"
+                                                            class="form-control"
+                                                            placeholder=""
+                                                            v-model.trim="form_data.item_qty"
+                                                        />
+                                                        <span class="mt-2" style="margin-left: .5rem;">bar</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card shipping_address_card">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="row mb-3">
+                                                <label class="form-label w-100">
+                                                    Unnload Pressure
+                                                </label>
+                                                <div class="col-md-6">
+                                                    <label class="form-label w-100">
+                                                        Rated Parameter
+                                                    </label>
+                                                    <div class="d-flex justify-content-between">
+                                                        <input
+                                                            type="number"
+                                                            class="form-control"
+                                                            placeholder=""
+                                                            v-model.trim="form_data.item_qty"
+                                                        />
+                                                        <span class="mt-2" style="margin-left: .5rem;">bar</span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label class="form-label w-100">
+                                                        Measured Parameter
+                                                    </label>
+                                                    <div class="d-flex justify-content-between">
+                                                        <input
+                                                            type="number"
+                                                            class="form-control"
+                                                            placeholder=""
+                                                            v-model.trim="form_data.item_qty"
+                                                        />
+                                                        <span class="mt-2" style="margin-left: .5rem;">bar</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card shipping_address_card">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="row mb-3">
+                                                <label class="form-label w-100">
+                                                    Reciever Size
+                                                </label>
+                                                <div class="col-md-6">
+                                                    <label class="form-label w-100">
+                                                        Rated Parameter
+                                                    </label>
+                                                    <div class="d-flex justify-content-between">
+                                                        <input
+                                                            type="number"
+                                                            class="form-control"
+                                                            placeholder=""
+                                                            v-model.trim="form_data.item_qty"
+                                                        />
+                                                        <span class="mt-2" style="margin-left: .5rem;">m3</span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label class="form-label w-100">
+                                                        Measured Parameter
+                                                    </label>
+                                                    <div class="d-flex justify-content-between">
+                                                        <input
+                                                            type="number"
+                                                            class="form-control"
+                                                            placeholder=""
+                                                            v-model.trim="form_data.item_qty"
+                                                        />
+                                                        <span class="mt-2" style="margin-left: .5rem;">m3</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card shipping_address_card">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="row mb-3">
+                                                <label class="form-label w-100">
+                                                    Initial Pressure
+                                                </label>
+                                                <div class="col-md-6">
+                                                    <label class="form-label w-100">
+                                                        Rated Parameter
+                                                    </label>
+                                                    <div class="d-flex justify-content-between">
+                                                        <input
+                                                            type="number"
+                                                            class="form-control"
+                                                            placeholder=""
+                                                            v-model.trim="form_data.item_qty"
+                                                        />
+                                                        <span class="mt-2" style="margin-left: .5rem;">bar</span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label class="form-label w-100">
+                                                        Measured Parameter
+                                                    </label>
+                                                    <div class="d-flex justify-content-between">
+                                                        <input
+                                                            type="number"
+                                                            class="form-control"
+                                                            placeholder=""
+                                                            v-model.trim="form_data.item_qty"
+                                                        />
+                                                        <span class="mt-2" style="margin-left: .5rem;">bar</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card shipping_address_card">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="row mb-3">
+                                                <label class="form-label w-100">
+                                                    Final Pressure
+                                                </label>
+                                                <div class="col-md-6">
+                                                    <label class="form-label w-100">
+                                                        Rated Parameter
+                                                    </label>
+                                                    <div class="d-flex justify-content-between">
+                                                        <input
+                                                            type="number"
+                                                            class="form-control"
+                                                            placeholder=""
+                                                            v-model.trim="form_data.item_qty"
+                                                        />
+                                                        <span class="mt-2" style="margin-left: .5rem;">bar</span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label class="form-label w-100">
+                                                        Measured Parameter
+                                                    </label>
+                                                    <div class="d-flex justify-content-between">
+                                                        <input
+                                                            type="number"
+                                                            class="form-control"
+                                                            placeholder=""
+                                                            v-model.trim="form_data.item_qty"
+                                                        />
+                                                        <span class="mt-2" style="margin-left: .5rem;">bar</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card shipping_address_card">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="row mb-3">
+                                                <label class="form-label w-100">
+                                                    Time to reach final pressure
+                                                </label>
+                                                <div class="col-md-6">
+                                                    <label class="form-label w-100">
+                                                        Rated Parameter
+                                                    </label>
+                                                    <div class="d-flex justify-content-between">
+                                                        <input
+                                                            type="number"
+                                                            class="form-control"
+                                                            placeholder=""
+                                                            v-model.trim="form_data.item_qty"
+                                                        />
+                                                        <span class="mt-2" style="margin-left: .5rem;">Minutes</span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label class="form-label w-100">
+                                                        Measured Parameter
+                                                    </label>
+                                                    <div class="d-flex justify-content-between">
+                                                        <input
+                                                            type="number"
+                                                            class="form-control"
+                                                            placeholder=""
+                                                            v-model.trim="form_data.item_qty"
+                                                        />
+                                                        <span class="mt-2" style="margin-left: .5rem;">Minutes</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card shipping_address_card">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="row mb-3">
+                                                <label class="form-label w-100">
+                                                    Temperature
+                                                </label>
+                                                <div class="col-md-6">
+                                                    <label class="form-label w-100">
+                                                        Rated Parameter
+                                                    </label>
+                                                    <div class="d-flex justify-content-between">
+                                                        <input
+                                                            type="number"
+                                                            class="form-control"
+                                                            placeholder=""
+                                                            v-model.trim="form_data.item_qty"
+                                                        />
+                                                        <span class="mt-2" style="margin-left: .5rem;">C</span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label class="form-label w-100">
+                                                        Measured Parameter
+                                                    </label>
+                                                    <div class="d-flex justify-content-between">
+                                                        <input
+                                                            type="number"
+                                                            class="form-control"
+                                                            placeholder=""
+                                                            v-model.trim="form_data.item_qty"
+                                                        />
+                                                        <span class="mt-2" style="margin-left: .5rem;">C</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card shipping_address_card">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="row mb-3">
+                                                <label class="form-label w-100">
+                                                    Compressor SEC
+                                                </label>
+                                                <div class="col-md-6">
+                                                    <label class="form-label w-100">
+                                                        Rated Parameter
+                                                    </label>
+                                                    <div class="d-flex justify-content-between">
+                                                        <input
+                                                            type="number"
+                                                            class="form-control"
+                                                            placeholder=""
+                                                            v-model.trim="form_data.item_qty"
+                                                        />
+                                                        <span class="mt-2" style="margin-left: .5rem;">kW/CFM</span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label class="form-label w-100">
+                                                        Measured Parameter
+                                                    </label>
+                                                    <div class="d-flex justify-content-between">
+                                                        <input
+                                                            type="number"
+                                                            class="form-control"
+                                                            placeholder=""
+                                                            v-model.trim="form_data.item_qty"
+                                                        />
+                                                        <span class="mt-2" style="margin-left: .5rem;">kW/CFM</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <p>Leakage test</p>
+                            <div class="card shipping_address_card">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="row mb-3">
+                                                <label class="form-label w-100">
+                                                    Load time
+                                                </label>
+                                                <div class="col-md-6">
+                                                    <label class="form-label w-100">
+                                                        Reading 1
+                                                    </label>
+                                                    <div class="d-flex justify-content-between">
+                                                        <input
+                                                            type="number"
+                                                            class="form-control"
+                                                            placeholder=""
+                                                            v-model.trim="form_data.item_qty"
+                                                        />
+                                                        <span class="mt-2" style="margin-left: .5rem;">Sec.</span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label class="form-label w-100">
+                                                        Reading 2
+                                                    </label>
+                                                    <div class="d-flex justify-content-between">
+                                                        <input
+                                                            type="number"
+                                                            class="form-control"
+                                                            placeholder=""
+                                                            v-model.trim="form_data.item_qty"
+                                                        />
+                                                        <span class="mt-2" style="margin-left: .5rem;">Sec.</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card shipping_address_card">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="row mb-3">
+                                                <label class="form-label w-100">
+                                                    Unload time
+                                                </label>
+                                                <div class="col-md-6">
+                                                    <label class="form-label w-100">
+                                                        Reading 1
+                                                    </label>
+                                                    <div class="d-flex justify-content-between">
+                                                        <input
+                                                            type="number"
+                                                            class="form-control"
+                                                            placeholder=""
+                                                            v-model.trim="form_data.item_qty"
+                                                        />
+                                                        <span class="mt-2" style="margin-left: .5rem;">Sec.</span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label class="form-label w-100">
+                                                        Reading 2
+                                                    </label>
+                                                    <div class="d-flex justify-content-between">
+                                                        <input
+                                                            type="number"
+                                                            class="form-control"
+                                                            placeholder=""
+                                                            v-model.trim="form_data.item_qty"
+                                                        />
+                                                        <span class="mt-2" style="margin-left: .5rem;">Sec.</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!--item type Chiller-->
+                        <div class="col-md-12" v-if="showItemTypeReholderBox">
+                            <div class="card shipping_address_card">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="row mb-3">
+                                                <label class="form-label w-100">
+                                                    Year of installation
+                                                </label>
+                                                <div class="col-md-6">
+                                                    <label class="form-label w-100">
+                                                        Rated Parameter
+                                                    </label>
+                                                    <input
+                                                        type="text"
+                                                        class="form-control"
+                                                        placeholder=""
+                                                        v-model.trim="form_data.item_qty"
+                                                        readonly
+                                                    />
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label class="form-label w-100">
+                                                        Measured Parameter
+                                                    </label>
+                                                    <input
+                                                        type="text"
+                                                        class="form-control"
+                                                        placeholder=""
+                                                        v-model.trim="form_data.item_qty"
+                                                        readonly
+                                                    />
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card shipping_address_card">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="row mb-3">
+                                                <label class="form-label w-100">
+                                                    Capacity
+                                                </label>
+                                                <div class="col-md-6">
+                                                    <label class="form-label w-100">
+                                                        Rated Parameter
+                                                    </label>
+                                                    <div class="d-flex justify-content-between">
+                                                        <input
+                                                            type="number"
+                                                            class="form-control"
+                                                            placeholder=""
+                                                            v-model.trim="form_data.item_qty"
+                                                        />
+                                                        <span class="mt-2" style="margin-left: .5rem;">TR</span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label class="form-label w-100">
+                                                        Measured Parameter
+                                                    </label>
+                                                    <div class="d-flex justify-content-between">
+                                                        <input
+                                                            type="number"
+                                                            class="form-control"
+                                                            placeholder=""
+                                                            v-model.trim="form_data.item_qty"
+                                                        />
+                                                        <span class="mt-2" style="margin-left: .5rem;">TR</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card shipping_address_card">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="row mb-3">
+                                                <label class="form-label w-100">
+                                                    Voltage
+                                                </label>
+                                                <div class="col-md-6">
+                                                    <label class="form-label w-100">
+                                                        Rated Parameter
+                                                    </label>
+                                                    <div class="d-flex justify-content-between">
+                                                        <input
+                                                            type="number"
+                                                            class="form-control"
+                                                            placeholder=""
+                                                            v-model.trim="form_data.item_qty"
+                                                        />
+                                                        <span class="mt-2" style="margin-left: .5rem;">V</span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label class="form-label w-100">
+                                                        Measured Parameter
+                                                    </label>
+                                                    <div class="d-flex justify-content-between">
+                                                        <input
+                                                            type="number"
+                                                            class="form-control"
+                                                            placeholder=""
+                                                            v-model.trim="form_data.item_qty"
+                                                        />
+                                                        <span class="mt-2" style="margin-left: .5rem;">V</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card shipping_address_card">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="row mb-3">
+                                                <label class="form-label w-100">
+                                                    Current
+                                                </label>
+                                                <div class="col-md-6">
+                                                    <label class="form-label w-100">
+                                                        Rated Parameter
+                                                    </label>
+                                                    <div class="d-flex justify-content-between">
+                                                        <input
+                                                            type="number"
+                                                            class="form-control"
+                                                            placeholder=""
+                                                            v-model.trim="form_data.item_qty"
+                                                        />
+                                                        <span class="mt-2" style="margin-left: .5rem;">A</span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label class="form-label w-100">
+                                                        Measured Parameter
+                                                    </label>
+                                                    <div class="d-flex justify-content-between">
+                                                        <input
+                                                            type="number"
+                                                            class="form-control"
+                                                            placeholder=""
+                                                            v-model.trim="form_data.item_qty"
+                                                        />
+                                                        <span class="mt-2" style="margin-left: .5rem;">A</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card shipping_address_card">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="row mb-3">
+                                                <label class="form-label w-100">
+                                                    Power factor
+                                                </label>
+                                                <div class="col-md-6">
+                                                    <label class="form-label w-100">
+                                                        Rated Parameter
+                                                    </label>
+                                                    <div class="d-flex justify-content-between">
+                                                        <input
+                                                            type="number"
+                                                            class="form-control"
+                                                            placeholder=""
+                                                            v-model.trim="form_data.item_qty"
+                                                        />
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label class="form-label w-100">
+                                                        Measured Parameter
+                                                    </label>
+                                                    <div class="d-flex justify-content-between">
+                                                        <input
+                                                            type="number"
+                                                            class="form-control"
+                                                            placeholder=""
+                                                            v-model.trim="form_data.item_qty"
+                                                        />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card shipping_address_card">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="row mb-3">
+                                                <label class="form-label w-100">
+                                                    Motor power
+                                                </label>
+                                                <div class="col-md-6">
+                                                    <label class="form-label w-100">
+                                                        Rated Parameter
+                                                    </label>
+                                                    <div class="d-flex justify-content-between">
+                                                        <input
+                                                            type="number"
+                                                            class="form-control"
+                                                            placeholder=""
+                                                            v-model.trim="form_data.item_qty"
+                                                        />
+                                                        <span class="mt-2" style="margin-left: .5rem;">kW</span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label class="form-label w-100">
+                                                        Measured Parameter
+                                                    </label>
+                                                    <div class="d-flex justify-content-between">
+                                                        <input
+                                                            type="number"
+                                                            class="form-control"
+                                                            placeholder=""
+                                                            v-model.trim="form_data.item_qty"
+                                                        />
+                                                        <span class="mt-2" style="margin-left: .5rem;">kW</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card shipping_address_card">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="row mb-3">
+                                                <label class="form-label w-100">
+                                                    Motor efficiency
+                                                </label>
+                                                <div class="col-md-6">
+                                                    <label class="form-label w-100">
+                                                        Rated Parameter
+                                                    </label>
+                                                    <div class="d-flex justify-content-between">
+                                                        <input
+                                                            type="number"
+                                                            class="form-control"
+                                                            placeholder=""
+                                                            v-model.trim="form_data.item_qty"
+                                                        />
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label class="form-label w-100">
+                                                        Measured Parameter
+                                                    </label>
+                                                    <div class="d-flex justify-content-between">
+                                                        <input
+                                                            type="number"
+                                                            class="form-control"
+                                                            placeholder=""
+                                                            v-model.trim="form_data.item_qty"
+                                                        />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card shipping_address_card">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="row mb-3">
+                                                <label class="form-label w-100">
+                                                    Motor Efficiency class
+                                                </label>
+                                                <div class="col-md-6">
+                                                    <label class="form-label w-100">
+                                                        Rated Parameter
+                                                    </label>
+                                                    <div class="d-flex justify-content-between">
+                                                        <select class="form-select mb-text-only" aria-label="Default select example"
+                                                                v-model.trim="form_data.itemType"
+                                                        >
+                                                            <option>IE2</option>
+                                                            <option>IE3</option>
+                                                            <option>IE5</option>
+                                                            <option>IE5</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label class="form-label w-100">
+                                                        Measured Parameter
+                                                    </label>
+                                                    <div class="d-flex justify-content-between">
+                                                        <select class="form-select mb-text-only" aria-label="Default select example"
+                                                                v-model.trim="form_data.itemType"
+                                                        >
+                                                            <option>IE2</option>
+                                                            <option>IE3</option>
+                                                            <option>IE5</option>
+                                                            <option>IE5</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card shipping_address_card">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="row mb-3">
+                                                <label class="form-label w-100">
+                                                    Motor frame size
+                                                </label>
+                                                <div class="col-md-6">
+                                                    <label class="form-label w-100">
+                                                        Rated Parameter
+                                                    </label>
+                                                    <div class="d-flex justify-content-between">
+                                                        <input
+                                                            type="number"
+                                                            class="form-control"
+                                                            placeholder=""
+                                                            v-model.trim="form_data.item_qty"
+                                                        />
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label class="form-label w-100">
+                                                        Measured Parameter
+                                                    </label>
+                                                    <div class="d-flex justify-content-between">
+                                                        <input
+                                                            type="number"
+                                                            class="form-control"
+                                                            placeholder=""
+                                                            v-model.trim="form_data.item_qty"
+                                                        />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card shipping_address_card">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="row mb-3">
+                                                <label class="form-label w-100">
+                                                    Supply Temp.
+                                                </label>
+                                                <div class="col-md-6">
+                                                    <label class="form-label w-100">
+                                                        Rated Parameter
+                                                    </label>
+                                                    <div class="d-flex justify-content-between">
+                                                        <input
+                                                            type="number"
+                                                            class="form-control"
+                                                            placeholder=""
+                                                            v-model.trim="form_data.item_qty"
+                                                        />
+                                                        <span class="mt-2" style="margin-left: .5rem;">C</span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label class="form-label w-100">
+                                                        Measured Parameter
+                                                    </label>
+                                                    <div class="d-flex justify-content-between">
+                                                        <input
+                                                            type="number"
+                                                            class="form-control"
+                                                            placeholder=""
+                                                            v-model.trim="form_data.item_qty"
+                                                        />
+                                                        <span class="mt-2" style="margin-left: .5rem;">C</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card shipping_address_card">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="row mb-3">
+                                                <label class="form-label w-100">
+                                                    Return Temp.
+                                                </label>
+                                                <div class="col-md-6">
+                                                    <label class="form-label w-100">
+                                                        Rated Parameter
+                                                    </label>
+                                                    <div class="d-flex justify-content-between">
+                                                        <input
+                                                            type="number"
+                                                            class="form-control"
+                                                            placeholder=""
+                                                            v-model.trim="form_data.item_qty"
+                                                        />
+                                                        <span class="mt-2" style="margin-left: .5rem;">C</span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label class="form-label w-100">
+                                                        Measured Parameter
+                                                    </label>
+                                                    <div class="d-flex justify-content-between">
+                                                        <input
+                                                            type="number"
+                                                            class="form-control"
+                                                            placeholder=""
+                                                            v-model.trim="form_data.item_qty"
+                                                        />
+                                                        <span class="mt-2" style="margin-left: .5rem;">C</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card shipping_address_card">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="row mb-3">
+                                                <label class="form-label w-100">
+                                                    Flow
+                                                </label>
+                                                <div class="col-md-6">
+                                                    <label class="form-label w-100">
+                                                        Rated Parameter
+                                                    </label>
+                                                    <div class="d-flex justify-content-between">
+                                                        <input
+                                                            type="number"
+                                                            class="form-control"
+                                                            placeholder=""
+                                                            v-model.trim="form_data.item_qty"
+                                                        />
+                                                        <span class="mt-2" style="margin-left: .5rem;">m3/hr</span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label class="form-label w-100">
+                                                        Measured Parameter
+                                                    </label>
+                                                    <div class="d-flex justify-content-between">
+                                                        <input
+                                                            type="number"
+                                                            class="form-control"
+                                                            placeholder=""
+                                                            v-model.trim="form_data.item_qty"
+                                                        />
+                                                        <span class="mt-2" style="margin-left: .5rem;">m3/hr</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card shipping_address_card">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="row mb-3">
+                                                <label class="form-label w-100">
+                                                    Chiller SEC
+                                                </label>
+                                                <div class="col-md-6">
+                                                    <label class="form-label w-100">
+                                                        Rated Parameter
+                                                    </label>
+                                                    <div class="d-flex justify-content-between">
+                                                        <input
+                                                            type="number"
+                                                            class="form-control"
+                                                            placeholder=""
+                                                            v-model.trim="form_data.item_qty"
+                                                        />
+                                                        <span class="mt-2" style="margin-left: .5rem;">kW/TR</span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label class="form-label w-100">
+                                                        Measured Parameter
+                                                    </label>
+                                                    <div class="d-flex justify-content-between">
+                                                        <input
+                                                            type="number"
+                                                            class="form-control"
+                                                            placeholder=""
+                                                            v-model.trim="form_data.item_qty"
+                                                        />
+                                                        <span class="mt-2" style="margin-left: .5rem;">kW/TR</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card shipping_address_card">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="row mb-3">
+                                                <label class="form-label w-100">
+                                                    Condenser Approch
+                                                </label>
+                                                <div class="col-md-6">
+                                                    <label class="form-label w-100">
+                                                        Rated Parameter
+                                                    </label>
+                                                    <div class="d-flex justify-content-between">
+                                                        <input
+                                                            type="number"
+                                                            class="form-control"
+                                                            placeholder=""
+                                                            v-model.trim="form_data.item_qty"
+                                                        />
+                                                        <span class="mt-2" style="margin-left: .5rem;">C</span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label class="form-label w-100">
+                                                        Measured Parameter
+                                                    </label>
+                                                    <div class="d-flex justify-content-between">
+                                                        <input
+                                                            type="number"
+                                                            class="form-control"
+                                                            placeholder=""
+                                                            v-model.trim="form_data.item_qty"
+                                                        />
+                                                        <span class="mt-2" style="margin-left: .5rem;">C</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!--item type Motors-->
+                        <div class="col-md-12" v-if="showItemTypeCrossoverBox">
+                            <div class="card shipping_address_card">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="row mb-3">
+                                                <label class="form-label w-100">
+                                                    Year of installation
+                                                </label>
+                                                <div class="col-md-6">
+                                                    <label class="form-label w-100">
+                                                        Rated Parameter
+                                                    </label>
+                                                    <input
+                                                        type="text"
+                                                        class="form-control"
+                                                        placeholder=""
+                                                        v-model.trim="form_data.item_qty"
+                                                        readonly
+                                                    />
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label class="form-label w-100">
+                                                        Measured Parameter
+                                                    </label>
+                                                    <input
+                                                        type="text"
+                                                        class="form-control"
+                                                        placeholder=""
+                                                        v-model.trim="form_data.item_qty"
+                                                        readonly
+                                                    />
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card shipping_address_card">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="row mb-3">
+                                                <label class="form-label w-100">
+                                                    Name of equipment
+                                                </label>
+                                                <div class="col-md-6">
+                                                    <label class="form-label w-100">
+                                                        Rated Parameter
+                                                    </label>
+                                                    <div class="d-flex justify-content-between">
+                                                        <input
+                                                            type="number"
+                                                            class="form-control"
+                                                            placeholder=""
+                                                            v-model.trim="form_data.item_qty"
+                                                        />
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label class="form-label w-100">
+                                                        Measured Parameter
+                                                    </label>
+                                                    <div class="d-flex justify-content-between">
+                                                        <input
+                                                            type="number"
+                                                            class="form-control"
+                                                            placeholder=""
+                                                            v-model.trim="form_data.item_qty"
+                                                        />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card shipping_address_card">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="row mb-3">
+                                                <label class="form-label w-100">
+                                                    Voltage
+                                                </label>
+                                                <div class="col-md-6">
+                                                    <label class="form-label w-100">
+                                                        Rated Parameter
+                                                    </label>
+                                                    <div class="d-flex justify-content-between">
+                                                        <input
+                                                            type="number"
+                                                            class="form-control"
+                                                            placeholder=""
+                                                            v-model.trim="form_data.item_qty"
+                                                        />
+                                                        <span class="mt-2" style="margin-left: .5rem;">V</span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label class="form-label w-100">
+                                                        Measured Parameter
+                                                    </label>
+                                                    <div class="d-flex justify-content-between">
+                                                        <input
+                                                            type="number"
+                                                            class="form-control"
+                                                            placeholder=""
+                                                            v-model.trim="form_data.item_qty"
+                                                        />
+                                                        <span class="mt-2" style="margin-left: .5rem;">V</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card shipping_address_card">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="row mb-3">
+                                                <label class="form-label w-100">
+                                                    Current
+                                                </label>
+                                                <div class="col-md-6">
+                                                    <label class="form-label w-100">
+                                                        Rated Parameter
+                                                    </label>
+                                                    <div class="d-flex justify-content-between">
+                                                        <input
+                                                            type="number"
+                                                            class="form-control"
+                                                            placeholder=""
+                                                            v-model.trim="form_data.item_qty"
+                                                        />
+                                                        <span class="mt-2" style="margin-left: .5rem;">A</span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label class="form-label w-100">
+                                                        Measured Parameter
+                                                    </label>
+                                                    <div class="d-flex justify-content-between">
+                                                        <input
+                                                            type="number"
+                                                            class="form-control"
+                                                            placeholder=""
+                                                            v-model.trim="form_data.item_qty"
+                                                        />
+                                                        <span class="mt-2" style="margin-left: .5rem;">A</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card shipping_address_card">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="row mb-3">
+                                                <label class="form-label w-100">
+                                                    Power factor
+                                                </label>
+                                                <div class="col-md-6">
+                                                    <label class="form-label w-100">
+                                                        Rated Parameter
+                                                    </label>
+                                                    <div class="d-flex justify-content-between">
+                                                        <input
+                                                            type="number"
+                                                            class="form-control"
+                                                            placeholder=""
+                                                            v-model.trim="form_data.item_qty"
+                                                        />
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label class="form-label w-100">
+                                                        Measured Parameter
+                                                    </label>
+                                                    <div class="d-flex justify-content-between">
+                                                        <input
+                                                            type="number"
+                                                            class="form-control"
+                                                            placeholder=""
+                                                            v-model.trim="form_data.item_qty"
+                                                        />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card shipping_address_card">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="row mb-3">
+                                                <label class="form-label w-100">
+                                                    Motor power
+                                                </label>
+                                                <div class="col-md-6">
+                                                    <label class="form-label w-100">
+                                                        Rated Parameter
+                                                    </label>
+                                                    <div class="d-flex justify-content-between">
+                                                        <input
+                                                            type="number"
+                                                            class="form-control"
+                                                            placeholder=""
+                                                            v-model.trim="form_data.item_qty"
+                                                        />
+                                                        <span class="mt-2" style="margin-left: .5rem;">kW</span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label class="form-label w-100">
+                                                        Measured Parameter
+                                                    </label>
+                                                    <div class="d-flex justify-content-between">
+                                                        <input
+                                                            type="number"
+                                                            class="form-control"
+                                                            placeholder=""
+                                                            v-model.trim="form_data.item_qty"
+                                                        />
+                                                        <span class="mt-2" style="margin-left: .5rem;">kW</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card shipping_address_card">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="row mb-3">
+                                                <label class="form-label w-100">
+                                                    Motor efficiency
+                                                </label>
+                                                <div class="col-md-6">
+                                                    <label class="form-label w-100">
+                                                        Rated Parameter
+                                                    </label>
+                                                    <div class="d-flex justify-content-between">
+                                                        <input
+                                                            type="number"
+                                                            class="form-control"
+                                                            placeholder=""
+                                                            v-model.trim="form_data.item_qty"
+                                                        />
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label class="form-label w-100">
+                                                        Measured Parameter
+                                                    </label>
+                                                    <div class="d-flex justify-content-between">
+                                                        <input
+                                                            type="number"
+                                                            class="form-control"
+                                                            placeholder=""
+                                                            v-model.trim="form_data.item_qty"
+                                                        />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card shipping_address_card">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="row mb-3">
+                                                <label class="form-label w-100">
+                                                    Motor Efficiency class
+                                                </label>
+                                                <div class="col-md-6">
+                                                    <label class="form-label w-100">
+                                                        Rated Parameter
+                                                    </label>
+                                                    <div class="d-flex justify-content-between">
+                                                        <select class="form-select mb-text-only" aria-label="Default select example"
+                                                                v-model.trim="form_data.itemType"
+                                                        >
+                                                            <option>IE2</option>
+                                                            <option>IE3</option>
+                                                            <option>IE5</option>
+                                                            <option>IE5</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label class="form-label w-100">
+                                                        Measured Parameter
+                                                    </label>
+                                                    <div class="d-flex justify-content-between">
+                                                        <select class="form-select mb-text-only" aria-label="Default select example"
+                                                                v-model.trim="form_data.itemType"
+                                                        >
+                                                            <option>IE2</option>
+                                                            <option>IE3</option>
+                                                            <option>IE5</option>
+                                                            <option>IE5</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card shipping_address_card">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="row mb-3">
+                                                <label class="form-label w-100">
+                                                    Motor frame size
+                                                </label>
+                                                <div class="col-md-6">
+                                                    <label class="form-label w-100">
+                                                        Rated Parameter
+                                                    </label>
+                                                    <div class="d-flex justify-content-between">
+                                                        <input
+                                                            type="number"
+                                                            class="form-control"
+                                                            placeholder=""
+                                                            v-model.trim="form_data.item_qty"
+                                                        />
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label class="form-label w-100">
+                                                        Measured Parameter
+                                                    </label>
+                                                    <div class="d-flex justify-content-between">
+                                                        <input
+                                                            type="number"
+                                                            class="form-control"
+                                                            placeholder=""
+                                                            v-model.trim="form_data.item_qty"
+                                                        />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
                                     </div>
                                 </div>
                             </div>
@@ -2484,460 +4832,9 @@ export default {
             step_count:4,
             completed_step_count:'',
             form_wizard_subtitle:'Start here',
-            countries:[
-                {
-                    "id": 1,
-                    "name": "Canada"
-                },
-                {
-                    "id": 2,
-                    "name": "United States"
-                },
-                {
-                    "id": 3,
-                    "name": "Australia"
-                },
-                {
-                    "id": 4,
-                    "name": "New Zealand"
-                },
-                {
-                    "id": 5,
-                    "name": "United Kingdom"
-                }
-            ],
-            countries_phone:['CA','US','AU','NZ','GB'],
-            provinces:[
-                {
-                    "id": 1,
-                    "name": "AB"
-                },
-                {
-                    "id": 2,
-                    "name": "BC"
-                },
-                {
-                    "id": 3,
-                    "name": "MB"
-                },
-                {
-                    "id": 4,
-                    "name": "NB"
-                },
-                {
-                    "id": 5,
-                    "name": "NL"
-                },
-                {
-                    "id": 6,
-                    "name": "NS"
-                },
-                {
-                    "id": 7,
-                    "name": "NT"
-                },
-                {
-                    "id": 8,
-                    "name": "NU"
-                },
-                {
-                    "id": 9,
-                    "name": "ON"
-                },
-                {
-                    "id": 10,
-                    "name": "PE"
-                },
-                {
-                    "id": 11,
-                    "name": "QC"
-                },
-                {
-                    "id": 12,
-                    "name": "SK"
-                },
-                {
-                    "id": 13,
-                    "name": "YT"
-                },
-                {
-                    "id": 14,
-                    "name": "AK"
-                },
-                {
-                    "id": 15,
-                    "name": "AL"
-                },
-                {
-                    "id": 16,
-                    "name": "AR"
-                },
-                {
-                    "id": 17,
-                    "name": "AZ"
-                },
-                {
-                    "id": 18,
-                    "name": "CA"
-                },
-                {
-                    "id": 19,
-                    "name": "CO"
-                },
-                {
-                    "id": 20,
-                    "name": "CT"
-                },
-                {
-                    "id": 21,
-                    "name": "DC"
-                },
-                {
-                    "id": 22,
-                    "name": "DE"
-                },
-                {
-                    "id": 23,
-                    "name": "FL"
-                },
-                {
-                    "id": 24,
-                    "name": "GA"
-                },
-                {
-                    "id": 25,
-                    "name": "HI"
-                },
-                {
-                    "id": 26,
-                    "name": "IA"
-                },
-                {
-                    "id": 27,
-                    "name": "ID"
-                },
-                {
-                    "id": 28,
-                    "name": "IL"
-                },
-                {
-                    "id": 29,
-                    "name": "IN"
-                },
-                {
-                    "id": 30,
-                    "name": "KS"
-                },
-                {
-                    "id": 31,
-                    "name": "KY"
-                },
-                {
-                    "id": 32,
-                    "name": "LA"
-                },
-                {
-                    "id": 33,
-                    "name": "MA"
-                },
-                {
-                    "id": 34,
-                    "name": "MD"
-                },
-                {
-                    "id": 35,
-                    "name": "ME"
-                },
-                {
-                    "id": 36,
-                    "name": "MI"
-                },
-                {
-                    "id": 37,
-                    "name": "MN"
-                },
-                {
-                    "id": 38,
-                    "name": "MO"
-                },
-                {
-                    "id": 39,
-                    "name": "MS"
-                },
-                {
-                    "id": 40,
-                    "name": "MT"
-                },
-                {
-                    "id": 41,
-                    "name": "NC"
-                },
-                {
-                    "id": 42,
-                    "name": "ND"
-                },
-                {
-                    "id": 43,
-                    "name": "NE"
-                },
-                {
-                    "id": 44,
-                    "name": "NH"
-                },
-                {
-                    "id": 45,
-                    "name": "NJ"
-                },
-                {
-                    "id": 46,
-                    "name": "NM"
-                },
-                {
-                    "id": 47,
-                    "name": "NV"
-                },
-                {
-                    "id": 48,
-                    "name": "NY"
-                },
-                {
-                    "id": 49,
-                    "name": "OH"
-                },
-                {
-                    "id": 50,
-                    "name": "OK"
-                },
-                {
-                    "id": 51,
-                    "name": "OR"
-                },
-                {
-                    "id": 52,
-                    "name": "PA"
-                },
-                {
-                    "id": 53,
-                    "name": "RI"
-                },
-                {
-                    "id": 54,
-                    "name": "SC"
-                },
-                {
-                    "id": 55,
-                    "name": "SD"
-                },
-                {
-                    "id": 56,
-                    "name": "TN"
-                },
-                {
-                    "id": 57,
-                    "name": "TX"
-                },
-                {
-                    "id": 58,
-                    "name": "UT"
-                },
-                {
-                    "id": 59,
-                    "name": "VA"
-                },
-                {
-                    "id": 60,
-                    "name": "VT"
-                },
-                {
-                    "id": 61,
-                    "name": "WA"
-                },
-                {
-                    "id": 62,
-                    "name": "WI"
-                },
-                {
-                    "id": 63,
-                    "name": "WV"
-                },
-                {
-                    "id": 64,
-                    "name": "WY"
-                },
-                {
-                    "id": 65,
-                    "name": "ACT"
-                },
-                {
-                    "id": 66,
-                    "name": "NSW"
-                },
-                {
-                    "id": 67,
-                    "name": "NT"
-                },
-                {
-                    "id": 68,
-                    "name": "SA"
-                },
-                {
-                    "id": 69,
-                    "name": "TAS"
-                },
-                {
-                    "id": 70,
-                    "name": "VIC"
-                },
-                {
-                    "id": 71,
-                    "name": "WA"
-                }
-            ],
             isAllSelected: false,
-            // customers: [
-            //     {
-            //         "id":1,
-            //         "name":"Customer 1"
-            //     },
-            //     {
-            //         "id":2,
-            //         "name":"Customer 2"
-            //     },
-            //     {
-            //         "id":3,
-            //         "name":"Customer 3"
-            //     },
-            //     {
-            //         "id":4,
-            //         "name":"Customer 4"
-            //     },
-            //     {
-            //         "id":5,
-            //         "name":"Customer 5"
-            //     },
-            // ],
-            // promoCodes: [
-            //     {
-            //         'id':1,
-            //         'name':'promo - 1',
-            //     },
-            //     {
-            //         'id':2,
-            //         'name':'promo - 2',
-            //     },
-            //     {
-            //         'id':3,
-            //         'name':'promo - 3',
-            //     },
-            //     {
-            //         'id':4,
-            //         'name':'promo - 1',
-            //     },
-            //     {
-            //         'id':5,
-            //         'name':'promo - 1',
-            //     },
-            // ],
-            shippingMethods: [
-                {
-                    'id':1,
-                    'name':'Delivery',
-                },
-                {
-                    'id':2,
-                    'name':'Pickup',
-                },
-                {
-                    'id':3,
-                    'name':'Show Pickup',
-                },
-                {
-                    'id':4,
-                    'name':'Return to Third Party',
-                },
-                {
-                    'id':5,
-                    'name':'Canada Post',
-                },
-                {
-                    'id':6,
-                    'name':'DHL',
-                },
-                {
-                    'id':7,
-                    'name':'FedEx',
-                },
-                {
-                    'id':8,
-                    'name':'Purolator',
-                },
-                {
-                    'id':9,
-                    'name':'UPS',
-                },
-            ],
-            pickUpLocations: [
-                {
-                    'id':1,
-                    'name':'KSA',
-                },
-                {
-                    'id':2,
-                    'name':'KSA Booth',
-                },
-                {
-                    'id':3,
-                    'name':'KSA West',
-                },
-                {
-                    'id':4,
-                    'name':'iCert',
-                },
-                {
-                    'id':5,
-                    'name':'iCert Booth',
-                },
-            ],
-            // thirdParties: [
-            //     {
-            //         'id':1,
-            //         'name':'Third party - 1',
-            //     },
-            //     {
-            //         'id':2,
-            //         'name':'Third party - 2',
-            //     },
-            //     {
-            //         'id':3,
-            //         'name':'Third party - 3',
-            //     },
-            //     {
-            //         'id':4,
-            //         'name':'Third party - 4',
-            //     },
-            // ],
-            gradingLocations: [
-                {
-                    'id':1,
-                    'name':'KSA',
-                },
-                {
-                    'id':2,
-                    'name':'KSA Show',
-                },
-                {
-                    'id':3,
-                    'name':'KSA West',
-                },
-                {
-                    'id':4,
-                    'name':'iCert',
-                },
-                {
-                    'id':5,
-                    'name':'iCert Show',
-                },
-            ],
+
+
             showPickupLocationBox:false,
             showShowPickupLocationBox:false,
             showThirdPartyBox:false,
@@ -2971,192 +4868,206 @@ export default {
                     'name':'Motors',
                 },
             ],
-            crossoverItemTypes:[
-                {
-                    'id':1,
-                    'name':'Card'
-                }
-            ],
-            minimumGrades:[
-                {
-                    'id':1,
-                    'name':'0'
-                },
-                {
-                    'id':2,
-                    'name':'1'
-                },
-                {
-                    'id':3,
-                    'name':'1.5'
-                },
-                {
-                    'id':4,
-                    'name':'2'
-                },
-                {
-                    'id':5,
-                    'name':'2.5'
-                },
-                {
-                    'id':6,
-                    'name':'3'
-                },
-                {
-                    'id':7,
-                    'name':'3.5'
-                },
-                {
-                    'id':8,
-                    'name':'4'
-                },
-                {
-                    'id':9,
-                    'name':'4.5'
-                },
-                {
-                    'id':10,
-                    'name':'5'
-                },
-                {
-                    'id':11,
-                    'name':'5.5'
-                },
-                {
-                    'id':12,
-                    'name':'6'
-                },
-                {
-                    'id':13,
-                    'name':'6.5'
-                },
-                {
-                    'id':14,
-                    'name':'7'
-                },
-                {
-                    'id':15,
-                    'name':'7.5'
-                },
-                {
-                    'id':16,
-                    'name':'8'
-                },
-                {
-                    'id':17,
-                    'name':'8.5'
-                },
-                {
-                    'id':18,
-                    'name':'9'
-                },
-                {
-                    'id':19,
-                    'name':'9.5'
-                },
-                {
-                    'id':20,
-                    'name':'10'
-                },
-                {
-                    'id':21,
-                    'name':'10 (P)'
-                },
-            ],
             form_data:{
-                customer: '',
-                name: '',
-                customerId: '',
-                // email:'',
-                contact_name:'',
-                item_qty:1,
-                billing_address_line_one:'',
-                billing_address_line_two:'',
-                billing_country:'',
-                billing_province:'',
-                billing_city:'',
-                billing_postal:'',
-                billing_phone:'',
-                same_as_billing:false,
-                autographed:false,
-                shipping_name:'',
-                shipping_company_name:'',
-                shipping_address_line_one:'',
-                shipping_address_line_two:'',
-                shipping_country:'',
-                shipping_province:'',
-                shipping_city:'',
-                shipping_postal:'',
-                shipping_phone:'',
-                status:'active',
-                submission_date:'',
-                products:[],
                 itemType:'',
+                image:'',
+                observations:'',
+                //item type Pump
+                pumpYearOfInstallationRated:'',
+                pumpYearOfInstallationMeasured:'',
+                pumpFlowRated:'',
+                pumpFlowMeasured:'',
+                pumpHeadRated:'',
+                pumpHeadMeasured:'',
+                pumpVoltageRated:'',
+                pumpVoltageMeasured:'',
+                pumpCurrentRated:'',
+                pumpCurrentMeasured:'',
+                pumpPowerFactorRated:'',
+                pumpPowerFactorMeasured:'',
+                pumpMotorPowerRated:'',
+                pumpMotorPowerMeasured:'',
+                pumpMotorEfficiencyRated:'',
+                pumpMotorEfficiencyMeasured:'',
+                pumpMotorEfficiencyClassRated:'',
+                pumpMotorEfficiencyClassMeasured:'',
+                pumpMotorFrameSizeRated:'',
+                pumpMotorFrameSizeMeasured:'',
+                pumpInsulationClassRated:'',
+                pumpInsulationClassMeasured:'',
+                pumpSuctionHeadRated:'',
+                pumpSuctionHeadMeasured:'',
+                pumpDischargeHeadRated:'',
+                pumpDischargeHeadMeasured:'',
+                pumpEfficiencyRated:'',
+                pumpEfficiencyMeasured:'',
+                //checklist
+                pumpVFDorNot:'',
+                pumpVFDSetting:'',
+                pumpThrottling :'',
+                pumpFlowModulationRequired :'',
+                pumpParallelPumpOperation:'',
+                pumpNosOfRewidingOfMotor:'',
+                pumpCheckCavitation:'',
+                pumpOperatingHours:'',
 
-                //next
-                grading_location:'',
-                promo_code:'',
-                // payment_made:'',
-                // pay_on_pickup:'',
-                // cod:'',
-                payment_method:'',
-                shopify_order_number:'',
-                shipping_method:'',
-                pickup_location:'',
-                show_pickup_location:'',
-                third_party_drop_center:'',
-                use_customer_account:'',
-                customer_account_number:'',
-                crossover_item_type:'',
-                authenticator_name:'',
-                authenticator_name_two:'',
-                authenticator_name_three:'',
-                authenticator_name_four:'',
-                crossover_minimum_grade:'',
+                //item type Fan
+                fanYearOfInstallationRated:'',
+                fanYearOfInstallationMeasured:'',
+                fanFlowRated:'',
+                fanFlowMeasured:'',
+                fanHeadRated:'',
+                fanHeadMeasured:'',
+                fanVoltageRated:'',
+                fanVoltageMeasured:'',
+                fanCurrentRated:'',
+                fanCurrentMeasured:'',
+                fanPowerFactorRated:'',
+                fanPowerFactorMeasured:'',
+                fanMotorPowerRated:'',
+                fanMotorPowerMeasured:'',
+                fanMotorEfficiencyRated:'',
+                fanMotorEfficiencyMeasured:'',
+                fanMotorEfficiencyClassRated:'',
+                fanMotorEfficiencyClassMeasured:'',
+                fanMotorFrameSizeRated:'',
+                fanMotorFrameSizeMeasured:'',
+                fanInsulationClassRated:'',
+                fanInsulationClassMeasured:'',
+                fanSuctionDuctSizeRated:'',
+                fanSuctionDuctSizeMeasured:'',
+                fanSuctionStaticPressureRated:'',
+                fanSuctionStaticPressureMeasured:'',
+                fanSuctionVelocityPressureRated:'',
+                fanSuctionVelocityPressureMeasured:'',
+                fanDischargeDuctSizeRated:'',
+                fanDischargeDuctSizeMeasured:'',
+                fanDischargeStaticPressureRated:'',
+                fanDischargeStaticPressureMeasured:'',
+                fanDischargeVelocityPressureRated:'',
+                fanDischargeVelocityPressureMeasured:'',
+                fanEfficiencyRated:'',
+                fanEfficiencyMeasured:'',
+                //checklist
+                fanVFDorNot:'',
+                fanVFDSetting:'',
+                fanOpening  :'',
+                fanFlowModulationRequired :'',
+                fanParallelFanOperation:'',
+                fanNosOfRewidingOfMotor:'',
+                fanOperatingHours:'',
 
-                //item type card
-                card_description_one:'',
-                card_description_two:'',
-                card_description_three:'',
-                card_serial_number:'',
-                card_autographed:'',
-                card_authenticator_name:'',
-                card_authenticator_cert_no:'',
-                card_estimated_value:'0',
+                //item type Air Compressor
+                airCompressorYearOfInstallationRated:'',
+                airCompressorYearOfInstallationMeasured:'',
+                airCompressorFlowRated:'',
+                airCompressorFlowMeasured:'',
+                airCompressorHeadRated:'',
+                airCompressorHeadMeasured:'',
+                airCompressorVoltageRated:'',
+                airCompressorVoltageMeasured:'',
+                airCompressorCurrentRated:'',
+                airCompressorCurrentMeasured:'',
+                airCompressorPowerFactorRated:'',
+                airCompressorPowerFactorMeasured:'',
+                airCompressorMotorPowerRated:'',
+                airCompressorMotorPowerMeasured:'',
+                airCompressorMotorEfficiencyRated:'',
+                airCompressorMotorEfficiencyMeasured:'',
+                airCompressorMotorEfficiencyClassRated:'',
+                airCompressorMotorEfficiencyClassMeasured:'',
+                airCompressorMotorFrameSizeRated:'',
+                airCompressorMotorFrameSizeMeasured:'',
+                airCompressorInsulationClassRated:'',
+                airCompressorInsulationClassMeasured:'',
+                airCompressorLoadPressureClassRated:'',
+                airCompressorLoadPressureClassMeasured:'',
+                airCompressorUnLoadPressureClassRated:'',
+                airCompressorUnLoadPressureClassMeasured:'',
+                airCompressorRecieverSizeClassRated:'',
+                airCompressorRecieverSizeClassMeasured:'',
+                airCompressorInitialPressureClassRated:'',
+                airCompressorInitialPressureClassMeasured:'',
+                airCompressorFinalPressureClassRated:'',
+                airCompressorFinalPressureClassMeasured:'',
+                airCompressorTimeToReachFinalPressureClassRated:'',
+                airCompressorTimeToReachFinalPressureClassMeasured:'',
+                airCompressorTemperatureRated:'',
+                airCompressorTemperatureMeasured:'',
+                airCompressorCompressorSECRated:'',
+                airCompressorCompressorSECMeasured:'',
+                //Leakage test
+                airCompressorLoadTimeReadingOne:'',
+                airCompressorLoadTimeReadingTwo:'',
+                airCompressorUnLoadTimeReadingOne:'',
+                airCompressorUnLoadTimeReadingTwo:'',
+                //checklist
+                airCompressorVFDorNot:'',
+                airCompressorNosOfRewidingOfMotor:'',
+                airCompressorCheckRequiredpressure:'',
+                airCompressorCheckPressureDrop  :'',
+                airCompressorOperatingHours:'',
 
-                //item type auto authentication
-                auto_authentication_description_one:'',
-                auto_authentication_description_two:'',
-                auto_authentication_description_three:'',
-                auto_authentication_serial_number:'',
-                auto_authentication_autographed:'',
-                auto_authentication_authenticator_name:'',
-                auto_authentication_authenticator_cert_no:'',
-                auto_authentication_estimated_value:'0',
+                //item type Chiller
+                ChillerYearOfInstallationRated:'',
+                ChillerYearOfInstallationMeasured:'',
+                ChillerCapacityRated:'',
+                ChillerCapacityMeasured:'',
+                ChillerVoltageRated:'',
+                ChillerVoltageMeasured:'',
+                ChillerCurrentRated:'',
+                ChillerCurrentMeasured:'',
+                ChillerPowerFactorRated:'',
+                ChillerPowerFactorMeasured:'',
+                ChillerMotorPowerRated:'',
+                ChillerMotorPowerMeasured:'',
+                ChillerMotorEfficiencyRated:'',
+                ChillerMotorEfficiencyMeasured:'',
+                ChillerMotorEfficiencyClassRated:'',
+                ChillerMotorEfficiencyClassMeasured:'',
+                ChillerMotorFrameSizeRated:'',
+                ChillerMotorFrameSizeMeasured:'',
+                ChillerSupplyTempRated:'',
+                ChillerSupplyTempMeasured:'',
+                ChillerReturnTempRated:'',
+                ChillerReturnTempMeasured:'',
+                ChillerFlowRated:'',
+                ChillerFlowMeasured:'',
+                ChillerChillerSECRated:'',
+                ChillerChillerSECMeasured:'',
+                ChillerCondenserApprochRated:'',
+                ChillerCondenserApprochMeasured:'',
+                //checklist
+                ChillerVFDorNot:'',
+                ChillerSetTemp:'',
+                ChillerCheckCondenserCondition:'',
+                ChillerOperatingHours:'',
 
-                //item type combined service
-                combined_service_description_one:'',
-                combined_service_description_two:'',
-                combined_service_description_three:'',
-                combined_service_serial_number:'',
-                combined_service_autographed:'',
-                combined_service_authenticator_name:'',
-                combined_service_authenticator_cert_no:'',
-                combined_service_estimated_value:'0',
-
-                //item type combined service
-                reholder_certification_number:'',
-                reholder_estimated_value:'0',
-
-                //item type crossover
-                crossover_description_one:'',
-                crossover_description_two:'',
-                crossover_description_three:'',
-                crossover_serial_number:'',
-                crossover_autographed:'',
-                crossover_authenticator_name:'',
-                crossover_authenticator_cert_no:'',
-                crossover_estimated_value:'0',
+                //item type Motors
+                motorYearOfInstallationRated:'',
+                motorYearOfInstallationMeasured:'',
+                motorNameOfEquipmentRated:'',
+                motorNameOfEquipmentMeasured:'',
+                motorVoltageRated:'',
+                motorVoltageMeasured:'',
+                motorCurrentRated:'',
+                motorCurrentMeasured:'',
+                motorPowerFactorRated:'',
+                motorPowerFactorMeasured:'',
+                motorMotorPowerRated:'',
+                motorMotorPowerMeasured:'',
+                motorMotorEfficiencyRated:'',
+                motorMotorEfficiencyMeasured:'',
+                motorMotorEfficiencyClassRated:'',
+                motorMotorEfficiencyClassMeasured:'',
+                motorMotorFrameSizeRated:'',
+                motorMotorFrameSizeMeasured:'',
+                //checklist
+                motorVFDorNot:'',
+                motorCheckPerPhaseCurrent:'',
+                motorCheckPhasor:'',
+                motorNosOfRewidingOfMotor:'',
+                motorOperatingHours:'',
             },
 
         }
@@ -3840,5 +5751,7 @@ input::-webkit-inner-spin-button {
 input[type=number] {
     -moz-appearance: textfield;
 }
-
+.shipping_address_card{
+    background: #eeeeee;
+}
 </style>
