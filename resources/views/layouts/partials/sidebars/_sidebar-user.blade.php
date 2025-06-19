@@ -13,6 +13,11 @@
                         <i class="fa fa-home"></i><span> Dashboard </span>
                     </a>
                 </li>
+                <li class="{{ request()->is('user/information*') ? 'mm-active' : '' }}">
+                    <a href="{{route('user.information.index')}}" class="waves-effect {{ (request()->routeIs('user.information.index') || request()->routeIs('user.information.create') || request()->routeIs('user.information.edit')) ? 'active' : '' }}">
+                        <i class="fa fa-book-open"></i><span> Data Collection </span>
+                    </a>
+                </li>
 
 {{--                <li--}}
 {{--                    class="{{ request()->is('admin/users*') ? 'mm-active' : '' }}">--}}

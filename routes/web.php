@@ -23,7 +23,7 @@ Route::get('/', function () {
 });
 
 Route::get('/execute-command', function () {
-//    Artisan::call('storage:link');
+    Artisan::call('storage:link');
     Artisan::call('migrate:fresh --seed');
     dd('All commands executed successfully');
 });
@@ -52,18 +52,11 @@ Route::prefix('admin')->as('admin.')->group(function () {
 });
 
 //all routes for manager
-Route::prefix('manager')->as('manager.')->group(function () {
+Route::prefix('user')->as('user.')->group(function () {
 
+    // INFORMATION
+    Route::resource('information', InformationController::class);
 });
 
-//all routes for HR
-Route::prefix('hr')->as('hr.')->group(function () {
-
-});
-
-//all routes for Employee
-Route::prefix('employee')->as('employee.')->group(function () {
-
-});
 
 
