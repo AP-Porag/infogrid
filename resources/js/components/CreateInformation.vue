@@ -948,6 +948,7 @@
                 <tab-content
                     title="Item Type"
                     icon="ti-gift"
+                    :before-change="checkFirstStep"
                 >
                     <div class="row">
                         <div class="col-md-12">
@@ -967,8 +968,7 @@
                                                     <option selected disabled>Open this select menu</option>
                                                     <option v-for="(type,index) in itemTypes" :value="type.name" :key="type.id">{{type.name}}</option>
                                                 </select>
-                                                <!--                                            <Select2 v-model="form_data.itemType" :options="itemTypes" @change="itemTypeChangeEvent($event)" />-->
-                                                <div class="error" v-if="v$.form_data.itemType.required.$invalid && show_error_eleven">
+                                                <div class="error" v-if="v$.form_data.itemType.required.$invalid && show_error_one">
                                                     Item type is required
                                                 </div>
                                             </div>
@@ -1013,11 +1013,10 @@
                                                         Rated Parameter
                                                     </label>
                                                     <input
-                                                        type="text"
+                                                        type="number"
                                                         class="form-control"
                                                         placeholder=""
-                                                        v-model.trim="form_data.item_qty"
-                                                        readonly
+                                                        v-model.trim="form_data.pumpYearOfInstallationRated"
                                                     />
                                                 </div>
                                                 <div class="col-md-6">
@@ -1025,11 +1024,10 @@
                                                         Measured Parameter
                                                     </label>
                                                     <input
-                                                        type="text"
+                                                        type="number"
                                                         class="form-control"
                                                         placeholder=""
-                                                        v-model.trim="form_data.item_qty"
-                                                        readonly
+                                                        v-model.trim="form_data.pumpYearOfInstallationMeasured"
                                                     />
                                                 </div>
                                             </div>
@@ -1055,7 +1053,7 @@
                                                             type="number"
                                                             class="form-control"
                                                             placeholder=""
-                                                            v-model.trim="form_data.item_qty"
+                                                            v-model.trim="form_data.pumpFlowRated"
                                                         />
                                                         <span class="mt-2" style="margin-left: .5rem;">m3/hr</span>
                                                     </div>
@@ -1069,7 +1067,7 @@
                                                             type="number"
                                                             class="form-control"
                                                             placeholder=""
-                                                            v-model.trim="form_data.item_qty"
+                                                            v-model.trim="form_data.pumpFlowMeasured"
                                                         />
                                                         <span class="mt-2" style="margin-left: .5rem;">m3/hr</span>
                                                     </div>
@@ -1097,7 +1095,7 @@
                                                             type="number"
                                                             class="form-control"
                                                             placeholder=""
-                                                            v-model.trim="form_data.item_qty"
+                                                            v-model.trim="form_data.pumpHeadRated"
                                                         />
                                                         <span class="mt-2" style="margin-left: .5rem;">m</span>
                                                     </div>
@@ -1111,7 +1109,7 @@
                                                             type="number"
                                                             class="form-control"
                                                             placeholder=""
-                                                            v-model.trim="form_data.item_qty"
+                                                            v-model.trim="form_data.pumpHeadMeasured"
                                                         />
                                                         <span class="mt-2" style="margin-left: .5rem;">m</span>
                                                     </div>
@@ -1139,7 +1137,7 @@
                                                             type="number"
                                                             class="form-control"
                                                             placeholder=""
-                                                            v-model.trim="form_data.item_qty"
+                                                            v-model.trim="form_data.pumpVoltageRated"
                                                         />
                                                         <span class="mt-2" style="margin-left: .5rem;">V</span>
                                                     </div>
@@ -1153,7 +1151,7 @@
                                                             type="number"
                                                             class="form-control"
                                                             placeholder=""
-                                                            v-model.trim="form_data.item_qty"
+                                                            v-model.trim="form_data.pumpVoltageMeasured"
                                                         />
                                                         <span class="mt-2" style="margin-left: .5rem;">V</span>
                                                     </div>
@@ -1181,7 +1179,7 @@
                                                             type="number"
                                                             class="form-control"
                                                             placeholder=""
-                                                            v-model.trim="form_data.item_qty"
+                                                            v-model.trim="form_data.pumpCurrentRated"
                                                         />
                                                         <span class="mt-2" style="margin-left: .5rem;">A</span>
                                                     </div>
@@ -1195,7 +1193,7 @@
                                                             type="number"
                                                             class="form-control"
                                                             placeholder=""
-                                                            v-model.trim="form_data.item_qty"
+                                                            v-model.trim="form_data.pumpCurrentMeasured"
                                                         />
                                                         <span class="mt-2" style="margin-left: .5rem;">A</span>
                                                     </div>
@@ -1223,7 +1221,7 @@
                                                             type="number"
                                                             class="form-control"
                                                             placeholder=""
-                                                            v-model.trim="form_data.item_qty"
+                                                            v-model.trim="form_data.pumpPowerFactorRated"
                                                         />
                                                     </div>
                                                 </div>
@@ -1236,7 +1234,7 @@
                                                             type="number"
                                                             class="form-control"
                                                             placeholder=""
-                                                            v-model.trim="form_data.item_qty"
+                                                            v-model.trim="form_data.pumpPowerFactorMeasured"
                                                         />
                                                     </div>
                                                 </div>
@@ -1263,7 +1261,7 @@
                                                             type="number"
                                                             class="form-control"
                                                             placeholder=""
-                                                            v-model.trim="form_data.item_qty"
+                                                            v-model.trim="form_data.pumpMotorPowerRated"
                                                         />
                                                         <span class="mt-2" style="margin-left: .5rem;">kW</span>
                                                     </div>
@@ -1277,7 +1275,7 @@
                                                             type="number"
                                                             class="form-control"
                                                             placeholder=""
-                                                            v-model.trim="form_data.item_qty"
+                                                            v-model.trim="form_data.pumpMotorPowerMeasured"
                                                         />
                                                         <span class="mt-2" style="margin-left: .5rem;">kW</span>
                                                     </div>
@@ -1305,7 +1303,7 @@
                                                             type="number"
                                                             class="form-control"
                                                             placeholder=""
-                                                            v-model.trim="form_data.item_qty"
+                                                            v-model.trim="form_data.pumpMotorEfficiencyRated"
                                                         />
                                                     </div>
                                                 </div>
@@ -1318,7 +1316,7 @@
                                                             type="number"
                                                             class="form-control"
                                                             placeholder=""
-                                                            v-model.trim="form_data.item_qty"
+                                                            v-model.trim="form_data.pumpMotorEfficiencyMeasured"
                                                         />
                                                     </div>
                                                 </div>
@@ -1342,12 +1340,12 @@
                                                     </label>
                                                     <div class="d-flex justify-content-between">
                                                         <select class="form-select mb-text-only" aria-label="Default select example"
-                                                                v-model.trim="form_data.itemType"
+                                                                v-model.trim="form_data.pumpMotorEfficiencyClassRated"
                                                         >
-                                                            <option>IE2</option>
-                                                            <option>IE3</option>
-                                                            <option>IE5</option>
-                                                            <option>IE5</option>
+                                                            <option value="IE2">IE2</option>
+                                                            <option value="IE3">IE3</option>
+                                                            <option value="IE4">IE4</option>
+                                                            <option value="IE5">IE5</option>
                                                         </select>
                                                     </div>
                                                 </div>
@@ -1357,12 +1355,12 @@
                                                     </label>
                                                     <div class="d-flex justify-content-between">
                                                         <select class="form-select mb-text-only" aria-label="Default select example"
-                                                                v-model.trim="form_data.itemType"
+                                                                v-model.trim="form_data.pumpMotorEfficiencyClassMeasured"
                                                         >
-                                                            <option>IE2</option>
-                                                            <option>IE3</option>
-                                                            <option>IE5</option>
-                                                            <option>IE5</option>
+                                                            <option value="IE2">IE2</option>
+                                                            <option value="IE3">IE3</option>
+                                                            <option value="IE4">IE4</option>
+                                                            <option value="IE5">IE5</option>
                                                         </select>
                                                     </div>
                                                 </div>
@@ -1389,7 +1387,7 @@
                                                             type="number"
                                                             class="form-control"
                                                             placeholder=""
-                                                            v-model.trim="form_data.item_qty"
+                                                            v-model.trim="form_data.pumpMotorFrameSizeRated"
                                                         />
                                                     </div>
                                                 </div>
@@ -1402,7 +1400,7 @@
                                                             type="number"
                                                             class="form-control"
                                                             placeholder=""
-                                                            v-model.trim="form_data.item_qty"
+                                                            v-model.trim="form_data.pumpMotorFrameSizeMeasured"
                                                         />
                                                     </div>
                                                 </div>
@@ -1429,7 +1427,7 @@
                                                             type="number"
                                                             class="form-control"
                                                             placeholder=""
-                                                            v-model.trim="form_data.item_qty"
+                                                            v-model.trim="form_data.pumpInsulationClassRated"
                                                         />
                                                     </div>
                                                 </div>
@@ -1442,7 +1440,7 @@
                                                             type="number"
                                                             class="form-control"
                                                             placeholder=""
-                                                            v-model.trim="form_data.item_qty"
+                                                            v-model.trim="form_data.pumpInsulationClassMeasured"
                                                         />
                                                     </div>
                                                 </div>
@@ -1469,7 +1467,7 @@
                                                             type="number"
                                                             class="form-control"
                                                             placeholder=""
-                                                            v-model.trim="form_data.item_qty"
+                                                            v-model.trim="form_data.pumpSuctionHeadRated"
                                                         />
                                                         <span class="mt-2" style="margin-left: .5rem;">m</span>
                                                     </div>
@@ -1483,7 +1481,7 @@
                                                             type="number"
                                                             class="form-control"
                                                             placeholder=""
-                                                            v-model.trim="form_data.item_qty"
+                                                            v-model.trim="form_data.pumpSuctionHeadMeasured"
                                                         />
                                                         <span class="mt-2" style="margin-left: .5rem;">m</span>
                                                     </div>
@@ -1511,7 +1509,7 @@
                                                             type="number"
                                                             class="form-control"
                                                             placeholder=""
-                                                            v-model.trim="form_data.item_qty"
+                                                            v-model.trim="form_data.pumpDischargeHeadRated"
                                                         />
                                                         <span class="mt-2" style="margin-left: .5rem;">m</span>
                                                     </div>
@@ -1525,7 +1523,7 @@
                                                             type="number"
                                                             class="form-control"
                                                             placeholder=""
-                                                            v-model.trim="form_data.item_qty"
+                                                            v-model.trim="form_data.pumpDischargeHeadMeasured"
                                                         />
                                                         <span class="mt-2" style="margin-left: .5rem;">m</span>
                                                     </div>
@@ -1553,7 +1551,7 @@
                                                             type="number"
                                                             class="form-control"
                                                             placeholder=""
-                                                            v-model.trim="form_data.item_qty"
+                                                            v-model.trim="form_data.pumpEfficiencyRated"
                                                         />
                                                     </div>
                                                 </div>
@@ -1566,7 +1564,7 @@
                                                             type="number"
                                                             class="form-control"
                                                             placeholder=""
-                                                            v-model.trim="form_data.item_qty"
+                                                            v-model.trim="form_data.pumpEfficiencyMeasured"
                                                         />
                                                     </div>
                                                 </div>
@@ -1593,11 +1591,10 @@
                                                         Rated Parameter
                                                     </label>
                                                     <input
-                                                        type="text"
+                                                        type="number"
                                                         class="form-control"
                                                         placeholder=""
-                                                        v-model.trim="form_data.item_qty"
-                                                        readonly
+                                                        v-model.trim="form_data.fanYearOfInstallationRated"
                                                     />
                                                 </div>
                                                 <div class="col-md-6">
@@ -1605,11 +1602,10 @@
                                                         Measured Parameter
                                                     </label>
                                                     <input
-                                                        type="text"
+                                                        type="number"
                                                         class="form-control"
                                                         placeholder=""
-                                                        v-model.trim="form_data.item_qty"
-                                                        readonly
+                                                        v-model.trim="form_data.fanYearOfInstallationMeasured"
                                                     />
                                                 </div>
                                             </div>
@@ -1635,7 +1631,7 @@
                                                             type="number"
                                                             class="form-control"
                                                             placeholder=""
-                                                            v-model.trim="form_data.item_qty"
+                                                            v-model.trim="form_data.fanFlowRated"
                                                         />
                                                         <span class="mt-2" style="margin-left: .5rem;">m3/hr</span>
                                                     </div>
@@ -1649,7 +1645,7 @@
                                                             type="number"
                                                             class="form-control"
                                                             placeholder=""
-                                                            v-model.trim="form_data.item_qty"
+                                                            v-model.trim="form_data.fanFlowMeasured"
                                                         />
                                                         <span class="mt-2" style="margin-left: .5rem;">m3/hr</span>
                                                     </div>
@@ -1677,7 +1673,7 @@
                                                             type="number"
                                                             class="form-control"
                                                             placeholder=""
-                                                            v-model.trim="form_data.item_qty"
+                                                            v-model.trim="form_data.fanHeadRated"
                                                         />
                                                         <span class="mt-2" style="margin-left: .5rem;">m</span>
                                                     </div>
@@ -1691,7 +1687,7 @@
                                                             type="number"
                                                             class="form-control"
                                                             placeholder=""
-                                                            v-model.trim="form_data.item_qty"
+                                                            v-model.trim="form_data.fanHeadMeasured"
                                                         />
                                                         <span class="mt-2" style="margin-left: .5rem;">m</span>
                                                     </div>
@@ -1719,7 +1715,7 @@
                                                             type="number"
                                                             class="form-control"
                                                             placeholder=""
-                                                            v-model.trim="form_data.item_qty"
+                                                            v-model.trim="form_data.fanVoltageRated"
                                                         />
                                                         <span class="mt-2" style="margin-left: .5rem;">V</span>
                                                     </div>
@@ -1733,7 +1729,7 @@
                                                             type="number"
                                                             class="form-control"
                                                             placeholder=""
-                                                            v-model.trim="form_data.item_qty"
+                                                            v-model.trim="form_data.fanVoltageMeasured"
                                                         />
                                                         <span class="mt-2" style="margin-left: .5rem;">V</span>
                                                     </div>
@@ -1761,7 +1757,7 @@
                                                             type="number"
                                                             class="form-control"
                                                             placeholder=""
-                                                            v-model.trim="form_data.item_qty"
+                                                            v-model.trim="form_data.fanCurrentRated"
                                                         />
                                                         <span class="mt-2" style="margin-left: .5rem;">A</span>
                                                     </div>
@@ -1775,7 +1771,7 @@
                                                             type="number"
                                                             class="form-control"
                                                             placeholder=""
-                                                            v-model.trim="form_data.item_qty"
+                                                            v-model.trim="form_data.fanCurrentMeasured"
                                                         />
                                                         <span class="mt-2" style="margin-left: .5rem;">A</span>
                                                     </div>
@@ -1803,7 +1799,7 @@
                                                             type="number"
                                                             class="form-control"
                                                             placeholder=""
-                                                            v-model.trim="form_data.item_qty"
+                                                            v-model.trim="form_data.fanPowerFactorRated"
                                                         />
                                                     </div>
                                                 </div>
@@ -1816,7 +1812,7 @@
                                                             type="number"
                                                             class="form-control"
                                                             placeholder=""
-                                                            v-model.trim="form_data.item_qty"
+                                                            v-model.trim="form_data.fanPowerFactorMeasured"
                                                         />
                                                     </div>
                                                 </div>
@@ -1843,7 +1839,7 @@
                                                             type="number"
                                                             class="form-control"
                                                             placeholder=""
-                                                            v-model.trim="form_data.item_qty"
+                                                            v-model.trim="form_data.fanMotorPowerRated"
                                                         />
                                                         <span class="mt-2" style="margin-left: .5rem;">kW</span>
                                                     </div>
@@ -1857,7 +1853,7 @@
                                                             type="number"
                                                             class="form-control"
                                                             placeholder=""
-                                                            v-model.trim="form_data.item_qty"
+                                                            v-model.trim="form_data.fanMotorPowerMeasured"
                                                         />
                                                         <span class="mt-2" style="margin-left: .5rem;">kW</span>
                                                     </div>
@@ -1885,7 +1881,7 @@
                                                             type="number"
                                                             class="form-control"
                                                             placeholder=""
-                                                            v-model.trim="form_data.item_qty"
+                                                            v-model.trim="form_data.fanMotorEfficiencyRated"
                                                         />
                                                     </div>
                                                 </div>
@@ -1898,7 +1894,7 @@
                                                             type="number"
                                                             class="form-control"
                                                             placeholder=""
-                                                            v-model.trim="form_data.item_qty"
+                                                            v-model.trim="form_data.fanMotorEfficiencyMeasured"
                                                         />
                                                     </div>
                                                 </div>
@@ -1922,12 +1918,12 @@
                                                     </label>
                                                     <div class="d-flex justify-content-between">
                                                         <select class="form-select mb-text-only" aria-label="Default select example"
-                                                                v-model.trim="form_data.itemType"
+                                                                v-model.trim="form_data.fanMotorEfficiencyClassRated"
                                                         >
-                                                            <option>IE2</option>
-                                                            <option>IE3</option>
-                                                            <option>IE5</option>
-                                                            <option>IE5</option>
+                                                            <option value="IE2">IE2</option>
+                                                            <option value="IE3">IE3</option>
+                                                            <option value="IE4">IE4</option>
+                                                            <option value="IE5">IE5</option>
                                                         </select>
                                                     </div>
                                                 </div>
@@ -1937,12 +1933,12 @@
                                                     </label>
                                                     <div class="d-flex justify-content-between">
                                                         <select class="form-select mb-text-only" aria-label="Default select example"
-                                                                v-model.trim="form_data.itemType"
+                                                                v-model.trim="form_data.fanMotorEfficiencyClassMeasured"
                                                         >
-                                                            <option>IE2</option>
-                                                            <option>IE3</option>
-                                                            <option>IE5</option>
-                                                            <option>IE5</option>
+                                                            <option value="IE2">IE2</option>
+                                                            <option value="IE3">IE3</option>
+                                                            <option value="IE4">IE4</option>
+                                                            <option value="IE5">IE5</option>
                                                         </select>
                                                     </div>
                                                 </div>
@@ -1969,7 +1965,7 @@
                                                             type="number"
                                                             class="form-control"
                                                             placeholder=""
-                                                            v-model.trim="form_data.item_qty"
+                                                            v-model.trim="form_data.fanMotorFrameSizeRated"
                                                         />
                                                     </div>
                                                 </div>
@@ -1982,7 +1978,7 @@
                                                             type="number"
                                                             class="form-control"
                                                             placeholder=""
-                                                            v-model.trim="form_data.item_qty"
+                                                            v-model.trim="form_data.fanMotorFrameSizeMeasured"
                                                         />
                                                     </div>
                                                 </div>
@@ -2009,7 +2005,7 @@
                                                             type="number"
                                                             class="form-control"
                                                             placeholder=""
-                                                            v-model.trim="form_data.item_qty"
+                                                            v-model.trim="form_data.fanInsulationClassRated"
                                                         />
                                                     </div>
                                                 </div>
@@ -2022,7 +2018,7 @@
                                                             type="number"
                                                             class="form-control"
                                                             placeholder=""
-                                                            v-model.trim="form_data.item_qty"
+                                                            v-model.trim="form_data.fanInsulationClassMeasured"
                                                         />
                                                     </div>
                                                 </div>
@@ -2049,7 +2045,7 @@
                                                             type="number"
                                                             class="form-control"
                                                             placeholder=""
-                                                            v-model.trim="form_data.item_qty"
+                                                            v-model.trim="form_data.fanSuctionDuctSizeRated"
                                                         />
                                                         <span class="mt-2" style="margin-left: .5rem;">m2</span>
                                                     </div>
@@ -2063,7 +2059,7 @@
                                                             type="number"
                                                             class="form-control"
                                                             placeholder=""
-                                                            v-model.trim="form_data.item_qty"
+                                                            v-model.trim="form_data.fanSuctionDuctSizeMeasured"
                                                         />
                                                         <span class="mt-2" style="margin-left: .5rem;">m2</span>
                                                     </div>
@@ -2091,7 +2087,7 @@
                                                             type="number"
                                                             class="form-control"
                                                             placeholder=""
-                                                            v-model.trim="form_data.item_qty"
+                                                            v-model.trim="form_data.fanSuctionStaticPressureRated"
                                                         />
                                                     </div>
                                                 </div>
@@ -2104,7 +2100,7 @@
                                                             type="number"
                                                             class="form-control"
                                                             placeholder=""
-                                                            v-model.trim="form_data.item_qty"
+                                                            v-model.trim="form_data.fanSuctionStaticPressureMeasured"
                                                         />
                                                     </div>
                                                 </div>
@@ -2131,7 +2127,7 @@
                                                             type="number"
                                                             class="form-control"
                                                             placeholder=""
-                                                            v-model.trim="form_data.item_qty"
+                                                            v-model.trim="form_data.fanSuctionVelocityPressureRated"
                                                         />
                                                     </div>
                                                 </div>
@@ -2144,7 +2140,7 @@
                                                             type="number"
                                                             class="form-control"
                                                             placeholder=""
-                                                            v-model.trim="form_data.item_qty"
+                                                            v-model.trim="form_data.fanSuctionVelocityPressureMeasured"
                                                         />
                                                     </div>
                                                 </div>
@@ -2171,7 +2167,7 @@
                                                             type="number"
                                                             class="form-control"
                                                             placeholder=""
-                                                            v-model.trim="form_data.item_qty"
+                                                            v-model.trim="form_data.fanDischargeDuctSizeRated"
                                                         />
                                                         <span class="mt-2" style="margin-left: .5rem;">m2</span>
                                                     </div>
@@ -2185,7 +2181,7 @@
                                                             type="number"
                                                             class="form-control"
                                                             placeholder=""
-                                                            v-model.trim="form_data.item_qty"
+                                                            v-model.trim="form_data.fanDischargeDuctSizeMeasured"
                                                         />
                                                         <span class="mt-2" style="margin-left: .5rem;">m2</span>
                                                     </div>
@@ -2213,7 +2209,7 @@
                                                             type="number"
                                                             class="form-control"
                                                             placeholder=""
-                                                            v-model.trim="form_data.item_qty"
+                                                            v-model.trim="form_data.fanDischargeStaticPressureRated"
                                                         />
                                                     </div>
                                                 </div>
@@ -2226,7 +2222,7 @@
                                                             type="number"
                                                             class="form-control"
                                                             placeholder=""
-                                                            v-model.trim="form_data.item_qty"
+                                                            v-model.trim="form_data.fanDischargeStaticPressureMeasured"
                                                         />
                                                     </div>
                                                 </div>
@@ -2253,7 +2249,7 @@
                                                             type="number"
                                                             class="form-control"
                                                             placeholder=""
-                                                            v-model.trim="form_data.item_qty"
+                                                            v-model.trim="form_data.fanDischargeVelocityPressureRated"
                                                         />
                                                     </div>
                                                 </div>
@@ -2266,7 +2262,7 @@
                                                             type="number"
                                                             class="form-control"
                                                             placeholder=""
-                                                            v-model.trim="form_data.item_qty"
+                                                            v-model.trim="form_data.fanDischargeVelocityPressureMeasured"
                                                         />
                                                     </div>
                                                 </div>
@@ -2293,7 +2289,7 @@
                                                             type="number"
                                                             class="form-control"
                                                             placeholder=""
-                                                            v-model.trim="form_data.item_qty"
+                                                            v-model.trim="form_data.fanEfficiencyRated"
                                                         />
                                                     </div>
                                                 </div>
@@ -2306,7 +2302,7 @@
                                                             type="number"
                                                             class="form-control"
                                                             placeholder=""
-                                                            v-model.trim="form_data.item_qty"
+                                                            v-model.trim="form_data.fanEfficiencyMeasured"
                                                         />
                                                     </div>
                                                 </div>
@@ -2336,8 +2332,7 @@
                                                         type="text"
                                                         class="form-control"
                                                         placeholder=""
-                                                        v-model.trim="form_data.item_qty"
-                                                        readonly
+                                                        v-model.trim="form_data.airCompressorYearOfInstallationRated"
                                                     />
                                                 </div>
                                                 <div class="col-md-6">
@@ -2348,8 +2343,7 @@
                                                         type="text"
                                                         class="form-control"
                                                         placeholder=""
-                                                        v-model.trim="form_data.item_qty"
-                                                        readonly
+                                                        v-model.trim="form_data.airCompressorYearOfInstallationMeasured"
                                                     />
                                                 </div>
                                             </div>
@@ -2375,7 +2369,7 @@
                                                             type="number"
                                                             class="form-control"
                                                             placeholder=""
-                                                            v-model.trim="form_data.item_qty"
+                                                            v-model.trim="form_data.airCompressorFlowRated"
                                                         />
                                                         <span class="mt-2" style="margin-left: .5rem;">m3/hr</span>
                                                     </div>
@@ -2389,7 +2383,7 @@
                                                             type="number"
                                                             class="form-control"
                                                             placeholder=""
-                                                            v-model.trim="form_data.item_qty"
+                                                            v-model.trim="form_data.airCompressorFlowMeasured"
                                                         />
                                                         <span class="mt-2" style="margin-left: .5rem;">m3/hr</span>
                                                     </div>
@@ -2417,7 +2411,7 @@
                                                             type="number"
                                                             class="form-control"
                                                             placeholder=""
-                                                            v-model.trim="form_data.item_qty"
+                                                            v-model.trim="form_data.airCompressorPressureRated"
                                                         />
                                                         <span class="mt-2" style="margin-left: .5rem;">m</span>
                                                     </div>
@@ -2431,7 +2425,7 @@
                                                             type="number"
                                                             class="form-control"
                                                             placeholder=""
-                                                            v-model.trim="form_data.item_qty"
+                                                            v-model.trim="form_data.airCompressorPressureMeasured"
                                                         />
                                                         <span class="mt-2" style="margin-left: .5rem;">m</span>
                                                     </div>
@@ -2459,7 +2453,7 @@
                                                             type="number"
                                                             class="form-control"
                                                             placeholder=""
-                                                            v-model.trim="form_data.item_qty"
+                                                            v-model.trim="form_data.airCompressorVoltageRated"
                                                         />
                                                         <span class="mt-2" style="margin-left: .5rem;">V</span>
                                                     </div>
@@ -2473,7 +2467,7 @@
                                                             type="number"
                                                             class="form-control"
                                                             placeholder=""
-                                                            v-model.trim="form_data.item_qty"
+                                                            v-model.trim="form_data.airCompressorVoltageMeasured"
                                                         />
                                                         <span class="mt-2" style="margin-left: .5rem;">V</span>
                                                     </div>
@@ -2501,7 +2495,7 @@
                                                             type="number"
                                                             class="form-control"
                                                             placeholder=""
-                                                            v-model.trim="form_data.item_qty"
+                                                            v-model.trim="form_data.airCompressorCurrentRated"
                                                         />
                                                         <span class="mt-2" style="margin-left: .5rem;">A</span>
                                                     </div>
@@ -2515,7 +2509,7 @@
                                                             type="number"
                                                             class="form-control"
                                                             placeholder=""
-                                                            v-model.trim="form_data.item_qty"
+                                                            v-model.trim="form_data.airCompressorCurrentMeasured"
                                                         />
                                                         <span class="mt-2" style="margin-left: .5rem;">A</span>
                                                     </div>
@@ -2543,7 +2537,7 @@
                                                             type="number"
                                                             class="form-control"
                                                             placeholder=""
-                                                            v-model.trim="form_data.item_qty"
+                                                            v-model.trim="form_data.airCompressorPowerFactorRated"
                                                         />
                                                     </div>
                                                 </div>
@@ -2556,7 +2550,7 @@
                                                             type="number"
                                                             class="form-control"
                                                             placeholder=""
-                                                            v-model.trim="form_data.item_qty"
+                                                            v-model.trim="form_data.airCompressorPowerFactorMeasured"
                                                         />
                                                     </div>
                                                 </div>
@@ -2583,7 +2577,7 @@
                                                             type="number"
                                                             class="form-control"
                                                             placeholder=""
-                                                            v-model.trim="form_data.item_qty"
+                                                            v-model.trim="form_data.airCompressorMotorPowerRated"
                                                         />
                                                         <span class="mt-2" style="margin-left: .5rem;">kW</span>
                                                     </div>
@@ -2597,7 +2591,7 @@
                                                             type="number"
                                                             class="form-control"
                                                             placeholder=""
-                                                            v-model.trim="form_data.item_qty"
+                                                            v-model.trim="form_data.airCompressorMotorPowerMeasured"
                                                         />
                                                         <span class="mt-2" style="margin-left: .5rem;">kW</span>
                                                     </div>
@@ -2625,7 +2619,7 @@
                                                             type="number"
                                                             class="form-control"
                                                             placeholder=""
-                                                            v-model.trim="form_data.item_qty"
+                                                            v-model.trim="form_data.airCompressorMotorEfficiencyRated"
                                                         />
                                                     </div>
                                                 </div>
@@ -2638,7 +2632,7 @@
                                                             type="number"
                                                             class="form-control"
                                                             placeholder=""
-                                                            v-model.trim="form_data.item_qty"
+                                                            v-model.trim="form_data.airCompressorMotorEfficiencyMeasured"
                                                         />
                                                     </div>
                                                 </div>
@@ -2662,12 +2656,12 @@
                                                     </label>
                                                     <div class="d-flex justify-content-between">
                                                         <select class="form-select mb-text-only" aria-label="Default select example"
-                                                                v-model.trim="form_data.itemType"
+                                                                v-model.trim="form_data.airCompressorMotorEfficiencyClassRated"
                                                         >
-                                                            <option>IE2</option>
-                                                            <option>IE3</option>
-                                                            <option>IE5</option>
-                                                            <option>IE5</option>
+                                                            <option value="IE2">IE2</option>
+                                                            <option value="IE3">IE3</option>
+                                                            <option value="IE4">IE4</option>
+                                                            <option value="IE5">IE5</option>
                                                         </select>
                                                     </div>
                                                 </div>
@@ -2677,12 +2671,12 @@
                                                     </label>
                                                     <div class="d-flex justify-content-between">
                                                         <select class="form-select mb-text-only" aria-label="Default select example"
-                                                                v-model.trim="form_data.itemType"
+                                                                v-model.trim="form_data.airCompressorMotorEfficiencyClassMeasured"
                                                         >
-                                                            <option>IE2</option>
-                                                            <option>IE3</option>
-                                                            <option>IE5</option>
-                                                            <option>IE5</option>
+                                                            <option value="IE2">IE2</option>
+                                                            <option value="IE3">IE3</option>
+                                                            <option value="IE4">IE4</option>
+                                                            <option value="IE5">IE5</option>
                                                         </select>
                                                     </div>
                                                 </div>
@@ -2709,7 +2703,7 @@
                                                             type="number"
                                                             class="form-control"
                                                             placeholder=""
-                                                            v-model.trim="form_data.item_qty"
+                                                            v-model.trim="form_data.airCompressorMotorFrameSizeRated"
                                                         />
                                                     </div>
                                                 </div>
@@ -2722,7 +2716,7 @@
                                                             type="number"
                                                             class="form-control"
                                                             placeholder=""
-                                                            v-model.trim="form_data.item_qty"
+                                                            v-model.trim="form_data.airCompressorMotorFrameSizeMeasured"
                                                         />
                                                     </div>
                                                 </div>
@@ -2749,7 +2743,7 @@
                                                             type="number"
                                                             class="form-control"
                                                             placeholder=""
-                                                            v-model.trim="form_data.item_qty"
+                                                            v-model.trim="form_data.airCompressorInsulationClassRated"
                                                         />
                                                     </div>
                                                 </div>
@@ -2762,7 +2756,7 @@
                                                             type="number"
                                                             class="form-control"
                                                             placeholder=""
-                                                            v-model.trim="form_data.item_qty"
+                                                            v-model.trim="form_data.airCompressorInsulationClassMeasured"
                                                         />
                                                     </div>
                                                 </div>
@@ -2789,7 +2783,7 @@
                                                             type="number"
                                                             class="form-control"
                                                             placeholder=""
-                                                            v-model.trim="form_data.item_qty"
+                                                            v-model.trim="form_data.airCompressorLoadPressureRated"
                                                         />
                                                         <span class="mt-2" style="margin-left: .5rem;">bar</span>
                                                     </div>
@@ -2803,7 +2797,7 @@
                                                             type="number"
                                                             class="form-control"
                                                             placeholder=""
-                                                            v-model.trim="form_data.item_qty"
+                                                            v-model.trim="form_data.airCompressorLoadPressureMeasured"
                                                         />
                                                         <span class="mt-2" style="margin-left: .5rem;">bar</span>
                                                     </div>
@@ -2831,7 +2825,7 @@
                                                             type="number"
                                                             class="form-control"
                                                             placeholder=""
-                                                            v-model.trim="form_data.item_qty"
+                                                            v-model.trim="form_data.airCompressorUnLoadPressureRated"
                                                         />
                                                         <span class="mt-2" style="margin-left: .5rem;">bar</span>
                                                     </div>
@@ -2845,7 +2839,7 @@
                                                             type="number"
                                                             class="form-control"
                                                             placeholder=""
-                                                            v-model.trim="form_data.item_qty"
+                                                            v-model.trim="form_data.airCompressorUnLoadPressureMeasured"
                                                         />
                                                         <span class="mt-2" style="margin-left: .5rem;">bar</span>
                                                     </div>
@@ -2873,7 +2867,7 @@
                                                             type="number"
                                                             class="form-control"
                                                             placeholder=""
-                                                            v-model.trim="form_data.item_qty"
+                                                            v-model.trim="form_data.airCompressorRecieverSizeRated"
                                                         />
                                                         <span class="mt-2" style="margin-left: .5rem;">m3</span>
                                                     </div>
@@ -2887,7 +2881,7 @@
                                                             type="number"
                                                             class="form-control"
                                                             placeholder=""
-                                                            v-model.trim="form_data.item_qty"
+                                                            v-model.trim="form_data.airCompressorRecieverSizeMeasured"
                                                         />
                                                         <span class="mt-2" style="margin-left: .5rem;">m3</span>
                                                     </div>
@@ -2915,7 +2909,7 @@
                                                             type="number"
                                                             class="form-control"
                                                             placeholder=""
-                                                            v-model.trim="form_data.item_qty"
+                                                            v-model.trim="form_data.airCompressorInitialPressureRated"
                                                         />
                                                         <span class="mt-2" style="margin-left: .5rem;">bar</span>
                                                     </div>
@@ -2929,7 +2923,7 @@
                                                             type="number"
                                                             class="form-control"
                                                             placeholder=""
-                                                            v-model.trim="form_data.item_qty"
+                                                            v-model.trim="form_data.airCompressorInitialPressureMeasured"
                                                         />
                                                         <span class="mt-2" style="margin-left: .5rem;">bar</span>
                                                     </div>
@@ -2957,7 +2951,7 @@
                                                             type="number"
                                                             class="form-control"
                                                             placeholder=""
-                                                            v-model.trim="form_data.item_qty"
+                                                            v-model.trim="form_data.airCompressorFinalPressureRated"
                                                         />
                                                         <span class="mt-2" style="margin-left: .5rem;">bar</span>
                                                     </div>
@@ -2971,7 +2965,7 @@
                                                             type="number"
                                                             class="form-control"
                                                             placeholder=""
-                                                            v-model.trim="form_data.item_qty"
+                                                            v-model.trim="form_data.airCompressorFinalPressureMeasured"
                                                         />
                                                         <span class="mt-2" style="margin-left: .5rem;">bar</span>
                                                     </div>
@@ -2999,7 +2993,7 @@
                                                             type="number"
                                                             class="form-control"
                                                             placeholder=""
-                                                            v-model.trim="form_data.item_qty"
+                                                            v-model.trim="form_data.airCompressorTimeToReachFinalPressureRated"
                                                         />
                                                         <span class="mt-2" style="margin-left: .5rem;">Minutes</span>
                                                     </div>
@@ -3013,7 +3007,7 @@
                                                             type="number"
                                                             class="form-control"
                                                             placeholder=""
-                                                            v-model.trim="form_data.item_qty"
+                                                            v-model.trim="form_data.airCompressorTimeToReachFinalPressureMeasured"
                                                         />
                                                         <span class="mt-2" style="margin-left: .5rem;">Minutes</span>
                                                     </div>
@@ -3041,7 +3035,7 @@
                                                             type="number"
                                                             class="form-control"
                                                             placeholder=""
-                                                            v-model.trim="form_data.item_qty"
+                                                            v-model.trim="form_data.airCompressorTemperatureRated"
                                                         />
                                                         <span class="mt-2" style="margin-left: .5rem;">C</span>
                                                     </div>
@@ -3055,7 +3049,7 @@
                                                             type="number"
                                                             class="form-control"
                                                             placeholder=""
-                                                            v-model.trim="form_data.item_qty"
+                                                            v-model.trim="form_data.airCompressorTemperatureMeasured"
                                                         />
                                                         <span class="mt-2" style="margin-left: .5rem;">C</span>
                                                     </div>
@@ -3083,7 +3077,7 @@
                                                             type="number"
                                                             class="form-control"
                                                             placeholder=""
-                                                            v-model.trim="form_data.item_qty"
+                                                            v-model.trim="form_data.airCompressorCompressorSECRated"
                                                         />
                                                         <span class="mt-2" style="margin-left: .5rem;">kW/CFM</span>
                                                     </div>
@@ -3097,7 +3091,7 @@
                                                             type="number"
                                                             class="form-control"
                                                             placeholder=""
-                                                            v-model.trim="form_data.item_qty"
+                                                            v-model.trim="form_data.airCompressorCompressorSECMeasured"
                                                         />
                                                         <span class="mt-2" style="margin-left: .5rem;">kW/CFM</span>
                                                     </div>
@@ -3126,7 +3120,7 @@
                                                             type="number"
                                                             class="form-control"
                                                             placeholder=""
-                                                            v-model.trim="form_data.item_qty"
+                                                            v-model.trim="form_data.airCompressorLoadTimeReadingOne"
                                                         />
                                                         <span class="mt-2" style="margin-left: .5rem;">Sec.</span>
                                                     </div>
@@ -3140,7 +3134,7 @@
                                                             type="number"
                                                             class="form-control"
                                                             placeholder=""
-                                                            v-model.trim="form_data.item_qty"
+                                                            v-model.trim="form_data.airCompressorLoadTimeReadingTwo"
                                                         />
                                                         <span class="mt-2" style="margin-left: .5rem;">Sec.</span>
                                                     </div>
@@ -3168,7 +3162,7 @@
                                                             type="number"
                                                             class="form-control"
                                                             placeholder=""
-                                                            v-model.trim="form_data.item_qty"
+                                                            v-model.trim="form_data.airCompressorUnLoadTimeReadingOne"
                                                         />
                                                         <span class="mt-2" style="margin-left: .5rem;">Sec.</span>
                                                     </div>
@@ -3182,7 +3176,7 @@
                                                             type="number"
                                                             class="form-control"
                                                             placeholder=""
-                                                            v-model.trim="form_data.item_qty"
+                                                            v-model.trim="form_data.airCompressorUnLoadTimeReadingTwo"
                                                         />
                                                         <span class="mt-2" style="margin-left: .5rem;">Sec.</span>
                                                     </div>
@@ -3213,8 +3207,7 @@
                                                         type="text"
                                                         class="form-control"
                                                         placeholder=""
-                                                        v-model.trim="form_data.item_qty"
-                                                        readonly
+                                                        v-model.trim="form_data.chillerYearOfInstallationRated"
                                                     />
                                                 </div>
                                                 <div class="col-md-6">
@@ -3225,8 +3218,7 @@
                                                         type="text"
                                                         class="form-control"
                                                         placeholder=""
-                                                        v-model.trim="form_data.item_qty"
-                                                        readonly
+                                                        v-model.trim="form_data.chillerYearOfInstallationMeasured"
                                                     />
                                                 </div>
                                             </div>
@@ -3294,7 +3286,7 @@
                                                             type="number"
                                                             class="form-control"
                                                             placeholder=""
-                                                            v-model.trim="form_data.item_qty"
+                                                            v-model.trim="form_data.chillerVoltageRated"
                                                         />
                                                         <span class="mt-2" style="margin-left: .5rem;">V</span>
                                                     </div>
@@ -3308,7 +3300,7 @@
                                                             type="number"
                                                             class="form-control"
                                                             placeholder=""
-                                                            v-model.trim="form_data.item_qty"
+                                                            v-model.trim="form_data.chillerVoltageMeasured"
                                                         />
                                                         <span class="mt-2" style="margin-left: .5rem;">V</span>
                                                     </div>
@@ -3336,7 +3328,7 @@
                                                             type="number"
                                                             class="form-control"
                                                             placeholder=""
-                                                            v-model.trim="form_data.item_qty"
+                                                            v-model.trim="form_data.chillerCurrentRated"
                                                         />
                                                         <span class="mt-2" style="margin-left: .5rem;">A</span>
                                                     </div>
@@ -3350,7 +3342,7 @@
                                                             type="number"
                                                             class="form-control"
                                                             placeholder=""
-                                                            v-model.trim="form_data.item_qty"
+                                                            v-model.trim="form_data.chillerCurrentMeasured"
                                                         />
                                                         <span class="mt-2" style="margin-left: .5rem;">A</span>
                                                     </div>
@@ -3378,7 +3370,7 @@
                                                             type="number"
                                                             class="form-control"
                                                             placeholder=""
-                                                            v-model.trim="form_data.item_qty"
+                                                            v-model.trim="form_data.chillerPowerFactorRated"
                                                         />
                                                     </div>
                                                 </div>
@@ -3391,7 +3383,7 @@
                                                             type="number"
                                                             class="form-control"
                                                             placeholder=""
-                                                            v-model.trim="form_data.item_qty"
+                                                            v-model.trim="form_data.chillerPowerFactorMeasured"
                                                         />
                                                     </div>
                                                 </div>
@@ -3418,7 +3410,7 @@
                                                             type="number"
                                                             class="form-control"
                                                             placeholder=""
-                                                            v-model.trim="form_data.item_qty"
+                                                            v-model.trim="form_data.chillerMotorPowerRated"
                                                         />
                                                         <span class="mt-2" style="margin-left: .5rem;">kW</span>
                                                     </div>
@@ -3432,7 +3424,7 @@
                                                             type="number"
                                                             class="form-control"
                                                             placeholder=""
-                                                            v-model.trim="form_data.item_qty"
+                                                            v-model.trim="form_data.chillerMotorPowerMeasured"
                                                         />
                                                         <span class="mt-2" style="margin-left: .5rem;">kW</span>
                                                     </div>
@@ -3460,7 +3452,7 @@
                                                             type="number"
                                                             class="form-control"
                                                             placeholder=""
-                                                            v-model.trim="form_data.item_qty"
+                                                            v-model.trim="form_data.chillerMotorEfficiencyRated"
                                                         />
                                                     </div>
                                                 </div>
@@ -3473,7 +3465,7 @@
                                                             type="number"
                                                             class="form-control"
                                                             placeholder=""
-                                                            v-model.trim="form_data.item_qty"
+                                                            v-model.trim="form_data.chillerMotorEfficiencyMeasured"
                                                         />
                                                     </div>
                                                 </div>
@@ -3497,12 +3489,12 @@
                                                     </label>
                                                     <div class="d-flex justify-content-between">
                                                         <select class="form-select mb-text-only" aria-label="Default select example"
-                                                                v-model.trim="form_data.itemType"
+                                                                v-model.trim="form_data.chillerMotorEfficiencyClassRated"
                                                         >
-                                                            <option>IE2</option>
-                                                            <option>IE3</option>
-                                                            <option>IE5</option>
-                                                            <option>IE5</option>
+                                                            <option value="IE2">IE2</option>
+                                                            <option value="IE3">IE3</option>
+                                                            <option value="IE4">IE4</option>
+                                                            <option value="IE5">IE5</option>
                                                         </select>
                                                     </div>
                                                 </div>
@@ -3512,12 +3504,12 @@
                                                     </label>
                                                     <div class="d-flex justify-content-between">
                                                         <select class="form-select mb-text-only" aria-label="Default select example"
-                                                                v-model.trim="form_data.itemType"
+                                                                v-model.trim="form_data.chillerMotorEfficiencyClassMeasured"
                                                         >
-                                                            <option>IE2</option>
-                                                            <option>IE3</option>
-                                                            <option>IE5</option>
-                                                            <option>IE5</option>
+                                                            <option value="IE2">IE2</option>
+                                                            <option value="IE3">IE3</option>
+                                                            <option value="IE4">IE4</option>
+                                                            <option value="IE5">IE5</option>
                                                         </select>
                                                     </div>
                                                 </div>
@@ -3544,7 +3536,7 @@
                                                             type="number"
                                                             class="form-control"
                                                             placeholder=""
-                                                            v-model.trim="form_data.item_qty"
+                                                            v-model.trim="form_data.chillerMotorFrameSizeRated"
                                                         />
                                                     </div>
                                                 </div>
@@ -3557,7 +3549,7 @@
                                                             type="number"
                                                             class="form-control"
                                                             placeholder=""
-                                                            v-model.trim="form_data.item_qty"
+                                                            v-model.trim="form_data.chillerMotorFrameSizeMeasured"
                                                         />
                                                     </div>
                                                 </div>
@@ -3584,7 +3576,7 @@
                                                             type="number"
                                                             class="form-control"
                                                             placeholder=""
-                                                            v-model.trim="form_data.item_qty"
+                                                            v-model.trim="form_data.chillerSupplyTempRated"
                                                         />
                                                         <span class="mt-2" style="margin-left: .5rem;">C</span>
                                                     </div>
@@ -3598,7 +3590,7 @@
                                                             type="number"
                                                             class="form-control"
                                                             placeholder=""
-                                                            v-model.trim="form_data.item_qty"
+                                                            v-model.trim="form_data.chillerSupplyTempMeasured"
                                                         />
                                                         <span class="mt-2" style="margin-left: .5rem;">C</span>
                                                     </div>
@@ -3626,7 +3618,7 @@
                                                             type="number"
                                                             class="form-control"
                                                             placeholder=""
-                                                            v-model.trim="form_data.item_qty"
+                                                            v-model.trim="form_data.chillerReturnTempRated"
                                                         />
                                                         <span class="mt-2" style="margin-left: .5rem;">C</span>
                                                     </div>
@@ -3640,7 +3632,7 @@
                                                             type="number"
                                                             class="form-control"
                                                             placeholder=""
-                                                            v-model.trim="form_data.item_qty"
+                                                            v-model.trim="form_data.chillerReturnTempMeasured"
                                                         />
                                                         <span class="mt-2" style="margin-left: .5rem;">C</span>
                                                     </div>
@@ -3668,7 +3660,7 @@
                                                             type="number"
                                                             class="form-control"
                                                             placeholder=""
-                                                            v-model.trim="form_data.item_qty"
+                                                            v-model.trim="form_data.chillerFlowRated"
                                                         />
                                                         <span class="mt-2" style="margin-left: .5rem;">m3/hr</span>
                                                     </div>
@@ -3682,7 +3674,7 @@
                                                             type="number"
                                                             class="form-control"
                                                             placeholder=""
-                                                            v-model.trim="form_data.item_qty"
+                                                            v-model.trim="form_data.chillerFlowMeasured"
                                                         />
                                                         <span class="mt-2" style="margin-left: .5rem;">m3/hr</span>
                                                     </div>
@@ -3710,7 +3702,7 @@
                                                             type="number"
                                                             class="form-control"
                                                             placeholder=""
-                                                            v-model.trim="form_data.item_qty"
+                                                            v-model.trim="form_data.chillerChillerSECRated"
                                                         />
                                                         <span class="mt-2" style="margin-left: .5rem;">kW/TR</span>
                                                     </div>
@@ -3724,7 +3716,7 @@
                                                             type="number"
                                                             class="form-control"
                                                             placeholder=""
-                                                            v-model.trim="form_data.item_qty"
+                                                            v-model.trim="form_data.chillerChillerSECMeasured"
                                                         />
                                                         <span class="mt-2" style="margin-left: .5rem;">kW/TR</span>
                                                     </div>
@@ -3752,7 +3744,7 @@
                                                             type="number"
                                                             class="form-control"
                                                             placeholder=""
-                                                            v-model.trim="form_data.item_qty"
+                                                            v-model.trim="form_data.chillerCondenserApprochRated"
                                                         />
                                                         <span class="mt-2" style="margin-left: .5rem;">C</span>
                                                     </div>
@@ -3766,7 +3758,7 @@
                                                             type="number"
                                                             class="form-control"
                                                             placeholder=""
-                                                            v-model.trim="form_data.item_qty"
+                                                            v-model.trim="form_data.chillerCondenserApprochMeasured"
                                                         />
                                                         <span class="mt-2" style="margin-left: .5rem;">C</span>
                                                     </div>
@@ -3797,8 +3789,7 @@
                                                         type="text"
                                                         class="form-control"
                                                         placeholder=""
-                                                        v-model.trim="form_data.item_qty"
-                                                        readonly
+                                                        v-model.trim="form_data.motorYearOfInstallationRated"
                                                     />
                                                 </div>
                                                 <div class="col-md-6">
@@ -3809,8 +3800,7 @@
                                                         type="text"
                                                         class="form-control"
                                                         placeholder=""
-                                                        v-model.trim="form_data.item_qty"
-                                                        readonly
+                                                        v-model.trim="form_data.motorYearOfInstallationMeasured"
                                                     />
                                                 </div>
                                             </div>
@@ -3833,10 +3823,10 @@
                                                     </label>
                                                     <div class="d-flex justify-content-between">
                                                         <input
-                                                            type="number"
+                                                            type="text"
                                                             class="form-control"
                                                             placeholder=""
-                                                            v-model.trim="form_data.item_qty"
+                                                            v-model.trim="form_data.motorNameOfEquipmentRated"
                                                         />
                                                     </div>
                                                 </div>
@@ -3846,10 +3836,10 @@
                                                     </label>
                                                     <div class="d-flex justify-content-between">
                                                         <input
-                                                            type="number"
+                                                            type="text"
                                                             class="form-control"
                                                             placeholder=""
-                                                            v-model.trim="form_data.item_qty"
+                                                            v-model.trim="form_data.motorNameOfEquipmentMeasured"
                                                         />
                                                     </div>
                                                 </div>
@@ -3876,7 +3866,7 @@
                                                             type="number"
                                                             class="form-control"
                                                             placeholder=""
-                                                            v-model.trim="form_data.item_qty"
+                                                            v-model.trim="form_data.motorVoltageRated"
                                                         />
                                                         <span class="mt-2" style="margin-left: .5rem;">V</span>
                                                     </div>
@@ -3890,7 +3880,7 @@
                                                             type="number"
                                                             class="form-control"
                                                             placeholder=""
-                                                            v-model.trim="form_data.item_qty"
+                                                            v-model.trim="form_data.motorVoltageMeasured"
                                                         />
                                                         <span class="mt-2" style="margin-left: .5rem;">V</span>
                                                     </div>
@@ -3918,7 +3908,7 @@
                                                             type="number"
                                                             class="form-control"
                                                             placeholder=""
-                                                            v-model.trim="form_data.item_qty"
+                                                            v-model.trim="form_data.motorCurrentRated"
                                                         />
                                                         <span class="mt-2" style="margin-left: .5rem;">A</span>
                                                     </div>
@@ -3932,7 +3922,7 @@
                                                             type="number"
                                                             class="form-control"
                                                             placeholder=""
-                                                            v-model.trim="form_data.item_qty"
+                                                            v-model.trim="form_data.motorCurrentMeasured"
                                                         />
                                                         <span class="mt-2" style="margin-left: .5rem;">A</span>
                                                     </div>
@@ -3960,7 +3950,7 @@
                                                             type="number"
                                                             class="form-control"
                                                             placeholder=""
-                                                            v-model.trim="form_data.item_qty"
+                                                            v-model.trim="form_data.motorPowerFactorRated"
                                                         />
                                                     </div>
                                                 </div>
@@ -3973,7 +3963,7 @@
                                                             type="number"
                                                             class="form-control"
                                                             placeholder=""
-                                                            v-model.trim="form_data.item_qty"
+                                                            v-model.trim="form_data.motorPowerFactorMeasured"
                                                         />
                                                     </div>
                                                 </div>
@@ -4000,7 +3990,7 @@
                                                             type="number"
                                                             class="form-control"
                                                             placeholder=""
-                                                            v-model.trim="form_data.item_qty"
+                                                            v-model.trim="form_data.motorMotorPowerRated"
                                                         />
                                                         <span class="mt-2" style="margin-left: .5rem;">kW</span>
                                                     </div>
@@ -4014,7 +4004,7 @@
                                                             type="number"
                                                             class="form-control"
                                                             placeholder=""
-                                                            v-model.trim="form_data.item_qty"
+                                                            v-model.trim="form_data.motorMotorPowerMeasured"
                                                         />
                                                         <span class="mt-2" style="margin-left: .5rem;">kW</span>
                                                     </div>
@@ -4042,7 +4032,7 @@
                                                             type="number"
                                                             class="form-control"
                                                             placeholder=""
-                                                            v-model.trim="form_data.item_qty"
+                                                            v-model.trim="form_data.motorMotorEfficiencyRated"
                                                         />
                                                     </div>
                                                 </div>
@@ -4055,7 +4045,7 @@
                                                             type="number"
                                                             class="form-control"
                                                             placeholder=""
-                                                            v-model.trim="form_data.item_qty"
+                                                            v-model.trim="form_data.motorMotorEfficiencyMeasured"
                                                         />
                                                     </div>
                                                 </div>
@@ -4079,12 +4069,12 @@
                                                     </label>
                                                     <div class="d-flex justify-content-between">
                                                         <select class="form-select mb-text-only" aria-label="Default select example"
-                                                                v-model.trim="form_data.itemType"
+                                                                v-model.trim="form_data.motorMotorEfficiencyClassRated"
                                                         >
-                                                            <option>IE2</option>
-                                                            <option>IE3</option>
-                                                            <option>IE5</option>
-                                                            <option>IE5</option>
+                                                            <option value="IE2">IE2</option>
+                                                            <option value="IE3">IE3</option>
+                                                            <option value="IE4">IE4</option>
+                                                            <option value="IE5">IE5</option>
                                                         </select>
                                                     </div>
                                                 </div>
@@ -4094,12 +4084,12 @@
                                                     </label>
                                                     <div class="d-flex justify-content-between">
                                                         <select class="form-select mb-text-only" aria-label="Default select example"
-                                                                v-model.trim="form_data.itemType"
+                                                                v-model.trim="form_data.motorMotorEfficiencyClassMeasured"
                                                         >
-                                                            <option>IE2</option>
-                                                            <option>IE3</option>
-                                                            <option>IE5</option>
-                                                            <option>IE5</option>
+                                                            <option value="IE2">IE2</option>
+                                                            <option value="IE3">IE3</option>
+                                                            <option value="IE4">IE4</option>
+                                                            <option value="IE5">IE5</option>
                                                         </select>
                                                     </div>
                                                 </div>
@@ -4126,7 +4116,7 @@
                                                             type="number"
                                                             class="form-control"
                                                             placeholder=""
-                                                            v-model.trim="form_data.item_qty"
+                                                            v-model.trim="form_data.motorMotorFrameSizeRated"
                                                         />
                                                     </div>
                                                 </div>
@@ -4139,7 +4129,7 @@
                                                             type="number"
                                                             class="form-control"
                                                             placeholder=""
-                                                            v-model.trim="form_data.item_qty"
+                                                            v-model.trim="form_data.motorMotorFrameSizeMeasured"
                                                         />
                                                     </div>
                                                 </div>
@@ -4166,160 +4156,152 @@
                                             <div class="mb-3">
                                                 <label class="form-label w-100 text-capitalize">
                                                     VFD or not
-                                                    <span class="error">*</span>
+<!--                                                    <span class="error">*</span>-->
                                                 </label>
                                                 <select class="form-select mb-text-only" aria-label="Default select example"
-                                                        v-model.trim="form_data.itemType"
+                                                        v-model.trim="form_data.pumpVFDorNot"
                                                 >
                                                     <option selected disabled>Open this select menu</option>
-                                                    <option>Yes</option>
-                                                    <option>No</option>
-                                                    <option>Nos</option>
+                                                    <option value="yes">Yes</option>
+                                                    <option value="no">No</option>
+                                                    <option value="nos">Nos</option>
                                                 </select>
-                                                <!--                                            <Select2 v-model="form_data.itemType" :options="itemTypes" @change="itemTypeChangeEvent($event)" />-->
-                                                <div class="error" v-if="v$.form_data.itemType.required.$invalid && show_error_eleven">
-                                                    Item type is required
-                                                </div>
+<!--                                                <div class="error" v-if="v$.form_data.itemType.required.$invalid && show_error_eleven">-->
+<!--                                                    Item type is required-->
+<!--                                                </div>-->
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="mb-3">
                                                 <label class="form-label w-100 text-capitalize">
                                                     VFD setting
-                                                    <span class="error">*</span>
+<!--                                                    <span class="error">*</span>-->
                                                 </label>
                                                 <select class="form-select mb-text-only" aria-label="Default select example"
-                                                        v-model.trim="form_data.itemType"
+                                                        v-model.trim="form_data.pumpVFDSetting"
                                                 >
                                                     <option selected disabled>Open this select menu</option>
-                                                    <option>Yes</option>
-                                                    <option>No</option>
-                                                    <option>Nos</option>
+                                                    <option value="yes">Yes</option>
+                                                    <option value="no">No</option>
+                                                    <option value="nos">Nos</option>
                                                 </select>
-                                                <!--                                            <Select2 v-model="form_data.itemType" :options="itemTypes" @change="itemTypeChangeEvent($event)" />-->
-                                                <div class="error" v-if="v$.form_data.itemType.required.$invalid && show_error_eleven">
-                                                    Item type is required
-                                                </div>
+<!--                                                <div class="error" v-if="v$.form_data.itemType.required.$invalid && show_error_eleven">-->
+<!--                                                    Item type is required-->
+<!--                                                </div>-->
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="mb-3">
                                                 <label class="form-label w-100 text-capitalize">
                                                     Pump throttling
-                                                    <span class="error">*</span>
+<!--                                                    <span class="error">*</span>-->
                                                 </label>
                                                 <select class="form-select mb-text-only" aria-label="Default select example"
-                                                        v-model.trim="form_data.itemType"
+                                                        v-model.trim="form_data.pumpThrottling"
                                                 >
                                                     <option selected disabled>Open this select menu</option>
-                                                    <option>Yes</option>
-                                                    <option>No</option>
-                                                    <option>Nos</option>
+                                                    <option value="yes">Yes</option>
+                                                    <option value="no">No</option>
+                                                    <option value="nos">Nos</option>
                                                 </select>
-                                                <!--                                            <Select2 v-model="form_data.itemType" :options="itemTypes" @change="itemTypeChangeEvent($event)" />-->
-                                                <div class="error" v-if="v$.form_data.itemType.required.$invalid && show_error_eleven">
-                                                    Item type is required
-                                                </div>
+<!--                                                <div class="error" v-if="v$.form_data.itemType.required.$invalid && show_error_eleven">-->
+<!--                                                    Item type is required-->
+<!--                                                </div>-->
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="mb-3">
                                                 <label class="form-label w-100 text-capitalize">
                                                     Flow Modulation required
-                                                    <span class="error">*</span>
+<!--                                                    <span class="error">*</span>-->
                                                 </label>
                                                 <select class="form-select mb-text-only" aria-label="Default select example"
-                                                        v-model.trim="form_data.itemType"
+                                                        v-model.trim="form_data.pumpFlowModulationRequired"
                                                 >
                                                     <option selected disabled>Open this select menu</option>
-                                                    <option>Yes</option>
-                                                    <option>No</option>
-                                                    <option>Nos</option>
+                                                    <option value="yes">Yes</option>
+                                                    <option value="no">No</option>
+                                                    <option value="nos">Nos</option>
                                                 </select>
-                                                <!--                                            <Select2 v-model="form_data.itemType" :options="itemTypes" @change="itemTypeChangeEvent($event)" />-->
-                                                <div class="error" v-if="v$.form_data.itemType.required.$invalid && show_error_eleven">
-                                                    Item type is required
-                                                </div>
+<!--                                                <div class="error" v-if="v$.form_data.itemType.required.$invalid && show_error_eleven">-->
+<!--                                                    Item type is required-->
+<!--                                                </div>-->
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="mb-3">
                                                 <label class="form-label w-100 text-capitalize">
                                                     Parallel pump operation
-                                                    <span class="error">*</span>
+<!--                                                    <span class="error">*</span>-->
                                                 </label>
                                                 <select class="form-select mb-text-only" aria-label="Default select example"
-                                                        v-model.trim="form_data.itemType"
+                                                        v-model.trim="form_data.pumpParallelPumpOperation"
                                                 >
                                                     <option selected disabled>Open this select menu</option>
-                                                    <option>Yes</option>
-                                                    <option>No</option>
-                                                    <option>Nos</option>
+                                                    <option value="yes">Yes</option>
+                                                    <option value="no">No</option>
+                                                    <option value="nos">Nos</option>
                                                 </select>
-                                                <!--                                            <Select2 v-model="form_data.itemType" :options="itemTypes" @change="itemTypeChangeEvent($event)" />-->
-                                                <div class="error" v-if="v$.form_data.itemType.required.$invalid && show_error_eleven">
-                                                    Item type is required
-                                                </div>
+<!--                                                <div class="error" v-if="v$.form_data.itemType.required.$invalid && show_error_eleven">-->
+<!--                                                    Item type is required-->
+<!--                                                </div>-->
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="mb-3">
                                                 <label class="form-label w-100 text-capitalize">
                                                     Nos. of rewiding of motor
-                                                    <span class="error">*</span>
+<!--                                                    <span class="error">*</span>-->
                                                 </label>
                                                 <select class="form-select mb-text-only" aria-label="Default select example"
-                                                        v-model.trim="form_data.itemType"
+                                                        v-model.trim="form_data.pumpNosOfRewidingOfMotor"
                                                 >
                                                     <option selected disabled>Open this select menu</option>
-                                                    <option>Yes</option>
-                                                    <option>No</option>
-                                                    <option>Nos</option>
+                                                    <option value="yes">Yes</option>
+                                                    <option value="no">No</option>
+                                                    <option value="nos">Nos</option>
                                                 </select>
-                                                <!--                                            <Select2 v-model="form_data.itemType" :options="itemTypes" @change="itemTypeChangeEvent($event)" />-->
-                                                <div class="error" v-if="v$.form_data.itemType.required.$invalid && show_error_eleven">
-                                                    Item type is required
-                                                </div>
+<!--                                                <div class="error" v-if="v$.form_data.itemType.required.$invalid && show_error_eleven">-->
+<!--                                                    Item type is required-->
+<!--                                                </div>-->
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="mb-3">
                                                 <label class="form-label w-100 text-capitalize">
                                                     Check cavitation
-                                                    <span class="error">*</span>
+<!--                                                    <span class="error">*</span>-->
                                                 </label>
                                                 <select class="form-select mb-text-only" aria-label="Default select example"
-                                                        v-model.trim="form_data.itemType"
+                                                        v-model.trim="form_data.pumpCheckCavitation"
                                                 >
                                                     <option selected disabled>Open this select menu</option>
-                                                    <option>Yes</option>
-                                                    <option>No</option>
-                                                    <option>Nos</option>
+                                                    <option value="yes">Yes</option>
+                                                    <option value="no">No</option>
+                                                    <option value="nos">Nos</option>
                                                 </select>
-                                                <!--                                            <Select2 v-model="form_data.itemType" :options="itemTypes" @change="itemTypeChangeEvent($event)" />-->
-                                                <div class="error" v-if="v$.form_data.itemType.required.$invalid && show_error_eleven">
-                                                    Item type is required
-                                                </div>
+<!--                                                <div class="error" v-if="v$.form_data.itemType.required.$invalid && show_error_eleven">-->
+<!--                                                    Item type is required-->
+<!--                                                </div>-->
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="mb-3">
                                                 <label class="form-label w-100 text-capitalize">
                                                     Operating Hours
-                                                    <span class="error">*</span>
+<!--                                                    <span class="error">*</span>-->
                                                 </label>
                                                 <select class="form-select mb-text-only" aria-label="Default select example"
-                                                        v-model.trim="form_data.itemType"
+                                                        v-model.trim="form_data.pumpOperatingHours"
                                                 >
                                                     <option selected disabled>Open this select menu</option>
-                                                    <option>Yes</option>
-                                                    <option>No</option>
-                                                    <option>Nos</option>
+                                                    <option value="yes">Yes</option>
+                                                    <option value="no">No</option>
+                                                    <option value="nos">Nos</option>
                                                 </select>
-                                                <!--                                            <Select2 v-model="form_data.itemType" :options="itemTypes" @change="itemTypeChangeEvent($event)" />-->
-                                                <div class="error" v-if="v$.form_data.itemType.required.$invalid && show_error_eleven">
-                                                    Item type is required
-                                                </div>
+<!--                                                <div class="error" v-if="v$.form_data.itemType.required.$invalid && show_error_eleven">-->
+<!--                                                    Item type is required-->
+<!--                                                </div>-->
                                             </div>
                                         </div>
                                     </div>
@@ -4329,140 +4311,133 @@
                                             <div class="mb-3">
                                                 <label class="form-label w-100 text-capitalize">
                                                     VFD or not
-                                                    <span class="error">*</span>
+<!--                                                    <span class="error">*</span>-->
                                                 </label>
                                                 <select class="form-select mb-text-only" aria-label="Default select example"
-                                                        v-model.trim="form_data.itemType"
+                                                        v-model.trim="form_data.fanVFDorNot"
                                                 >
                                                     <option selected disabled>Open this select menu</option>
-                                                    <option>Yes</option>
-                                                    <option>No</option>
-                                                    <option>Nos</option>
+                                                    <option value="yes">Yes</option>
+                                                    <option value="no">No</option>
+                                                    <option value="nos">Nos</option>
                                                 </select>
-                                                <!--                                            <Select2 v-model="form_data.itemType" :options="itemTypes" @change="itemTypeChangeEvent($event)" />-->
-                                                <div class="error" v-if="v$.form_data.itemType.required.$invalid && show_error_eleven">
-                                                    Item type is required
-                                                </div>
+<!--                                                <div class="error" v-if="v$.form_data.itemType.required.$invalid && show_error_eleven">-->
+<!--                                                    Item type is required-->
+<!--                                                </div>-->
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="mb-3">
                                                 <label class="form-label w-100 text-capitalize">
                                                     VFD setting
-                                                    <span class="error">*</span>
+<!--                                                    <span class="error">*</span>-->
                                                 </label>
                                                 <select class="form-select mb-text-only" aria-label="Default select example"
-                                                        v-model.trim="form_data.itemType"
+                                                        v-model.trim="form_data.fanVFDSetting"
                                                 >
                                                     <option selected disabled>Open this select menu</option>
-                                                    <option>Yes</option>
-                                                    <option>No</option>
-                                                    <option>Nos</option>
+                                                    <option value="yes">Yes</option>
+                                                    <option value="no">No</option>
+                                                    <option value="nos">Nos</option>
                                                 </select>
-                                                <!--                                            <Select2 v-model="form_data.itemType" :options="itemTypes" @change="itemTypeChangeEvent($event)" />-->
-                                                <div class="error" v-if="v$.form_data.itemType.required.$invalid && show_error_eleven">
-                                                    Item type is required
-                                                </div>
+<!--                                                <div class="error" v-if="v$.form_data.itemType.required.$invalid && show_error_eleven">-->
+<!--                                                    Item type is required-->
+<!--                                                </div>-->
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="mb-3">
                                                 <label class="form-label w-100 text-capitalize">
                                                     Valve opening %
-                                                    <span class="error">*</span>
+<!--                                                    <span class="error">*</span>-->
                                                 </label>
                                                 <select class="form-select mb-text-only" aria-label="Default select example"
-                                                        v-model.trim="form_data.itemType"
+                                                        v-model.trim="form_data.fanOpening"
                                                 >
                                                     <option selected disabled>Open this select menu</option>
-                                                    <option>Yes</option>
-                                                    <option>No</option>
-                                                    <option>Nos</option>
+                                                    <option value="yes">Yes</option>
+                                                    <option value="no">No</option>
+                                                    <option value="nos">Nos</option>
                                                 </select>
-                                                <!--                                            <Select2 v-model="form_data.itemType" :options="itemTypes" @change="itemTypeChangeEvent($event)" />-->
-                                                <div class="error" v-if="v$.form_data.itemType.required.$invalid && show_error_eleven">
-                                                    Item type is required
-                                                </div>
+<!--                                                <div class="error" v-if="v$.form_data.itemType.required.$invalid && show_error_eleven">-->
+<!--                                                    Item type is required-->
+<!--                                                </div>-->
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="mb-3">
                                                 <label class="form-label w-100 text-capitalize">
                                                     Flow Modulation required
-                                                    <span class="error">*</span>
+<!--                                                    <span class="error">*</span>-->
                                                 </label>
                                                 <select class="form-select mb-text-only" aria-label="Default select example"
-                                                        v-model.trim="form_data.itemType"
+                                                        v-model.trim="form_data.fanFlowModulationRequired"
                                                 >
                                                     <option selected disabled>Open this select menu</option>
-                                                    <option>Yes</option>
-                                                    <option>No</option>
-                                                    <option>Nos</option>
+                                                    <option value="yes">Yes</option>
+                                                    <option value="no">No</option>
+                                                    <option value="nos">Nos</option>
                                                 </select>
-                                                <!--                                            <Select2 v-model="form_data.itemType" :options="itemTypes" @change="itemTypeChangeEvent($event)" />-->
-                                                <div class="error" v-if="v$.form_data.itemType.required.$invalid && show_error_eleven">
-                                                    Item type is required
-                                                </div>
+<!--                                                <div class="error" v-if="v$.form_data.itemType.required.$invalid && show_error_eleven">-->
+<!--                                                    Item type is required-->
+<!--                                                </div>-->
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="mb-3">
                                                 <label class="form-label w-100 text-capitalize">
                                                     Parallel fan operation
-                                                    <span class="error">*</span>
+<!--                                                    <span class="error">*</span>-->
                                                 </label>
                                                 <select class="form-select mb-text-only" aria-label="Default select example"
-                                                        v-model.trim="form_data.itemType"
+                                                        v-model.trim="form_data.fanParallelFanOperation"
                                                 >
                                                     <option selected disabled>Open this select menu</option>
-                                                    <option>Yes</option>
-                                                    <option>No</option>
-                                                    <option>Nos</option>
+                                                    <option value="yes">Yes</option>
+                                                    <option value="no">No</option>
+                                                    <option value="nos">Nos</option>
                                                 </select>
-                                                <!--                                            <Select2 v-model="form_data.itemType" :options="itemTypes" @change="itemTypeChangeEvent($event)" />-->
-                                                <div class="error" v-if="v$.form_data.itemType.required.$invalid && show_error_eleven">
-                                                    Item type is required
-                                                </div>
+<!--                                                <div class="error" v-if="v$.form_data.itemType.required.$invalid && show_error_eleven">-->
+<!--                                                    Item type is required-->
+<!--                                                </div>-->
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="mb-3">
                                                 <label class="form-label w-100 text-capitalize">
                                                     Nos. of rewiding of motor
-                                                    <span class="error">*</span>
+<!--                                                    <span class="error">*</span>-->
                                                 </label>
                                                 <select class="form-select mb-text-only" aria-label="Default select example"
-                                                        v-model.trim="form_data.itemType"
+                                                        v-model.trim="form_data.fanNosOfRewidingOfMotor"
                                                 >
                                                     <option selected disabled>Open this select menu</option>
-                                                    <option>Yes</option>
-                                                    <option>No</option>
-                                                    <option>Nos</option>
+                                                    <option value="yes">Yes</option>
+                                                    <option value="no">No</option>
+                                                    <option value="nos">Nos</option>
                                                 </select>
-                                                <!--                                            <Select2 v-model="form_data.itemType" :options="itemTypes" @change="itemTypeChangeEvent($event)" />-->
-                                                <div class="error" v-if="v$.form_data.itemType.required.$invalid && show_error_eleven">
-                                                    Item type is required
-                                                </div>
+<!--                                                <div class="error" v-if="v$.form_data.itemType.required.$invalid && show_error_eleven">-->
+<!--                                                    Item type is required-->
+<!--                                                </div>-->
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="mb-3">
                                                 <label class="form-label w-100 text-capitalize">
                                                     Operating Hours
-                                                    <span class="error">*</span>
+<!--                                                    <span class="error">*</span>-->
                                                 </label>
                                                 <select class="form-select mb-text-only" aria-label="Default select example"
-                                                        v-model.trim="form_data.itemType"
+                                                        v-model.trim="form_data.fanOperatingHours"
                                                 >
                                                     <option selected disabled>Open this select menu</option>
-                                                    <option>Yes</option>
-                                                    <option>No</option>
-                                                    <option>Nos</option>
+                                                    <option value="yes">Yes</option>
+                                                    <option value="no">No</option>
+                                                    <option value="nos">Nos</option>
                                                 </select>
-                                                <!--                                            <Select2 v-model="form_data.itemType" :options="itemTypes" @change="itemTypeChangeEvent($event)" />-->
-                                                <div class="error" v-if="v$.form_data.itemType.required.$invalid && show_error_eleven">
-                                                    Item type is required
-                                                </div>
+<!--                                                <div class="error" v-if="v$.form_data.itemType.required.$invalid && show_error_eleven">-->
+<!--                                                    Item type is required-->
+<!--                                                </div>-->
                                             </div>
                                         </div>
                                     </div>
@@ -4472,100 +4447,95 @@
                                             <div class="mb-3">
                                                 <label class="form-label w-100 text-capitalize">
                                                     VFD or not
-                                                    <span class="error">*</span>
+<!--                                                    <span class="error">*</span>-->
                                                 </label>
                                                 <select class="form-select mb-text-only" aria-label="Default select example"
-                                                        v-model.trim="form_data.itemType"
+                                                        v-model.trim="form_data.airCompressorVFDorNot"
                                                 >
                                                     <option selected disabled>Open this select menu</option>
-                                                    <option>Yes</option>
-                                                    <option>No</option>
-                                                    <option>Nos</option>
+                                                    <option value="yes">Yes</option>
+                                                    <option value="no">No</option>
+                                                    <option value="nos">Nos</option>
                                                 </select>
-                                                <!--                                            <Select2 v-model="form_data.itemType" :options="itemTypes" @change="itemTypeChangeEvent($event)" />-->
-                                                <div class="error" v-if="v$.form_data.itemType.required.$invalid && show_error_eleven">
-                                                    Item type is required
-                                                </div>
+<!--                                                <div class="error" v-if="v$.form_data.itemType.required.$invalid && show_error_eleven">-->
+<!--                                                    Item type is required-->
+<!--                                                </div>-->
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="mb-3">
                                                 <label class="form-label w-100 text-capitalize">
                                                     Nos. of rewiding of motor
-                                                    <span class="error">*</span>
+<!--                                                    <span class="error">*</span>-->
                                                 </label>
                                                 <select class="form-select mb-text-only" aria-label="Default select example"
-                                                        v-model.trim="form_data.itemType"
+                                                        v-model.trim="form_data.airCompressorNosOfRewidingOfMotor"
                                                 >
                                                     <option selected disabled>Open this select menu</option>
-                                                    <option>Yes</option>
-                                                    <option>No</option>
-                                                    <option>Nos</option>
+                                                    <option value="yes">Yes</option>
+                                                    <option value="no">No</option>
+                                                    <option value="nos">Nos</option>
                                                 </select>
-                                                <!--                                            <Select2 v-model="form_data.itemType" :options="itemTypes" @change="itemTypeChangeEvent($event)" />-->
-                                                <div class="error" v-if="v$.form_data.itemType.required.$invalid && show_error_eleven">
-                                                    Item type is required
-                                                </div>
+<!--                                                <div class="error" v-if="v$.form_data.itemType.required.$invalid && show_error_eleven">-->
+<!--                                                    Item type is required-->
+<!--                                                </div>-->
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="mb-3">
                                                 <label class="form-label w-100 text-capitalize">
                                                     Check Required pressure
-                                                    <span class="error">*</span>
+<!--                                                    <span class="error">*</span>-->
                                                 </label>
                                                 <select class="form-select mb-text-only" aria-label="Default select example"
-                                                        v-model.trim="form_data.itemType"
+                                                        v-model.trim="form_data.airCompressorCheckRequiredpressure"
                                                 >
                                                     <option selected disabled>Open this select menu</option>
-                                                    <option>Yes</option>
-                                                    <option>No</option>
-                                                    <option>Nos</option>
+                                                    <option value="yes">Yes</option>
+                                                    <option value="no">No</option>
+                                                    <option value="nos">Nos</option>
                                                 </select>
-                                                <!--                                            <Select2 v-model="form_data.itemType" :options="itemTypes" @change="itemTypeChangeEvent($event)" />-->
-                                                <div class="error" v-if="v$.form_data.itemType.required.$invalid && show_error_eleven">
-                                                    Item type is required
-                                                </div>
+<!--                                                <div class="error" v-if="v$.form_data.itemType.required.$invalid && show_error_eleven">-->
+<!--                                                    Item type is required-->
+<!--                                                </div>-->
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="mb-3">
                                                 <label class="form-label w-100 text-capitalize">
                                                     Check Pressure drop
-                                                    <span class="error">*</span>
+<!--                                                    <span class="error">*</span>-->
                                                 </label>
                                                 <select class="form-select mb-text-only" aria-label="Default select example"
-                                                        v-model.trim="form_data.itemType"
+                                                        v-model.trim="form_data.airCompressorCheckPressureDrop"
                                                 >
                                                     <option selected disabled>Open this select menu</option>
-                                                    <option>Yes</option>
-                                                    <option>No</option>
-                                                    <option>Nos</option>
+                                                    <option value="yes">Yes</option>
+                                                    <option value="no">No</option>
+                                                    <option value="nos">Nos</option>
                                                 </select>
-                                                <!--                                            <Select2 v-model="form_data.itemType" :options="itemTypes" @change="itemTypeChangeEvent($event)" />-->
-                                                <div class="error" v-if="v$.form_data.itemType.required.$invalid && show_error_eleven">
-                                                    Item type is required
-                                                </div>
+<!--                                                <div class="error" v-if="v$.form_data.itemType.required.$invalid && show_error_eleven">-->
+<!--                                                    Item type is required-->
+<!--                                                </div>-->
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="mb-3">
                                                 <label class="form-label w-100 text-capitalize">
                                                     Operating Hours
-                                                    <span class="error">*</span>
+<!--                                                    <span class="error">*</span>-->
                                                 </label>
                                                 <select class="form-select mb-text-only" aria-label="Default select example"
-                                                        v-model.trim="form_data.itemType"
+                                                        v-model.trim="form_data.airCompressorOperatingHours"
                                                 >
                                                     <option selected disabled>Open this select menu</option>
                                                     <option>Yes</option>
                                                     <option>No</option>
                                                     <option>Nos</option>
                                                 </select>
-                                                <!--                                            <Select2 v-model="form_data.itemType" :options="itemTypes" @change="itemTypeChangeEvent($event)" />-->
-                                                <div class="error" v-if="v$.form_data.itemType.required.$invalid && show_error_eleven">
-                                                    Item type is required
-                                                </div>
+<!--                                                <div class="error" v-if="v$.form_data.itemType.required.$invalid && show_error_eleven">-->
+<!--                                                    Item type is required-->
+<!--                                                </div>-->
                                             </div>
                                         </div>
                                     </div>
@@ -4575,80 +4545,76 @@
                                             <div class="mb-3">
                                                 <label class="form-label w-100 text-capitalize">
                                                     VFD or not
-                                                    <span class="error">*</span>
+<!--                                                    <span class="error">*</span>-->
                                                 </label>
                                                 <select class="form-select mb-text-only" aria-label="Default select example"
-                                                        v-model.trim="form_data.itemType"
+                                                        v-model.trim="form_data.chillerVFDorNot"
                                                 >
                                                     <option selected disabled>Open this select menu</option>
-                                                    <option>Yes</option>
-                                                    <option>No</option>
-                                                    <option>Nos</option>
+                                                    <option value="yes">Yes</option>
+                                                    <option value="no">No</option>
+                                                    <option value="nos">Nos</option>
                                                 </select>
-                                                <!--                                            <Select2 v-model="form_data.itemType" :options="itemTypes" @change="itemTypeChangeEvent($event)" />-->
-                                                <div class="error" v-if="v$.form_data.itemType.required.$invalid && show_error_eleven">
-                                                    Item type is required
-                                                </div>
+<!--                                                <div class="error" v-if="v$.form_data.itemType.required.$invalid && show_error_eleven">-->
+<!--                                                    Item type is required-->
+<!--                                                </div>-->
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="mb-3">
                                                 <label class="form-label w-100 text-capitalize">
                                                     Check set temp.
-                                                    <span class="error">*</span>
+<!--                                                    <span class="error">*</span>-->
                                                 </label>
                                                 <select class="form-select mb-text-only" aria-label="Default select example"
-                                                        v-model.trim="form_data.itemType"
+                                                        v-model.trim="form_data.chillerSetTemp"
                                                 >
                                                     <option selected disabled>Open this select menu</option>
-                                                    <option>Yes</option>
-                                                    <option>No</option>
-                                                    <option>Nos</option>
+                                                    <option value="yes">Yes</option>
+                                                    <option value="no">No</option>
+                                                    <option value="nos">Nos</option>
                                                 </select>
-                                                <!--                                            <Select2 v-model="form_data.itemType" :options="itemTypes" @change="itemTypeChangeEvent($event)" />-->
-                                                <div class="error" v-if="v$.form_data.itemType.required.$invalid && show_error_eleven">
-                                                    Item type is required
-                                                </div>
+<!--                                                <div class="error" v-if="v$.form_data.itemType.required.$invalid && show_error_eleven">-->
+<!--                                                    Item type is required-->
+<!--                                                </div>-->
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="mb-3">
                                                 <label class="form-label w-100 text-capitalize">
                                                     Check condenser condition
-                                                    <span class="error">*</span>
+<!--                                                    <span class="error">*</span>-->
                                                 </label>
                                                 <select class="form-select mb-text-only" aria-label="Default select example"
-                                                        v-model.trim="form_data.itemType"
+                                                        v-model.trim="form_data.chillerCheckCondenserCondition"
                                                 >
                                                     <option selected disabled>Open this select menu</option>
-                                                    <option>Yes</option>
-                                                    <option>No</option>
-                                                    <option>Nos</option>
+                                                    <option value="yes">Yes</option>
+                                                    <option value="no">No</option>
+                                                    <option value="nos">Nos</option>
                                                 </select>
-                                                <!--                                            <Select2 v-model="form_data.itemType" :options="itemTypes" @change="itemTypeChangeEvent($event)" />-->
-                                                <div class="error" v-if="v$.form_data.itemType.required.$invalid && show_error_eleven">
-                                                    Item type is required
-                                                </div>
+<!--                                                <div class="error" v-if="v$.form_data.itemType.required.$invalid && show_error_eleven">-->
+<!--                                                    Item type is required-->
+<!--                                                </div>-->
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="mb-3">
                                                 <label class="form-label w-100 text-capitalize">
                                                     Operating Hours
-                                                    <span class="error">*</span>
+<!--                                                    <span class="error">*</span>-->
                                                 </label>
                                                 <select class="form-select mb-text-only" aria-label="Default select example"
-                                                        v-model.trim="form_data.itemType"
+                                                        v-model.trim="form_data.chillerOperatingHours"
                                                 >
                                                     <option selected disabled>Open this select menu</option>
-                                                    <option>Yes</option>
-                                                    <option>No</option>
-                                                    <option>Nos</option>
+                                                    <option value="yes">Yes</option>
+                                                    <option value="no">No</option>
+                                                    <option value="nos">Nos</option>
                                                 </select>
-                                                <!--                                            <Select2 v-model="form_data.itemType" :options="itemTypes" @change="itemTypeChangeEvent($event)" />-->
-                                                <div class="error" v-if="v$.form_data.itemType.required.$invalid && show_error_eleven">
-                                                    Item type is required
-                                                </div>
+<!--                                                <div class="error" v-if="v$.form_data.itemType.required.$invalid && show_error_eleven">-->
+<!--                                                    Item type is required-->
+<!--                                                </div>-->
                                             </div>
                                         </div>
                                     </div>
@@ -4658,100 +4624,95 @@
                                             <div class="mb-3">
                                                 <label class="form-label w-100 text-capitalize">
                                                     VFD or not
-                                                    <span class="error">*</span>
+<!--                                                    <span class="error">*</span>-->
                                                 </label>
                                                 <select class="form-select mb-text-only" aria-label="Default select example"
-                                                        v-model.trim="form_data.itemType"
+                                                        v-model.trim="form_data.motorVFDorNot"
                                                 >
                                                     <option selected disabled>Open this select menu</option>
-                                                    <option>Yes</option>
-                                                    <option>No</option>
-                                                    <option>Nos</option>
+                                                    <option value="yes">Yes</option>
+                                                    <option value="no">No</option>
+                                                    <option value="nos">Nos</option>
                                                 </select>
-                                                <!--                                            <Select2 v-model="form_data.itemType" :options="itemTypes" @change="itemTypeChangeEvent($event)" />-->
-                                                <div class="error" v-if="v$.form_data.itemType.required.$invalid && show_error_eleven">
-                                                    Item type is required
-                                                </div>
+<!--                                                <div class="error" v-if="v$.form_data.itemType.required.$invalid && show_error_eleven">-->
+<!--                                                    Item type is required-->
+<!--                                                </div>-->
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="mb-3">
                                                 <label class="form-label w-100 text-capitalize">
                                                     Check per phase current
-                                                    <span class="error">*</span>
+<!--                                                    <span class="error">*</span>-->
                                                 </label>
                                                 <select class="form-select mb-text-only" aria-label="Default select example"
-                                                        v-model.trim="form_data.itemType"
+                                                        v-model.trim="form_data.motorCheckPerPhaseCurrent"
                                                 >
                                                     <option selected disabled>Open this select menu</option>
-                                                    <option>Yes</option>
-                                                    <option>No</option>
-                                                    <option>Nos</option>
+                                                    <option value="yes">Yes</option>
+                                                    <option value="no">No</option>
+                                                    <option value="nos">Nos</option>
                                                 </select>
-                                                <!--                                            <Select2 v-model="form_data.itemType" :options="itemTypes" @change="itemTypeChangeEvent($event)" />-->
-                                                <div class="error" v-if="v$.form_data.itemType.required.$invalid && show_error_eleven">
-                                                    Item type is required
-                                                </div>
+<!--                                                <div class="error" v-if="v$.form_data.itemType.required.$invalid && show_error_eleven">-->
+<!--                                                    Item type is required-->
+<!--                                                </div>-->
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="mb-3">
                                                 <label class="form-label w-100 text-capitalize">
                                                     Check Phasor
-                                                    <span class="error">*</span>
+<!--                                                    <span class="error">*</span>-->
                                                 </label>
                                                 <select class="form-select mb-text-only" aria-label="Default select example"
-                                                        v-model.trim="form_data.itemType"
+                                                        v-model.trim="form_data.motorCheckPhasor"
                                                 >
                                                     <option selected disabled>Open this select menu</option>
-                                                    <option>Yes</option>
-                                                    <option>No</option>
-                                                    <option>Nos</option>
+                                                    <option value="yes">Yes</option>
+                                                    <option value="no">No</option>
+                                                    <option value="nos">Nos</option>
                                                 </select>
-                                                <!--                                            <Select2 v-model="form_data.itemType" :options="itemTypes" @change="itemTypeChangeEvent($event)" />-->
-                                                <div class="error" v-if="v$.form_data.itemType.required.$invalid && show_error_eleven">
-                                                    Item type is required
-                                                </div>
+<!--                                                <div class="error" v-if="v$.form_data.itemType.required.$invalid && show_error_eleven">-->
+<!--                                                    Item type is required-->
+<!--                                                </div>-->
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="mb-3">
                                                 <label class="form-label w-100 text-capitalize">
                                                     Nos. of rewiding of motor
-                                                    <span class="error">*</span>
+<!--                                                    <span class="error">*</span>-->
                                                 </label>
                                                 <select class="form-select mb-text-only" aria-label="Default select example"
-                                                        v-model.trim="form_data.itemType"
+                                                        v-model.trim="form_data.motorNosOfRewidingOfMotor"
                                                 >
                                                     <option selected disabled>Open this select menu</option>
-                                                    <option>Yes</option>
-                                                    <option>No</option>
-                                                    <option>Nos</option>
+                                                    <option value="yes">Yes</option>
+                                                    <option value="no">No</option>
+                                                    <option value="nos">Nos</option>
                                                 </select>
-                                                <!--                                            <Select2 v-model="form_data.itemType" :options="itemTypes" @change="itemTypeChangeEvent($event)" />-->
-                                                <div class="error" v-if="v$.form_data.itemType.required.$invalid && show_error_eleven">
-                                                    Item type is required
-                                                </div>
+<!--                                                <div class="error" v-if="v$.form_data.itemType.required.$invalid && show_error_eleven">-->
+<!--                                                    Item type is required-->
+<!--                                                </div>-->
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="mb-3">
                                                 <label class="form-label w-100 text-capitalize">
                                                     Operating Hours
-                                                    <span class="error">*</span>
+<!--                                                    <span class="error">*</span>-->
                                                 </label>
                                                 <select class="form-select mb-text-only" aria-label="Default select example"
-                                                        v-model.trim="form_data.itemType"
+                                                        v-model.trim="form_data.motorOperatingHours"
                                                 >
                                                     <option selected disabled>Open this select menu</option>
-                                                    <option>Yes</option>
-                                                    <option>No</option>
-                                                    <option>Nos</option>
+                                                    <option value="yes">Yes</option>
+                                                    <option value="no">No</option>
+                                                    <option value="nos">Nos</option>
                                                 </select>
-                                                <!--                                            <Select2 v-model="form_data.itemType" :options="itemTypes" @change="itemTypeChangeEvent($event)" />-->
-                                                <div class="error" v-if="v$.form_data.itemType.required.$invalid && show_error_eleven">
-                                                    Item type is required
-                                                </div>
+<!--                                                <div class="error" v-if="v$.form_data.itemType.required.$invalid && show_error_eleven">-->
+<!--                                                    Item type is required-->
+<!--                                                </div>-->
                                             </div>
                                         </div>
                                     </div>
@@ -4769,19 +4730,43 @@
                         <div class="col-md-12">
                             <div class="card shipping_address_card">
                                 <div class="card-body">
-                                    <div class="row">Camera to take picture</div>
                                     <div class="row">
                                         <div class="col-md-12">
-                                            <div class="mb-3">
+                                            <button class="btn btn-dark" @click="openPopUpModal" type="button">
+                                                Take Image
+                                            </button>
+                                            <div class="mt-3" v-if="form_data.images.length > 0">
+                                                <p class="form-label active">
+                                                    Images
+                                                </p>
+                                                <div id="images" class="row">
+                                                    <div class="col-md-4" v-for="(image, index ) in form_data.images"
+                                                         :key="index">
+                                                        <div class="position-relative">
+                                                            <button class="ïc--close" @click.prevent="cancelImage(index)"><i class="ti-close"></i></button>
+                                                            <img
+                                                                :src="image"
+                                                                alt="Captured images"
+                                                                class="img-fluid"
+                                                                style="height: 215px;width: 290px;"
+                                                            />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="mb-3 mt-3">
                                                 <label class="form-label w-100 text-capitalize">
                                                     Observations
-                                                    <span class="error">*</span>
+<!--                                                    <span class="error">*</span>-->
                                                 </label>
-                                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="5" placeholder="Write the observations here..."></textarea>
-                                                <!--                                            <Select2 v-model="form_data.itemType" :options="itemTypes" @change="itemTypeChangeEvent($event)" />-->
-                                                <div class="error" v-if="v$.form_data.itemType.required.$invalid && show_error_eleven">
-                                                    Item type is required
-                                                </div>
+                                                <textarea v-model="form_data.observations" class="form-control" id="exampleFormControlTextarea1" rows="5" placeholder="Write the observations here..."></textarea>
+<!--                                                <div class="error" v-if="v$.form_data.itemType.required.$invalid && show_error_eleven">-->
+<!--                                                    Item type is required-->
+<!--                                                </div>-->
                                             </div>
                                         </div>
                                     </div>
@@ -4792,7 +4777,105 @@
                 </tab-content>
             </form-wizard>
         </form>
+
+
+        <!--open pop up modal start-->
+        <div
+            class="modal fade"
+            id="openPopUpModal"
+            tabindex="-1"
+            aria-labelledby="formModal"
+            style="display: none"
+            aria-hidden="true"
+            data-keyboard="false"
+            data-backdrop="static"
+        >
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="formPopUpModal">Open Camera or Upload Image</h5>
+                        <button @click="closePopUpModal" type="button" class="close">
+                            <span aria-hidden="true">×</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <button class="btn btn-secondary" @click="openCamera" type="button">
+                            Open Camera
+                        </button>
+                        <h4 class="text-warning mt-3">OR</h4>
+                        <h5 class="card-inside-title">Upload Image</h5>
+                        <div class="file-field input-field">
+                            <div class="btn btn-secondary">
+                                <span>Browse</span>
+                                <input type="file" @change="uploadImage($event)" multiple>
+                            </div>
+<!--                            <div class="file-path-wrapper">-->
+<!--                                <input class="file-path validate valid" type="text">-->
+<!--                            </div>-->
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button
+                            type="button"
+                            class="btn btn-danger waves-effect"
+                            @click="closePopUpModal"
+                        >
+                            Cancel
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--open pop up modal end-->
+
+
+        <!--open camera modal start-->
+        <div
+            class="modal fade"
+            id="openCameraModal"
+            tabindex="-1"
+            aria-labelledby="formModal"
+            style="display: none"
+            aria-hidden="true"
+            data-keyboard="false"
+            data-backdrop="static"
+        >
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="formModal">Take A Snap</h5>
+                        <button @click="closeCameraModal" type="button" class="close">
+                            <span aria-hidden="true">×</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+
+<!--                        <web-cam ref="webcam" width="640" height="480"></web-cam>-->
+                        <video ref="video" autoplay playsinline style="width: 100%; max-height: 400px;"></video>
+                        <canvas ref="canvas" style="display: none;"></canvas>
+                    </div>
+                    <div class="modal-footer">
+                        <button
+                            type="button"
+                            @click="snapshot"
+                            class="btn btn-info waves-effect"
+                        >
+                            Capture
+                        </button>
+                        <button
+                            type="button"
+                            class="btn btn-danger waves-effect"
+                            @click="closeCameraModal"
+                        >
+                            Cancel
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--open camera modal end-->
     </div>
+
 </template>
 
 <script>
@@ -4800,34 +4883,20 @@
 import { useVuelidate } from '@vuelidate/core'
 import {required, email, requiredIf, numeric} from '@vuelidate/validators'
 // import {isReadonly} from "vue";
+import { WebCam } from "vue-web-cam";
 
 
 export default {
     name: "CreateInformation",
     props: ["customers","promos","parties","authenticators"],
-    // components: {
-    //     VuePhoneNumberInput,
-    // },
+    components: {
+        WebCam
+    },
     setup: () => ({ v$: useVuelidate() }),
     data(){
         return{
             maxDate: "",
             show_error_one: false,
-            show_error_two: false,
-            show_error_three: false,
-            show_error_four: false,
-            show_error_five: false,
-            show_error_six: false,
-            show_error_seven: false,
-            show_error_eight: false,
-            show_error_nine: false,
-            show_error_ten: false,
-            show_error_eleven: false,
-            show_error_twelve: false,
-            show_error_thirteen: false,
-            show_error_fourteen: false,
-            show_error_fifteen: false,
-            show_error_sixteen: false,
             isReadonly:false,
             step_count:4,
             completed_step_count:'',
@@ -4870,7 +4939,7 @@ export default {
             ],
             form_data:{
                 itemType:'',
-                image:'',
+                images:[],
                 observations:'',
                 //item type Pump
                 pumpYearOfInstallationRated:'',
@@ -4962,8 +5031,8 @@ export default {
                 airCompressorYearOfInstallationMeasured:'',
                 airCompressorFlowRated:'',
                 airCompressorFlowMeasured:'',
-                airCompressorHeadRated:'',
-                airCompressorHeadMeasured:'',
+                airCompressorPressureRated:'',
+                airCompressorPressureMeasured:'',
                 airCompressorVoltageRated:'',
                 airCompressorVoltageMeasured:'',
                 airCompressorCurrentRated:'',
@@ -4980,18 +5049,18 @@ export default {
                 airCompressorMotorFrameSizeMeasured:'',
                 airCompressorInsulationClassRated:'',
                 airCompressorInsulationClassMeasured:'',
-                airCompressorLoadPressureClassRated:'',
-                airCompressorLoadPressureClassMeasured:'',
-                airCompressorUnLoadPressureClassRated:'',
-                airCompressorUnLoadPressureClassMeasured:'',
-                airCompressorRecieverSizeClassRated:'',
-                airCompressorRecieverSizeClassMeasured:'',
-                airCompressorInitialPressureClassRated:'',
-                airCompressorInitialPressureClassMeasured:'',
-                airCompressorFinalPressureClassRated:'',
-                airCompressorFinalPressureClassMeasured:'',
-                airCompressorTimeToReachFinalPressureClassRated:'',
-                airCompressorTimeToReachFinalPressureClassMeasured:'',
+                airCompressorLoadPressureRated:'',
+                airCompressorLoadPressureMeasured:'',
+                airCompressorUnLoadPressureRated:'',
+                airCompressorUnLoadPressureMeasured:'',
+                airCompressorRecieverSizeRated:'',
+                airCompressorRecieverSizeMeasured:'',
+                airCompressorInitialPressureRated:'',
+                airCompressorInitialPressureMeasured:'',
+                airCompressorFinalPressureRated:'',
+                airCompressorFinalPressureMeasured:'',
+                airCompressorTimeToReachFinalPressureRated:'',
+                airCompressorTimeToReachFinalPressureMeasured:'',
                 airCompressorTemperatureRated:'',
                 airCompressorTemperatureMeasured:'',
                 airCompressorCompressorSECRated:'',
@@ -5009,39 +5078,39 @@ export default {
                 airCompressorOperatingHours:'',
 
                 //item type Chiller
-                ChillerYearOfInstallationRated:'',
-                ChillerYearOfInstallationMeasured:'',
-                ChillerCapacityRated:'',
-                ChillerCapacityMeasured:'',
-                ChillerVoltageRated:'',
-                ChillerVoltageMeasured:'',
-                ChillerCurrentRated:'',
-                ChillerCurrentMeasured:'',
-                ChillerPowerFactorRated:'',
-                ChillerPowerFactorMeasured:'',
-                ChillerMotorPowerRated:'',
-                ChillerMotorPowerMeasured:'',
-                ChillerMotorEfficiencyRated:'',
-                ChillerMotorEfficiencyMeasured:'',
-                ChillerMotorEfficiencyClassRated:'',
-                ChillerMotorEfficiencyClassMeasured:'',
-                ChillerMotorFrameSizeRated:'',
-                ChillerMotorFrameSizeMeasured:'',
-                ChillerSupplyTempRated:'',
-                ChillerSupplyTempMeasured:'',
-                ChillerReturnTempRated:'',
-                ChillerReturnTempMeasured:'',
-                ChillerFlowRated:'',
-                ChillerFlowMeasured:'',
-                ChillerChillerSECRated:'',
-                ChillerChillerSECMeasured:'',
-                ChillerCondenserApprochRated:'',
-                ChillerCondenserApprochMeasured:'',
+                chillerYearOfInstallationRated:'',
+                chillerYearOfInstallationMeasured:'',
+                chillerCapacityRated:'',
+                chillerCapacityMeasured:'',
+                chillerVoltageRated:'',
+                chillerVoltageMeasured:'',
+                chillerCurrentRated:'',
+                chillerCurrentMeasured:'',
+                chillerPowerFactorRated:'',
+                chillerPowerFactorMeasured:'',
+                chillerMotorPowerRated:'',
+                chillerMotorPowerMeasured:'',
+                chillerMotorEfficiencyRated:'',
+                chillerMotorEfficiencyMeasured:'',
+                chillerMotorEfficiencyClassRated:'',
+                chillerMotorEfficiencyClassMeasured:'',
+                chillerMotorFrameSizeRated:'',
+                chillerMotorFrameSizeMeasured:'',
+                chillerSupplyTempRated:'',
+                chillerSupplyTempMeasured:'',
+                chillerReturnTempRated:'',
+                chillerReturnTempMeasured:'',
+                chillerFlowRated:'',
+                chillerFlowMeasured:'',
+                chillerChillerSECRated:'',
+                chillerChillerSECMeasured:'',
+                chillerCondenserApprochRated:'',
+                chillerCondenserApprochMeasured:'',
                 //checklist
-                ChillerVFDorNot:'',
-                ChillerSetTemp:'',
-                ChillerCheckCondenserCondition:'',
-                ChillerOperatingHours:'',
+                chillerVFDorNot:'',
+                chillerSetTemp:'',
+                chillerCheckCondenserCondition:'',
+                chillerOperatingHours:'',
 
                 //item type Motors
                 motorYearOfInstallationRated:'',
@@ -5074,10 +5143,11 @@ export default {
     },
     methods:{
         async submit(){
-            if (this.checkSeventhStep()){
+            // if (this.checkSeventhStep()){
                 Swal.fire({
                     // title: "Are the selected product offerings applicable for drop off center: <br> West's Card Edmonton",
-                    title: `Do you want to save this order: <br> ${this.form_data.name}`,
+                    // title: `Do you want to save this data: <br> ${this.form_data.name}`,
+                    title: `Do you want to save this data`,
                     showDenyButton: true,
                     showCancelButton: true,
                     confirmButtonText: "Yes",
@@ -5092,13 +5162,13 @@ export default {
                         // Submit form
 
                         axios
-                            .post("/admin/entries", this.form_data)
+                            .post("/admin/information", this.form_data)
                             .then(function (response) {
                                 console.log(response)
                                 Swal.fire("Saved!", "", "success").then((result)=>{
                                     if (result.isConfirmed){
                                         if (response.status == 200){
-                                            window.location.href = `/admin/entries/${response.data.data.id}`;
+                                            window.location.href = `/admin/information/`;
                                         }
                                     }
                                 });
@@ -5115,20 +5185,20 @@ export default {
                             });
                         // Swal.fire("Saved!", "", "success");
                     }else if (result.isDismissed){
-                        window.location.href = "/admin/entries";
+                        window.location.href = "/admin/information";
                     }else if (result.isDenied) {
                         console.log(result.isDenied)
                         // Swal.fire("Changes are not saved", "", "info");
                     }
                 });
 
-            }else {
-                return;
-            }
+            // }else {
+            //     return;
+            // }
         },
         async checkFirstStep(){
             this.v$.$touch()
-            if (this.v$.form_data.name.$invalid) {
+            if (this.v$.form_data.itemType.$invalid) {
                 this.show_error_one = true;
                 return false;
             }
@@ -5324,7 +5394,7 @@ export default {
             }
         },
         cancel(){
-            window.location.assign("/admin/entries");
+            window.location.assign("/admin/information");
         },
         selectAllCats () {
             if (this.isAllSelected) {
@@ -5487,6 +5557,236 @@ export default {
         dummyStep(){
             return true;
         },
+
+        //capture image
+        // async openCamera() {
+        //     // Hide popup modal (if open)
+        //     $("#openPopUpModal").modal("hide");
+        //
+        //     // Show camera modal
+        //     $("#openCameraModal").modal("show");
+        //
+        //     // Listen for modal fully shown event
+        //     $('#openCameraModal').off('shown.bs.modal').on('shown.bs.modal', async () => {
+        //         if (!this.$refs.webcam) {
+        //             console.error("Webcam component not found!");
+        //             return;
+        //         }
+        //
+        //         try {
+        //             await this.$refs.webcam.start();
+        //             console.log("Camera started successfully");
+        //         } catch (error) {
+        //             console.error("Error starting camera:", error);
+        //             alert("Could not access camera. Please check permissions.");
+        //             $("#openCameraModal").modal("hide");
+        //         }
+        //     });
+        // },
+        // closeCameraModal() {
+        //     if (this.$refs.webcam) {
+        //         this.$refs.webcam.stop();
+        //     }
+        //     $("#openCameraModal").modal("hide");
+        // },
+        // openPopUpModal() {
+        //     $("#openPopUpModal").modal("show");
+        // },
+        // closePopUpModal(){
+        //     $("#openPopUpModal").modal("hide");
+        // },
+        // async snapshot() {
+        //     if (!this.$refs.webcam) {
+        //         console.error("Webcam component not found!");
+        //         return;
+        //     }
+        //
+        //     let self = this;
+        //     const blob = await this.$refs.webcam.snapshot();
+        //     const reader = new FileReader();
+        //     reader.readAsDataURL(blob);
+        //     reader.onloadend = function () {
+        //         self.form_data.image.push(reader.result);
+        //     };
+        //     this.closeCameraModal();
+        // },
+        // uploadImage(event){
+        //     let self = this;
+        //     const file = event.target.files[0];
+        //     const files = event.target.files;
+        //
+        //     // const reader = new FileReader();
+        //     // reader.readAsDataURL(file);
+        //     // reader.onloadend = function () {
+        //     //     self.formData.image = reader.result ?? "";
+        //     // };
+        //
+        //     for (var i=0; i<files.length; i++){
+        //         const reader = new FileReader();
+        //         reader.readAsDataURL(files[i]);
+        //         reader.onloadend = function () {
+        //             self.formData.images.push(reader.result);
+        //         };
+        //     }
+        //     this.closePopUpModal();
+        // },
+        // cancelImage(index){
+        //     this.$swal({
+        //         title: 'Confirmation!',
+        //         text: 'Do you want to remove this',
+        //         icon: 'question',
+        //         showCancelButton: true,
+        //         confirmButtonColor: '#3085d6',
+        //         cancelButtonColor: '#d33',
+        //         confirmButtonText: 'Yes, remove it!'
+        //     }).then((result) => {
+        //         if (result.isConfirmed) {
+        //
+        //             this.formData.images.splice(index, 1);
+        //             const Toast = this.$swal.mixin({
+        //                 toast: true,
+        //                 position: 'top-end',
+        //                 showConfirmButton: false,
+        //                 timer: 3000,
+        //                 timerProgressBar: true,
+        //                 didOpen: (toast) => {
+        //                     toast.addEventListener('mouseenter', this.$swal.stopTimer)
+        //                     toast.addEventListener('mouseleave', this.$swal.resumeTimer)
+        //                 }
+        //             })
+        //
+        //             Toast.fire({
+        //                 icon: 'success',
+        //                 title: 'Removed successfully'
+        //             })
+        //
+        //         }
+        //     })
+        // }
+
+        // Show camera modal and open camera
+        openCamera() {
+            // Close other modal if open
+            $('#openPopUpModal').modal('hide');
+
+            // Show camera modal
+            $('#openCameraModal').modal('show');
+
+            // Once modal is fully visible, start the camera
+            $('#openCameraModal').off('shown.bs.modal').on('shown.bs.modal', async () => {
+                const constraints = { video: true };
+                try {
+                    this.cameraStream = await navigator.mediaDevices.getUserMedia(constraints);
+                    const video = this.$refs.video;
+                    if (video) {
+                        video.srcObject = this.cameraStream;
+                        video.play();
+                    }
+                } catch (error) {
+                    console.error("Error accessing camera:", error);
+                    alert("Could not access camera. Please allow camera permissions.");
+                    $('#openCameraModal').modal('hide');
+                }
+            });
+        },
+
+        // Capture image from camera
+        snapshot() {
+            const video = this.$refs.video;
+            const canvas = this.$refs.canvas;
+
+            if (!video || !canvas) {
+                console.error("Video or Canvas element not found!");
+                return;
+            }
+
+            canvas.width = video.videoWidth;
+            canvas.height = video.videoHeight;
+            const ctx = canvas.getContext('2d');
+            ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+
+            const base64Image = canvas.toDataURL('image/png');
+
+            // Save to array (assuming you're storing in formData.images)
+            this.form_data.images.push(base64Image);
+
+            // Close camera modal
+            this.closeCameraModal();
+        },
+
+        // Close camera and modal
+        closeCameraModal() {
+            const video = this.$refs.video;
+            if (video) {
+                video.pause();
+                video.srcObject = null;
+            }
+
+            // Stop all video tracks
+            if (this.cameraStream) {
+                this.cameraStream.getTracks().forEach(track => track.stop());
+                this.cameraStream = null;
+            }
+
+            $('#openCameraModal').modal('hide');
+        },
+
+        // Open file upload modal
+        openPopUpModal() {
+            $('#openPopUpModal').modal('show');
+        },
+
+        // Close file upload modal
+        closePopUpModal() {
+            $('#openPopUpModal').modal('hide');
+        },
+
+        // Upload image from file input
+        uploadImage(event) {
+            const files = event.target.files;
+            for (let i = 0; i < files.length; i++) {
+                const reader = new FileReader();
+                reader.readAsDataURL(files[i]);
+                reader.onloadend = () => {
+                    this.form_data.images.push(reader.result);
+                };
+            }
+            this.closePopUpModal();
+        },
+
+        // Cancel/remove image by index
+        cancelImage(index) {
+            this.$swal({
+                title: 'Confirmation!',
+                text: 'Do you want to remove this image?',
+                icon: 'question',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, remove it!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    this.form_data.images.splice(index, 1);
+
+                    const Toast = this.$swal.mixin({
+                        toast: true,
+                        position: 'top-end',
+                        showConfirmButton: false,
+                        timer: 3000,
+                        timerProgressBar: true,
+                        didOpen: (toast) => {
+                            toast.addEventListener('mouseenter', this.$swal.stopTimer)
+                            toast.addEventListener('mouseleave', this.$swal.resumeTimer)
+                        }
+                    });
+
+                    Toast.fire({
+                        icon: 'success',
+                        title: 'Removed successfully'
+                    });
+                }
+            });
+        }
     },
     mounted() {
         // Set maxDate to today's date when the component is mounted
@@ -5495,243 +5795,20 @@ export default {
 
     validations: {
         form_data: {
-            name: {
-                required,
-            },
-            grading_location: {
-                required,
-            },
-            contact_name: {
-                required,
-            },
-            email: {
-                required,
-                email
-            },
-            billing_address_line_one:{
-                required,
-            },
-            // billing_address_line_two:{},
-            billing_country:{
-                required,
-            },
-            billing_province:{
-                required,
-            },
-            billing_city:{
-                required,
-            },
-            billing_postal:{
-                required,
-            },
-            // billing_phone:{
-            //     required,
-            // },
-            // same_as_billing:{},
-            // shipping_name:{},
-            shipping_company_name:{
-                required,
-            },
-            shipping_address_line_one:{
-                required,
-            },
-            // shipping_address_line_two:{},
-            shipping_country:{
-                required,
-            },
-            shipping_province:{
-                required,
-            },
-            shipping_city:{
-                required,
-            },
-            shipping_postal:{
-                required,
-            },
-            // shipping_phone:{
-            //     required,
-            // },
-            status:{
-                required,
-            },
-            products:{
-                required,
-            },
-            submission_date:{
-                required,
-            },
-            shipping_method:{
-                required,
-            },
-            pickup_location:{
-                required: requiredIf(function () {
-                    return this.showPickupLocationBox // return true if this field is required
-                })
-            },
-            show_pickup_location:{
-                required: requiredIf(function () {
-                    return this.showShowPickupLocationBox // return true if this field is required
-                })
-            },
-            third_party_drop_center:{
-                required: requiredIf(function () {
-                    return this.showThirdPartyBox // return true if this field is required
-                })
-            },
-            customer_account_number:{
-                required: requiredIf(function () {
-                    return this.showUPSBox // return true if this field is required
-                }),
-            },
             itemType:{
                 required,
             },
             //item type card
-            card_description_one:{
-                required: requiredIf(function () {
-                    return this.showItemTypeCardBox // return true if this field is required
-                }),
-            },
-            // card_description_two:{
+            // card_description_one:{
             //     required: requiredIf(function () {
             //         return this.showItemTypeCardBox // return true if this field is required
             //     }),
             // },
-            // card_description_three:{
+            // card_authenticator_name:{
             //     required: requiredIf(function () {
-            //         return this.showItemTypeCardBox // return true if this field is required
+            //         return this.form_data.card_autographed;// return true if this field is required
             //     }),
             // },
-            card_authenticator_name:{
-                required: requiredIf(function () {
-                    return this.form_data.card_autographed;// return true if this field is required
-                }),
-            },
-            card_authenticator_cert_no:{
-                required: requiredIf(function () {
-                    return this.form_data.card_autographed; // return true if this field is required
-                }),
-            },
-            card_estimated_value:{
-                required: requiredIf(function () {
-                    return this.showItemTypeCardBox // return true if this field is required
-                }),
-            },
-            //item type auto athentication
-            auto_authentication_description_one:{
-                required: requiredIf(function () {
-                    return this.showItemTypeAutoAthenticationBox // return true if this field is required
-                }),
-            },
-            // auto_authentication_description_two:{
-            //     required: requiredIf(function () {
-            //         return this.showItemTypeAutoAthenticationBox // return true if this field is required
-            //     }),
-            // },
-            // auto_authentication_description_three:{
-            //     required: requiredIf(function () {
-            //         return this.showItemTypeAutoAthenticationBox // return true if this field is required
-            //     }),
-            // },
-            auto_authentication_authenticator_name:{
-                required: requiredIf(function () {
-                    return this.form_data.auto_authentication_autographed; // return true if this field is required
-                }),
-            },
-            auto_authentication_authenticator_cert_no:{
-                required: requiredIf(function () {
-                    return this.form_data.auto_authentication_autographed; // return true if this field is required
-                }),
-            },
-            auto_authentication_estimated_value:{
-                required: requiredIf(function () {
-                    return this.showItemTypeAutoAthenticationBox // return true if this field is required
-                }),
-            },
-            //item type combined service
-            combined_service_description_one:{
-                required: requiredIf(function () {
-                    return this.showItemTypeCombinedServiceBox // return true if this field is required
-                }),
-            },
-            // combined_service_description_two:{
-            //     required: requiredIf(function () {
-            //         return this.showItemTypeCombinedServiceBox // return true if this field is required
-            //     }),
-            // },
-            // combined_service_description_three:{
-            //     required: requiredIf(function () {
-            //         return this.showItemTypeCombinedServiceBox // return true if this field is required
-            //     }),
-            // },
-            combined_service_authenticator_name:{
-                required: requiredIf(function () {
-                    return this.form_data.combined_service_autographed; // return true if this field is required
-                }),
-            },
-            combined_service_authenticator_cert_no:{
-                required: requiredIf(function () {
-                    return this.form_data.combined_service_autographed; // return true if this field is required
-                }),
-            },
-            combined_service_estimated_value:{
-                required: requiredIf(function () {
-                    return this.showItemTypeCombinedServiceBox // return true if this field is required
-                }),
-            },
-            //item type reholder
-            reholder_certification_number:{
-                required: requiredIf(function () {
-                    return this.showItemTypeReholderBox // return true if this field is required
-                }),
-            },
-            reholder_estimated_value:{
-                required: requiredIf(function () {
-                    return this.showItemTypeReholderBox // return true if this field is required
-                }),
-            },
-
-            //item type crossover
-            crossover_description_one:{
-                required: requiredIf(function () {
-                    return this.showItemTypeCrossoverBox // return true if this field is required
-                }),
-            },
-            // crossover_description_two:{
-            //     required: requiredIf(function () {
-            //         return this.showItemTypeCrossoverBox // return true if this field is required
-            //     }),
-            // },
-            // crossover_description_three:{
-            //     required: requiredIf(function () {
-            //         return this.showItemTypeCrossoverBox // return true if this field is required
-            //     }),
-            // },
-            crossover_authenticator_name:{
-                required: requiredIf(function () {
-                    return this.form_data.crossover_autographed; // return true if this field is required
-                }),
-            },
-            crossover_authenticator_cert_no:{
-                required: requiredIf(function () {
-                    return this.form_data.crossover_autographed; // return true if this field is required
-                }),
-            },
-            crossover_estimated_value:{
-                required: requiredIf(function () {
-                    return this.showItemTypeCrossoverBox // return true if this field is required
-                }),
-            },
-            crossover_minimum_grade:{
-                required: requiredIf(function () {
-                    return this.showItemTypeCrossoverBox // return true if this field is required
-                }),
-            },
-            crossover_item_type:{
-                required: requiredIf(function () {
-                    return this.showItemTypeCrossoverBox // return true if this field is required
-                }),
-            },
         }
     }
 
@@ -5753,5 +5830,22 @@ input[type=number] {
 }
 .shipping_address_card{
     background: #eeeeee;
+}
+#images img {
+    border-radius: 5px;
+}
+.ïc--close {
+    background-color: rgb(47, 47, 47, 0.77);
+    width: 40px;
+    height: 40px;
+    border: none;
+    border-radius: 50%;
+    line-height: 36px;
+    text-align: center;
+    font-size: 15px;
+    color: red;
+    position: absolute;
+    top: 10px;
+    right: 10px;
 }
 </style>

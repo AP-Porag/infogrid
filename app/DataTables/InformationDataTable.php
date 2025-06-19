@@ -3,6 +3,7 @@
 namespace App\DataTables;
 
 use App\Models\Information;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Builder as QueryBuilder;
 use Yajra\DataTables\EloquentDataTable;
 use Yajra\DataTables\Html\Builder as HtmlBuilder;
@@ -24,10 +25,11 @@ class InformationDataTable extends DataTable
         return (new EloquentDataTable($query))
             ->addColumn('action', function ($item) {
                 $buttons = '';
-                $buttons .= '<a class="dropdown-item" href="' . route('admin.users.edit', $item->id) . '" title="Edit"><i class="mdi mdi-square-edit-outline"></i> Edit </a>';
+//                $buttons .= '<a class="dropdown-item" href="' . route('admin.information.edit', $item->id) . '" title="Edit"><i class="mdi mdi-square-edit-outline"></i> Edit </a>';
+                $buttons .= '<a class="dropdown-item" href="' . route('admin.information.show', $item->id) . '" title="Show"><i class="mdi mdi-eye-check-outline"></i> Show </a>';
 
                 // TO-DO: need to chnage the super admin ID to 1, while Super admin ID will 1
-                $buttons .= '<form action="' . route('admin.users.destroy', $item->id) . '"  id="delete-form-' . $item->id . '" method="post" style="">
+                $buttons .= '<form action="' . route('admin.information.destroy', $item->id) . '"  id="delete-form-' . $item->id . '" method="post" style="">
                         <input type="hidden" name="_token" value="' . csrf_token() . '">
                         <input type="hidden" name="_method" value="DELETE">
                         <button class="dropdown-item text-danger" onclick="return makeDeleteRequest(event, ' . $item->id . ')"  type="submit" title="Delete"><i class="mdi mdi-trash-can-outline"></i> Delete</button></form>
@@ -41,9 +43,11 @@ class InformationDataTable extends DataTable
                 </div>';
             })
             ->editColumn('user_id', function ($item) {
-                return '<img class="ic-img-32" src="' . $item->avatar_url . '" alt="' . $item->last_name . '" />';
+                $user = User::where('id',$item->user_id)->first();
+//                return $user->first_name;
+                return $user->first_name.' '.$user->last_name;
             })
-            ->rawColumns(['user_id'])
+            ->rawColumns(['action', 'user_id'])
             ->setRowId('id');
 
     }
@@ -88,9 +92,8 @@ class InformationDataTable extends DataTable
 
         return [
 //            Column::computed('DT_RowIndex', 'SL#'),
-            Column::make('equipment_type', 'equipment_type')->title('Equipment Type'),
-            Column::make('year_of_installation', 'year_of_installation')->title('Year of Installation'),
-            Column::make('observation', 'observation')->title('Observation'),
+            Column::make('sku', 'sku')->title('ID'),
+            Column::make('itemType', 'itemType')->title('Item Type'),
             Column::make('user_id', 'user_id')->title('Collected By'),
         ];
     }

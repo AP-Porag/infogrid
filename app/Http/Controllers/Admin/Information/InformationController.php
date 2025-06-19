@@ -4,8 +4,14 @@ namespace App\Http\Controllers\Admin\Information;
 
 use App\DataTables\InformationDataTable;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\InformationRequest;
+use App\Models\Gallery;
+use App\Models\Information;
 use App\Services\InformationService;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 
 class InformationController extends Controller
 {
@@ -28,15 +34,76 @@ class InformationController extends Controller
         return view('admin.information.create');
     }
 
-    public function store(UserRequest $request)
+    public function store(InformationRequest $request)
     {
-        $data = $request->validated();
+
         try {
-            $this->userService->storeOrUpdate($data, null);
-            record_created_flash();
+            $data = $request->validated();
+            // Authenticated user ID
+            $userId = Auth::id();
+
+            // Generate unique SKU
+            $sku = $this->generateSku();
+
+            // Append user_id and sku to data array
+            $dataToSave = array_merge($data, [
+                'user_id' => $userId,
+                'sku' => $sku,
+                'images' => count($data['images']),
+            ]);
+
+
+            $information = $this->informationService->storeOrUpdate($dataToSave, null);
+
+            if (!empty($data['images'])) {
+                foreach ($data['images'] as $base64Image) {
+                    // Extract and clean base64 string
+                    if (str_contains($base64Image, 'data:image/png;base64,')) {
+                        $base64Image = str_replace('data:image/png;base64,', '', $base64Image);
+                        $extension = 'png';
+                    } elseif (str_contains($base64Image, 'data:image/jpeg;base64,')) {
+                        $base64Image = str_replace('data:image/jpeg;base64,', '', $base64Image);
+                        $extension = 'jpg';
+                    } else {
+                        continue; // Skip unsupported formats
+                    }
+
+                    $base64Image = str_replace(' ', '+', $base64Image);
+
+                    try {
+                        $imageContent = base64_decode($base64Image);
+                        if ($imageContent === false) {
+                            continue; // Skip invalid base64
+                        }
+
+                        $imageName = Str::random(15) . '.' . $extension;
+                        Storage::disk('public')->put('uploaded/' . $imageName, $imageContent);
+
+                        $gallery = Gallery::create([
+                            'information_id' => $information->id,
+                            'image' => 'uploaded/' . $imageName,
+                        ]);
+                    } catch (\Exception $e) {
+                        \Log::error("Image upload failed: " . $e->getMessage());
+                        continue;
+                    }
+                }
+            }
+
+
+            $response = ['status' => 200, 'message' => 'Success', 'data' => $information];
+            return response()->json($response);
         } catch (\Exception $e) {
+
         }
         return back();
+    }
+
+    public function show($id)
+    {
+        set_page_meta('Equipment Details');
+        $item = $this->informationService->get($id);
+        return view('admin.information.show', compact('item'));
     }
 
     public function edit($id)
@@ -72,11 +139,31 @@ class InformationController extends Controller
     public function destroy($id)
     {
         try {
-            $this->userService->delete($id);
+            $this->informationService->delete($id);
             record_deleted_flash();
             return back();
         } catch (\Exception $e) {
             return back();
         }
+    }
+
+    private function generateSku(): string
+    {
+        $year = now()->year;
+
+        // Get the latest SKU for the current year
+        $latestItem = Information::where('sku', 'LIKE', "EEF-{$year}%")
+            ->orderByDesc('sku')
+            ->first();
+
+        // Extract and increment the last number
+        if ($latestItem && preg_match("/EEF-{$year}(\d{6})/", $latestItem->sku, $matches)) {
+            $lastNumber = (int) $matches[1];
+        } else {
+            $lastNumber = 0;
+        }
+
+        $newNumber = str_pad($lastNumber + 1, 6, '0', STR_PAD_LEFT);
+        return "EEF-{$year}{$newNumber}";
     }
 }
