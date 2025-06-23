@@ -26,7 +26,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "CreateInformation",
-  props: ["customers", "promos", "parties", "authenticators"],
+  props: ["project_id"],
   components: {
     WebCam: vue_web_cam__WEBPACK_IMPORTED_MODULE_1__.WebCam
   },
@@ -72,6 +72,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       form_data: {
         itemType: '',
         images: [],
+        project_id: null,
         observations: '',
         //item type Pump
         pumpYearOfInstallationRated: '',
@@ -103,7 +104,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         pumpEfficiencyRated: '',
         pumpEfficiencyMeasured: '',
         //checklist
-        pumpVFDorNot: '',
+        pumpVFDorNo: '',
         pumpVFDSetting: '',
         pumpThrottling: '',
         pumpFlowModulationRequired: '',
@@ -272,10 +273,11 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     submit: function submit() {
       var _this = this;
       return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
+        var self;
         return _regeneratorRuntime().wrap(function _callee$(_context) {
           while (1) switch (_context.prev = _context.next) {
             case 0:
-              // if (this.checkSeventhStep()){
+              self = _this; // if (this.checkSeventhStep()){
               Swal.fire({
                 // title: "Are the selected product offerings applicable for drop off center: <br> West's Card Edmonton",
                 // title: `Do you want to save this data: <br> ${this.form_data.name}`,
@@ -298,7 +300,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                     Swal.fire("Saved!", "", "success").then(function (result) {
                       if (result.isConfirmed) {
                         if (response.status == 200) {
-                          window.location.href = "/admin/information/";
+                          // window.location.href = `/admin/information/`;
+                          window.location.href = "/admin/project/".concat(self.project_id);
                         }
                       }
                     });
@@ -314,7 +317,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                   });
                   // Swal.fire("Saved!", "", "success");
                 } else if (result.isDismissed) {
-                  window.location.href = "/admin/information";
+                  // window.location.href = "/admin/information";
+                  window.location.href = "/admin/project/".concat(self.project_id);
                 } else if (result.isDenied) {
                   console.log(result.isDenied);
                   // Swal.fire("Changes are not saved", "", "info");
@@ -324,7 +328,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
               // }else {
               //     return;
               // }
-            case 1:
+            case 2:
             case "end":
               return _context.stop();
           }
@@ -710,111 +714,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     dummyStep: function dummyStep() {
       return true;
     },
-    //capture image
-    // async openCamera() {
-    //     // Hide popup modal (if open)
-    //     $("#openPopUpModal").modal("hide");
-    //
-    //     // Show camera modal
-    //     $("#openCameraModal").modal("show");
-    //
-    //     // Listen for modal fully shown event
-    //     $('#openCameraModal').off('shown.bs.modal').on('shown.bs.modal', async () => {
-    //         if (!this.$refs.webcam) {
-    //             console.error("Webcam component not found!");
-    //             return;
-    //         }
-    //
-    //         try {
-    //             await this.$refs.webcam.start();
-    //             console.log("Camera started successfully");
-    //         } catch (error) {
-    //             console.error("Error starting camera:", error);
-    //             alert("Could not access camera. Please check permissions.");
-    //             $("#openCameraModal").modal("hide");
-    //         }
-    //     });
-    // },
-    // closeCameraModal() {
-    //     if (this.$refs.webcam) {
-    //         this.$refs.webcam.stop();
-    //     }
-    //     $("#openCameraModal").modal("hide");
-    // },
-    // openPopUpModal() {
-    //     $("#openPopUpModal").modal("show");
-    // },
-    // closePopUpModal(){
-    //     $("#openPopUpModal").modal("hide");
-    // },
-    // async snapshot() {
-    //     if (!this.$refs.webcam) {
-    //         console.error("Webcam component not found!");
-    //         return;
-    //     }
-    //
-    //     let self = this;
-    //     const blob = await this.$refs.webcam.snapshot();
-    //     const reader = new FileReader();
-    //     reader.readAsDataURL(blob);
-    //     reader.onloadend = function () {
-    //         self.form_data.image.push(reader.result);
-    //     };
-    //     this.closeCameraModal();
-    // },
-    // uploadImage(event){
-    //     let self = this;
-    //     const file = event.target.files[0];
-    //     const files = event.target.files;
-    //
-    //     // const reader = new FileReader();
-    //     // reader.readAsDataURL(file);
-    //     // reader.onloadend = function () {
-    //     //     self.formData.image = reader.result ?? "";
-    //     // };
-    //
-    //     for (var i=0; i<files.length; i++){
-    //         const reader = new FileReader();
-    //         reader.readAsDataURL(files[i]);
-    //         reader.onloadend = function () {
-    //             self.formData.images.push(reader.result);
-    //         };
-    //     }
-    //     this.closePopUpModal();
-    // },
-    // cancelImage(index){
-    //     this.$swal({
-    //         title: 'Confirmation!',
-    //         text: 'Do you want to remove this',
-    //         icon: 'question',
-    //         showCancelButton: true,
-    //         confirmButtonColor: '#3085d6',
-    //         cancelButtonColor: '#d33',
-    //         confirmButtonText: 'Yes, remove it!'
-    //     }).then((result) => {
-    //         if (result.isConfirmed) {
-    //
-    //             this.formData.images.splice(index, 1);
-    //             const Toast = this.$swal.mixin({
-    //                 toast: true,
-    //                 position: 'top-end',
-    //                 showConfirmButton: false,
-    //                 timer: 3000,
-    //                 timerProgressBar: true,
-    //                 didOpen: (toast) => {
-    //                     toast.addEventListener('mouseenter', this.$swal.stopTimer)
-    //                     toast.addEventListener('mouseleave', this.$swal.resumeTimer)
-    //                 }
-    //             })
-    //
-    //             Toast.fire({
-    //                 icon: 'success',
-    //                 title: 'Removed successfully'
-    //             })
-    //
-    //         }
-    //     })
-    // }
     // Show camera modal and open camera
     openCamera: function openCamera() {
       var _this4 = this;
@@ -955,6 +854,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   mounted: function mounted() {
     // Set maxDate to today's date when the component is mounted
     this.maxDate = new Date().toISOString().split("T")[0];
+  },
+  created: function created() {
+    this.form_data.project_id = this.project_id;
   },
   validations: {
     form_data: {

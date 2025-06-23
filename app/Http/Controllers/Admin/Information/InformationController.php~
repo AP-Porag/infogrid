@@ -26,7 +26,7 @@ class InformationController extends Controller
     {
         set_page_meta('Information');
         $project = null;
-        return $dataTable->render('admin.information.index',compact('project'));
+        return $dataTable->render('admin.information.index');
     }
 
     public function create(Request $request)

@@ -6,8 +6,8 @@
             <div class="card">
                 <div class="card-body">
                     <div class="d-flex justify-content-between">
-                        <h4 class="card-title mb-3">Users</h4>
-                        <a href="{{route('admin.users.create')}}" class="btn btn-sm btn-primary text-capitalize" style="padding-top: 8px;">Create User</a>
+                        <h4 class="card-title mb-3">Project</h4>
+                        <a href="{{route('admin.project.create')}}" class="btn btn-sm btn-primary text-capitalize" style="padding-top: 8px;">Create New Project</a>
                     </div>
                     {!! $dataTable->table(['class'=>'table-responsive']) !!}
                 </div>

@@ -5144,7 +5144,6 @@ export default {
     },
     methods:{
         async submit(){
-            let self = this;
             // if (this.checkSeventhStep()){
                 Swal.fire({
                     // title: "Are the selected product offerings applicable for drop off center: <br> West's Card Edmonton",

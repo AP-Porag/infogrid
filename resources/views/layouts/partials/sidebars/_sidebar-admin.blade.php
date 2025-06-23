@@ -38,6 +38,12 @@
                     </ul>
                 </li>
 
+                <li class="{{ request()->is('admin/project*') ? 'mm-active' : '' }}">
+                    <a href="{{route('admin.project.index')}}" class="waves-effect {{ (request()->routeIs('admin.project.index') || request()->routeIs('admin.project.create') || request()->routeIs('admin.project.edit')) ? 'active' : '' }}">
+                        <i class="fa fa-boxes"></i><span> Project </span>
+                    </a>
+                </li>
+
                 <li class="{{ request()->is('admin/information*') ? 'mm-active' : '' }}">
                     <a href="{{route('admin.information.index')}}" class="waves-effect {{ (request()->routeIs('admin.information.index') || request()->routeIs('admin.information.create') || request()->routeIs('admin.information.edit')) ? 'active' : '' }}">
                         <i class="fa fa-book-open"></i><span> Data Collection </span>

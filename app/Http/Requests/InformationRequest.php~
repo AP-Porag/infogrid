@@ -23,7 +23,6 @@ class InformationRequest extends FormRequest
     {
         return [
             'itemType' => 'required',
-            'project_id' => 'required',
             'images' => 'nullable',
             'observations' => 'nullable|string',
 

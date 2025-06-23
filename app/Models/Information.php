@@ -15,6 +15,11 @@ class Information extends Model
         return  $this->belongsTo(User::class,'user_id');
     }
 
+    public function project()
+    {
+        return  $this->belongsTo(Project::class,'project_id');
+    }
+
     public function gallery()
     {
         return  $this->hasMany(Gallery::class,'information_id');

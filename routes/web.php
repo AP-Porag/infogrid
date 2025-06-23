@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\Information\InformationController;
 use App\Http\Controllers\Admin\Profile\UserProfileController;
+use App\Http\Controllers\Admin\Project\ProjectController;
 use App\Http\Controllers\Admin\User\UsersController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Artisan;
@@ -24,6 +25,11 @@ Route::get('/', function () {
 
 Route::get('/execute-command', function () {
     Artisan::call('storage:link');
+    Artisan::call('cache:clear');
+    Artisan::call('config:cache');
+    Artisan::call('view:clear');
+    Artisan::call('route:clear');
+    Artisan::call('optimize');
     Artisan::call('migrate:fresh --seed');
     dd('All commands executed successfully');
 });
@@ -37,6 +43,9 @@ Route::get('/home', [HomeController::class, 'index'])->name('home');
 Route::prefix('admin')->as('admin.')->group(function () {
     // USER
     Route::resource('users', UsersController::class);
+
+    // PROJECT
+    Route::resource('project', ProjectController::class);
 
     // INFORMATION
     Route::resource('information', InformationController::class);

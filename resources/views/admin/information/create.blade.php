@@ -10,7 +10,7 @@
                         {{--                        <a href="{{route('admin.thirds.index')}}" class="btn btn-sm btn-warning text-capitalize" style="padding-top: 8px;">Cancel</a>--}}
                     </div>
 
-                    <create-information/>
+                    <create-information :project_id="{{json_encode($project_id)}}"/>
                 </div>
             </div>
         </div>

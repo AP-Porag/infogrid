@@ -2,8 +2,7 @@
 
 namespace App\DataTables;
 
-use App\Models\Information;
-use App\Models\User;
+use App\Models\Project;
 use Illuminate\Database\Eloquent\Builder as QueryBuilder;
 use Yajra\DataTables\EloquentDataTable;
 use Yajra\DataTables\Html\Builder as HtmlBuilder;
@@ -13,9 +12,8 @@ use Yajra\DataTables\Html\Editor\Editor;
 use Yajra\DataTables\Html\Editor\Fields;
 use Yajra\DataTables\Services\DataTable;
 
-class InformationDataTable extends DataTable
+class ProjectDataTable extends DataTable
 {
-    protected $projectId;
     /**
      * Build the DataTable class.
      *
@@ -26,11 +24,11 @@ class InformationDataTable extends DataTable
         return (new EloquentDataTable($query))
             ->addColumn('action', function ($item) {
                 $buttons = '';
-//                $buttons .= '<a class="dropdown-item" href="' . route('admin.information.edit', $item->id) . '" title="Edit"><i class="mdi mdi-square-edit-outline"></i> Edit </a>';
-                $buttons .= '<a class="dropdown-item" href="' . route('admin.information.show', $item->id) . '" title="Show"><i class="mdi mdi-eye-check-outline"></i> Show </a>';
+                $buttons .= '<a class="dropdown-item" href="' . route('admin.project.show', $item->id) . '" title="Show"><i class="mdi mdi-eye-check-outline"></i> Data Collection </a>';
+                $buttons .= '<a class="dropdown-item" href="' . route('admin.project.edit', $item->id) . '" title="Edit"><i class="mdi mdi-square-edit-outline"></i> Edit </a>';
 
                 // TO-DO: need to chnage the super admin ID to 1, while Super admin ID will 1
-                $buttons .= '<form action="' . route('admin.information.destroy', $item->id) . '"  id="delete-form-' . $item->id . '" method="post" style="">
+                $buttons .= '<form action="' . route('admin.project.destroy', $item->id) . '"  id="delete-form-' . $item->id . '" method="post" style="">
                         <input type="hidden" name="_token" value="' . csrf_token() . '">
                         <input type="hidden" name="_method" value="DELETE">
                         <button class="dropdown-item text-danger" onclick="return makeDeleteRequest(event, ' . $item->id . ')"  type="submit" title="Delete"><i class="mdi mdi-trash-can-outline"></i> Delete</button></form>
@@ -43,48 +41,28 @@ class InformationDataTable extends DataTable
                 </div>
                 </div>';
             })
-            ->editColumn('user_id', function ($item) {
-                $user = User::where('id',$item->user_id)->first();
-//                return $user->first_name;
-                return $user->first_name.' '.$user->last_name;
-            })
-            ->rawColumns(['action', 'user_id'])
+            ->rawColumns(['action'])
             ->setRowId('id');
 
     }
 
-    // Method to receive the user_id
-    public function with($key, $value = null): static
-    {
-        if (is_array($key)) {
-            foreach ($key as $k => $v) {
-                if ($k === 'project_id') {
-                    $this->projectId = $v;
-                }
-            }
-        } else {
-            if ($key === 'project_id') {
-                $this->projectId = $value;
-            }
-        }
+    protected $projectId;
 
+    // Method to receive the user_id
+    public function with($key, $value)
+    {
+        if ($key === 'project_id') {
+            $this->$projectId = $value;
+        }
         return parent::with($key, $value);
     }
 
     /**
-     * Get query source of dataTable.
+     * Get the query source of dataTable.
      */
-    public function query(Information $model): QueryBuilder
+    public function query(Project $model): QueryBuilder
     {
-        $query = $model->newQuery()
-            ->with(['user']) // Eager load user relationship
-            ->orderBy('id', 'DESC');
-
-        if ($this->projectId) {
-            $query->where('project_id', $this->projectId);
-        }
-
-        return $query;
+        return $model->newQuery()->orderBy('id', 'DESC')->select('projects.*');
     }
 
     /**
@@ -93,7 +71,7 @@ class InformationDataTable extends DataTable
     public function html(): HtmlBuilder
     {
         return $this->builder()
-            ->setTableId('information-table')
+            ->setTableId('project-table')
             ->columns($this->getColumns())
             ->minifiedAjax()
             //->dom('Bfrtip')
@@ -119,9 +97,8 @@ class InformationDataTable extends DataTable
 
         return [
 //            Column::computed('DT_RowIndex', 'SL#'),
-            Column::make('sku', 'sku')->title('ID'),
-            Column::make('itemType', 'itemType')->title('Item Type'),
-            Column::make('user_id', 'user_id')->title('Collected By'),
+            Column::make('name', 'name')->title('Name'),
+            Column::make('location', 'location')->title('Location'),
         ];
     }
 
@@ -130,6 +107,6 @@ class InformationDataTable extends DataTable
      */
     protected function filename(): string
     {
-        return 'Information_' . date('YmdHis');
+        return 'Project_' . date('YmdHis');
     }
 }

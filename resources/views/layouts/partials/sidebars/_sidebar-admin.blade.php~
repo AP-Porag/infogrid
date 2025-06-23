@@ -38,8 +38,14 @@
                     </ul>
                 </li>
 
-                <li>
-                    <a href="{{route('admin.information.index')}}" class="waves-effect">
+                <li class="{{ request()->is('admin/information*') ? 'mm-active' : '' }}">
+                    <a href="{{route('admin.information.index')}}" class="waves-effect {{ (request()->routeIs('admin.information.index') || request()->routeIs('admin.information.create') || request()->routeIs('admin.information.edit')) ? 'active' : '' }}">
+                        <i class="fa fa-book-open"></i><span> Data Collection </span>
+                    </a>
+                </li>
+                
+                <li class="{{ request()->is('admin/information*') ? 'mm-active' : '' }}">
+                    <a href="{{route('admin.information.index')}}" class="waves-effect {{ (request()->routeIs('admin.information.index') || request()->routeIs('admin.information.create') || request()->routeIs('admin.information.edit')) ? 'active' : '' }}">
                         <i class="fa fa-book-open"></i><span> Data Collection </span>
                     </a>
                 </li>

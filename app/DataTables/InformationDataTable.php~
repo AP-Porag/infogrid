@@ -54,32 +54,22 @@ class InformationDataTable extends DataTable
     }
 
     // Method to receive the user_id
-    public function with($key, $value = null): static
+    public function with($key, $value)
     {
-        if (is_array($key)) {
-            foreach ($key as $k => $v) {
-                if ($k === 'project_id') {
-                    $this->projectId = $v;
-                }
-            }
-        } else {
-            if ($key === 'project_id') {
-                $this->projectId = $value;
-            }
+        if ($key === 'project_id') {
+            $this->projectId = $value;
         }
-
         return parent::with($key, $value);
     }
 
     /**
-     * Get query source of dataTable.
+     * Get the query source of dataTable.
      */
     public function query(Information $model): QueryBuilder
     {
-        $query = $model->newQuery()
-            ->with(['user']) // Eager load user relationship
-            ->orderBy('id', 'DESC');
+        $query = $model->newQuery()->orderBy('id', 'DESC')->select('information.*');
 
+        // Use the received user_id in your query
         if ($this->projectId) {
             $query->where('project_id', $this->projectId);
         }
