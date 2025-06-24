@@ -121,6 +121,8 @@ class InformationDataTable extends DataTable
 //            Column::computed('DT_RowIndex', 'SL#'),
             Column::make('sku', 'sku')->title('ID'),
             Column::make('itemType', 'itemType')->title('Item Type'),
+            Column::make('name_location', 'name_location')->title('Name & Location'),
+            Column::make('make_model', 'make_model')->title('Make & Model'),
             Column::make('user_id', 'user_id')->title('Collected By'),
         ];
     }

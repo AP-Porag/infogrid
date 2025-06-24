@@ -998,6 +998,46 @@
                             </div>
                         </div>
 
+                        <!--name & location-->
+                        <div class="col-md-12" v-if="showItemTypeCardBox || showItemTypeAutoAthenticationBox || showItemTypeCombinedServiceBox || showItemTypeReholderBox || showItemTypeCrossoverBox">
+                            <div class="card shipping_address_card">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="row mb-3">
+                                                <label class="form-label w-100">
+                                                    Name , Location & Make , Model
+                                                </label>
+                                                <div class="col-md-6">
+                                                    <label class="form-label w-100">
+                                                        Name & Location
+                                                    </label>
+                                                    <input
+                                                        type="text"
+                                                        class="form-control"
+                                                        placeholder=""
+                                                        v-model.trim="form_data.name_location"
+                                                    />
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label class="form-label w-100">
+                                                        Make & Model
+                                                    </label>
+                                                    <input
+                                                        type="text"
+                                                        class="form-control"
+                                                        placeholder=""
+                                                        v-model.trim="form_data.make_model"
+                                                    />
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
                         <!--item type Pump-->
                         <div class="col-md-12" v-if="showItemTypeCardBox">
                             <div class="card shipping_address_card">
@@ -1017,17 +1057,6 @@
                                                         class="form-control"
                                                         placeholder=""
                                                         v-model.trim="form_data.pumpYearOfInstallationRated"
-                                                    />
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <label class="form-label w-100">
-                                                        Measured Parameter
-                                                    </label>
-                                                    <input
-                                                        type="number"
-                                                        class="form-control"
-                                                        placeholder=""
-                                                        v-model.trim="form_data.pumpYearOfInstallationMeasured"
                                                     />
                                                 </div>
                                             </div>
@@ -1292,6 +1321,48 @@
                                         <div class="col-md-12">
                                             <div class="row mb-3">
                                                 <label class="form-label w-100">
+                                                    Speed
+                                                </label>
+                                                <div class="col-md-6">
+                                                    <label class="form-label w-100">
+                                                        Rated Parameter
+                                                    </label>
+                                                    <div class="d-flex justify-content-between">
+                                                        <input
+                                                            type="text"
+                                                            class="form-control"
+                                                            placeholder=""
+                                                            v-model.trim="form_data.pumpSpeedRated"
+                                                        />
+                                                        <span class="mt-2" style="margin-left: .5rem;">rpm</span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label class="form-label w-100">
+                                                        Measured Parameter
+                                                    </label>
+                                                    <div class="d-flex justify-content-between">
+                                                        <input
+                                                            type="text"
+                                                            class="form-control"
+                                                            placeholder=""
+                                                            v-model.trim="form_data.pumpSpeedMeasured"
+                                                        />
+                                                        <span class="mt-2" style="margin-left: .5rem;">rpm</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card shipping_address_card">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="row mb-3">
+                                                <label class="form-label w-100">
                                                     Motor efficiency
                                                 </label>
                                                 <div class="col-md-6">
@@ -1304,19 +1375,6 @@
                                                             class="form-control"
                                                             placeholder=""
                                                             v-model.trim="form_data.pumpMotorEfficiencyRated"
-                                                        />
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <label class="form-label w-100">
-                                                        Measured Parameter
-                                                    </label>
-                                                    <div class="d-flex justify-content-between">
-                                                        <input
-                                                            type="number"
-                                                            class="form-control"
-                                                            placeholder=""
-                                                            v-model.trim="form_data.pumpMotorEfficiencyMeasured"
                                                         />
                                                     </div>
                                                 </div>
@@ -1341,21 +1399,6 @@
                                                     <div class="d-flex justify-content-between">
                                                         <select class="form-select mb-text-only" aria-label="Default select example"
                                                                 v-model.trim="form_data.pumpMotorEfficiencyClassRated"
-                                                        >
-                                                            <option value="IE2">IE2</option>
-                                                            <option value="IE3">IE3</option>
-                                                            <option value="IE4">IE4</option>
-                                                            <option value="IE5">IE5</option>
-                                                        </select>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <label class="form-label w-100">
-                                                        Measured Parameter
-                                                    </label>
-                                                    <div class="d-flex justify-content-between">
-                                                        <select class="form-select mb-text-only" aria-label="Default select example"
-                                                                v-model.trim="form_data.pumpMotorEfficiencyClassMeasured"
                                                         >
                                                             <option value="IE2">IE2</option>
                                                             <option value="IE3">IE3</option>
@@ -1391,19 +1434,6 @@
                                                         />
                                                     </div>
                                                 </div>
-                                                <div class="col-md-6">
-                                                    <label class="form-label w-100">
-                                                        Measured Parameter
-                                                    </label>
-                                                    <div class="d-flex justify-content-between">
-                                                        <input
-                                                            type="number"
-                                                            class="form-control"
-                                                            placeholder=""
-                                                            v-model.trim="form_data.pumpMotorFrameSizeMeasured"
-                                                        />
-                                                    </div>
-                                                </div>
                                             </div>
                                         </div>
 
@@ -1431,19 +1461,6 @@
                                                         />
                                                     </div>
                                                 </div>
-                                                <div class="col-md-6">
-                                                    <label class="form-label w-100">
-                                                        Measured Parameter
-                                                    </label>
-                                                    <div class="d-flex justify-content-between">
-                                                        <input
-                                                            type="number"
-                                                            class="form-control"
-                                                            placeholder=""
-                                                            v-model.trim="form_data.pumpInsulationClassMeasured"
-                                                        />
-                                                    </div>
-                                                </div>
                                             </div>
                                         </div>
 
@@ -1458,20 +1475,6 @@
                                                 <label class="form-label w-100">
                                                     Suction head
                                                 </label>
-                                                <div class="col-md-6">
-                                                    <label class="form-label w-100">
-                                                        Rated Parameter
-                                                    </label>
-                                                    <div class="d-flex justify-content-between">
-                                                        <input
-                                                            type="number"
-                                                            class="form-control"
-                                                            placeholder=""
-                                                            v-model.trim="form_data.pumpSuctionHeadRated"
-                                                        />
-                                                        <span class="mt-2" style="margin-left: .5rem;">m</span>
-                                                    </div>
-                                                </div>
                                                 <div class="col-md-6">
                                                     <label class="form-label w-100">
                                                         Measured Parameter
@@ -1500,20 +1503,6 @@
                                                 <label class="form-label w-100">
                                                     Discharge head
                                                 </label>
-                                                <div class="col-md-6">
-                                                    <label class="form-label w-100">
-                                                        Rated Parameter
-                                                    </label>
-                                                    <div class="d-flex justify-content-between">
-                                                        <input
-                                                            type="number"
-                                                            class="form-control"
-                                                            placeholder=""
-                                                            v-model.trim="form_data.pumpDischargeHeadRated"
-                                                        />
-                                                        <span class="mt-2" style="margin-left: .5rem;">m</span>
-                                                    </div>
-                                                </div>
                                                 <div class="col-md-6">
                                                     <label class="form-label w-100">
                                                         Measured Parameter
@@ -1597,17 +1586,17 @@
                                                         v-model.trim="form_data.fanYearOfInstallationRated"
                                                     />
                                                 </div>
-                                                <div class="col-md-6">
-                                                    <label class="form-label w-100">
-                                                        Measured Parameter
-                                                    </label>
-                                                    <input
-                                                        type="number"
-                                                        class="form-control"
-                                                        placeholder=""
-                                                        v-model.trim="form_data.fanYearOfInstallationMeasured"
-                                                    />
-                                                </div>
+<!--                                                <div class="col-md-6">-->
+<!--                                                    <label class="form-label w-100">-->
+<!--                                                        Measured Parameter-->
+<!--                                                    </label>-->
+<!--                                                    <input-->
+<!--                                                        type="number"-->
+<!--                                                        class="form-control"-->
+<!--                                                        placeholder=""-->
+<!--                                                        v-model.trim="form_data.fanYearOfInstallationMeasured"-->
+<!--                                                    />-->
+<!--                                                </div>-->
                                             </div>
                                         </div>
 
@@ -1678,20 +1667,20 @@
                                                         <span class="mt-2" style="margin-left: .5rem;">m</span>
                                                     </div>
                                                 </div>
-                                                <div class="col-md-6">
-                                                    <label class="form-label w-100">
-                                                        Measured Parameter
-                                                    </label>
-                                                    <div class="d-flex justify-content-between">
-                                                        <input
-                                                            type="number"
-                                                            class="form-control"
-                                                            placeholder=""
-                                                            v-model.trim="form_data.fanHeadMeasured"
-                                                        />
-                                                        <span class="mt-2" style="margin-left: .5rem;">m</span>
-                                                    </div>
-                                                </div>
+<!--                                                <div class="col-md-6">-->
+<!--                                                    <label class="form-label w-100">-->
+<!--                                                        Measured Parameter-->
+<!--                                                    </label>-->
+<!--                                                    <div class="d-flex justify-content-between">-->
+<!--                                                        <input-->
+<!--                                                            type="number"-->
+<!--                                                            class="form-control"-->
+<!--                                                            placeholder=""-->
+<!--                                                            v-model.trim="form_data.fanHeadMeasured"-->
+<!--                                                        />-->
+<!--                                                        <span class="mt-2" style="margin-left: .5rem;">m</span>-->
+<!--                                                    </div>-->
+<!--                                                </div>-->
                                             </div>
                                         </div>
 
@@ -1870,6 +1859,48 @@
                                         <div class="col-md-12">
                                             <div class="row mb-3">
                                                 <label class="form-label w-100">
+                                                    Speed
+                                                </label>
+                                                <div class="col-md-6">
+                                                    <label class="form-label w-100">
+                                                        Rated Parameter
+                                                    </label>
+                                                    <div class="d-flex justify-content-between">
+                                                        <input
+                                                            type="number"
+                                                            class="form-control"
+                                                            placeholder=""
+                                                            v-model.trim="form_data.fanSpeedRated"
+                                                        />
+                                                        <span class="mt-2" style="margin-left: .5rem;">kW</span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label class="form-label w-100">
+                                                        Measured Parameter
+                                                    </label>
+                                                    <div class="d-flex justify-content-between">
+                                                        <input
+                                                            type="number"
+                                                            class="form-control"
+                                                            placeholder=""
+                                                            v-model.trim="form_data.fanSpeedMeasured"
+                                                        />
+                                                        <span class="mt-2" style="margin-left: .5rem;">kW</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card shipping_address_card">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="row mb-3">
+                                                <label class="form-label w-100">
                                                     Motor efficiency
                                                 </label>
                                                 <div class="col-md-6">
@@ -1885,19 +1916,19 @@
                                                         />
                                                     </div>
                                                 </div>
-                                                <div class="col-md-6">
-                                                    <label class="form-label w-100">
-                                                        Measured Parameter
-                                                    </label>
-                                                    <div class="d-flex justify-content-between">
-                                                        <input
-                                                            type="number"
-                                                            class="form-control"
-                                                            placeholder=""
-                                                            v-model.trim="form_data.fanMotorEfficiencyMeasured"
-                                                        />
-                                                    </div>
-                                                </div>
+<!--                                                <div class="col-md-6">-->
+<!--                                                    <label class="form-label w-100">-->
+<!--                                                        Measured Parameter-->
+<!--                                                    </label>-->
+<!--                                                    <div class="d-flex justify-content-between">-->
+<!--                                                        <input-->
+<!--                                                            type="number"-->
+<!--                                                            class="form-control"-->
+<!--                                                            placeholder=""-->
+<!--                                                            v-model.trim="form_data.fanMotorEfficiencyMeasured"-->
+<!--                                                        />-->
+<!--                                                    </div>-->
+<!--                                                </div>-->
                                             </div>
                                         </div>
 
@@ -1927,21 +1958,21 @@
                                                         </select>
                                                     </div>
                                                 </div>
-                                                <div class="col-md-6">
-                                                    <label class="form-label w-100">
-                                                        Measured Parameter
-                                                    </label>
-                                                    <div class="d-flex justify-content-between">
-                                                        <select class="form-select mb-text-only" aria-label="Default select example"
-                                                                v-model.trim="form_data.fanMotorEfficiencyClassMeasured"
-                                                        >
-                                                            <option value="IE2">IE2</option>
-                                                            <option value="IE3">IE3</option>
-                                                            <option value="IE4">IE4</option>
-                                                            <option value="IE5">IE5</option>
-                                                        </select>
-                                                    </div>
-                                                </div>
+<!--                                                <div class="col-md-6">-->
+<!--                                                    <label class="form-label w-100">-->
+<!--                                                        Measured Parameter-->
+<!--                                                    </label>-->
+<!--                                                    <div class="d-flex justify-content-between">-->
+<!--                                                        <select class="form-select mb-text-only" aria-label="Default select example"-->
+<!--                                                                v-model.trim="form_data.fanMotorEfficiencyClassMeasured"-->
+<!--                                                        >-->
+<!--                                                            <option value="IE2">IE2</option>-->
+<!--                                                            <option value="IE3">IE3</option>-->
+<!--                                                            <option value="IE4">IE4</option>-->
+<!--                                                            <option value="IE5">IE5</option>-->
+<!--                                                        </select>-->
+<!--                                                    </div>-->
+<!--                                                </div>-->
                                             </div>
                                         </div>
 
@@ -1969,19 +2000,19 @@
                                                         />
                                                     </div>
                                                 </div>
-                                                <div class="col-md-6">
-                                                    <label class="form-label w-100">
-                                                        Measured Parameter
-                                                    </label>
-                                                    <div class="d-flex justify-content-between">
-                                                        <input
-                                                            type="number"
-                                                            class="form-control"
-                                                            placeholder=""
-                                                            v-model.trim="form_data.fanMotorFrameSizeMeasured"
-                                                        />
-                                                    </div>
-                                                </div>
+<!--                                                <div class="col-md-6">-->
+<!--                                                    <label class="form-label w-100">-->
+<!--                                                        Measured Parameter-->
+<!--                                                    </label>-->
+<!--                                                    <div class="d-flex justify-content-between">-->
+<!--                                                        <input-->
+<!--                                                            type="number"-->
+<!--                                                            class="form-control"-->
+<!--                                                            placeholder=""-->
+<!--                                                            v-model.trim="form_data.fanMotorFrameSizeMeasured"-->
+<!--                                                        />-->
+<!--                                                    </div>-->
+<!--                                                </div>-->
                                             </div>
                                         </div>
 
@@ -2009,19 +2040,19 @@
                                                         />
                                                     </div>
                                                 </div>
-                                                <div class="col-md-6">
-                                                    <label class="form-label w-100">
-                                                        Measured Parameter
-                                                    </label>
-                                                    <div class="d-flex justify-content-between">
-                                                        <input
-                                                            type="number"
-                                                            class="form-control"
-                                                            placeholder=""
-                                                            v-model.trim="form_data.fanInsulationClassMeasured"
-                                                        />
-                                                    </div>
-                                                </div>
+<!--                                                <div class="col-md-6">-->
+<!--                                                    <label class="form-label w-100">-->
+<!--                                                        Measured Parameter-->
+<!--                                                    </label>-->
+<!--                                                    <div class="d-flex justify-content-between">-->
+<!--                                                        <input-->
+<!--                                                            type="number"-->
+<!--                                                            class="form-control"-->
+<!--                                                            placeholder=""-->
+<!--                                                            v-model.trim="form_data.fanInsulationClassMeasured"-->
+<!--                                                        />-->
+<!--                                                    </div>-->
+<!--                                                </div>-->
                                             </div>
                                         </div>
 
@@ -2036,20 +2067,20 @@
                                                 <label class="form-label w-100">
                                                     Suction Duct Size
                                                 </label>
-                                                <div class="col-md-6">
-                                                    <label class="form-label w-100">
-                                                        Rated Parameter
-                                                    </label>
-                                                    <div class="d-flex justify-content-between">
-                                                        <input
-                                                            type="number"
-                                                            class="form-control"
-                                                            placeholder=""
-                                                            v-model.trim="form_data.fanSuctionDuctSizeRated"
-                                                        />
-                                                        <span class="mt-2" style="margin-left: .5rem;">m2</span>
-                                                    </div>
-                                                </div>
+<!--                                                <div class="col-md-6">-->
+<!--                                                    <label class="form-label w-100">-->
+<!--                                                        Rated Parameter-->
+<!--                                                    </label>-->
+<!--                                                    <div class="d-flex justify-content-between">-->
+<!--                                                        <input-->
+<!--                                                            type="number"-->
+<!--                                                            class="form-control"-->
+<!--                                                            placeholder=""-->
+<!--                                                            v-model.trim="form_data.fanSuctionDuctSizeRated"-->
+<!--                                                        />-->
+<!--                                                        <span class="mt-2" style="margin-left: .5rem;">m2</span>-->
+<!--                                                    </div>-->
+<!--                                                </div>-->
                                                 <div class="col-md-6">
                                                     <label class="form-label w-100">
                                                         Measured Parameter
@@ -2078,19 +2109,19 @@
                                                 <label class="form-label w-100">
                                                     Suction Static pressure
                                                 </label>
-                                                <div class="col-md-6">
-                                                    <label class="form-label w-100">
-                                                        Rated Parameter
-                                                    </label>
-                                                    <div class="d-flex justify-content-between">
-                                                        <input
-                                                            type="number"
-                                                            class="form-control"
-                                                            placeholder=""
-                                                            v-model.trim="form_data.fanSuctionStaticPressureRated"
-                                                        />
-                                                    </div>
-                                                </div>
+<!--                                                <div class="col-md-6">-->
+<!--                                                    <label class="form-label w-100">-->
+<!--                                                        Rated Parameter-->
+<!--                                                    </label>-->
+<!--                                                    <div class="d-flex justify-content-between">-->
+<!--                                                        <input-->
+<!--                                                            type="number"-->
+<!--                                                            class="form-control"-->
+<!--                                                            placeholder=""-->
+<!--                                                            v-model.trim="form_data.fanSuctionStaticPressureRated"-->
+<!--                                                        />-->
+<!--                                                    </div>-->
+<!--                                                </div>-->
                                                 <div class="col-md-6">
                                                     <label class="form-label w-100">
                                                         Measured Parameter
@@ -2118,19 +2149,19 @@
                                                 <label class="form-label w-100">
                                                     Suction Velocity pressure
                                                 </label>
-                                                <div class="col-md-6">
-                                                    <label class="form-label w-100">
-                                                        Rated Parameter
-                                                    </label>
-                                                    <div class="d-flex justify-content-between">
-                                                        <input
-                                                            type="number"
-                                                            class="form-control"
-                                                            placeholder=""
-                                                            v-model.trim="form_data.fanSuctionVelocityPressureRated"
-                                                        />
-                                                    </div>
-                                                </div>
+<!--                                                <div class="col-md-6">-->
+<!--                                                    <label class="form-label w-100">-->
+<!--                                                        Rated Parameter-->
+<!--                                                    </label>-->
+<!--                                                    <div class="d-flex justify-content-between">-->
+<!--                                                        <input-->
+<!--                                                            type="number"-->
+<!--                                                            class="form-control"-->
+<!--                                                            placeholder=""-->
+<!--                                                            v-model.trim="form_data.fanSuctionVelocityPressureRated"-->
+<!--                                                        />-->
+<!--                                                    </div>-->
+<!--                                                </div>-->
                                                 <div class="col-md-6">
                                                     <label class="form-label w-100">
                                                         Measured Parameter
@@ -2158,20 +2189,20 @@
                                                 <label class="form-label w-100">
                                                     Discharge Duct Size
                                                 </label>
-                                                <div class="col-md-6">
-                                                    <label class="form-label w-100">
-                                                        Rated Parameter
-                                                    </label>
-                                                    <div class="d-flex justify-content-between">
-                                                        <input
-                                                            type="number"
-                                                            class="form-control"
-                                                            placeholder=""
-                                                            v-model.trim="form_data.fanDischargeDuctSizeRated"
-                                                        />
-                                                        <span class="mt-2" style="margin-left: .5rem;">m2</span>
-                                                    </div>
-                                                </div>
+<!--                                                <div class="col-md-6">-->
+<!--                                                    <label class="form-label w-100">-->
+<!--                                                        Rated Parameter-->
+<!--                                                    </label>-->
+<!--                                                    <div class="d-flex justify-content-between">-->
+<!--                                                        <input-->
+<!--                                                            type="number"-->
+<!--                                                            class="form-control"-->
+<!--                                                            placeholder=""-->
+<!--                                                            v-model.trim="form_data.fanDischargeDuctSizeRated"-->
+<!--                                                        />-->
+<!--                                                        <span class="mt-2" style="margin-left: .5rem;">m2</span>-->
+<!--                                                    </div>-->
+<!--                                                </div>-->
                                                 <div class="col-md-6">
                                                     <label class="form-label w-100">
                                                         Measured Parameter
@@ -2200,19 +2231,19 @@
                                                 <label class="form-label w-100">
                                                     Discharge Static pressure
                                                 </label>
-                                                <div class="col-md-6">
-                                                    <label class="form-label w-100">
-                                                        Rated Parameter
-                                                    </label>
-                                                    <div class="d-flex justify-content-between">
-                                                        <input
-                                                            type="number"
-                                                            class="form-control"
-                                                            placeholder=""
-                                                            v-model.trim="form_data.fanDischargeStaticPressureRated"
-                                                        />
-                                                    </div>
-                                                </div>
+<!--                                                <div class="col-md-6">-->
+<!--                                                    <label class="form-label w-100">-->
+<!--                                                        Rated Parameter-->
+<!--                                                    </label>-->
+<!--                                                    <div class="d-flex justify-content-between">-->
+<!--                                                        <input-->
+<!--                                                            type="number"-->
+<!--                                                            class="form-control"-->
+<!--                                                            placeholder=""-->
+<!--                                                            v-model.trim="form_data.fanDischargeStaticPressureRated"-->
+<!--                                                        />-->
+<!--                                                    </div>-->
+<!--                                                </div>-->
                                                 <div class="col-md-6">
                                                     <label class="form-label w-100">
                                                         Measured Parameter
@@ -2240,19 +2271,19 @@
                                                 <label class="form-label w-100">
                                                     Discharge Velocity pressure
                                                 </label>
-                                                <div class="col-md-6">
-                                                    <label class="form-label w-100">
-                                                        Rated Parameter
-                                                    </label>
-                                                    <div class="d-flex justify-content-between">
-                                                        <input
-                                                            type="number"
-                                                            class="form-control"
-                                                            placeholder=""
-                                                            v-model.trim="form_data.fanDischargeVelocityPressureRated"
-                                                        />
-                                                    </div>
-                                                </div>
+<!--                                                <div class="col-md-6">-->
+<!--                                                    <label class="form-label w-100">-->
+<!--                                                        Rated Parameter-->
+<!--                                                    </label>-->
+<!--                                                    <div class="d-flex justify-content-between">-->
+<!--                                                        <input-->
+<!--                                                            type="number"-->
+<!--                                                            class="form-control"-->
+<!--                                                            placeholder=""-->
+<!--                                                            v-model.trim="form_data.fanDischargeVelocityPressureRated"-->
+<!--                                                        />-->
+<!--                                                    </div>-->
+<!--                                                </div>-->
                                                 <div class="col-md-6">
                                                     <label class="form-label w-100">
                                                         Measured Parameter
@@ -2263,6 +2294,46 @@
                                                             class="form-control"
                                                             placeholder=""
                                                             v-model.trim="form_data.fanDischargeVelocityPressureMeasured"
+                                                        />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card shipping_address_card">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="row mb-3">
+                                                <label class="form-label w-100">
+                                                    Discharge Velocity
+                                                </label>
+                                                <!--                                                <div class="col-md-6">-->
+                                                <!--                                                    <label class="form-label w-100">-->
+                                                <!--                                                        Rated Parameter-->
+                                                <!--                                                    </label>-->
+                                                <!--                                                    <div class="d-flex justify-content-between">-->
+                                                <!--                                                        <input-->
+                                                <!--                                                            type="number"-->
+                                                <!--                                                            class="form-control"-->
+                                                <!--                                                            placeholder=""-->
+                                                <!--                                                            v-model.trim="form_data.fanDischargeVelocityPressureRated"-->
+                                                <!--                                                        />-->
+                                                <!--                                                    </div>-->
+                                                <!--                                                </div>-->
+                                                <div class="col-md-6">
+                                                    <label class="form-label w-100">
+                                                        Measured Parameter
+                                                    </label>
+                                                    <div class="d-flex justify-content-between">
+                                                        <input
+                                                            type="number"
+                                                            class="form-control"
+                                                            placeholder=""
+                                                            v-model.trim="form_data.fanDischargeVelocityMeasured"
                                                         />
                                                     </div>
                                                 </div>
@@ -2293,19 +2364,19 @@
                                                         />
                                                     </div>
                                                 </div>
-                                                <div class="col-md-6">
-                                                    <label class="form-label w-100">
-                                                        Measured Parameter
-                                                    </label>
-                                                    <div class="d-flex justify-content-between">
-                                                        <input
-                                                            type="number"
-                                                            class="form-control"
-                                                            placeholder=""
-                                                            v-model.trim="form_data.fanEfficiencyMeasured"
-                                                        />
-                                                    </div>
-                                                </div>
+<!--                                                <div class="col-md-6">-->
+<!--                                                    <label class="form-label w-100">-->
+<!--                                                        Measured Parameter-->
+<!--                                                    </label>-->
+<!--                                                    <div class="d-flex justify-content-between">-->
+<!--                                                        <input-->
+<!--                                                            type="number"-->
+<!--                                                            class="form-control"-->
+<!--                                                            placeholder=""-->
+<!--                                                            v-model.trim="form_data.fanEfficiencyMeasured"-->
+<!--                                                        />-->
+<!--                                                    </div>-->
+<!--                                                </div>-->
                                             </div>
                                         </div>
 
@@ -2335,17 +2406,17 @@
                                                         v-model.trim="form_data.airCompressorYearOfInstallationRated"
                                                     />
                                                 </div>
-                                                <div class="col-md-6">
-                                                    <label class="form-label w-100">
-                                                        Measured Parameter
-                                                    </label>
-                                                    <input
-                                                        type="text"
-                                                        class="form-control"
-                                                        placeholder=""
-                                                        v-model.trim="form_data.airCompressorYearOfInstallationMeasured"
-                                                    />
-                                                </div>
+<!--                                                <div class="col-md-6">-->
+<!--                                                    <label class="form-label w-100">-->
+<!--                                                        Measured Parameter-->
+<!--                                                    </label>-->
+<!--                                                    <input-->
+<!--                                                        type="text"-->
+<!--                                                        class="form-control"-->
+<!--                                                        placeholder=""-->
+<!--                                                        v-model.trim="form_data.airCompressorYearOfInstallationMeasured"-->
+<!--                                                    />-->
+<!--                                                </div>-->
                                             </div>
                                         </div>
 
@@ -2384,6 +2455,7 @@
                                                             class="form-control"
                                                             placeholder=""
                                                             v-model.trim="form_data.airCompressorFlowMeasured"
+                                                            readonly
                                                         />
                                                         <span class="mt-2" style="margin-left: .5rem;">m3/hr</span>
                                                     </div>
@@ -2608,6 +2680,48 @@
                                         <div class="col-md-12">
                                             <div class="row mb-3">
                                                 <label class="form-label w-100">
+                                                    Speed
+                                                </label>
+                                                <div class="col-md-6">
+                                                    <label class="form-label w-100">
+                                                        Rated Parameter
+                                                    </label>
+                                                    <div class="d-flex justify-content-between">
+                                                        <input
+                                                            type="number"
+                                                            class="form-control"
+                                                            placeholder=""
+                                                            v-model.trim="form_data.airCompressorSpeedRated"
+                                                        />
+                                                        <span class="mt-2" style="margin-left: .5rem;">kW</span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label class="form-label w-100">
+                                                        Measured Parameter
+                                                    </label>
+                                                    <div class="d-flex justify-content-between">
+                                                        <input
+                                                            type="number"
+                                                            class="form-control"
+                                                            placeholder=""
+                                                            v-model.trim="form_data.airCompressorSpeedMeasured"
+                                                        />
+                                                        <span class="mt-2" style="margin-left: .5rem;">kW</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card shipping_address_card">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="row mb-3">
+                                                <label class="form-label w-100">
                                                     Motor efficiency
                                                 </label>
                                                 <div class="col-md-6">
@@ -2623,19 +2737,19 @@
                                                         />
                                                     </div>
                                                 </div>
-                                                <div class="col-md-6">
-                                                    <label class="form-label w-100">
-                                                        Measured Parameter
-                                                    </label>
-                                                    <div class="d-flex justify-content-between">
-                                                        <input
-                                                            type="number"
-                                                            class="form-control"
-                                                            placeholder=""
-                                                            v-model.trim="form_data.airCompressorMotorEfficiencyMeasured"
-                                                        />
-                                                    </div>
-                                                </div>
+<!--                                                <div class="col-md-6">-->
+<!--                                                    <label class="form-label w-100">-->
+<!--                                                        Measured Parameter-->
+<!--                                                    </label>-->
+<!--                                                    <div class="d-flex justify-content-between">-->
+<!--                                                        <input-->
+<!--                                                            type="number"-->
+<!--                                                            class="form-control"-->
+<!--                                                            placeholder=""-->
+<!--                                                            v-model.trim="form_data.airCompressorMotorEfficiencyMeasured"-->
+<!--                                                        />-->
+<!--                                                    </div>-->
+<!--                                                </div>-->
                                             </div>
                                         </div>
 
@@ -2665,21 +2779,21 @@
                                                         </select>
                                                     </div>
                                                 </div>
-                                                <div class="col-md-6">
-                                                    <label class="form-label w-100">
-                                                        Measured Parameter
-                                                    </label>
-                                                    <div class="d-flex justify-content-between">
-                                                        <select class="form-select mb-text-only" aria-label="Default select example"
-                                                                v-model.trim="form_data.airCompressorMotorEfficiencyClassMeasured"
-                                                        >
-                                                            <option value="IE2">IE2</option>
-                                                            <option value="IE3">IE3</option>
-                                                            <option value="IE4">IE4</option>
-                                                            <option value="IE5">IE5</option>
-                                                        </select>
-                                                    </div>
-                                                </div>
+<!--                                                <div class="col-md-6">-->
+<!--                                                    <label class="form-label w-100">-->
+<!--                                                        Measured Parameter-->
+<!--                                                    </label>-->
+<!--                                                    <div class="d-flex justify-content-between">-->
+<!--                                                        <select class="form-select mb-text-only" aria-label="Default select example"-->
+<!--                                                                v-model.trim="form_data.airCompressorMotorEfficiencyClassMeasured"-->
+<!--                                                        >-->
+<!--                                                            <option value="IE2">IE2</option>-->
+<!--                                                            <option value="IE3">IE3</option>-->
+<!--                                                            <option value="IE4">IE4</option>-->
+<!--                                                            <option value="IE5">IE5</option>-->
+<!--                                                        </select>-->
+<!--                                                    </div>-->
+<!--                                                </div>-->
                                             </div>
                                         </div>
 
@@ -2707,19 +2821,19 @@
                                                         />
                                                     </div>
                                                 </div>
-                                                <div class="col-md-6">
-                                                    <label class="form-label w-100">
-                                                        Measured Parameter
-                                                    </label>
-                                                    <div class="d-flex justify-content-between">
-                                                        <input
-                                                            type="number"
-                                                            class="form-control"
-                                                            placeholder=""
-                                                            v-model.trim="form_data.airCompressorMotorFrameSizeMeasured"
-                                                        />
-                                                    </div>
-                                                </div>
+<!--                                                <div class="col-md-6">-->
+<!--                                                    <label class="form-label w-100">-->
+<!--                                                        Measured Parameter-->
+<!--                                                    </label>-->
+<!--                                                    <div class="d-flex justify-content-between">-->
+<!--                                                        <input-->
+<!--                                                            type="number"-->
+<!--                                                            class="form-control"-->
+<!--                                                            placeholder=""-->
+<!--                                                            v-model.trim="form_data.airCompressorMotorFrameSizeMeasured"-->
+<!--                                                        />-->
+<!--                                                    </div>-->
+<!--                                                </div>-->
                                             </div>
                                         </div>
 
@@ -2747,19 +2861,19 @@
                                                         />
                                                     </div>
                                                 </div>
-                                                <div class="col-md-6">
-                                                    <label class="form-label w-100">
-                                                        Measured Parameter
-                                                    </label>
-                                                    <div class="d-flex justify-content-between">
-                                                        <input
-                                                            type="number"
-                                                            class="form-control"
-                                                            placeholder=""
-                                                            v-model.trim="form_data.airCompressorInsulationClassMeasured"
-                                                        />
-                                                    </div>
-                                                </div>
+<!--                                                <div class="col-md-6">-->
+<!--                                                    <label class="form-label w-100">-->
+<!--                                                        Measured Parameter-->
+<!--                                                    </label>-->
+<!--                                                    <div class="d-flex justify-content-between">-->
+<!--                                                        <input-->
+<!--                                                            type="number"-->
+<!--                                                            class="form-control"-->
+<!--                                                            placeholder=""-->
+<!--                                                            v-model.trim="form_data.airCompressorInsulationClassMeasured"-->
+<!--                                                        />-->
+<!--                                                    </div>-->
+<!--                                                </div>-->
                                             </div>
                                         </div>
 
@@ -2774,20 +2888,20 @@
                                                 <label class="form-label w-100">
                                                     Load Pressure
                                                 </label>
-                                                <div class="col-md-6">
-                                                    <label class="form-label w-100">
-                                                        Rated Parameter
-                                                    </label>
-                                                    <div class="d-flex justify-content-between">
-                                                        <input
-                                                            type="number"
-                                                            class="form-control"
-                                                            placeholder=""
-                                                            v-model.trim="form_data.airCompressorLoadPressureRated"
-                                                        />
-                                                        <span class="mt-2" style="margin-left: .5rem;">bar</span>
-                                                    </div>
-                                                </div>
+<!--                                                <div class="col-md-6">-->
+<!--                                                    <label class="form-label w-100">-->
+<!--                                                        Rated Parameter-->
+<!--                                                    </label>-->
+<!--                                                    <div class="d-flex justify-content-between">-->
+<!--                                                        <input-->
+<!--                                                            type="number"-->
+<!--                                                            class="form-control"-->
+<!--                                                            placeholder=""-->
+<!--                                                            v-model.trim="form_data.airCompressorLoadPressureRated"-->
+<!--                                                        />-->
+<!--                                                        <span class="mt-2" style="margin-left: .5rem;">bar</span>-->
+<!--                                                    </div>-->
+<!--                                                </div>-->
                                                 <div class="col-md-6">
                                                     <label class="form-label w-100">
                                                         Measured Parameter
@@ -2816,20 +2930,20 @@
                                                 <label class="form-label w-100">
                                                     Unnload Pressure
                                                 </label>
-                                                <div class="col-md-6">
-                                                    <label class="form-label w-100">
-                                                        Rated Parameter
-                                                    </label>
-                                                    <div class="d-flex justify-content-between">
-                                                        <input
-                                                            type="number"
-                                                            class="form-control"
-                                                            placeholder=""
-                                                            v-model.trim="form_data.airCompressorUnLoadPressureRated"
-                                                        />
-                                                        <span class="mt-2" style="margin-left: .5rem;">bar</span>
-                                                    </div>
-                                                </div>
+<!--                                                <div class="col-md-6">-->
+<!--                                                    <label class="form-label w-100">-->
+<!--                                                        Rated Parameter-->
+<!--                                                    </label>-->
+<!--                                                    <div class="d-flex justify-content-between">-->
+<!--                                                        <input-->
+<!--                                                            type="number"-->
+<!--                                                            class="form-control"-->
+<!--                                                            placeholder=""-->
+<!--                                                            v-model.trim="form_data.airCompressorUnLoadPressureRated"-->
+<!--                                                        />-->
+<!--                                                        <span class="mt-2" style="margin-left: .5rem;">bar</span>-->
+<!--                                                    </div>-->
+<!--                                                </div>-->
                                                 <div class="col-md-6">
                                                     <label class="form-label w-100">
                                                         Measured Parameter
@@ -2858,20 +2972,20 @@
                                                 <label class="form-label w-100">
                                                     Reciever Size
                                                 </label>
-                                                <div class="col-md-6">
-                                                    <label class="form-label w-100">
-                                                        Rated Parameter
-                                                    </label>
-                                                    <div class="d-flex justify-content-between">
-                                                        <input
-                                                            type="number"
-                                                            class="form-control"
-                                                            placeholder=""
-                                                            v-model.trim="form_data.airCompressorRecieverSizeRated"
-                                                        />
-                                                        <span class="mt-2" style="margin-left: .5rem;">m3</span>
-                                                    </div>
-                                                </div>
+<!--                                                <div class="col-md-6">-->
+<!--                                                    <label class="form-label w-100">-->
+<!--                                                        Rated Parameter-->
+<!--                                                    </label>-->
+<!--                                                    <div class="d-flex justify-content-between">-->
+<!--                                                        <input-->
+<!--                                                            type="number"-->
+<!--                                                            class="form-control"-->
+<!--                                                            placeholder=""-->
+<!--                                                            v-model.trim="form_data.airCompressorRecieverSizeRated"-->
+<!--                                                        />-->
+<!--                                                        <span class="mt-2" style="margin-left: .5rem;">m3</span>-->
+<!--                                                    </div>-->
+<!--                                                </div>-->
                                                 <div class="col-md-6">
                                                     <label class="form-label w-100">
                                                         Measured Parameter
@@ -2898,22 +3012,64 @@
                                         <div class="col-md-12">
                                             <div class="row mb-3">
                                                 <label class="form-label w-100">
-                                                    Initial Pressure
+                                                    Pipe volume
                                                 </label>
+                                                <!--                                                <div class="col-md-6">-->
+                                                <!--                                                    <label class="form-label w-100">-->
+                                                <!--                                                        Rated Parameter-->
+                                                <!--                                                    </label>-->
+                                                <!--                                                    <div class="d-flex justify-content-between">-->
+                                                <!--                                                        <input-->
+                                                <!--                                                            type="number"-->
+                                                <!--                                                            class="form-control"-->
+                                                <!--                                                            placeholder=""-->
+                                                <!--                                                            v-model.trim="form_data.airCompressorRecieverSizeRated"-->
+                                                <!--                                                        />-->
+                                                <!--                                                        <span class="mt-2" style="margin-left: .5rem;">m3</span>-->
+                                                <!--                                                    </div>-->
+                                                <!--                                                </div>-->
                                                 <div class="col-md-6">
                                                     <label class="form-label w-100">
-                                                        Rated Parameter
+                                                        Measured Parameter
                                                     </label>
                                                     <div class="d-flex justify-content-between">
                                                         <input
                                                             type="number"
                                                             class="form-control"
                                                             placeholder=""
-                                                            v-model.trim="form_data.airCompressorInitialPressureRated"
+                                                            v-model.trim="form_data.airCompressorPipeVolumeMeasured"
                                                         />
-                                                        <span class="mt-2" style="margin-left: .5rem;">bar</span>
+                                                        <span class="mt-2" style="margin-left: .5rem;">m3</span>
                                                     </div>
                                                 </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card shipping_address_card">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="row mb-3">
+                                                <label class="form-label w-100">
+                                                    Initial Pressure
+                                                </label>
+<!--                                                <div class="col-md-6">-->
+<!--                                                    <label class="form-label w-100">-->
+<!--                                                        Rated Parameter-->
+<!--                                                    </label>-->
+<!--                                                    <div class="d-flex justify-content-between">-->
+<!--                                                        <input-->
+<!--                                                            type="number"-->
+<!--                                                            class="form-control"-->
+<!--                                                            placeholder=""-->
+<!--                                                            v-model.trim="form_data.airCompressorInitialPressureRated"-->
+<!--                                                        />-->
+<!--                                                        <span class="mt-2" style="margin-left: .5rem;">bar</span>-->
+<!--                                                    </div>-->
+<!--                                                </div>-->
                                                 <div class="col-md-6">
                                                     <label class="form-label w-100">
                                                         Measured Parameter
@@ -2942,20 +3098,20 @@
                                                 <label class="form-label w-100">
                                                     Final Pressure
                                                 </label>
-                                                <div class="col-md-6">
-                                                    <label class="form-label w-100">
-                                                        Rated Parameter
-                                                    </label>
-                                                    <div class="d-flex justify-content-between">
-                                                        <input
-                                                            type="number"
-                                                            class="form-control"
-                                                            placeholder=""
-                                                            v-model.trim="form_data.airCompressorFinalPressureRated"
-                                                        />
-                                                        <span class="mt-2" style="margin-left: .5rem;">bar</span>
-                                                    </div>
-                                                </div>
+<!--                                                <div class="col-md-6">-->
+<!--                                                    <label class="form-label w-100">-->
+<!--                                                        Rated Parameter-->
+<!--                                                    </label>-->
+<!--                                                    <div class="d-flex justify-content-between">-->
+<!--                                                        <input-->
+<!--                                                            type="number"-->
+<!--                                                            class="form-control"-->
+<!--                                                            placeholder=""-->
+<!--                                                            v-model.trim="form_data.airCompressorFinalPressureRated"-->
+<!--                                                        />-->
+<!--                                                        <span class="mt-2" style="margin-left: .5rem;">bar</span>-->
+<!--                                                    </div>-->
+<!--                                                </div>-->
                                                 <div class="col-md-6">
                                                     <label class="form-label w-100">
                                                         Measured Parameter
@@ -2984,20 +3140,20 @@
                                                 <label class="form-label w-100">
                                                     Time to reach final pressure
                                                 </label>
-                                                <div class="col-md-6">
-                                                    <label class="form-label w-100">
-                                                        Rated Parameter
-                                                    </label>
-                                                    <div class="d-flex justify-content-between">
-                                                        <input
-                                                            type="number"
-                                                            class="form-control"
-                                                            placeholder=""
-                                                            v-model.trim="form_data.airCompressorTimeToReachFinalPressureRated"
-                                                        />
-                                                        <span class="mt-2" style="margin-left: .5rem;">Minutes</span>
-                                                    </div>
-                                                </div>
+<!--                                                <div class="col-md-6">-->
+<!--                                                    <label class="form-label w-100">-->
+<!--                                                        Rated Parameter-->
+<!--                                                    </label>-->
+<!--                                                    <div class="d-flex justify-content-between">-->
+<!--                                                        <input-->
+<!--                                                            type="number"-->
+<!--                                                            class="form-control"-->
+<!--                                                            placeholder=""-->
+<!--                                                            v-model.trim="form_data.airCompressorTimeToReachFinalPressureRated"-->
+<!--                                                        />-->
+<!--                                                        <span class="mt-2" style="margin-left: .5rem;">Minutes</span>-->
+<!--                                                    </div>-->
+<!--                                                </div>-->
                                                 <div class="col-md-6">
                                                     <label class="form-label w-100">
                                                         Measured Parameter
@@ -3026,20 +3182,20 @@
                                                 <label class="form-label w-100">
                                                     Temperature
                                                 </label>
-                                                <div class="col-md-6">
-                                                    <label class="form-label w-100">
-                                                        Rated Parameter
-                                                    </label>
-                                                    <div class="d-flex justify-content-between">
-                                                        <input
-                                                            type="number"
-                                                            class="form-control"
-                                                            placeholder=""
-                                                            v-model.trim="form_data.airCompressorTemperatureRated"
-                                                        />
-                                                        <span class="mt-2" style="margin-left: .5rem;">C</span>
-                                                    </div>
-                                                </div>
+<!--                                                <div class="col-md-6">-->
+<!--                                                    <label class="form-label w-100">-->
+<!--                                                        Rated Parameter-->
+<!--                                                    </label>-->
+<!--                                                    <div class="d-flex justify-content-between">-->
+<!--                                                        <input-->
+<!--                                                            type="number"-->
+<!--                                                            class="form-control"-->
+<!--                                                            placeholder=""-->
+<!--                                                            v-model.trim="form_data.airCompressorTemperatureRated"-->
+<!--                                                        />-->
+<!--                                                        <span class="mt-2" style="margin-left: .5rem;">C</span>-->
+<!--                                                    </div>-->
+<!--                                                </div>-->
                                                 <div class="col-md-6">
                                                     <label class="form-label w-100">
                                                         Measured Parameter
@@ -3092,10 +3248,93 @@
                                                             class="form-control"
                                                             placeholder=""
                                                             v-model.trim="form_data.airCompressorCompressorSECMeasured"
+                                                            readonly
                                                         />
                                                         <span class="mt-2" style="margin-left: .5rem;">kW/CFM</span>
                                                     </div>
                                                 </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card shipping_address_card">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="row mb-3">
+                                                <label class="form-label w-100">
+                                                    Dryer type
+                                                </label>
+                                                <div class="col-md-6">
+                                                    <label class="form-label w-100">
+                                                        Rated Parameter
+                                                    </label>
+                                                    <div class="d-flex justify-content-between">
+                                                        <input
+                                                            type="text"
+                                                            class="form-control"
+                                                            placeholder=""
+                                                            v-model.trim="form_data.airCompressorDryerTypeRated"
+                                                        />
+                                                    </div>
+                                                </div>
+<!--                                                <div class="col-md-6">-->
+<!--                                                    <label class="form-label w-100">-->
+<!--                                                        Measured Parameter-->
+<!--                                                    </label>-->
+<!--                                                    <div class="d-flex justify-content-between">-->
+<!--                                                        <input-->
+<!--                                                            type="number"-->
+<!--                                                            class="form-control"-->
+<!--                                                            placeholder=""-->
+<!--                                                            v-model.trim="form_data.airCompressorCompressorSECMeasured"-->
+<!--                                                        />-->
+<!--                                                        <span class="mt-2" style="margin-left: .5rem;">kW/CFM</span>-->
+<!--                                                    </div>-->
+<!--                                                </div>-->
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card shipping_address_card">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="row mb-3">
+                                                <label class="form-label w-100">
+                                                    Dryer make and model
+                                                </label>
+                                                <div class="col-md-6">
+                                                    <label class="form-label w-100">
+                                                        Rated Parameter
+                                                    </label>
+                                                    <div class="d-flex justify-content-between">
+                                                        <input
+                                                            type="text"
+                                                            class="form-control"
+                                                            placeholder=""
+                                                            v-model.trim="form_data.airCompressorDryerMakeModelRated"
+                                                        />
+                                                    </div>
+                                                </div>
+                                                <!--                                                <div class="col-md-6">-->
+                                                <!--                                                    <label class="form-label w-100">-->
+                                                <!--                                                        Measured Parameter-->
+                                                <!--                                                    </label>-->
+                                                <!--                                                    <div class="d-flex justify-content-between">-->
+                                                <!--                                                        <input-->
+                                                <!--                                                            type="number"-->
+                                                <!--                                                            class="form-control"-->
+                                                <!--                                                            placeholder=""-->
+                                                <!--                                                            v-model.trim="form_data.airCompressorCompressorSECMeasured"-->
+                                                <!--                                                        />-->
+                                                <!--                                                        <span class="mt-2" style="margin-left: .5rem;">kW/CFM</span>-->
+                                                <!--                                                    </div>-->
+                                                <!--                                                </div>-->
                                             </div>
                                         </div>
 
@@ -3111,7 +3350,7 @@
                                                 <label class="form-label w-100">
                                                     Load time
                                                 </label>
-                                                <div class="col-md-6">
+                                                <div class="col-md-4">
                                                     <label class="form-label w-100">
                                                         Reading 1
                                                     </label>
@@ -3125,7 +3364,7 @@
                                                         <span class="mt-2" style="margin-left: .5rem;">Sec.</span>
                                                     </div>
                                                 </div>
-                                                <div class="col-md-6">
+                                                <div class="col-md-4">
                                                     <label class="form-label w-100">
                                                         Reading 2
                                                     </label>
@@ -3135,6 +3374,20 @@
                                                             class="form-control"
                                                             placeholder=""
                                                             v-model.trim="form_data.airCompressorLoadTimeReadingTwo"
+                                                        />
+                                                        <span class="mt-2" style="margin-left: .5rem;">Sec.</span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <label class="form-label w-100">
+                                                        Reading 3
+                                                    </label>
+                                                    <div class="d-flex justify-content-between">
+                                                        <input
+                                                            type="number"
+                                                            class="form-control"
+                                                            placeholder=""
+                                                            v-model.trim="form_data.airCompressorLoadTimeReadingThree"
                                                         />
                                                         <span class="mt-2" style="margin-left: .5rem;">Sec.</span>
                                                     </div>
@@ -3153,7 +3406,7 @@
                                                 <label class="form-label w-100">
                                                     Unload time
                                                 </label>
-                                                <div class="col-md-6">
+                                                <div class="col-md-4">
                                                     <label class="form-label w-100">
                                                         Reading 1
                                                     </label>
@@ -3167,7 +3420,7 @@
                                                         <span class="mt-2" style="margin-left: .5rem;">Sec.</span>
                                                     </div>
                                                 </div>
-                                                <div class="col-md-6">
+                                                <div class="col-md-4">
                                                     <label class="form-label w-100">
                                                         Reading 2
                                                     </label>
@@ -3179,6 +3432,79 @@
                                                             v-model.trim="form_data.airCompressorUnLoadTimeReadingTwo"
                                                         />
                                                         <span class="mt-2" style="margin-left: .5rem;">Sec.</span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <label class="form-label w-100">
+                                                        Reading 3
+                                                    </label>
+                                                    <div class="d-flex justify-content-between">
+                                                        <input
+                                                            type="number"
+                                                            class="form-control"
+                                                            placeholder=""
+                                                            v-model.trim="form_data.airCompressorUnLoadTimeReadingThree"
+                                                        />
+                                                        <span class="mt-2" style="margin-left: .5rem;">Sec.</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card shipping_address_card">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="row mb-3">
+                                                <label class="form-label w-100">
+                                                    Leakage %
+                                                </label>
+                                                <div class="col-md-4">
+                                                    <label class="form-label w-100">
+                                                        Leakage 1
+                                                    </label>
+                                                    <div class="d-flex justify-content-between">
+                                                        <input
+                                                            type="number"
+                                                            class="form-control"
+                                                            placeholder=""
+                                                            v-model.trim="form_data.airCompressorLeakageReadingOne"
+                                                            readonly
+                                                        />
+                                                        <span class="mt-2" style="margin-left: .5rem;">%</span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <label class="form-label w-100">
+                                                        Reading 2
+                                                    </label>
+                                                    <div class="d-flex justify-content-between">
+                                                        <input
+                                                            type="number"
+                                                            class="form-control"
+                                                            placeholder=""
+                                                            v-model.trim="form_data.airCompressorLeakageReadingTwo"
+                                                            readonly
+                                                        />
+                                                        <span class="mt-2" style="margin-left: .5rem;">%</span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <label class="form-label w-100">
+                                                        Reading 3
+                                                    </label>
+                                                    <div class="d-flex justify-content-between">
+                                                        <input
+                                                            type="number"
+                                                            class="form-control"
+                                                            placeholder=""
+                                                            v-model.trim="form_data.airCompressorLeakageReadingThree"
+                                                            readonly
+                                                        />
+                                                        <span class="mt-2" style="margin-left: .5rem;">%</span>
                                                     </div>
                                                 </div>
                                             </div>
@@ -3210,17 +3536,89 @@
                                                         v-model.trim="form_data.chillerYearOfInstallationRated"
                                                     />
                                                 </div>
+<!--                                                <div class="col-md-6">-->
+<!--                                                    <label class="form-label w-100">-->
+<!--                                                        Measured Parameter-->
+<!--                                                    </label>-->
+<!--                                                    <input-->
+<!--                                                        type="text"-->
+<!--                                                        class="form-control"-->
+<!--                                                        placeholder=""-->
+<!--                                                        v-model.trim="form_data.chillerYearOfInstallationMeasured"-->
+<!--                                                    />-->
+<!--                                                </div>-->
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card shipping_address_card">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="row mb-3">
+                                                <label class="form-label w-100">
+                                                    Type of chiller
+                                                </label>
                                                 <div class="col-md-6">
                                                     <label class="form-label w-100">
-                                                        Measured Parameter
+                                                        Rated Parameter
                                                     </label>
                                                     <input
                                                         type="text"
                                                         class="form-control"
                                                         placeholder=""
-                                                        v-model.trim="form_data.chillerYearOfInstallationMeasured"
+                                                        v-model.trim="form_data.chillerTypeOfChillerRated"
                                                     />
                                                 </div>
+                                                <!--                                                <div class="col-md-6">-->
+                                                <!--                                                    <label class="form-label w-100">-->
+                                                <!--                                                        Measured Parameter-->
+                                                <!--                                                    </label>-->
+                                                <!--                                                    <input-->
+                                                <!--                                                        type="text"-->
+                                                <!--                                                        class="form-control"-->
+                                                <!--                                                        placeholder=""-->
+                                                <!--                                                        v-model.trim="form_data.chillerYearOfInstallationMeasured"-->
+                                                <!--                                                    />-->
+                                                <!--                                                </div>-->
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card shipping_address_card">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="row mb-3">
+                                                <label class="form-label w-100">
+                                                    Nos. of Compressor
+                                                </label>
+                                                <div class="col-md-6">
+                                                    <label class="form-label w-100">
+                                                        Rated Parameter
+                                                    </label>
+                                                    <input
+                                                        type="text"
+                                                        class="form-control"
+                                                        placeholder=""
+                                                        v-model.trim="form_data.chillerNosOfCompressorRated"
+                                                    />
+                                                </div>
+                                                                                                <div class="col-md-6">
+                                                                                                    <label class="form-label w-100">
+                                                                                                        Measured Parameter
+                                                                                                    </label>
+                                                                                                    <input
+                                                                                                        type="text"
+                                                                                                        class="form-control"
+                                                                                                        placeholder=""
+                                                                                                        v-model.trim="form_data.chillerNosOfCompressorMeasured"
+                                                                                                    />
+                                                                                                </div>
                                             </div>
                                         </div>
 
@@ -3244,7 +3642,7 @@
                                                             type="number"
                                                             class="form-control"
                                                             placeholder=""
-                                                            v-model.trim="form_data.item_qty"
+                                                            v-model.trim="form_data.chillerCapacityRated"
                                                         />
                                                         <span class="mt-2" style="margin-left: .5rem;">TR</span>
                                                     </div>
@@ -3258,7 +3656,7 @@
                                                             type="number"
                                                             class="form-control"
                                                             placeholder=""
-                                                            v-model.trim="form_data.item_qty"
+                                                            v-model.trim="form_data.chillerCapacityMeasured"
                                                         />
                                                         <span class="mt-2" style="margin-left: .5rem;">TR</span>
                                                     </div>
@@ -3399,6 +3797,46 @@
                                         <div class="col-md-12">
                                             <div class="row mb-3">
                                                 <label class="form-label w-100">
+                                                    Speed
+                                                </label>
+                                                <div class="col-md-6">
+                                                    <label class="form-label w-100">
+                                                        Rated Parameter
+                                                    </label>
+                                                    <div class="d-flex justify-content-between">
+                                                        <input
+                                                            type="number"
+                                                            class="form-control"
+                                                            placeholder=""
+                                                            v-model.trim="form_data.chillerSpeedRated"
+                                                        />
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label class="form-label w-100">
+                                                        Measured Parameter
+                                                    </label>
+                                                    <div class="d-flex justify-content-between">
+                                                        <input
+                                                            type="number"
+                                                            class="form-control"
+                                                            placeholder=""
+                                                            v-model.trim="form_data.chillerSpeedMeasured"
+                                                        />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card shipping_address_card">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="row mb-3">
+                                                <label class="form-label w-100">
                                                     Motor power
                                                 </label>
                                                 <div class="col-md-6">
@@ -3456,19 +3894,19 @@
                                                         />
                                                     </div>
                                                 </div>
-                                                <div class="col-md-6">
-                                                    <label class="form-label w-100">
-                                                        Measured Parameter
-                                                    </label>
-                                                    <div class="d-flex justify-content-between">
-                                                        <input
-                                                            type="number"
-                                                            class="form-control"
-                                                            placeholder=""
-                                                            v-model.trim="form_data.chillerMotorEfficiencyMeasured"
-                                                        />
-                                                    </div>
-                                                </div>
+<!--                                                <div class="col-md-6">-->
+<!--                                                    <label class="form-label w-100">-->
+<!--                                                        Measured Parameter-->
+<!--                                                    </label>-->
+<!--                                                    <div class="d-flex justify-content-between">-->
+<!--                                                        <input-->
+<!--                                                            type="number"-->
+<!--                                                            class="form-control"-->
+<!--                                                            placeholder=""-->
+<!--                                                            v-model.trim="form_data.chillerMotorEfficiencyMeasured"-->
+<!--                                                        />-->
+<!--                                                    </div>-->
+<!--                                                </div>-->
                                             </div>
                                         </div>
 
@@ -3498,21 +3936,21 @@
                                                         </select>
                                                     </div>
                                                 </div>
-                                                <div class="col-md-6">
-                                                    <label class="form-label w-100">
-                                                        Measured Parameter
-                                                    </label>
-                                                    <div class="d-flex justify-content-between">
-                                                        <select class="form-select mb-text-only" aria-label="Default select example"
-                                                                v-model.trim="form_data.chillerMotorEfficiencyClassMeasured"
-                                                        >
-                                                            <option value="IE2">IE2</option>
-                                                            <option value="IE3">IE3</option>
-                                                            <option value="IE4">IE4</option>
-                                                            <option value="IE5">IE5</option>
-                                                        </select>
-                                                    </div>
-                                                </div>
+<!--                                                <div class="col-md-6">-->
+<!--                                                    <label class="form-label w-100">-->
+<!--                                                        Measured Parameter-->
+<!--                                                    </label>-->
+<!--                                                    <div class="d-flex justify-content-between">-->
+<!--                                                        <select class="form-select mb-text-only" aria-label="Default select example"-->
+<!--                                                                v-model.trim="form_data.chillerMotorEfficiencyClassMeasured"-->
+<!--                                                        >-->
+<!--                                                            <option value="IE2">IE2</option>-->
+<!--                                                            <option value="IE3">IE3</option>-->
+<!--                                                            <option value="IE4">IE4</option>-->
+<!--                                                            <option value="IE5">IE5</option>-->
+<!--                                                        </select>-->
+<!--                                                    </div>-->
+<!--                                                </div>-->
                                             </div>
                                         </div>
 
@@ -3540,19 +3978,59 @@
                                                         />
                                                     </div>
                                                 </div>
-                                                <div class="col-md-6">
-                                                    <label class="form-label w-100">
-                                                        Measured Parameter
-                                                    </label>
-                                                    <div class="d-flex justify-content-between">
-                                                        <input
-                                                            type="number"
-                                                            class="form-control"
-                                                            placeholder=""
-                                                            v-model.trim="form_data.chillerMotorFrameSizeMeasured"
-                                                        />
-                                                    </div>
-                                                </div>
+<!--                                                <div class="col-md-6">-->
+<!--                                                    <label class="form-label w-100">-->
+<!--                                                        Measured Parameter-->
+<!--                                                    </label>-->
+<!--                                                    <div class="d-flex justify-content-between">-->
+<!--                                                        <input-->
+<!--                                                            type="number"-->
+<!--                                                            class="form-control"-->
+<!--                                                            placeholder=""-->
+<!--                                                            v-model.trim="form_data.chillerMotorFrameSizeMeasured"-->
+<!--                                                        />-->
+<!--                                                    </div>-->
+<!--                                                </div>-->
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card shipping_address_card">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="row mb-3">
+                                                <label class="form-label w-100">
+                                                    Chiller loading
+                                                </label>
+<!--                                                <div class="col-md-6">-->
+<!--                                                    <label class="form-label w-100">-->
+<!--                                                        Rated Parameter-->
+<!--                                                    </label>-->
+<!--                                                    <div class="d-flex justify-content-between">-->
+<!--                                                        <input-->
+<!--                                                            type="number"-->
+<!--                                                            class="form-control"-->
+<!--                                                            placeholder=""-->
+<!--                                                            v-model.trim="form_data.chillerChillerLoadingRated"-->
+<!--                                                        />-->
+<!--                                                    </div>-->
+<!--                                                </div>-->
+                                                                                                <div class="col-md-6">
+                                                                                                    <label class="form-label w-100">
+                                                                                                        Measured Parameter
+                                                                                                    </label>
+                                                                                                    <div class="d-flex justify-content-between">
+                                                                                                        <input
+                                                                                                            type="number"
+                                                                                                            class="form-control"
+                                                                                                            placeholder=""
+                                                                                                            v-model.trim="form_data.chillerChillerLoadingMeasured"
+                                                                                                        />
+                                                                                                    </div>
+                                                                                                </div>
                                             </div>
                                         </div>
 
@@ -3567,20 +4045,20 @@
                                                 <label class="form-label w-100">
                                                     Supply Temp.
                                                 </label>
-                                                <div class="col-md-6">
-                                                    <label class="form-label w-100">
-                                                        Rated Parameter
-                                                    </label>
-                                                    <div class="d-flex justify-content-between">
-                                                        <input
-                                                            type="number"
-                                                            class="form-control"
-                                                            placeholder=""
-                                                            v-model.trim="form_data.chillerSupplyTempRated"
-                                                        />
-                                                        <span class="mt-2" style="margin-left: .5rem;">C</span>
-                                                    </div>
-                                                </div>
+<!--                                                <div class="col-md-6">-->
+<!--                                                    <label class="form-label w-100">-->
+<!--                                                        Rated Parameter-->
+<!--                                                    </label>-->
+<!--                                                    <div class="d-flex justify-content-between">-->
+<!--                                                        <input-->
+<!--                                                            type="number"-->
+<!--                                                            class="form-control"-->
+<!--                                                            placeholder=""-->
+<!--                                                            v-model.trim="form_data.chillerSupplyTempRated"-->
+<!--                                                        />-->
+<!--                                                        <span class="mt-2" style="margin-left: .5rem;">C</span>-->
+<!--                                                    </div>-->
+<!--                                                </div>-->
                                                 <div class="col-md-6">
                                                     <label class="form-label w-100">
                                                         Measured Parameter
@@ -3609,20 +4087,20 @@
                                                 <label class="form-label w-100">
                                                     Return Temp.
                                                 </label>
-                                                <div class="col-md-6">
-                                                    <label class="form-label w-100">
-                                                        Rated Parameter
-                                                    </label>
-                                                    <div class="d-flex justify-content-between">
-                                                        <input
-                                                            type="number"
-                                                            class="form-control"
-                                                            placeholder=""
-                                                            v-model.trim="form_data.chillerReturnTempRated"
-                                                        />
-                                                        <span class="mt-2" style="margin-left: .5rem;">C</span>
-                                                    </div>
-                                                </div>
+<!--                                                <div class="col-md-6">-->
+<!--                                                    <label class="form-label w-100">-->
+<!--                                                        Rated Parameter-->
+<!--                                                    </label>-->
+<!--                                                    <div class="d-flex justify-content-between">-->
+<!--                                                        <input-->
+<!--                                                            type="number"-->
+<!--                                                            class="form-control"-->
+<!--                                                            placeholder=""-->
+<!--                                                            v-model.trim="form_data.chillerReturnTempRated"-->
+<!--                                                        />-->
+<!--                                                        <span class="mt-2" style="margin-left: .5rem;">C</span>-->
+<!--                                                    </div>-->
+<!--                                                </div>-->
                                                 <div class="col-md-6">
                                                     <label class="form-label w-100">
                                                         Measured Parameter
@@ -3792,63 +4270,63 @@
                                                         v-model.trim="form_data.motorYearOfInstallationRated"
                                                     />
                                                 </div>
-                                                <div class="col-md-6">
-                                                    <label class="form-label w-100">
-                                                        Measured Parameter
-                                                    </label>
-                                                    <input
-                                                        type="text"
-                                                        class="form-control"
-                                                        placeholder=""
-                                                        v-model.trim="form_data.motorYearOfInstallationMeasured"
-                                                    />
-                                                </div>
+<!--                                                <div class="col-md-6">-->
+<!--                                                    <label class="form-label w-100">-->
+<!--                                                        Measured Parameter-->
+<!--                                                    </label>-->
+<!--                                                    <input-->
+<!--                                                        type="text"-->
+<!--                                                        class="form-control"-->
+<!--                                                        placeholder=""-->
+<!--                                                        v-model.trim="form_data.motorYearOfInstallationMeasured"-->
+<!--                                                    />-->
+<!--                                                </div>-->
                                             </div>
                                         </div>
 
                                     </div>
                                 </div>
                             </div>
-                            <div class="card shipping_address_card">
-                                <div class="card-body">
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <div class="row mb-3">
-                                                <label class="form-label w-100">
-                                                    Name of equipment
-                                                </label>
-                                                <div class="col-md-6">
-                                                    <label class="form-label w-100">
-                                                        Rated Parameter
-                                                    </label>
-                                                    <div class="d-flex justify-content-between">
-                                                        <input
-                                                            type="text"
-                                                            class="form-control"
-                                                            placeholder=""
-                                                            v-model.trim="form_data.motorNameOfEquipmentRated"
-                                                        />
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <label class="form-label w-100">
-                                                        Measured Parameter
-                                                    </label>
-                                                    <div class="d-flex justify-content-between">
-                                                        <input
-                                                            type="text"
-                                                            class="form-control"
-                                                            placeholder=""
-                                                            v-model.trim="form_data.motorNameOfEquipmentMeasured"
-                                                        />
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
+<!--                            <div class="card shipping_address_card">-->
+<!--                                <div class="card-body">-->
+<!--                                    <div class="row">-->
+<!--                                        <div class="col-md-12">-->
+<!--                                            <div class="row mb-3">-->
+<!--                                                <label class="form-label w-100">-->
+<!--                                                    Name of equipment-->
+<!--                                                </label>-->
+<!--                                                <div class="col-md-6">-->
+<!--                                                    <label class="form-label w-100">-->
+<!--                                                        Rated Parameter-->
+<!--                                                    </label>-->
+<!--                                                    <div class="d-flex justify-content-between">-->
+<!--                                                        <input-->
+<!--                                                            type="text"-->
+<!--                                                            class="form-control"-->
+<!--                                                            placeholder=""-->
+<!--                                                            v-model.trim="form_data.motorNameOfEquipmentRated"-->
+<!--                                                        />-->
+<!--                                                    </div>-->
+<!--                                                </div>-->
+<!--                                                <div class="col-md-6">-->
+<!--                                                    <label class="form-label w-100">-->
+<!--                                                        Measured Parameter-->
+<!--                                                    </label>-->
+<!--                                                    <div class="d-flex justify-content-between">-->
+<!--                                                        <input-->
+<!--                                                            type="text"-->
+<!--                                                            class="form-control"-->
+<!--                                                            placeholder=""-->
+<!--                                                            v-model.trim="form_data.motorNameOfEquipmentMeasured"-->
+<!--                                                        />-->
+<!--                                                    </div>-->
+<!--                                                </div>-->
+<!--                                            </div>-->
+<!--                                        </div>-->
 
-                                    </div>
-                                </div>
-                            </div>
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                            </div>-->
                             <div class="card shipping_address_card">
                                 <div class="card-body">
                                     <div class="row">
@@ -3979,6 +4457,86 @@
                                         <div class="col-md-12">
                                             <div class="row mb-3">
                                                 <label class="form-label w-100">
+                                                    Speed
+                                                </label>
+                                                <div class="col-md-6">
+                                                    <label class="form-label w-100">
+                                                        Rated Parameter
+                                                    </label>
+                                                    <div class="d-flex justify-content-between">
+                                                        <input
+                                                            type="number"
+                                                            class="form-control"
+                                                            placeholder=""
+                                                            v-model.trim="form_data.motor.motorSpeedRated"
+                                                        />
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label class="form-label w-100">
+                                                        Measured Parameter
+                                                    </label>
+                                                    <div class="d-flex justify-content-between">
+                                                        <input
+                                                            type="number"
+                                                            class="form-control"
+                                                            placeholder=""
+                                                            v-model.trim="form_data.motor.motorSpeedMeasured"
+                                                        />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card shipping_address_card">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="row mb-3">
+                                                <label class="form-label w-100">
+                                                    Temp.
+                                                </label>
+<!--                                                <div class="col-md-6">-->
+<!--                                                    <label class="form-label w-100">-->
+<!--                                                        Rated Parameter-->
+<!--                                                    </label>-->
+<!--                                                    <div class="d-flex justify-content-between">-->
+<!--                                                        <input-->
+<!--                                                            type="number"-->
+<!--                                                            class="form-control"-->
+<!--                                                            placeholder=""-->
+<!--                                                            v-model.trim="form_data.motorPowerFactorRated"-->
+<!--                                                        />-->
+<!--                                                    </div>-->
+<!--                                                </div>-->
+                                                <div class="col-md-6">
+                                                    <label class="form-label w-100">
+                                                        Measured Parameter
+                                                    </label>
+                                                    <div class="d-flex justify-content-between">
+                                                        <input
+                                                            type="number"
+                                                            class="form-control"
+                                                            placeholder=""
+                                                            v-model.trim="form_data.motor.motorTempMeasured"
+                                                        />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card shipping_address_card">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="row mb-3">
+                                                <label class="form-label w-100">
                                                     Motor power
                                                 </label>
                                                 <div class="col-md-6">
@@ -4036,19 +4594,19 @@
                                                         />
                                                     </div>
                                                 </div>
-                                                <div class="col-md-6">
-                                                    <label class="form-label w-100">
-                                                        Measured Parameter
-                                                    </label>
-                                                    <div class="d-flex justify-content-between">
-                                                        <input
-                                                            type="number"
-                                                            class="form-control"
-                                                            placeholder=""
-                                                            v-model.trim="form_data.motorMotorEfficiencyMeasured"
-                                                        />
-                                                    </div>
-                                                </div>
+<!--                                                <div class="col-md-6">-->
+<!--                                                    <label class="form-label w-100">-->
+<!--                                                        Measured Parameter-->
+<!--                                                    </label>-->
+<!--                                                    <div class="d-flex justify-content-between">-->
+<!--                                                        <input-->
+<!--                                                            type="number"-->
+<!--                                                            class="form-control"-->
+<!--                                                            placeholder=""-->
+<!--                                                            v-model.trim="form_data.motorMotorEfficiencyMeasured"-->
+<!--                                                        />-->
+<!--                                                    </div>-->
+<!--                                                </div>-->
                                             </div>
                                         </div>
 
@@ -4078,21 +4636,21 @@
                                                         </select>
                                                     </div>
                                                 </div>
-                                                <div class="col-md-6">
-                                                    <label class="form-label w-100">
-                                                        Measured Parameter
-                                                    </label>
-                                                    <div class="d-flex justify-content-between">
-                                                        <select class="form-select mb-text-only" aria-label="Default select example"
-                                                                v-model.trim="form_data.motorMotorEfficiencyClassMeasured"
-                                                        >
-                                                            <option value="IE2">IE2</option>
-                                                            <option value="IE3">IE3</option>
-                                                            <option value="IE4">IE4</option>
-                                                            <option value="IE5">IE5</option>
-                                                        </select>
-                                                    </div>
-                                                </div>
+<!--                                                <div class="col-md-6">-->
+<!--                                                    <label class="form-label w-100">-->
+<!--                                                        Measured Parameter-->
+<!--                                                    </label>-->
+<!--                                                    <div class="d-flex justify-content-between">-->
+<!--                                                        <select class="form-select mb-text-only" aria-label="Default select example"-->
+<!--                                                                v-model.trim="form_data.motorMotorEfficiencyClassMeasured"-->
+<!--                                                        >-->
+<!--                                                            <option value="IE2">IE2</option>-->
+<!--                                                            <option value="IE3">IE3</option>-->
+<!--                                                            <option value="IE4">IE4</option>-->
+<!--                                                            <option value="IE5">IE5</option>-->
+<!--                                                        </select>-->
+<!--                                                    </div>-->
+<!--                                                </div>-->
                                             </div>
                                         </div>
 
@@ -4120,19 +4678,19 @@
                                                         />
                                                     </div>
                                                 </div>
-                                                <div class="col-md-6">
-                                                    <label class="form-label w-100">
-                                                        Measured Parameter
-                                                    </label>
-                                                    <div class="d-flex justify-content-between">
-                                                        <input
-                                                            type="number"
-                                                            class="form-control"
-                                                            placeholder=""
-                                                            v-model.trim="form_data.motorMotorFrameSizeMeasured"
-                                                        />
-                                                    </div>
-                                                </div>
+<!--                                                <div class="col-md-6">-->
+<!--                                                    <label class="form-label w-100">-->
+<!--                                                        Measured Parameter-->
+<!--                                                    </label>-->
+<!--                                                    <div class="d-flex justify-content-between">-->
+<!--                                                        <input-->
+<!--                                                            type="number"-->
+<!--                                                            class="form-control"-->
+<!--                                                            placeholder=""-->
+<!--                                                            v-model.trim="form_data.motorMotorFrameSizeMeasured"-->
+<!--                                                        />-->
+<!--                                                    </div>-->
+<!--                                                </div>-->
                                             </div>
                                         </div>
 
@@ -4164,27 +4722,24 @@
                                                     <option selected disabled>Open this select menu</option>
                                                     <option value="yes">Yes</option>
                                                     <option value="no">No</option>
-                                                    <option value="nos">Nos</option>
                                                 </select>
 <!--                                                <div class="error" v-if="v$.form_data.itemType.required.$invalid && show_error_eleven">-->
 <!--                                                    Item type is required-->
 <!--                                                </div>-->
                                             </div>
                                         </div>
-                                        <div class="col-md-6">
+                                        <div class="col-md-6" v-if="form_data.pumpVFDorNot === 'yes'">
                                             <div class="mb-3">
                                                 <label class="form-label w-100 text-capitalize">
-                                                    VFD setting
+                                                    VFD setting in Hz
 <!--                                                    <span class="error">*</span>-->
                                                 </label>
-                                                <select class="form-select mb-text-only" aria-label="Default select example"
-                                                        v-model.trim="form_data.pumpVFDSetting"
-                                                >
-                                                    <option selected disabled>Open this select menu</option>
-                                                    <option value="yes">Yes</option>
-                                                    <option value="no">No</option>
-                                                    <option value="nos">Nos</option>
-                                                </select>
+                                                <input
+                                                    type="text"
+                                                    class="form-control"
+                                                    placeholder=""
+                                                    v-model.trim="form_data.pumpVFDSetting"
+                                                />
 <!--                                                <div class="error" v-if="v$.form_data.itemType.required.$invalid && show_error_eleven">-->
 <!--                                                    Item type is required-->
 <!--                                                </div>-->
@@ -4202,7 +4757,6 @@
                                                     <option selected disabled>Open this select menu</option>
                                                     <option value="yes">Yes</option>
                                                     <option value="no">No</option>
-                                                    <option value="nos">Nos</option>
                                                 </select>
 <!--                                                <div class="error" v-if="v$.form_data.itemType.required.$invalid && show_error_eleven">-->
 <!--                                                    Item type is required-->
@@ -4221,7 +4775,6 @@
                                                     <option selected disabled>Open this select menu</option>
                                                     <option value="yes">Yes</option>
                                                     <option value="no">No</option>
-                                                    <option value="nos">Nos</option>
                                                 </select>
 <!--                                                <div class="error" v-if="v$.form_data.itemType.required.$invalid && show_error_eleven">-->
 <!--                                                    Item type is required-->
@@ -4240,7 +4793,6 @@
                                                     <option selected disabled>Open this select menu</option>
                                                     <option value="yes">Yes</option>
                                                     <option value="no">No</option>
-                                                    <option value="nos">Nos</option>
                                                 </select>
 <!--                                                <div class="error" v-if="v$.form_data.itemType.required.$invalid && show_error_eleven">-->
 <!--                                                    Item type is required-->
@@ -4253,14 +4805,13 @@
                                                     Nos. of rewiding of motor
 <!--                                                    <span class="error">*</span>-->
                                                 </label>
-                                                <select class="form-select mb-text-only" aria-label="Default select example"
-                                                        v-model.trim="form_data.pumpNosOfRewidingOfMotor"
-                                                >
-                                                    <option selected disabled>Open this select menu</option>
-                                                    <option value="yes">Yes</option>
-                                                    <option value="no">No</option>
-                                                    <option value="nos">Nos</option>
-                                                </select>
+                                                <input
+                                                    type="text"
+                                                    class="form-control"
+                                                    placeholder=""
+                                                    v-model.trim="form_data.pumpNosOfRewidingOfMotor"
+                                                />
+
 <!--                                                <div class="error" v-if="v$.form_data.itemType.required.$invalid && show_error_eleven">-->
 <!--                                                    Item type is required-->
 <!--                                                </div>-->
@@ -4278,7 +4829,6 @@
                                                     <option selected disabled>Open this select menu</option>
                                                     <option value="yes">Yes</option>
                                                     <option value="no">No</option>
-                                                    <option value="nos">Nos</option>
                                                 </select>
 <!--                                                <div class="error" v-if="v$.form_data.itemType.required.$invalid && show_error_eleven">-->
 <!--                                                    Item type is required-->
@@ -4288,17 +4838,15 @@
                                         <div class="col-md-6">
                                             <div class="mb-3">
                                                 <label class="form-label w-100 text-capitalize">
-                                                    Operating Hours
+                                                    Operating Hours in day
 <!--                                                    <span class="error">*</span>-->
                                                 </label>
-                                                <select class="form-select mb-text-only" aria-label="Default select example"
-                                                        v-model.trim="form_data.pumpOperatingHours"
-                                                >
-                                                    <option selected disabled>Open this select menu</option>
-                                                    <option value="yes">Yes</option>
-                                                    <option value="no">No</option>
-                                                    <option value="nos">Nos</option>
-                                                </select>
+                                                <input
+                                                    type="text"
+                                                    class="form-control"
+                                                    placeholder=""
+                                                    v-model.trim="form_data.pumpOperatingHours"
+                                                />
 <!--                                                <div class="error" v-if="v$.form_data.itemType.required.$invalid && show_error_eleven">-->
 <!--                                                    Item type is required-->
 <!--                                                </div>-->
@@ -4319,27 +4867,24 @@
                                                     <option selected disabled>Open this select menu</option>
                                                     <option value="yes">Yes</option>
                                                     <option value="no">No</option>
-                                                    <option value="nos">Nos</option>
                                                 </select>
 <!--                                                <div class="error" v-if="v$.form_data.itemType.required.$invalid && show_error_eleven">-->
 <!--                                                    Item type is required-->
 <!--                                                </div>-->
                                             </div>
                                         </div>
-                                        <div class="col-md-6">
+                                        <div class="col-md-6" v-if="form_data.fanVFDorNot === 'yes'">
                                             <div class="mb-3">
                                                 <label class="form-label w-100 text-capitalize">
                                                     VFD setting
 <!--                                                    <span class="error">*</span>-->
                                                 </label>
-                                                <select class="form-select mb-text-only" aria-label="Default select example"
-                                                        v-model.trim="form_data.fanVFDSetting"
-                                                >
-                                                    <option selected disabled>Open this select menu</option>
-                                                    <option value="yes">Yes</option>
-                                                    <option value="no">No</option>
-                                                    <option value="nos">Nos</option>
-                                                </select>
+                                                <input
+                                                    type="number"
+                                                    class="form-control"
+                                                    placeholder=""
+                                                    v-model.trim="form_data.fanVFDSetting"
+                                                />
 <!--                                                <div class="error" v-if="v$.form_data.itemType.required.$invalid && show_error_eleven">-->
 <!--                                                    Item type is required-->
 <!--                                                </div>-->
@@ -4348,17 +4893,15 @@
                                         <div class="col-md-6">
                                             <div class="mb-3">
                                                 <label class="form-label w-100 text-capitalize">
-                                                    Valve opening %
+                                                    Damper opening %
 <!--                                                    <span class="error">*</span>-->
                                                 </label>
-                                                <select class="form-select mb-text-only" aria-label="Default select example"
-                                                        v-model.trim="form_data.fanOpening"
-                                                >
-                                                    <option selected disabled>Open this select menu</option>
-                                                    <option value="yes">Yes</option>
-                                                    <option value="no">No</option>
-                                                    <option value="nos">Nos</option>
-                                                </select>
+                                                <input
+                                                    type="number"
+                                                    class="form-control"
+                                                    placeholder=""
+                                                    v-model.trim="form_data.fanOpening"
+                                                />
 <!--                                                <div class="error" v-if="v$.form_data.itemType.required.$invalid && show_error_eleven">-->
 <!--                                                    Item type is required-->
 <!--                                                </div>-->
@@ -4376,7 +4919,6 @@
                                                     <option selected disabled>Open this select menu</option>
                                                     <option value="yes">Yes</option>
                                                     <option value="no">No</option>
-                                                    <option value="nos">Nos</option>
                                                 </select>
 <!--                                                <div class="error" v-if="v$.form_data.itemType.required.$invalid && show_error_eleven">-->
 <!--                                                    Item type is required-->
@@ -4395,7 +4937,6 @@
                                                     <option selected disabled>Open this select menu</option>
                                                     <option value="yes">Yes</option>
                                                     <option value="no">No</option>
-                                                    <option value="nos">Nos</option>
                                                 </select>
 <!--                                                <div class="error" v-if="v$.form_data.itemType.required.$invalid && show_error_eleven">-->
 <!--                                                    Item type is required-->
@@ -4408,14 +4949,12 @@
                                                     Nos. of rewiding of motor
 <!--                                                    <span class="error">*</span>-->
                                                 </label>
-                                                <select class="form-select mb-text-only" aria-label="Default select example"
-                                                        v-model.trim="form_data.fanNosOfRewidingOfMotor"
-                                                >
-                                                    <option selected disabled>Open this select menu</option>
-                                                    <option value="yes">Yes</option>
-                                                    <option value="no">No</option>
-                                                    <option value="nos">Nos</option>
-                                                </select>
+                                                <input
+                                                    type="number"
+                                                    class="form-control"
+                                                    placeholder=""
+                                                    v-model.trim="form_data.fanNosOfRewidingOfMotor"
+                                                />
 <!--                                                <div class="error" v-if="v$.form_data.itemType.required.$invalid && show_error_eleven">-->
 <!--                                                    Item type is required-->
 <!--                                                </div>-->
@@ -4427,14 +4966,12 @@
                                                     Operating Hours
 <!--                                                    <span class="error">*</span>-->
                                                 </label>
-                                                <select class="form-select mb-text-only" aria-label="Default select example"
-                                                        v-model.trim="form_data.fanOperatingHours"
-                                                >
-                                                    <option selected disabled>Open this select menu</option>
-                                                    <option value="yes">Yes</option>
-                                                    <option value="no">No</option>
-                                                    <option value="nos">Nos</option>
-                                                </select>
+                                                <input
+                                                    type="number"
+                                                    class="form-control"
+                                                    placeholder=""
+                                                    v-model.trim="form_data.fanOperatingHours"
+                                                />
 <!--                                                <div class="error" v-if="v$.form_data.itemType.required.$invalid && show_error_eleven">-->
 <!--                                                    Item type is required-->
 <!--                                                </div>-->
@@ -4455,11 +4992,27 @@
                                                     <option selected disabled>Open this select menu</option>
                                                     <option value="yes">Yes</option>
                                                     <option value="no">No</option>
-                                                    <option value="nos">Nos</option>
                                                 </select>
 <!--                                                <div class="error" v-if="v$.form_data.itemType.required.$invalid && show_error_eleven">-->
 <!--                                                    Item type is required-->
 <!--                                                </div>-->
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6" v-if="form_data.airCompressorVFDorNot === 'yes'">
+                                            <div class="mb-3">
+                                                <label class="form-label w-100 text-capitalize">
+                                                    VFD setting
+                                                    <!--                                                    <span class="error">*</span>-->
+                                                </label>
+                                                <input
+                                                    type="number"
+                                                    class="form-control"
+                                                    placeholder=""
+                                                    v-model.trim="form_data.airCompressorVFDSetting"
+                                                />
+                                                <!--                                                <div class="error" v-if="v$.form_data.itemType.required.$invalid && show_error_eleven">-->
+                                                <!--                                                    Item type is required-->
+                                                <!--                                                </div>-->
                                             </div>
                                         </div>
                                         <div class="col-md-6">
@@ -4468,14 +5021,12 @@
                                                     Nos. of rewiding of motor
 <!--                                                    <span class="error">*</span>-->
                                                 </label>
-                                                <select class="form-select mb-text-only" aria-label="Default select example"
-                                                        v-model.trim="form_data.airCompressorNosOfRewidingOfMotor"
-                                                >
-                                                    <option selected disabled>Open this select menu</option>
-                                                    <option value="yes">Yes</option>
-                                                    <option value="no">No</option>
-                                                    <option value="nos">Nos</option>
-                                                </select>
+                                                <input
+                                                    type="number"
+                                                    class="form-control"
+                                                    placeholder=""
+                                                    v-model.trim="form_data.airCompressorNosOfRewidingOfMotor"
+                                                />
 <!--                                                <div class="error" v-if="v$.form_data.itemType.required.$invalid && show_error_eleven">-->
 <!--                                                    Item type is required-->
 <!--                                                </div>-->
@@ -4487,14 +5038,12 @@
                                                     Check Required pressure
 <!--                                                    <span class="error">*</span>-->
                                                 </label>
-                                                <select class="form-select mb-text-only" aria-label="Default select example"
-                                                        v-model.trim="form_data.airCompressorCheckRequiredpressure"
-                                                >
-                                                    <option selected disabled>Open this select menu</option>
-                                                    <option value="yes">Yes</option>
-                                                    <option value="no">No</option>
-                                                    <option value="nos">Nos</option>
-                                                </select>
+                                                <input
+                                                    type="number"
+                                                    class="form-control"
+                                                    placeholder=""
+                                                    v-model.trim="form_data.airCompressorCheckRequiredpressure"
+                                                />
 <!--                                                <div class="error" v-if="v$.form_data.itemType.required.$invalid && show_error_eleven">-->
 <!--                                                    Item type is required-->
 <!--                                                </div>-->
@@ -4506,14 +5055,12 @@
                                                     Check Pressure drop
 <!--                                                    <span class="error">*</span>-->
                                                 </label>
-                                                <select class="form-select mb-text-only" aria-label="Default select example"
-                                                        v-model.trim="form_data.airCompressorCheckPressureDrop"
-                                                >
-                                                    <option selected disabled>Open this select menu</option>
-                                                    <option value="yes">Yes</option>
-                                                    <option value="no">No</option>
-                                                    <option value="nos">Nos</option>
-                                                </select>
+                                                <input
+                                                    type="number"
+                                                    class="form-control"
+                                                    placeholder=""
+                                                    v-model.trim="form_data.airCompressorCheckPressureDrop"
+                                                />
 <!--                                                <div class="error" v-if="v$.form_data.itemType.required.$invalid && show_error_eleven">-->
 <!--                                                    Item type is required-->
 <!--                                                </div>-->
@@ -4522,17 +5069,134 @@
                                         <div class="col-md-6">
                                             <div class="mb-3">
                                                 <label class="form-label w-100 text-capitalize">
+                                                    Check end use point pressure
+                                                    <!--                                                    <span class="error">*</span>-->
+                                                </label>
+                                                <input
+                                                    type="number"
+                                                    class="form-control"
+                                                    placeholder=""
+                                                    v-model.trim="form_data.airCompressorCheckEndUsePointPressure"
+                                                />
+                                                <!--                                                <div class="error" v-if="v$.form_data.itemType.required.$invalid && show_error_eleven">-->
+                                                <!--                                                    Item type is required-->
+                                                <!--                                                </div>-->
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="mb-3">
+                                                <label class="form-label w-100 text-capitalize">
+                                                    Check inlet air filter DP
+                                                    <!--                                                    <span class="error">*</span>-->
+                                                </label>
+                                                <input
+                                                    type="number"
+                                                    class="form-control"
+                                                    placeholder=""
+                                                    v-model.trim="form_data.airCompressorCheckInletAirFilterDp"
+                                                />
+                                                <!--                                                <div class="error" v-if="v$.form_data.itemType.required.$invalid && show_error_eleven">-->
+                                                <!--                                                    Item type is required-->
+                                                <!--                                                </div>-->
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="mb-3">
+                                                <label class="form-label w-100 text-capitalize">
+                                                    Check load time
+                                                    <!--                                                    <span class="error">*</span>-->
+                                                </label>
+                                                <input
+                                                    type="number"
+                                                    class="form-control"
+                                                    placeholder=""
+                                                    v-model.trim="form_data.airCompressorCheckLoadTime"
+                                                />
+                                                <!--                                                <div class="error" v-if="v$.form_data.itemType.required.$invalid && show_error_eleven">-->
+                                                <!--                                                    Item type is required-->
+                                                <!--                                                </div>-->
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="mb-3">
+                                                <label class="form-label w-100 text-capitalize">
+                                                    Check unload time
+                                                    <!--                                                    <span class="error">*</span>-->
+                                                </label>
+                                                <input
+                                                    type="number"
+                                                    class="form-control"
+                                                    placeholder=""
+                                                    v-model.trim="form_data.airCompressorCheckUnLoadTime"
+                                                />
+                                                <!--                                                <div class="error" v-if="v$.form_data.itemType.required.$invalid && show_error_eleven">-->
+                                                <!--                                                    Item type is required-->
+                                                <!--                                                </div>-->
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="mb-3">
+                                                <label class="form-label w-100 text-capitalize">
+                                                    Load hours
+                                                    <!--                                                    <span class="error">*</span>-->
+                                                </label>
+                                                <input
+                                                    type="number"
+                                                    class="form-control"
+                                                    placeholder=""
+                                                    v-model.trim="form_data.airCompressorCheckLoadHours"
+                                                />
+                                                <!--                                                <div class="error" v-if="v$.form_data.itemType.required.$invalid && show_error_eleven">-->
+                                                <!--                                                    Item type is required-->
+                                                <!--                                                </div>-->
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="mb-3">
+                                                <label class="form-label w-100 text-capitalize">
+                                                    Run hours
+                                                    <!--                                                    <span class="error">*</span>-->
+                                                </label>
+                                                <input
+                                                    type="number"
+                                                    class="form-control"
+                                                    placeholder=""
+                                                    v-model.trim="form_data.airCompressorCheckRunHours"
+                                                />
+                                                <!--                                                <div class="error" v-if="v$.form_data.itemType.required.$invalid && show_error_eleven">-->
+                                                <!--                                                    Item type is required-->
+                                                <!--                                                </div>-->
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="mb-3">
+                                                <label class="form-label w-100 text-capitalize">
+                                                    Ambient Temp.
+                                                    <!--                                                    <span class="error">*</span>-->
+                                                </label>
+                                                <input
+                                                    type="number"
+                                                    class="form-control"
+                                                    placeholder=""
+                                                    v-model.trim="form_data.airCompressorCheckAmbientTemp"
+                                                />
+                                                <!--                                                <div class="error" v-if="v$.form_data.itemType.required.$invalid && show_error_eleven">-->
+                                                <!--                                                    Item type is required-->
+                                                <!--                                                </div>-->
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="mb-3">
+                                                <label class="form-label w-100 text-capitalize">
                                                     Operating Hours
 <!--                                                    <span class="error">*</span>-->
                                                 </label>
-                                                <select class="form-select mb-text-only" aria-label="Default select example"
-                                                        v-model.trim="form_data.airCompressorOperatingHours"
-                                                >
-                                                    <option selected disabled>Open this select menu</option>
-                                                    <option>Yes</option>
-                                                    <option>No</option>
-                                                    <option>Nos</option>
-                                                </select>
+                                                <input
+                                                    type="number"
+                                                    class="form-control"
+                                                    placeholder=""
+                                                    v-model.trim="form_data.airCompressorOperatingHours"
+                                                />
 <!--                                                <div class="error" v-if="v$.form_data.itemType.required.$invalid && show_error_eleven">-->
 <!--                                                    Item type is required-->
 <!--                                                </div>-->
@@ -4553,11 +5217,27 @@
                                                     <option selected disabled>Open this select menu</option>
                                                     <option value="yes">Yes</option>
                                                     <option value="no">No</option>
-                                                    <option value="nos">Nos</option>
                                                 </select>
 <!--                                                <div class="error" v-if="v$.form_data.itemType.required.$invalid && show_error_eleven">-->
 <!--                                                    Item type is required-->
 <!--                                                </div>-->
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6" v-if="form_data.chillerVFDorNot === 'yes'">
+                                            <div class="mb-3">
+                                                <label class="form-label w-100 text-capitalize">
+                                                    VFD setting
+                                                    <!--                                                    <span class="error">*</span>-->
+                                                </label>
+                                                <input
+                                                    type="number"
+                                                    class="form-control"
+                                                    placeholder=""
+                                                    v-model.trim="form_data.chillerVFDSetting"
+                                                />
+                                                <!--                                                <div class="error" v-if="v$.form_data.itemType.required.$invalid && show_error_eleven">-->
+                                                <!--                                                    Item type is required-->
+                                                <!--                                                </div>-->
                                             </div>
                                         </div>
                                         <div class="col-md-6">
@@ -4566,14 +5246,12 @@
                                                     Check set temp.
 <!--                                                    <span class="error">*</span>-->
                                                 </label>
-                                                <select class="form-select mb-text-only" aria-label="Default select example"
-                                                        v-model.trim="form_data.chillerSetTemp"
-                                                >
-                                                    <option selected disabled>Open this select menu</option>
-                                                    <option value="yes">Yes</option>
-                                                    <option value="no">No</option>
-                                                    <option value="nos">Nos</option>
-                                                </select>
+                                                <input
+                                                    type="number"
+                                                    class="form-control"
+                                                    placeholder=""
+                                                    v-model.trim="form_data.chillerSetTemp"
+                                                />
 <!--                                                <div class="error" v-if="v$.form_data.itemType.required.$invalid && show_error_eleven">-->
 <!--                                                    Item type is required-->
 <!--                                                </div>-->
@@ -4591,7 +5269,6 @@
                                                     <option selected disabled>Open this select menu</option>
                                                     <option value="yes">Yes</option>
                                                     <option value="no">No</option>
-                                                    <option value="nos">Nos</option>
                                                 </select>
 <!--                                                <div class="error" v-if="v$.form_data.itemType.required.$invalid && show_error_eleven">-->
 <!--                                                    Item type is required-->
@@ -4601,17 +5278,33 @@
                                         <div class="col-md-6">
                                             <div class="mb-3">
                                                 <label class="form-label w-100 text-capitalize">
-                                                    Operating Hours
-<!--                                                    <span class="error">*</span>-->
+                                                    Take chiller HMI data
+                                                    <!--                                                    <span class="error">*</span>-->
                                                 </label>
                                                 <select class="form-select mb-text-only" aria-label="Default select example"
-                                                        v-model.trim="form_data.chillerOperatingHours"
+                                                        v-model.trim="form_data.chiller.chillerTakeChillerHMIData"
                                                 >
                                                     <option selected disabled>Open this select menu</option>
                                                     <option value="yes">Yes</option>
                                                     <option value="no">No</option>
-                                                    <option value="nos">Nos</option>
                                                 </select>
+                                                <!--                                                <div class="error" v-if="v$.form_data.itemType.required.$invalid && show_error_eleven">-->
+                                                <!--                                                    Item type is required-->
+                                                <!--                                                </div>-->
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="mb-3">
+                                                <label class="form-label w-100 text-capitalize">
+                                                    Operating Hours
+<!--                                                    <span class="error">*</span>-->
+                                                </label>
+                                                <input
+                                                    type="number"
+                                                    class="form-control"
+                                                    placeholder=""
+                                                    v-model.trim="form_data.chillerOperatingHours"
+                                                />
 <!--                                                <div class="error" v-if="v$.form_data.itemType.required.$invalid && show_error_eleven">-->
 <!--                                                    Item type is required-->
 <!--                                                </div>-->
@@ -4637,6 +5330,23 @@
 <!--                                                <div class="error" v-if="v$.form_data.itemType.required.$invalid && show_error_eleven">-->
 <!--                                                    Item type is required-->
 <!--                                                </div>-->
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6" v-if="form_data.motorVFDorNot === 'yes'">
+                                            <div class="mb-3">
+                                                <label class="form-label w-100 text-capitalize">
+                                                    VFD setting
+                                                    <!--                                                    <span class="error">*</span>-->
+                                                </label>
+                                                <input
+                                                    type="number"
+                                                    class="form-control"
+                                                    placeholder=""
+                                                    v-model.trim="form_data.motor.motorVFDSetting"
+                                                />
+                                                <!--                                                <div class="error" v-if="v$.form_data.itemType.required.$invalid && show_error_eleven">-->
+                                                <!--                                                    Item type is required-->
+                                                <!--                                                </div>-->
                                             </div>
                                         </div>
                                         <div class="col-md-6">
@@ -4941,203 +5651,253 @@ export default {
                 itemType:'',
                 images:[],
                 project_id: null,
+                name_location: '',
+                make_model: '',
                 observations:'',
                 //item type Pump
-                pumpYearOfInstallationRated:'',
-                pumpYearOfInstallationMeasured:'',
-                pumpFlowRated:'',
-                pumpFlowMeasured:'',
-                pumpHeadRated:'',
-                pumpHeadMeasured:'',
-                pumpVoltageRated:'',
-                pumpVoltageMeasured:'',
-                pumpCurrentRated:'',
-                pumpCurrentMeasured:'',
-                pumpPowerFactorRated:'',
-                pumpPowerFactorMeasured:'',
-                pumpMotorPowerRated:'',
-                pumpMotorPowerMeasured:'',
-                pumpMotorEfficiencyRated:'',
-                pumpMotorEfficiencyMeasured:'',
-                pumpMotorEfficiencyClassRated:'',
-                pumpMotorEfficiencyClassMeasured:'',
-                pumpMotorFrameSizeRated:'',
-                pumpMotorFrameSizeMeasured:'',
-                pumpInsulationClassRated:'',
-                pumpInsulationClassMeasured:'',
-                pumpSuctionHeadRated:'',
-                pumpSuctionHeadMeasured:'',
-                pumpDischargeHeadRated:'',
-                pumpDischargeHeadMeasured:'',
-                pumpEfficiencyRated:'',
-                pumpEfficiencyMeasured:'',
-                //checklist
-                pumpVFDorNo:'',
-                pumpVFDSetting:'',
-                pumpThrottling :'',
-                pumpFlowModulationRequired :'',
-                pumpParallelPumpOperation:'',
-                pumpNosOfRewidingOfMotor:'',
-                pumpCheckCavitation:'',
-                pumpOperatingHours:'',
-
+                pump : {
+                    pumpYearOfInstallationRated:'',
+                    pumpYearOfInstallationMeasured:'',
+                    pumpFlowRated:'',
+                    pumpFlowMeasured:'',
+                    pumpHeadRated:'',
+                    pumpHeadMeasured:'',
+                    pumpVoltageRated:'',
+                    pumpVoltageMeasured:'',
+                    pumpCurrentRated:'',
+                    pumpCurrentMeasured:'',
+                    pumpPowerFactorRated:'',
+                    pumpPowerFactorMeasured:'',
+                    pumpMotorPowerRated:'',
+                    pumpMotorPowerMeasured:'',
+                    pumpSpeedRated:'',
+                    pumpSpeedMeasured:'',
+                    pumpMotorEfficiencyRated:'',
+                    pumpMotorEfficiencyMeasured:'',
+                    pumpMotorEfficiencyClassRated:'',
+                    pumpMotorEfficiencyClassMeasured:'',
+                    pumpMotorFrameSizeRated:'',
+                    pumpMotorFrameSizeMeasured:'',
+                    pumpInsulationClassRated:'',
+                    pumpInsulationClassMeasured:'',
+                    pumpSuctionHeadRated:'',
+                    pumpSuctionHeadMeasured:'',
+                    pumpDischargeHeadRated:'',
+                    pumpDischargeHeadMeasured:'',
+                    pumpEfficiencyRated:'',
+                    pumpEfficiencyMeasured:'',
+                    //checklist
+                    pumpVFDorNot:'',
+                    pumpVFDSetting:'',
+                    pumpThrottling :'',
+                    pumpFlowModulationRequired :'',
+                    pumpParallelPumpOperation:'',
+                    pumpNosOfRewidingOfMotor:'',
+                    pumpCheckCavitation:'',
+                    pumpOperatingHours:'',
+                },
                 //item type Fan
-                fanYearOfInstallationRated:'',
-                fanYearOfInstallationMeasured:'',
-                fanFlowRated:'',
-                fanFlowMeasured:'',
-                fanHeadRated:'',
-                fanHeadMeasured:'',
-                fanVoltageRated:'',
-                fanVoltageMeasured:'',
-                fanCurrentRated:'',
-                fanCurrentMeasured:'',
-                fanPowerFactorRated:'',
-                fanPowerFactorMeasured:'',
-                fanMotorPowerRated:'',
-                fanMotorPowerMeasured:'',
-                fanMotorEfficiencyRated:'',
-                fanMotorEfficiencyMeasured:'',
-                fanMotorEfficiencyClassRated:'',
-                fanMotorEfficiencyClassMeasured:'',
-                fanMotorFrameSizeRated:'',
-                fanMotorFrameSizeMeasured:'',
-                fanInsulationClassRated:'',
-                fanInsulationClassMeasured:'',
-                fanSuctionDuctSizeRated:'',
-                fanSuctionDuctSizeMeasured:'',
-                fanSuctionStaticPressureRated:'',
-                fanSuctionStaticPressureMeasured:'',
-                fanSuctionVelocityPressureRated:'',
-                fanSuctionVelocityPressureMeasured:'',
-                fanDischargeDuctSizeRated:'',
-                fanDischargeDuctSizeMeasured:'',
-                fanDischargeStaticPressureRated:'',
-                fanDischargeStaticPressureMeasured:'',
-                fanDischargeVelocityPressureRated:'',
-                fanDischargeVelocityPressureMeasured:'',
-                fanEfficiencyRated:'',
-                fanEfficiencyMeasured:'',
-                //checklist
-                fanVFDorNot:'',
-                fanVFDSetting:'',
-                fanOpening  :'',
-                fanFlowModulationRequired :'',
-                fanParallelFanOperation:'',
-                fanNosOfRewidingOfMotor:'',
-                fanOperatingHours:'',
-
+                fan : {
+                    fanYearOfInstallationRated:'',
+                    fanYearOfInstallationMeasured:'',
+                    fanFlowRated:'',
+                    fanFlowMeasured:'',
+                    fanHeadRated:'',
+                    fanHeadMeasured:'',
+                    fanVoltageRated:'',
+                    fanVoltageMeasured:'',
+                    fanCurrentRated:'',
+                    fanCurrentMeasured:'',
+                    fanPowerFactorRated:'',
+                    fanPowerFactorMeasured:'',
+                    fanMotorPowerRated:'',
+                    fanSpeedRated:'',
+                    fanSpeedMeasured:'',
+                    fanMotorPowerMeasured:'',
+                    fanMotorEfficiencyRated:'',
+                    fanMotorEfficiencyMeasured:'',
+                    fanMotorEfficiencyClassRated:'',
+                    fanMotorEfficiencyClassMeasured:'',
+                    fanMotorFrameSizeRated:'',
+                    fanMotorFrameSizeMeasured:'',
+                    fanInsulationClassRated:'',
+                    fanInsulationClassMeasured:'',
+                    fanSuctionDuctSizeRated:'',
+                    fanSuctionDuctSizeMeasured:'',
+                    fanSuctionStaticPressureRated:'',
+                    fanSuctionStaticPressureMeasured:'',
+                    fanSuctionVelocityPressureRated:'',
+                    fanSuctionVelocityPressureMeasured:'',
+                    fanDischargeDuctSizeRated:'',
+                    fanDischargeDuctSizeMeasured:'',
+                    fanDischargeStaticPressureRated:'',
+                    fanDischargeStaticPressureMeasured:'',
+                    fanDischargeVelocityPressureRated:'',
+                    fanDischargeVelocityPressureMeasured:'',
+                    fanDischargeVelocityRated:'',
+                    fanDischargeVelocityMeasured:'',
+                    fanEfficiencyRated:'',
+                    fanEfficiencyMeasured:'',
+                    //checklist
+                    fanVFDorNot:'',
+                    fanVFDSetting:'',
+                    fanOpening  :'',
+                    fanFlowModulationRequired :'',
+                    fanParallelFanOperation:'',
+                    fanNosOfRewidingOfMotor:'',
+                    fanOperatingHours:'',
+                },
                 //item type Air Compressor
-                airCompressorYearOfInstallationRated:'',
-                airCompressorYearOfInstallationMeasured:'',
-                airCompressorFlowRated:'',
-                airCompressorFlowMeasured:'',
-                airCompressorPressureRated:'',
-                airCompressorPressureMeasured:'',
-                airCompressorVoltageRated:'',
-                airCompressorVoltageMeasured:'',
-                airCompressorCurrentRated:'',
-                airCompressorCurrentMeasured:'',
-                airCompressorPowerFactorRated:'',
-                airCompressorPowerFactorMeasured:'',
-                airCompressorMotorPowerRated:'',
-                airCompressorMotorPowerMeasured:'',
-                airCompressorMotorEfficiencyRated:'',
-                airCompressorMotorEfficiencyMeasured:'',
-                airCompressorMotorEfficiencyClassRated:'',
-                airCompressorMotorEfficiencyClassMeasured:'',
-                airCompressorMotorFrameSizeRated:'',
-                airCompressorMotorFrameSizeMeasured:'',
-                airCompressorInsulationClassRated:'',
-                airCompressorInsulationClassMeasured:'',
-                airCompressorLoadPressureRated:'',
-                airCompressorLoadPressureMeasured:'',
-                airCompressorUnLoadPressureRated:'',
-                airCompressorUnLoadPressureMeasured:'',
-                airCompressorRecieverSizeRated:'',
-                airCompressorRecieverSizeMeasured:'',
-                airCompressorInitialPressureRated:'',
-                airCompressorInitialPressureMeasured:'',
-                airCompressorFinalPressureRated:'',
-                airCompressorFinalPressureMeasured:'',
-                airCompressorTimeToReachFinalPressureRated:'',
-                airCompressorTimeToReachFinalPressureMeasured:'',
-                airCompressorTemperatureRated:'',
-                airCompressorTemperatureMeasured:'',
-                airCompressorCompressorSECRated:'',
-                airCompressorCompressorSECMeasured:'',
-                //Leakage test
-                airCompressorLoadTimeReadingOne:'',
-                airCompressorLoadTimeReadingTwo:'',
-                airCompressorUnLoadTimeReadingOne:'',
-                airCompressorUnLoadTimeReadingTwo:'',
-                //checklist
-                airCompressorVFDorNot:'',
-                airCompressorNosOfRewidingOfMotor:'',
-                airCompressorCheckRequiredpressure:'',
-                airCompressorCheckPressureDrop  :'',
-                airCompressorOperatingHours:'',
-
+                compressor : {
+                    airCompressorYearOfInstallationRated:'',
+                    airCompressorYearOfInstallationMeasured:'',
+                    airCompressorFlowRated:'',
+                    airCompressorFlowMeasured:'',
+                    airCompressorPressureRated:'',
+                    airCompressorPressureMeasured:'',
+                    airCompressorVoltageRated:'',
+                    airCompressorVoltageMeasured:'',
+                    airCompressorCurrentRated:'',
+                    airCompressorCurrentMeasured:'',
+                    airCompressorPowerFactorRated:'',
+                    airCompressorPowerFactorMeasured:'',
+                    airCompressorMotorPowerRated:'',
+                    airCompressorMotorPowerMeasured:'',
+                    airCompressorSpeedRated:'',
+                    airCompressorSpeedMeasured:'',
+                    airCompressorMotorEfficiencyRated:'',
+                    airCompressorMotorEfficiencyMeasured:'',
+                    airCompressorMotorEfficiencyClassRated:'',
+                    airCompressorMotorEfficiencyClassMeasured:'',
+                    airCompressorMotorFrameSizeRated:'',
+                    airCompressorMotorFrameSizeMeasured:'',
+                    airCompressorInsulationClassRated:'',
+                    airCompressorInsulationClassMeasured:'',
+                    airCompressorLoadPressureRated:'',
+                    airCompressorLoadPressureMeasured:'',
+                    airCompressorUnLoadPressureRated:'',
+                    airCompressorUnLoadPressureMeasured:'',
+                    airCompressorRecieverSizeRated:'',
+                    airCompressorRecieverSizeMeasured:'',
+                    airCompressorPipeVolumeRated:'',
+                    airCompressorPipeVolumeMeasured:'',
+                    airCompressorInitialPressureRated:'',
+                    airCompressorInitialPressureMeasured:'',
+                    airCompressorFinalPressureRated:'',
+                    airCompressorFinalPressureMeasured:'',
+                    airCompressorTimeToReachFinalPressureRated:'',
+                    airCompressorTimeToReachFinalPressureMeasured:'',
+                    airCompressorTemperatureRated:'',
+                    airCompressorTemperatureMeasured:'',
+                    airCompressorCompressorSECRated:'',
+                    airCompressorCompressorSECMeasured:'',
+                    airCompressorDryerTypeRated:'',
+                    airCompressorDryerTypeMeasured:'',
+                    airCompressorDryerMakeModelRated:'',
+                    airCompressorDryerMakeModelMeasured:'',
+                    //Leakage test
+                    airCompressorLoadTimeReadingOne:'',
+                    airCompressorLoadTimeReadingTwo:'',
+                    airCompressorLoadTimeReadingThree:'',
+                    airCompressorUnLoadTimeReadingOne:'',
+                    airCompressorUnLoadTimeReadingTwo:'',
+                    airCompressorUnLoadTimeReadingThree:'',
+                    airCompressorLeakageReadingOne:'',
+                    airCompressorLeakageReadingTwo:'',
+                    airCompressorLeakageReadingThree:'',
+                    //checklist
+                    airCompressorVFDorNot:'',
+                    airCompressorVFDSetting:'',
+                    airCompressorNosOfRewidingOfMotor:'',
+                    airCompressorCheckRequiredpressure:'',
+                    airCompressorCheckPressureDrop  :'',
+                    airCompressorCheckEndUsePointPressure:'',
+                    airCompressorCheckInletAirFilterDp:'',
+                    airCompressorCheckLoadTime:'',
+                    airCompressorCheckUnLoadTime:'',
+                    airCompressorCheckLoadHours:'',
+                    airCompressorCheckRunHours:'',
+                    airCompressorCheckAmbientTemp:'',
+                    airCompressorOperatingHours:'',
+                },
                 //item type Chiller
-                chillerYearOfInstallationRated:'',
-                chillerYearOfInstallationMeasured:'',
-                chillerCapacityRated:'',
-                chillerCapacityMeasured:'',
-                chillerVoltageRated:'',
-                chillerVoltageMeasured:'',
-                chillerCurrentRated:'',
-                chillerCurrentMeasured:'',
-                chillerPowerFactorRated:'',
-                chillerPowerFactorMeasured:'',
-                chillerMotorPowerRated:'',
-                chillerMotorPowerMeasured:'',
-                chillerMotorEfficiencyRated:'',
-                chillerMotorEfficiencyMeasured:'',
-                chillerMotorEfficiencyClassRated:'',
-                chillerMotorEfficiencyClassMeasured:'',
-                chillerMotorFrameSizeRated:'',
-                chillerMotorFrameSizeMeasured:'',
-                chillerSupplyTempRated:'',
-                chillerSupplyTempMeasured:'',
-                chillerReturnTempRated:'',
-                chillerReturnTempMeasured:'',
-                chillerFlowRated:'',
-                chillerFlowMeasured:'',
-                chillerChillerSECRated:'',
-                chillerChillerSECMeasured:'',
-                chillerCondenserApprochRated:'',
-                chillerCondenserApprochMeasured:'',
-                //checklist
-                chillerVFDorNot:'',
-                chillerSetTemp:'',
-                chillerCheckCondenserCondition:'',
-                chillerOperatingHours:'',
-
+                chiller : {
+                    chillerYearOfInstallationRated:'',
+                    chillerYearOfInstallationMeasured:'',
+                    chillerTypeOfChillerRated:'',
+                    chillerTypeOfChillerMeasured:'',
+                    chillerNosOfCompressorRated:'',
+                    chillerNosOfCompressorMeasured:'',
+                    chillerCapacityRated:'',
+                    chillerCapacityMeasured:'',
+                    chillerVoltageRated:'',
+                    chillerVoltageMeasured:'',
+                    chillerCurrentRated:'',
+                    chillerCurrentMeasured:'',
+                    chillerPowerFactorRated:'',
+                    chillerPowerFactorMeasured:'',
+                    chillerSpeedRated:'',
+                    chillerSpeedMeasured:'',
+                    chillerMotorPowerRated:'',
+                    chillerMotorPowerMeasured:'',
+                    chillerMotorEfficiencyRated:'',
+                    chillerMotorEfficiencyMeasured:'',
+                    chillerMotorEfficiencyClassRated:'',
+                    chillerMotorEfficiencyClassMeasured:'',
+                    chillerMotorFrameSizeRated:'',
+                    chillerMotorFrameSizeMeasured:'',
+                    chillerChillerLoadingRated:'',
+                    chillerChillerLoadingMeasured:'',
+                    chillerSupplyTempRated:'',
+                    chillerSupplyTempMeasured:'',
+                    chillerReturnTempRated:'',
+                    chillerReturnTempMeasured:'',
+                    chillerFlowRated:'',
+                    chillerFlowMeasured:'',
+                    chillerChillerSECRated:'',
+                    chillerChillerSECMeasured:'',
+                    chillerCondenserApprochRated:'',
+                    chillerCondenserApprochMeasured:'',
+                    //checklist
+                    chillerVFDorNot:'',
+                    chillerVFDSetting:'',
+                    chillerSetTemp:'',
+                    chillerCheckCondenserCondition:'',
+                    chillerTakeChillerHMIData:'',
+                    chillerOperatingHours:'',
+                },
                 //item type Motors
-                motorYearOfInstallationRated:'',
-                motorYearOfInstallationMeasured:'',
-                motorNameOfEquipmentRated:'',
-                motorNameOfEquipmentMeasured:'',
-                motorVoltageRated:'',
-                motorVoltageMeasured:'',
-                motorCurrentRated:'',
-                motorCurrentMeasured:'',
-                motorPowerFactorRated:'',
-                motorPowerFactorMeasured:'',
-                motorMotorPowerRated:'',
-                motorMotorPowerMeasured:'',
-                motorMotorEfficiencyRated:'',
-                motorMotorEfficiencyMeasured:'',
-                motorMotorEfficiencyClassRated:'',
-                motorMotorEfficiencyClassMeasured:'',
-                motorMotorFrameSizeRated:'',
-                motorMotorFrameSizeMeasured:'',
-                //checklist
-                motorVFDorNot:'',
-                motorCheckPerPhaseCurrent:'',
-                motorCheckPhasor:'',
-                motorNosOfRewidingOfMotor:'',
-                motorOperatingHours:'',
+                motor: {
+                    motorYearOfInstallationRated:'',
+                    motorYearOfInstallationMeasured:'',
+                    // motorNameOfEquipmentRated:'',
+                    // motorNameOfEquipmentMeasured:'',
+                    motorVoltageRated:'',
+                    motorVoltageMeasured:'',
+                    motorCurrentRated:'',
+                    motorCurrentMeasured:'',
+                    motorPowerFactorRated:'',
+                    motorPowerFactorMeasured:'',
+                    motorSpeedRated:'',
+                    motorSpeedMeasured:'',
+                    motorTempRated:'',
+                    motorTempMeasured:'',
+                    motorMotorPowerRated:'',
+                    motorMotorPowerMeasured:'',
+                    motorMotorEfficiencyRated:'',
+                    motorMotorEfficiencyMeasured:'',
+                    motorMotorEfficiencyClassRated:'',
+                    motorMotorEfficiencyClassMeasured:'',
+                    motorMotorFrameSizeRated:'',
+                    motorMotorFrameSizeMeasured:'',
+                    //checklist
+                    motorVFDorNot:'',
+                    motorVFDSetting:'',
+                    motorCheckPerPhaseCurrent:'',
+                    motorCheckPhasor:'',
+                    motorNosOfRewidingOfMotor:'',
+                    motorOperatingHours:'',
+                },
             },
 
         }
@@ -5692,6 +6452,102 @@ export default {
     },
     created() {
         this.form_data.project_id = this.project_id;
+    },
+    computed: {
+        pumpEfficiency() {
+            // Convert motor efficiency from percentage to decimal (e.g., 90% → 0.90)
+            const motorEfficiencyDecimal = this.form_data.pumpMotorEfficiencyRated / 100;
+
+            // Calculate numerator and denominator separately for clarity
+            const numerator = this.form_data.pumpFlowMeasured *
+                (this.form_data.pumpDischargeHeadMeasured + this.form_data.pumpSuctionHeadMeasured) *
+                9.81;
+
+            const denominator = 3600 * this.form_data.pumpMotorPowerMeasured * motorEfficiencyDecimal;
+
+            // Avoid division by zero
+            if (denominator === 0) return 0;
+
+            // Calculate efficiency percentage
+            return (numerator / denominator) * 100;
+        },
+        airCompressorFlow() {
+            // Convert time from minutes to seconds if needed (remove if your time is already in seconds)
+            const timeInSeconds = this.form_data.airCompressorTimeToReachFinalPressureMeasured * 60;
+
+            // Avoid division by zero
+            if (timeInSeconds <= 0) return 0;
+
+            // Calculate flow using the provided formula
+            return 0.987 *
+                (this.form_data.airCompressorFinalPressureMeasured - this.form_data.airCompressorInitialPressureMeasured) *
+                (this.form_data.airCompressorRecieverSizeMeasured + this.form_data.airCompressorPipeVolumeMeasured) /
+                timeInSeconds;
+        },
+        compressorSEC() {
+            // Convert CFM to m³/min (0.0283 conversion factor)
+            const flowInM3PerMin = this.form_data.airCompressorFlowMeasured * 0.0283;
+
+            // Avoid division by zero
+            if (flowInM3PerMin <= 0) return 0;
+
+            // Calculate SEC
+            return this.form_data.airCompressorMotorPowerMeasured / flowInM3PerMin;
+        },
+        leakagePercentageOne() {
+            // Convert to numbers explicitly
+            const load = Number(this.form_data.airCompressorLoadTimeReadingOne)
+            const unload = Number(this.form_data.airCompressorUnLoadTimeReadingOne)
+            const total = load + unload
+
+            if (total <= 0) return 0
+
+            // Multiply before dividing to improve precision
+            return (load * 100) / total
+        },
+        leakagePercentageTwo() {
+            // Convert to numbers explicitly
+            const load = Number(this.form_data.airCompressorLoadTimeReadingTwo)
+            const unload = Number(this.form_data.airCompressorUnLoadTimeReadingTwo)
+            const total = load + unload
+
+            if (total <= 0) return 0
+
+            // Multiply before dividing to improve precision
+            return (load * 100) / total
+        },
+        leakagePercentageThree() {
+            // Convert to numbers explicitly
+            const load = Number(this.form_data.airCompressorLoadTimeReadingThree)
+            const unload = Number(this.form_data.airCompressorUnLoadTimeReadingThree)
+            const total = load + unload
+
+            if (total <= 0) return 0
+
+            // Multiply before dividing to improve precision
+            return (load * 100) / total
+        },
+    },
+    watch: {
+        pumpEfficiency(newVal) {
+            this.form_data.pumpEfficiencyMeasured = parseFloat(newVal.toFixed(2));
+        },
+        airCompressorFlow(newVal) {
+            this.form_data.airCompressorFlowMeasured = parseFloat(newVal.toFixed(2));
+        },
+        compressorSEC(newVal) {
+            this.form_data.airCompressorCompressorSECMeasured = parseFloat(newVal.toFixed(2));
+        },
+        leakagePercentageOne(newVal) {
+            this.form_data.airCompressorLeakageReadingOne = parseFloat(newVal.toFixed(2));
+        },
+        leakagePercentageTwo(newVal) {
+            this.form_data.airCompressorLeakageReadingTwo = parseFloat(newVal.toFixed(2));
+        },
+        leakagePercentageThree(newVal) {
+            this.form_data.airCompressorLeakageReadingThree = parseFloat(newVal.toFixed(2));
+        },
+        immediate: true // To set initial value
     },
 
     validations: {

@@ -39,7 +39,7 @@ class ProjectController extends Controller
             record_created_flash();
         } catch (\Exception $e) {
         }
-        return back();
+        return redirect()->route('admin.project.index');
     }
 
     public function show($id,InformationDataTable $dataTable)

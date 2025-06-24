@@ -7,7 +7,12 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\InformationRequest;
 use App\Models\Gallery;
 use App\Models\Information;
+use App\Services\ChillerService;
+use App\Services\CompressorService;
+use App\Services\FanService;
 use App\Services\InformationService;
+use App\Services\MotorService;
+use App\Services\PumpService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
@@ -16,10 +21,21 @@ use Illuminate\Support\Str;
 class InformationController extends Controller
 {
     protected $informationService;
+    protected $pumpService;
+    protected $fanService;
+    protected $compressorService;
+    protected $chillerService;
+    protected $motorService;
 
-    public function __construct(InformationService $informationService)
+
+    public function __construct(InformationService $informationService,PumpService $pumpService,FanService $fanService,CompressorService $compressorService,ChillerService $chillerService,MotorService $motorService)
     {
         $this->informationService = $informationService;
+        $this->pumpService = $pumpService;
+        $this->fanService = $fanService;
+        $this->compressorService = $compressorService;
+        $this->chillerService = $chillerService;
+        $this->motorService = $motorService;
     }
 
     public function index(InformationDataTable $dataTable)
@@ -36,11 +52,12 @@ class InformationController extends Controller
         return view('admin.information.create',compact('project_id'));
     }
 
-    public function store(InformationRequest $request)
+    public function store(Request $request)
     {
 
         try {
-            $data = $request->validated();
+//            $data = $request->validated();
+            $data = $request->all();
             // Authenticated user ID
             $userId = Auth::id();
 
@@ -53,9 +70,48 @@ class InformationController extends Controller
                 'sku' => $sku,
                 'images' => count($data['images']),
             ]);
+            $pumpData = $data['pump'];
+            $fanData = $data['fan'];
+            $compressorData = $data['compressor'];
+            $chillerData = $data['chiller'];
+            $motorData = $data['motor'];
 
 
             $information = $this->informationService->storeOrUpdate($dataToSave, null);
+
+            if ($information){
+                if ($data['itemType'] == 'Pump') {
+                    $dataToSave = array_merge($pumpData, [
+                        'information_id' => $information->id,
+                    ]);
+                    $this->pumpService->storeOrUpdate($dataToSave, null);
+                }
+
+                if ($data['itemType'] == 'Fan') {
+                    $dataToSave = array_merge($fanData, [
+                        'information_id' => $information->id,
+                    ]);
+                    $this->fanService->storeOrUpdate($dataToSave, null);
+                }
+                if ($data['itemType'] == 'Air Compressor') {
+                    $dataToSave = array_merge($compressorData, [
+                        'information_id' => $information->id,
+                    ]);
+                    $this->compressorService->storeOrUpdate($dataToSave, null);
+                }
+                if ($data['itemType'] == 'Chiller') {
+                    $dataToSave = array_merge($chillerData, [
+                        'information_id' => $information->id,
+                    ]);
+                    $this->chillerService->storeOrUpdate($dataToSave, null);
+                }
+                if ($data['itemType'] == 'Motors') {
+                    $dataToSave = array_merge($motorData, [
+                        'information_id' => $information->id,
+                    ]);
+                    $this->motorService->storeOrUpdate($dataToSave, null);
+                }
+            }
 
             if (!empty($data['images'])) {
                 foreach ($data['images'] as $base64Image) {

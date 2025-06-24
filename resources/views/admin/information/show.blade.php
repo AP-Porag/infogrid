@@ -11,10 +11,13 @@
                                 <div class="row">
                                     <div class="col-md-6">
                                         <p><strong>SKU:</strong> {{ $item->sku }}</p>
+                                        <p><strong>Project:</strong> {{ $item->project->name }}</p>
                                         <p><strong>Item Type:</strong> {{ $item->itemType }}</p>
                                         <p><strong>Created By:</strong> {{ $item->user->first_name.' '.$item->user->last_name }}</p>
                                     </div>
                                     <div class="col-md-6">
+                                        <p><strong>Name & Location :</strong> {{ $item->name_location }}</p>
+                                        <p><strong>Make & Model:</strong> {{ $item->make_model }}</p>
                                         <p><strong>Created At:</strong> {{ $item->created_at->format('d M Y H:i') }}</p>
                                         <p><strong>Last Updated:</strong> {{ $item->updated_at->format('d M Y H:i') }}</p>
                                     </div>
@@ -68,6 +71,11 @@
                                                         <td>Motor Power</td>
                                                         <td>{{ $item->pumpMotorPowerRated ?? '-' }}</td>
                                                         <td>{{ $item->pumpMotorPowerMeasured ?? '-' }}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Speed</td>
+                                                        <td>{{ $item->pumpSpeedRated ?? '-' }}</td>
+                                                        <td>{{ $item->pumpSpeedMeasured ?? '-' }}</td>
                                                     </tr>
                                                     <tr>
                                                         <td>Motor Efficiency</td>
@@ -460,7 +468,8 @@
                                 <div class="row">
                                     @foreach($item->gallery as $image)
                                         <div class="col-md-6 mb-4">
-                                            <img src="{{ Storage::url($image->image) }}" alt="Product image"
+                                            <img src="{{ asset('storage/' . $image->image) }}"
+                                                 alt="Product image"
                                                  style="height: 180px; width: 180px; object-fit: cover; border-radius: 10px;">
                                         </div>
                                     @endforeach
@@ -484,7 +493,7 @@
                                                 <td>{{ $item->pumpVFDorNot ?? '-' }}</td>
                                             </tr>
                                             <tr>
-                                                <td>VFD Setting</td>
+                                                <td>VFD setting in Hz</td>
                                                 <td>{{ $item->pumpVFDSetting ?? '-' }}</td>
                                             </tr>
                                             <tr>
@@ -508,7 +517,7 @@
                                                 <td>{{ $item->pumpCheckCavitation ?? '-' }}</td>
                                             </tr>
                                             <tr>
-                                                <td>Operating Hours</td>
+                                                <td>Operating Hours in day</td>
                                                 <td>{{ $item->pumpOperatingHours ?? '-' }}</td>
                                             </tr>
 

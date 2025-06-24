@@ -45,7 +45,8 @@ class ProjectController extends Controller
     public function show($id,InformationDataTable $dataTable)
     {
         set_page_meta('Information');
-        return $dataTable->with('project_id', $id)->render('admin.information.index');
+        $project = $this->projectService->get($id);
+        return $dataTable->with('project_id', $id)->render('admin.information.index',compact('project'));
     }
 
     public function edit($id)
