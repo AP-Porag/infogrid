@@ -2,6 +2,9 @@
 
 @section('content')
     <div class="container py-4">
+        <div class="flex justify-content-end py-4">
+            <a href="{{route('admin.project.show', $item->project->id)}}" class="btn btn-sm btn-dark text-capitalize" style="padding-top: 8px;">Back</a>
+        </div>
         <div class="row">
             <div class="col-md-8">
                 <div class="row">
@@ -39,407 +42,407 @@
                                                     <!-- Pump Specifications -->
                                                     <tr>
                                                         <td>Year of Installation</td>
-                                                        <td>{{ $item->pumpYearOfInstallationRated ?? '-' }}</td>
-                                                        <td>{{ $item->pumpYearOfInstallationMeasured ?? '-' }}</td>
+                                                        <td>{{ $item->pump->pumpYearOfInstallationRated ?? '-' }}</td>
+                                                        <td>{{ $item->pump->pumpYearOfInstallationMeasured ?? '-' }}</td>
                                                     </tr>
                                                     <tr>
                                                         <td>Flow</td>
-                                                        <td>{{ $item->pumpFlowRated ?? '-' }}</td>
-                                                        <td>{{ $item->pumpFlowMeasured ?? '-' }}</td>
+                                                        <td>{{ $item->pump->pumpFlowRated ?? '-' }}</td>
+                                                        <td>{{ $item->pump->pumpFlowMeasured ?? '-' }}</td>
                                                     </tr>
                                                     <tr>
                                                         <td>Head</td>
-                                                        <td>{{ $item->pumpHeadRated ?? '-' }}</td>
-                                                        <td>{{ $item->pumpHeadMeasured ?? '-' }}</td>
+                                                        <td>{{ $item->pump->pumpHeadRated ?? '-' }}</td>
+                                                        <td>{{ $item->pump->pumpHeadMeasured ?? '-' }}</td>
                                                     </tr>
                                                     <tr>
                                                         <td>Voltage</td>
-                                                        <td>{{ $item->pumpVoltageRated ?? '-' }}</td>
-                                                        <td>{{ $item->pumpVoltageMeasured ?? '-' }}</td>
+                                                        <td>{{ $item->pump->pumpVoltageRated ?? '-' }}</td>
+                                                        <td>{{ $item->pump->pumpVoltageMeasured ?? '-' }}</td>
                                                     </tr>
                                                     <tr>
                                                         <td>Current</td>
-                                                        <td>{{ $item->pumpCurrentRated ?? '-' }}</td>
-                                                        <td>{{ $item->pumpCurrentMeasured ?? '-' }}</td>
+                                                        <td>{{ $item->pump->pumpCurrentRated ?? '-' }}</td>
+                                                        <td>{{ $item->pump->pumpCurrentMeasured ?? '-' }}</td>
                                                     </tr>
                                                     <tr>
                                                         <td>Power Factor</td>
-                                                        <td>{{ $item->pumpPowerFactorRated ?? '-' }}</td>
-                                                        <td>{{ $item->pumpPowerFactorMeasured ?? '-' }}</td>
+                                                        <td>{{ $item->pump->pumpPowerFactorRated ?? '-' }}</td>
+                                                        <td>{{ $item->pump->pumpPowerFactorMeasured ?? '-' }}</td>
                                                     </tr>
                                                     <tr>
                                                         <td>Motor Power</td>
-                                                        <td>{{ $item->pumpMotorPowerRated ?? '-' }}</td>
-                                                        <td>{{ $item->pumpMotorPowerMeasured ?? '-' }}</td>
+                                                        <td>{{ $item->pump->pumpMotorPowerRated ?? '-' }}</td>
+                                                        <td>{{ $item->pump->pumpMotorPowerMeasured ?? '-' }}</td>
                                                     </tr>
                                                     <tr>
                                                         <td>Speed</td>
-                                                        <td>{{ $item->pumpSpeedRated ?? '-' }}</td>
-                                                        <td>{{ $item->pumpSpeedMeasured ?? '-' }}</td>
+                                                        <td>{{ $item->pump->pumpSpeedRated ?? '-' }}</td>
+                                                        <td>{{ $item->pump->pumpSpeedMeasured ?? '-' }}</td>
                                                     </tr>
                                                     <tr>
                                                         <td>Motor Efficiency</td>
-                                                        <td>{{ $item->pumpMotorEfficiencyRated ?? '-' }}</td>
-                                                        <td>{{ $item->pumpMotorEfficiencyMeasured ?? '-' }}</td>
+                                                        <td>{{ $item->pump->pumpMotorEfficiencyRated ?? '-' }}</td>
+                                                        <td>{{ $item->pump->pumpMotorEfficiencyMeasured ?? '-' }}</td>
                                                     </tr>
                                                     <tr>
                                                         <td>Motor Efficiency Class</td>
-                                                        <td>{{ $item->pumpMotorEfficiencyClassRated ?? '-' }}</td>
-                                                        <td>{{ $item->pumpMotorEfficiencyClassMeasured ?? '-' }}</td>
+                                                        <td>{{ $item->pump->pumpMotorEfficiencyClassRated ?? '-' }}</td>
+                                                        <td>{{ $item->pump->pumpMotorEfficiencyClassMeasured ?? '-' }}</td>
                                                     </tr>
                                                     <tr>
                                                         <td>Motor Frame Size</td>
-                                                        <td>{{ $item->pumpMotorFrameSizeRated ?? '-' }}</td>
-                                                        <td>{{ $item->pumpMotorFrameSizeMeasured ?? '-' }}</td>
+                                                        <td>{{ $item->pump->pumpMotorFrameSizeRated ?? '-' }}</td>
+                                                        <td>{{ $item->pump->pumpMotorFrameSizeMeasured ?? '-' }}</td>
                                                     </tr>
                                                     <tr>
                                                         <td>Insulation Class</td>
-                                                        <td>{{ $item->pumpInsulationClassRated ?? '-' }}</td>
-                                                        <td>{{ $item->pumpInsulationClassMeasured ?? '-' }}</td>
+                                                        <td>{{ $item->pump->pumpInsulationClassRated ?? '-' }}</td>
+                                                        <td>{{ $item->pump->pumpInsulationClassMeasured ?? '-' }}</td>
                                                     </tr>
                                                     <tr>
                                                         <td>Suction Head</td>
-                                                        <td>{{ $item->pumpSuctionHeadRated ?? '-' }}</td>
-                                                        <td>{{ $item->pumpSuctionHeadMeasured ?? '-' }}</td>
+                                                        <td>{{ $item->pump->pumpSuctionHeadRated ?? '-' }}</td>
+                                                        <td>{{ $item->pump->pumpSuctionHeadMeasured ?? '-' }}</td>
                                                     </tr>
                                                     <tr>
                                                         <td>Discharge Head</td>
-                                                        <td>{{ $item->pumpDischargeHeadRated ?? '-' }}</td>
-                                                        <td>{{ $item->pumpDischargeHeadMeasured ?? '-' }}</td>
+                                                        <td>{{ $item->pump->pumpDischargeHeadRated ?? '-' }}</td>
+                                                        <td>{{ $item->pump->pumpDischargeHeadMeasured ?? '-' }}</td>
                                                     </tr>
                                                     <tr>
                                                         <td>Efficiency</td>
-                                                        <td>{{ $item->pumpEfficiencyRated ?? '-' }}</td>
-                                                        <td>{{ $item->pumpEfficiencyMeasured ?? '-' }}</td>
+                                                        <td>{{ $item->pump->pumpEfficiencyRated ?? '-' }}</td>
+                                                        <td>{{ $item->pump->pumpEfficiencyMeasured ?? '-' }}</td>
                                                     </tr>
 
                                                 @elseif($item->itemType === 'Fan')
                                                     <!-- Fan Specifications -->
                                                     <tr>
                                                         <td>Year of Installation</td>
-                                                        <td>{{ $item->fanYearOfInstallationRated ?? '-' }}</td>
-                                                        <td>{{ $item->fanYearOfInstallationMeasured ?? '-' }}</td>
+                                                        <td>{{ $item->fan->fanYearOfInstallationRated ?? '-' }}</td>
+                                                        <td>{{ $item->fan->fanYearOfInstallationMeasured ?? '-' }}</td>
                                                     </tr>
                                                     <tr>
                                                         <td>Flow</td>
-                                                        <td>{{ $item->fanFlowRated ?? '-' }}</td>
-                                                        <td>{{ $item->fanFlowMeasured ?? '-' }}</td>
+                                                        <td>{{ $item->fan->fanFlowRated ?? '-' }}</td>
+                                                        <td>{{ $item->fan->fanFlowMeasured ?? '-' }}</td>
                                                     </tr>
                                                     <tr>
                                                         <td>Head</td>
-                                                        <td>{{ $item->fanHeadRated ?? '-' }}</td>
-                                                        <td>{{ $item->fanHeadMeasured ?? '-' }}</td>
+                                                        <td>{{ $item->fan->fanHeadRated ?? '-' }}</td>
+                                                        <td>{{ $item->fan->fanHeadMeasured ?? '-' }}</td>
                                                     </tr>
                                                     <tr>
                                                         <td>Voltage</td>
-                                                        <td>{{ $item->fanVoltageRated ?? '-' }}</td>
-                                                        <td>{{ $item->fanVoltageMeasured ?? '-' }}</td>
+                                                        <td>{{ $item->fan->fanVoltageRated ?? '-' }}</td>
+                                                        <td>{{ $item->fan->fanVoltageMeasured ?? '-' }}</td>
                                                     </tr>
                                                     <tr>
                                                         <td>Current</td>
-                                                        <td>{{ $item->fanCurrentRated ?? '-' }}</td>
-                                                        <td>{{ $item->fanCurrentMeasured ?? '-' }}</td>
+                                                        <td>{{ $item->fan->fanCurrentRated ?? '-' }}</td>
+                                                        <td>{{ $item->fan->fanCurrentMeasured ?? '-' }}</td>
                                                     </tr>
                                                     <tr>
                                                         <td>Power Factor</td>
-                                                        <td>{{ $item->fanPowerFactorRated ?? '-' }}</td>
-                                                        <td>{{ $item->fanPowerFactorMeasured ?? '-' }}</td>
+                                                        <td>{{ $item->fan->fanPowerFactorRated ?? '-' }}</td>
+                                                        <td>{{ $item->fan->fanPowerFactorMeasured ?? '-' }}</td>
                                                     </tr>
                                                     <tr>
                                                         <td>Motor Power</td>
-                                                        <td>{{ $item->fanMotorPowerRated ?? '-' }}</td>
-                                                        <td>{{ $item->fanMotorPowerMeasured ?? '-' }}</td>
+                                                        <td>{{ $item->fan->fanMotorPowerRated ?? '-' }}</td>
+                                                        <td>{{ $item->fan->fanMotorPowerMeasured ?? '-' }}</td>
                                                     </tr>
                                                     <tr>
                                                         <td>Motor Efficiency</td>
-                                                        <td>{{ $item->fanMotorEfficiencyRated ?? '-' }}</td>
-                                                        <td>{{ $item->fanMotorEfficiencyMeasured ?? '-' }}</td>
+                                                        <td>{{ $item->fan->fanMotorEfficiencyRated ?? '-' }}</td>
+                                                        <td>{{ $item->fan->fanMotorEfficiencyMeasured ?? '-' }}</td>
                                                     </tr>
                                                     <tr>
                                                         <td>Motor Efficiency Class</td>
-                                                        <td>{{ $item->fanMotorEfficiencyClassRated ?? '-' }}</td>
-                                                        <td>{{ $item->fanMotorEfficiencyClassMeasured ?? '-' }}</td>
+                                                        <td>{{ $item->fan->fanMotorEfficiencyClassRated ?? '-' }}</td>
+                                                        <td>{{ $item->fan->fanMotorEfficiencyClassMeasured ?? '-' }}</td>
                                                     </tr>
                                                     <tr>
                                                         <td>Motor Frame Size</td>
-                                                        <td>{{ $item->fanMotorFrameSizeRated ?? '-' }}</td>
-                                                        <td>{{ $item->fanMotorFrameSizeMeasured ?? '-' }}</td>
+                                                        <td>{{ $item->fan->fanMotorFrameSizeRated ?? '-' }}</td>
+                                                        <td>{{ $item->fan->fanMotorFrameSizeMeasured ?? '-' }}</td>
                                                     </tr>
                                                     <tr>
                                                         <td>Insulation Class</td>
-                                                        <td>{{ $item->fanInsulationClassRated ?? '-' }}</td>
-                                                        <td>{{ $item->fanInsulationClassMeasured ?? '-' }}</td>
+                                                        <td>{{ $item->fan->fanInsulationClassRated ?? '-' }}</td>
+                                                        <td>{{ $item->fan->fanInsulationClassMeasured ?? '-' }}</td>
                                                     </tr>
                                                     <tr>
                                                         <td>Suction Duct Size</td>
-                                                        <td>{{ $item->fanSuctionDuctSizeRated ?? '-' }}</td>
-                                                        <td>{{ $item->fanSuctionDuctSizeMeasured ?? '-' }}</td>
+                                                        <td>{{ $item->fan->fanSuctionDuctSizeRated ?? '-' }}</td>
+                                                        <td>{{ $item->fan->fanSuctionDuctSizeMeasured ?? '-' }}</td>
                                                     </tr>
                                                     <tr>
                                                         <td>Suction Static Pressure</td>
-                                                        <td>{{ $item->fanSuctionStaticPressureRated ?? '-' }}</td>
-                                                        <td>{{ $item->fanSuctionStaticPressureMeasured ?? '-' }}</td>
+                                                        <td>{{ $item->fan->fanSuctionStaticPressureRated ?? '-' }}</td>
+                                                        <td>{{ $item->fan->fanSuctionStaticPressureMeasured ?? '-' }}</td>
                                                     </tr>
                                                     <tr>
                                                         <td>Suction Velocity Pressure</td>
-                                                        <td>{{ $item->fanSuctionVelocityPressureRated ?? '-' }}</td>
-                                                        <td>{{ $item->fanSuctionVelocityPressureMeasured ?? '-' }}</td>
+                                                        <td>{{ $item->fan->fanSuctionVelocityPressureRated ?? '-' }}</td>
+                                                        <td>{{ $item->fan->fanSuctionVelocityPressureMeasured ?? '-' }}</td>
                                                     </tr>
                                                     <tr>
                                                         <td>Discharge Duct Size</td>
-                                                        <td>{{ $item->fanDischargeDuctSizeRated ?? '-' }}</td>
-                                                        <td>{{ $item->fanDischargeDuctSizeMeasured ?? '-' }}</td>
+                                                        <td>{{ $item->fan->fanDischargeDuctSizeRated ?? '-' }}</td>
+                                                        <td>{{ $item->fan->fanDischargeDuctSizeMeasured ?? '-' }}</td>
                                                     </tr>
                                                     <tr>
                                                         <td>Discharge Static Pressure</td>
-                                                        <td>{{ $item->fanDischargeStaticPressureRated ?? '-' }}</td>
-                                                        <td>{{ $item->fanDischargeStaticPressureMeasured ?? '-' }}</td>
+                                                        <td>{{ $item->fan->fanDischargeStaticPressureRated ?? '-' }}</td>
+                                                        <td>{{ $item->fan->fanDischargeStaticPressureMeasured ?? '-' }}</td>
                                                     </tr>
                                                     <tr>
                                                         <td>Discharge Velocity Pressure</td>
-                                                        <td>{{ $item->fanDischargeVelocityPressureRated ?? '-' }}</td>
-                                                        <td>{{ $item->fanDischargeVelocityPressureMeasured ?? '-' }}</td>
+                                                        <td>{{ $item->fan->fanDischargeVelocityPressureRated ?? '-' }}</td>
+                                                        <td>{{ $item->fan->fanDischargeVelocityPressureMeasured ?? '-' }}</td>
                                                     </tr>
                                                     <tr>
                                                         <td>Efficiency</td>
-                                                        <td>{{ $item->fanEfficiencyRated ?? '-' }}</td>
-                                                        <td>{{ $item->fanEfficiencyMeasured ?? '-' }}</td>
+                                                        <td>{{ $item->fan->fanEfficiencyRated ?? '-' }}</td>
+                                                        <td>{{ $item->fan->fanEfficiencyMeasured ?? '-' }}</td>
                                                     </tr>
 
                                                 @elseif($item->itemType === 'Air Compressor')
                                                     <!-- Air Compressor Specifications -->
                                                     <tr>
                                                         <td>Year of Installation</td>
-                                                        <td>{{ $item->airCompressorYearOfInstallationRated ?? '-' }}</td>
-                                                        <td>{{ $item->airCompressorYearOfInstallationMeasured ?? '-' }}</td>
+                                                        <td>{{ $item->Compressor->airCompressorYearOfInstallationRated ?? '-' }}</td>
+                                                        <td>{{ $item->Compressor->airCompressorYearOfInstallationMeasured ?? '-' }}</td>
                                                     </tr>
                                                     <tr>
                                                         <td>Flow</td>
-                                                        <td>{{ $item->airCompressorFlowRated ?? '-' }}</td>
-                                                        <td>{{ $item->airCompressorFlowMeasured ?? '-' }}</td>
+                                                        <td>{{ $item->Compressor->airCompressorFlowRated ?? '-' }}</td>
+                                                        <td>{{ $item->Compressor->airCompressorFlowMeasured ?? '-' }}</td>
                                                     </tr>
                                                     <tr>
                                                         <td>Pressure</td>
-                                                        <td>{{ $item->airCompressorPressureRated ?? '-' }}</td>
-                                                        <td>{{ $item->airCompressorPressureMeasured ?? '-' }}</td>
+                                                        <td>{{ $item->Compressor->airCompressorPressureRated ?? '-' }}</td>
+                                                        <td>{{ $item->Compressor->airCompressorPressureMeasured ?? '-' }}</td>
                                                     </tr>
                                                     <tr>
                                                         <td>Voltage</td>
-                                                        <td>{{ $item->airCompressorVoltageRated ?? '-' }}</td>
-                                                        <td>{{ $item->airCompressorVoltageMeasured ?? '-' }}</td>
+                                                        <td>{{ $item->Compressor->airCompressorVoltageRated ?? '-' }}</td>
+                                                        <td>{{ $item->Compressor->airCompressorVoltageMeasured ?? '-' }}</td>
                                                     </tr>
                                                     <tr>
                                                         <td>Current</td>
-                                                        <td>{{ $item->airCompressorCurrentRated ?? '-' }}</td>
-                                                        <td>{{ $item->airCompressorCurrentMeasured ?? '-' }}</td>
+                                                        <td>{{ $item->Compressor->airCompressorCurrentRated ?? '-' }}</td>
+                                                        <td>{{ $item->Compressor->airCompressorCurrentMeasured ?? '-' }}</td>
                                                     </tr>
                                                     <tr>
                                                         <td>Power Factor</td>
-                                                        <td>{{ $item->airCompressorPowerFactorRated ?? '-' }}</td>
-                                                        <td>{{ $item->airCompressorPowerFactorMeasured ?? '-' }}</td>
+                                                        <td>{{ $item->Compressor->airCompressorPowerFactorRated ?? '-' }}</td>
+                                                        <td>{{ $item->Compressor->airCompressorPowerFactorMeasured ?? '-' }}</td>
                                                     </tr>
                                                     <tr>
                                                         <td>Motor Power</td>
-                                                        <td>{{ $item->airCompressorMotorPowerRated ?? '-' }}</td>
-                                                        <td>{{ $item->airCompressorMotorPowerMeasured ?? '-' }}</td>
+                                                        <td>{{ $item->Compressor->airCompressorMotorPowerRated ?? '-' }}</td>
+                                                        <td>{{ $item->Compressor->airCompressorMotorPowerMeasured ?? '-' }}</td>
                                                     </tr>
                                                     <tr>
                                                         <td>Motor Efficiency</td>
-                                                        <td>{{ $item->airCompressorMotorEfficiencyRated ?? '-' }}</td>
-                                                        <td>{{ $item->airCompressorMotorEfficiencyMeasured ?? '-' }}</td>
+                                                        <td>{{ $item->Compressor->airCompressorMotorEfficiencyRated ?? '-' }}</td>
+                                                        <td>{{ $item->Compressor->airCompressorMotorEfficiencyMeasured ?? '-' }}</td>
                                                     </tr>
                                                     <tr>
                                                         <td>Motor Efficiency Class</td>
-                                                        <td>{{ $item->airCompressorMotorEfficiencyClassRated ?? '-' }}</td>
-                                                        <td>{{ $item->airCompressorMotorEfficiencyClassMeasured ?? '-' }}</td>
+                                                        <td>{{ $item->Compressor->airCompressorMotorEfficiencyClassRated ?? '-' }}</td>
+                                                        <td>{{ $item->Compressor->airCompressorMotorEfficiencyClassMeasured ?? '-' }}</td>
                                                     </tr>
                                                     <tr>
                                                         <td>Motor Frame Size</td>
-                                                        <td>{{ $item->airCompressorMotorFrameSizeRated ?? '-' }}</td>
-                                                        <td>{{ $item->airCompressorMotorFrameSizeMeasured ?? '-' }}</td>
+                                                        <td>{{ $item->Compressor->airCompressorMotorFrameSizeRated ?? '-' }}</td>
+                                                        <td>{{ $item->Compressor->airCompressorMotorFrameSizeMeasured ?? '-' }}</td>
                                                     </tr>
                                                     <tr>
                                                         <td>Insulation Class</td>
-                                                        <td>{{ $item->airCompressorInsulationClassRated ?? '-' }}</td>
-                                                        <td>{{ $item->airCompressorInsulationClassMeasured ?? '-' }}</td>
+                                                        <td>{{ $item->Compressor->airCompressorInsulationClassRated ?? '-' }}</td>
+                                                        <td>{{ $item->Compressor->airCompressorInsulationClassMeasured ?? '-' }}</td>
                                                     </tr>
                                                     <tr>
                                                         <td>Load Pressure</td>
-                                                        <td>{{ $item->airCompressorLoadPressureRated ?? '-' }}</td>
-                                                        <td>{{ $item->airCompressorLoadPressureMeasured ?? '-' }}</td>
+                                                        <td>{{ $item->Compressor->airCompressorLoadPressureRated ?? '-' }}</td>
+                                                        <td>{{ $item->Compressor->airCompressorLoadPressureMeasured ?? '-' }}</td>
                                                     </tr>
                                                     <tr>
                                                         <td>UnLoad Pressure</td>
-                                                        <td>{{ $item->airCompressorUnLoadPressureRated ?? '-' }}</td>
-                                                        <td>{{ $item->airCompressorUnLoadPressureMeasured ?? '-' }}</td>
+                                                        <td>{{ $item->Compressor->airCompressorUnLoadPressureRated ?? '-' }}</td>
+                                                        <td>{{ $item->Compressor->airCompressorUnLoadPressureMeasured ?? '-' }}</td>
                                                     </tr>
                                                     <tr>
                                                         <td>Receiver Size</td>
-                                                        <td>{{ $item->airCompressorRecieverSizeRated ?? '-' }}</td>
-                                                        <td>{{ $item->airCompressorRecieverSizeMeasured ?? '-' }}</td>
+                                                        <td>{{ $item->Compressor->airCompressorRecieverSizeRated ?? '-' }}</td>
+                                                        <td>{{ $item->Compressor->airCompressorRecieverSizeMeasured ?? '-' }}</td>
                                                     </tr>
                                                     <tr>
                                                         <td>Initial Pressure</td>
-                                                        <td>{{ $item->airCompressorInitialPressureRated ?? '-' }}</td>
-                                                        <td>{{ $item->airCompressorInitialPressureMeasured ?? '-' }}</td>
+                                                        <td>{{ $item->Compressor->airCompressorInitialPressureRated ?? '-' }}</td>
+                                                        <td>{{ $item->Compressor->airCompressorInitialPressureMeasured ?? '-' }}</td>
                                                     </tr>
                                                     <tr>
                                                         <td>Final Pressure</td>
-                                                        <td>{{ $item->airCompressorFinalPressureRated ?? '-' }}</td>
-                                                        <td>{{ $item->airCompressorFinalPressureMeasured ?? '-' }}</td>
+                                                        <td>{{ $item->Compressor->airCompressorFinalPressureRated ?? '-' }}</td>
+                                                        <td>{{ $item->Compressor->airCompressorFinalPressureMeasured ?? '-' }}</td>
                                                     </tr>
                                                     <tr>
                                                         <td>Time to Reach Final Pressure</td>
-                                                        <td>{{ $item->airCompressorTimeToReachFinalPressureRated ?? '-' }}</td>
-                                                        <td>{{ $item->airCompressorTimeToReachFinalPressureMeasured ?? '-' }}</td>
+                                                        <td>{{ $item->Compressor->airCompressorTimeToReachFinalPressureRated ?? '-' }}</td>
+                                                        <td>{{ $item->Compressor->airCompressorTimeToReachFinalPressureMeasured ?? '-' }}</td>
                                                     </tr>
                                                     <tr>
                                                         <td>Temperature</td>
-                                                        <td>{{ $item->airCompressorTemperatureRated ?? '-' }}</td>
-                                                        <td>{{ $item->airCompressorTemperatureMeasured ?? '-' }}</td>
+                                                        <td>{{ $item->Compressor->airCompressorTemperatureRated ?? '-' }}</td>
+                                                        <td>{{ $item->Compressor->airCompressorTemperatureMeasured ?? '-' }}</td>
                                                     </tr>
                                                     <tr>
                                                         <td>Compressor SEC</td>
-                                                        <td>{{ $item->airCompressorCompressorSECRated ?? '-' }}</td>
-                                                        <td>{{ $item->airCompressorCompressorSECMeasured ?? '-' }}</td>
+                                                        <td>{{ $item->Compressor->airCompressorCompressorSECRated ?? '-' }}</td>
+                                                        <td>{{ $item->Compressor->airCompressorCompressorSECMeasured ?? '-' }}</td>
                                                     </tr>
                                                     <!-- Leakage Test -->
                                                     <tr>
                                                         <td>Load Time Reading One</td>
-                                                        <td colspan="2">{{ $item->airCompressorLoadTimeReadingOne ?? '-' }}</td>
+                                                        <td colspan="2">{{ $item->Compressor->airCompressorLoadTimeReadingOne ?? '-' }}</td>
                                                     </tr>
                                                     <tr>
                                                         <td>Load Time Reading Two</td>
-                                                        <td colspan="2">{{ $item->airCompressorLoadTimeReadingTwo ?? '-' }}</td>
+                                                        <td colspan="2">{{ $item->Compressor->airCompressorLoadTimeReadingTwo ?? '-' }}</td>
                                                     </tr>
                                                     <tr>
                                                         <td>UnLoad Time Reading One</td>
-                                                        <td colspan="2">{{ $item->airCompressorUnLoadTimeReadingOne ?? '-' }}</td>
+                                                        <td colspan="2">{{ $item->Compressor->airCompressorUnLoadTimeReadingOne ?? '-' }}</td>
                                                     </tr>
                                                     <tr>
                                                         <td>UnLoad Time Reading Two</td>
-                                                        <td colspan="2">{{ $item->airCompressorUnLoadTimeReadingTwo ?? '-' }}</td>
+                                                        <td colspan="2">{{ $item->Compressor->airCompressorUnLoadTimeReadingTwo ?? '-' }}</td>
                                                     </tr>
 
                                                 @elseif($item->itemType === 'Chiller')
                                                     <!-- Chiller Specifications -->
                                                     <tr>
                                                         <td>Year of Installation</td>
-                                                        <td>{{ $item->chillerYearOfInstallationRated ?? '-' }}</td>
-                                                        <td>{{ $item->chillerYearOfInstallationMeasured ?? '-' }}</td>
+                                                        <td>{{ $item->chiller->chillerYearOfInstallationRated ?? '-' }}</td>
+                                                        <td>{{ $item->chiller->chillerYearOfInstallationMeasured ?? '-' }}</td>
                                                     </tr>
                                                     <tr>
                                                         <td>Capacity</td>
-                                                        <td>{{ $item->chillerCapacityRated ?? '-' }}</td>
-                                                        <td>{{ $item->chillerCapacityMeasured ?? '-' }}</td>
+                                                        <td>{{ $item->chiller->chillerCapacityRated ?? '-' }}</td>
+                                                        <td>{{ $item->chiller->chillerCapacityMeasured ?? '-' }}</td>
                                                     </tr>
                                                     <tr>
                                                         <td>Voltage</td>
-                                                        <td>{{ $item->chillerVoltageRated ?? '-' }}</td>
-                                                        <td>{{ $item->chillerVoltageMeasured ?? '-' }}</td>
+                                                        <td>{{ $item->chiller->chillerVoltageRated ?? '-' }}</td>
+                                                        <td>{{ $item->chiller->chillerVoltageMeasured ?? '-' }}</td>
                                                     </tr>
                                                     <tr>
                                                         <td>Current</td>
-                                                        <td>{{ $item->chillerCurrentRated ?? '-' }}</td>
-                                                        <td>{{ $item->chillerCurrentMeasured ?? '-' }}</td>
+                                                        <td>{{ $item->chiller->chillerCurrentRated ?? '-' }}</td>
+                                                        <td>{{ $item->chiller->chillerCurrentMeasured ?? '-' }}</td>
                                                     </tr>
                                                     <tr>
                                                         <td>Power Factor</td>
-                                                        <td>{{ $item->chillerPowerFactorRated ?? '-' }}</td>
-                                                        <td>{{ $item->chillerPowerFactorMeasured ?? '-' }}</td>
+                                                        <td>{{ $item->chiller->chillerPowerFactorRated ?? '-' }}</td>
+                                                        <td>{{ $item->chiller->chillerPowerFactorMeasured ?? '-' }}</td>
                                                     </tr>
                                                     <tr>
                                                         <td>Motor Power</td>
-                                                        <td>{{ $item->chillerMotorPowerRated ?? '-' }}</td>
-                                                        <td>{{ $item->chillerMotorPowerMeasured ?? '-' }}</td>
+                                                        <td>{{ $item->chiller->chillerMotorPowerRated ?? '-' }}</td>
+                                                        <td>{{ $item->chiller->chillerMotorPowerMeasured ?? '-' }}</td>
                                                     </tr>
                                                     <tr>
                                                         <td>Motor Efficiency</td>
-                                                        <td>{{ $item->chillerMotorEfficiencyRated ?? '-' }}</td>
-                                                        <td>{{ $item->chillerMotorEfficiencyMeasured ?? '-' }}</td>
+                                                        <td>{{ $item->chiller->chillerMotorEfficiencyRated ?? '-' }}</td>
+                                                        <td>{{ $item->chiller->chillerMotorEfficiencyMeasured ?? '-' }}</td>
                                                     </tr>
                                                     <tr>
                                                         <td>Motor Efficiency Class</td>
-                                                        <td>{{ $item->chillerMotorEfficiencyClassRated ?? '-' }}</td>
-                                                        <td>{{ $item->chillerMotorEfficiencyClassMeasured ?? '-' }}</td>
+                                                        <td>{{ $item->chiller->chillerMotorEfficiencyClassRated ?? '-' }}</td>
+                                                        <td>{{ $item->chiller->chillerMotorEfficiencyClassMeasured ?? '-' }}</td>
                                                     </tr>
                                                     <tr>
                                                         <td>Motor Frame Size</td>
-                                                        <td>{{ $item->chillerMotorFrameSizeRated ?? '-' }}</td>
-                                                        <td>{{ $item->chillerMotorFrameSizeMeasured ?? '-' }}</td>
+                                                        <td>{{ $item->chiller->chillerMotorFrameSizeRated ?? '-' }}</td>
+                                                        <td>{{ $item->chiller->chillerMotorFrameSizeMeasured ?? '-' }}</td>
                                                     </tr>
                                                     <tr>
                                                         <td>Supply Temp</td>
-                                                        <td>{{ $item->chillerSupplyTempRated ?? '-' }}</td>
-                                                        <td>{{ $item->chillerSupplyTempMeasured ?? '-' }}</td>
+                                                        <td>{{ $item->chiller->chillerSupplyTempRated ?? '-' }}</td>
+                                                        <td>{{ $item->chiller->chillerSupplyTempMeasured ?? '-' }}</td>
                                                     </tr>
                                                     <tr>
                                                         <td>Return Temp</td>
-                                                        <td>{{ $item->chillerReturnTempRated ?? '-' }}</td>
-                                                        <td>{{ $item->chillerReturnTempMeasured ?? '-' }}</td>
+                                                        <td>{{ $item->chiller->chillerReturnTempRated ?? '-' }}</td>
+                                                        <td>{{ $item->chiller->chillerReturnTempMeasured ?? '-' }}</td>
                                                     </tr>
                                                     <tr>
                                                         <td>Flow</td>
-                                                        <td>{{ $item->chillerFlowRated ?? '-' }}</td>
-                                                        <td>{{ $item->chillerFlowMeasured ?? '-' }}</td>
+                                                        <td>{{ $item->chiller->chillerFlowRated ?? '-' }}</td>
+                                                        <td>{{ $item->chiller->chillerFlowMeasured ?? '-' }}</td>
                                                     </tr>
                                                     <tr>
                                                         <td>Chiller SEC</td>
-                                                        <td>{{ $item->chillerChillerSECRated ?? '-' }}</td>
-                                                        <td>{{ $item->chillerChillerSECMeasured ?? '-' }}</td>
+                                                        <td>{{ $item->chiller->chillerChillerSECRated ?? '-' }}</td>
+                                                        <td>{{ $item->chiller->chillerChillerSECMeasured ?? '-' }}</td>
                                                     </tr>
                                                     <tr>
                                                         <td>Condenser Approach</td>
-                                                        <td>{{ $item->chillerCondenserApprochRated ?? '-' }}</td>
-                                                        <td>{{ $item->chillerCondenserApprochMeasured ?? '-' }}</td>
+                                                        <td>{{ $item->chiller->chillerCondenserApprochRated ?? '-' }}</td>
+                                                        <td>{{ $item->chiller->chillerCondenserApprochMeasured ?? '-' }}</td>
                                                     </tr>
 
                                                 @elseif($item->itemType === 'Motor')
                                                     <!-- Motor Specifications -->
                                                     <tr>
                                                         <td>Year of Installation</td>
-                                                        <td>{{ $item->motorYearOfInstallationRated ?? '-' }}</td>
-                                                        <td>{{ $item->motorYearOfInstallationMeasured ?? '-' }}</td>
+                                                        <td>{{ $item->motor->motorYearOfInstallationRated ?? '-' }}</td>
+                                                        <td>{{ $item->motor->motorYearOfInstallationMeasured ?? '-' }}</td>
                                                     </tr>
                                                     <tr>
                                                         <td>Name of Equipment</td>
-                                                        <td>{{ $item->motorNameOfEquipmentRated ?? '-' }}</td>
-                                                        <td>{{ $item->motorNameOfEquipmentMeasured ?? '-' }}</td>
+                                                        <td>{{ $item->motor->motorNameOfEquipmentRated ?? '-' }}</td>
+                                                        <td>{{ $item->motor->motorNameOfEquipmentMeasured ?? '-' }}</td>
                                                     </tr>
                                                     <tr>
                                                         <td>Voltage</td>
-                                                        <td>{{ $item->motorVoltageRated ?? '-' }}</td>
-                                                        <td>{{ $item->motorVoltageMeasured ?? '-' }}</td>
+                                                        <td>{{ $item->motor->motorVoltageRated ?? '-' }}</td>
+                                                        <td>{{ $item->motor->motorVoltageMeasured ?? '-' }}</td>
                                                     </tr>
                                                     <tr>
                                                         <td>Current</td>
-                                                        <td>{{ $item->motorCurrentRated ?? '-' }}</td>
-                                                        <td>{{ $item->motorCurrentMeasured ?? '-' }}</td>
+                                                        <td>{{ $item->motor->motorCurrentRated ?? '-' }}</td>
+                                                        <td>{{ $item->motor->motorCurrentMeasured ?? '-' }}</td>
                                                     </tr>
                                                     <tr>
                                                         <td>Power Factor</td>
-                                                        <td>{{ $item->motorPowerFactorRated ?? '-' }}</td>
-                                                        <td>{{ $item->motorPowerFactorMeasured ?? '-' }}</td>
+                                                        <td>{{ $item->motor->motorPowerFactorRated ?? '-' }}</td>
+                                                        <td>{{ $item->motor->motorPowerFactorMeasured ?? '-' }}</td>
                                                     </tr>
                                                     <tr>
                                                         <td>Motor Power</td>
-                                                        <td>{{ $item->motorMotorPowerRated ?? '-' }}</td>
-                                                        <td>{{ $item->motorMotorPowerMeasured ?? '-' }}</td>
+                                                        <td>{{ $item->motor->motorMotorPowerRated ?? '-' }}</td>
+                                                        <td>{{ $item->motor->motorMotorPowerMeasured ?? '-' }}</td>
                                                     </tr>
                                                     <tr>
                                                         <td>Motor Efficiency</td>
-                                                        <td>{{ $item->motorMotorEfficiencyRated ?? '-' }}</td>
-                                                        <td>{{ $item->motorMotorEfficiencyMeasured ?? '-' }}</td>
+                                                        <td>{{ $item->motor->motorMotorEfficiencyRated ?? '-' }}</td>
+                                                        <td>{{ $item->motor->motorMotorEfficiencyMeasured ?? '-' }}</td>
                                                     </tr>
                                                     <tr>
                                                         <td>Motor Efficiency Class</td>
-                                                        <td>{{ $item->motorMotorEfficiencyClassRated ?? '-' }}</td>
-                                                        <td>{{ $item->motorMotorEfficiencyClassMeasured ?? '-' }}</td>
+                                                        <td>{{ $item->motor->motorMotorEfficiencyClassRated ?? '-' }}</td>
+                                                        <td>{{ $item->motor->motorMotorEfficiencyClassMeasured ?? '-' }}</td>
                                                     </tr>
                                                     <tr>
                                                         <td>Motor Frame Size</td>
-                                                        <td>{{ $item->motorMotorFrameSizeRated ?? '-' }}</td>
-                                                        <td>{{ $item->motorMotorFrameSizeMeasured ?? '-' }}</td>
+                                                        <td>{{ $item->motor->motorMotorFrameSizeRated ?? '-' }}</td>
+                                                        <td>{{ $item->motor->motorMotorFrameSizeMeasured ?? '-' }}</td>
                                                     </tr>
                                                 @endif
                                                 </tbody>
@@ -490,131 +493,131 @@
                                             <!-- Pump Checklist -->
                                             <tr>
                                                 <td>VFD or Not</td>
-                                                <td>{{ $item->pumpVFDorNot ?? '-' }}</td>
+                                                <td>{{ $item->pump->pumpVFDorNot ?? '-' }}</td>
                                             </tr>
                                             <tr>
                                                 <td>VFD setting in Hz</td>
-                                                <td>{{ $item->pumpVFDSetting ?? '-' }}</td>
+                                                <td>{{ $item->pump->pumpVFDSetting ?? '-' }}</td>
                                             </tr>
                                             <tr>
                                                 <td>Throttling</td>
-                                                <td>{{ $item->pumpThrottling ?? '-' }}</td>
+                                                <td>{{ $item->pump->pumpThrottling ?? '-' }}</td>
                                             </tr>
                                             <tr>
                                                 <td>Flow Modulation Required</td>
-                                                <td>{{ $item->pumpFlowModulationRequired ?? '-' }}</td>
+                                                <td>{{ $item->pump->pumpFlowModulationRequired ?? '-' }}</td>
                                             </tr>
                                             <tr>
                                                 <td>Parallel Pump Operation</td>
-                                                <td>{{ $item->pumpParallelPumpOperation ?? '-' }}</td>
+                                                <td>{{ $item->pump->pumpParallelPumpOperation ?? '-' }}</td>
                                             </tr>
                                             <tr>
                                                 <td>No. of Rewinding of Motor</td>
-                                                <td>{{ $item->pumpNosOfRewidingOfMotor ?? '-' }}</td>
+                                                <td>{{ $item->pump->pumpNosOfRewidingOfMotor ?? '-' }}</td>
                                             </tr>
                                             <tr>
                                                 <td>Check Cavitation</td>
-                                                <td>{{ $item->pumpCheckCavitation ?? '-' }}</td>
+                                                <td>{{ $item->pump->pumpCheckCavitation ?? '-' }}</td>
                                             </tr>
                                             <tr>
-                                                <td>Operating Hours</td>
-                                                <td>{{ $item->pumpOperatingHours ?? '-' }}</td>
+                                                <td>Operating Hours in day</td>
+                                                <td>{{ $item->pump->pumpOperatingHours ?? '-' }}</td>
                                             </tr>
 
                                         @elseif($item->itemType === 'Fan')
                                             <!-- Fan Checklist -->
                                             <tr>
                                                 <td>VFD or Not</td>
-                                                <td>{{ $item->fanVFDorNot ?? '-' }}</td>
+                                                <td>{{ $item->fan->fanVFDorNot ?? '-' }}</td>
                                             </tr>
                                             <tr>
                                                 <td>VFD Setting</td>
-                                                <td>{{ $item->fanVFDSetting ?? '-' }}</td>
+                                                <td>{{ $item->fan->fanVFDSetting ?? '-' }}</td>
                                             </tr>
                                             <tr>
                                                 <td>Opening</td>
-                                                <td>{{ $item->fanOpening ?? '-' }}</td>
+                                                <td>{{ $item->fan->fanOpening ?? '-' }}</td>
                                             </tr>
                                             <tr>
                                                 <td>Flow Modulation Required</td>
-                                                <td>{{ $item->fanFlowModulationRequired ?? '-' }}</td>
+                                                <td>{{ $item->fan->fanFlowModulationRequired ?? '-' }}</td>
                                             </tr>
                                             <tr>
                                                 <td>Parallel Fan Operation</td>
-                                                <td>{{ $item->fanParallelFanOperation ?? '-' }}</td>
+                                                <td>{{ $item->fan->fanParallelFanOperation ?? '-' }}</td>
                                             </tr>
                                             <tr>
                                                 <td>No. of Rewinding of Motor</td>
-                                                <td>{{ $item->fanNosOfRewidingOfMotor ?? '-' }}</td>
+                                                <td>{{ $item->fan->fanNosOfRewidingOfMotor ?? '-' }}</td>
                                             </tr>
                                             <tr>
                                                 <td>Operating Hours</td>
-                                                <td>{{ $item->fanOperatingHours ?? '-' }}</td>
+                                                <td>{{ $item->fan->fanOperatingHours ?? '-' }}</td>
                                             </tr>
 
                                         @elseif($item->itemType === 'Air Compressor')
                                             <!-- Air Compressor Checklist -->
                                             <tr>
                                                 <td>VFD or Not</td>
-                                                <td>{{ $item->airCompressorVFDorNot ?? '-' }}</td>
+                                                <td>{{ $item->Compressor->airCompressorVFDorNot ?? '-' }}</td>
                                             </tr>
                                             <tr>
                                                 <td>No. of Rewinding of Motor</td>
-                                                <td>{{ $item->airCompressorNosOfRewidingOfMotor ?? '-' }}</td>
+                                                <td>{{ $item->Compressor->airCompressorNosOfRewidingOfMotor ?? '-' }}</td>
                                             </tr>
                                             <tr>
                                                 <td>Check Required Pressure</td>
-                                                <td>{{ $item->airCompressorCheckRequiredpressure ?? '-' }}</td>
+                                                <td>{{ $item->Compressor->airCompressorCheckRequiredpressure ?? '-' }}</td>
                                             </tr>
                                             <tr>
                                                 <td>Check Pressure Drop</td>
-                                                <td>{{ $item->airCompressorCheckPressureDrop ?? '-' }}</td>
+                                                <td>{{ $item->Compressor->airCompressorCheckPressureDrop ?? '-' }}</td>
                                             </tr>
                                             <tr>
                                                 <td>Operating Hours</td>
-                                                <td>{{ $item->airCompressorOperatingHours ?? '-' }}</td>
+                                                <td>{{ $item->Compressor->airCompressorOperatingHours ?? '-' }}</td>
                                             </tr>
 
                                         @elseif($item->itemType === 'Chiller')
                                             <!-- Chiller Checklist -->
                                             <tr>
                                                 <td>VFD or Not</td>
-                                                <td>{{ $item->chillerVFDorNot ?? '-' }}</td>
+                                                <td>{{ $item->chiller->chillerVFDorNot ?? '-' }}</td>
                                             </tr>
                                             <tr>
                                                 <td>Set Temp</td>
-                                                <td>{{ $item->chillerSetTemp ?? '-' }}</td>
+                                                <td>{{ $item->chiller->chillerSetTemp ?? '-' }}</td>
                                             </tr>
                                             <tr>
                                                 <td>Check Condenser Condition</td>
-                                                <td>{{ $item->chillerCheckCondenserCondition ?? '-' }}</td>
+                                                <td>{{ $item->chiller->chillerCheckCondenserCondition ?? '-' }}</td>
                                             </tr>
                                             <tr>
                                                 <td>Operating Hours</td>
-                                                <td>{{ $item->chillerOperatingHours ?? '-' }}</td>
+                                                <td>{{ $item->chiller->chillerOperatingHours ?? '-' }}</td>
                                             </tr>
 
                                         @elseif($item->itemType === 'Motor')
                                             <!-- Motor Checklist -->
                                             <tr>
                                                 <td>VFD or Not</td>
-                                                <td>{{ $item->motorVFDorNot ?? '-' }}</td>
+                                                <td>{{ $item->motor->motorVFDorNot ?? '-' }}</td>
                                             </tr>
                                             <tr>
                                                 <td>Check Per Phase Current</td>
-                                                <td>{{ $item->motorCheckPerPhaseCurrent ?? '-' }}</td>
+                                                <td>{{ $item->motor->motorCheckPerPhaseCurrent ?? '-' }}</td>
                                             </tr>
                                             <tr>
                                                 <td>Check Phasor</td>
-                                                <td>{{ $item->motorCheckPhasor ?? '-' }}</td>
+                                                <td>{{ $item->motor->motorCheckPhasor ?? '-' }}</td>
                                             </tr>
                                             <tr>
                                                 <td>No. of Rewinding of Motor</td>
-                                                <td>{{ $item->motorNosOfRewidingOfMotor ?? '-' }}</td>
+                                                <td>{{ $item->motor->motorNosOfRewidingOfMotor ?? '-' }}</td>
                                             </tr>
                                             <tr>
                                                 <td>Operating Hours</td>
-                                                <td>{{ $item->motorOperatingHours ?? '-' }}</td>
+                                                <td>{{ $item->motor->motorOperatingHours ?? '-' }}</td>
                                             </tr>
                                         @endif
                                         </tbody>
@@ -625,618 +628,7 @@
                     </div>
                 </div>
             </div>
-
         </div>
-
-        <!-- Basic Information Card -->
-{{--        <div class="card data-card mb-4">--}}
-{{--            <div class="card-body">--}}
-{{--                <div class="row">--}}
-{{--                    <div class="col-md-4">--}}
-{{--                        <div class="mb-3">--}}
-{{--                            <img src="{{ $item->image ?? asset('default.png') }}"--}}
-{{--                                 alt="Equipment Image"--}}
-{{--                                 class="img-fluid rounded">--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-{{--                    <div class="col-md-8">--}}
-{{--                        <div class="row">--}}
-{{--                            <div class="col-md-6">--}}
-{{--                                <p><strong>SKU:</strong> {{ $item->sku }}</p>--}}
-{{--                                <p><strong>Item Type:</strong> {{ $item->itemType }}</p>--}}
-{{--                                <p><strong>Created By:</strong> {{ $item->user->first_name.' '.$item->user->last_name }}</p>--}}
-{{--                            </div>--}}
-{{--                            <div class="col-md-6">--}}
-{{--                                <p><strong>Created At:</strong> {{ $item->created_at->format('d M Y H:i') }}</p>--}}
-{{--                                <p><strong>Last Updated:</strong> {{ $item->updated_at->format('d M Y H:i') }}</p>--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
-{{--                        <div class="row">--}}
-{{--                            <div class="col-12">--}}
-{{--                                <p><strong>Observations:</strong></p>--}}
-{{--                                <p>{{ $item->observations ?? 'No observations recorded' }}</p>--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-{{--            </div>--}}
-{{--        </div>--}}
-
-{{--        <!-- Equipment Specifications -->--}}
-{{--        <div class="card data-card mb-4">--}}
-{{--            <div class="card-header header-section">--}}
-{{--                <h4>Equipment Specifications</h4>--}}
-{{--            </div>--}}
-{{--            <div class="card-body">--}}
-{{--                <div class="table-responsive">--}}
-{{--                    <table class="table table-striped table-hover spec-table">--}}
-{{--                        <thead>--}}
-{{--                        <tr>--}}
-{{--                            <th>Parameter</th>--}}
-{{--                            <th>Rated Value</th>--}}
-{{--                            <th>Measured Value</th>--}}
-{{--                        </tr>--}}
-{{--                        </thead>--}}
-{{--                        <tbody>--}}
-{{--                        @if($item->itemType === 'Pump')--}}
-{{--                            <!-- Pump Specifications -->--}}
-{{--                            <tr>--}}
-{{--                                <td>Year of Installation</td>--}}
-{{--                                <td>{{ $item->pumpYearOfInstallationRated ?? '-' }}</td>--}}
-{{--                                <td>{{ $item->pumpYearOfInstallationMeasured ?? '-' }}</td>--}}
-{{--                            </tr>--}}
-{{--                            <tr>--}}
-{{--                                <td>Flow</td>--}}
-{{--                                <td>{{ $item->pumpFlowRated ?? '-' }}</td>--}}
-{{--                                <td>{{ $item->pumpFlowMeasured ?? '-' }}</td>--}}
-{{--                            </tr>--}}
-{{--                            <tr>--}}
-{{--                                <td>Head</td>--}}
-{{--                                <td>{{ $item->pumpHeadRated ?? '-' }}</td>--}}
-{{--                                <td>{{ $item->pumpHeadMeasured ?? '-' }}</td>--}}
-{{--                            </tr>--}}
-{{--                            <tr>--}}
-{{--                                <td>Voltage</td>--}}
-{{--                                <td>{{ $item->pumpVoltageRated ?? '-' }}</td>--}}
-{{--                                <td>{{ $item->pumpVoltageMeasured ?? '-' }}</td>--}}
-{{--                            </tr>--}}
-{{--                            <tr>--}}
-{{--                                <td>Current</td>--}}
-{{--                                <td>{{ $item->pumpCurrentRated ?? '-' }}</td>--}}
-{{--                                <td>{{ $item->pumpCurrentMeasured ?? '-' }}</td>--}}
-{{--                            </tr>--}}
-{{--                            <tr>--}}
-{{--                                <td>Power Factor</td>--}}
-{{--                                <td>{{ $item->pumpPowerFactorRated ?? '-' }}</td>--}}
-{{--                                <td>{{ $item->pumpPowerFactorMeasured ?? '-' }}</td>--}}
-{{--                            </tr>--}}
-{{--                            <tr>--}}
-{{--                                <td>Motor Power</td>--}}
-{{--                                <td>{{ $item->pumpMotorPowerRated ?? '-' }}</td>--}}
-{{--                                <td>{{ $item->pumpMotorPowerMeasured ?? '-' }}</td>--}}
-{{--                            </tr>--}}
-{{--                            <tr>--}}
-{{--                                <td>Motor Efficiency</td>--}}
-{{--                                <td>{{ $item->pumpMotorEfficiencyRated ?? '-' }}</td>--}}
-{{--                                <td>{{ $item->pumpMotorEfficiencyMeasured ?? '-' }}</td>--}}
-{{--                            </tr>--}}
-{{--                            <tr>--}}
-{{--                                <td>Motor Efficiency Class</td>--}}
-{{--                                <td>{{ $item->pumpMotorEfficiencyClassRated ?? '-' }}</td>--}}
-{{--                                <td>{{ $item->pumpMotorEfficiencyClassMeasured ?? '-' }}</td>--}}
-{{--                            </tr>--}}
-{{--                            <tr>--}}
-{{--                                <td>Motor Frame Size</td>--}}
-{{--                                <td>{{ $item->pumpMotorFrameSizeRated ?? '-' }}</td>--}}
-{{--                                <td>{{ $item->pumpMotorFrameSizeMeasured ?? '-' }}</td>--}}
-{{--                            </tr>--}}
-{{--                            <tr>--}}
-{{--                                <td>Insulation Class</td>--}}
-{{--                                <td>{{ $item->pumpInsulationClassRated ?? '-' }}</td>--}}
-{{--                                <td>{{ $item->pumpInsulationClassMeasured ?? '-' }}</td>--}}
-{{--                            </tr>--}}
-{{--                            <tr>--}}
-{{--                                <td>Suction Head</td>--}}
-{{--                                <td>{{ $item->pumpSuctionHeadRated ?? '-' }}</td>--}}
-{{--                                <td>{{ $item->pumpSuctionHeadMeasured ?? '-' }}</td>--}}
-{{--                            </tr>--}}
-{{--                            <tr>--}}
-{{--                                <td>Discharge Head</td>--}}
-{{--                                <td>{{ $item->pumpDischargeHeadRated ?? '-' }}</td>--}}
-{{--                                <td>{{ $item->pumpDischargeHeadMeasured ?? '-' }}</td>--}}
-{{--                            </tr>--}}
-{{--                            <tr>--}}
-{{--                                <td>Efficiency</td>--}}
-{{--                                <td>{{ $item->pumpEfficiencyRated ?? '-' }}</td>--}}
-{{--                                <td>{{ $item->pumpEfficiencyMeasured ?? '-' }}</td>--}}
-{{--                            </tr>--}}
-
-{{--                        @elseif($item->itemType === 'Fan')--}}
-{{--                            <!-- Fan Specifications -->--}}
-{{--                            <tr>--}}
-{{--                                <td>Year of Installation</td>--}}
-{{--                                <td>{{ $item->fanYearOfInstallationRated ?? '-' }}</td>--}}
-{{--                                <td>{{ $item->fanYearOfInstallationMeasured ?? '-' }}</td>--}}
-{{--                            </tr>--}}
-{{--                            <tr>--}}
-{{--                                <td>Flow</td>--}}
-{{--                                <td>{{ $item->fanFlowRated ?? '-' }}</td>--}}
-{{--                                <td>{{ $item->fanFlowMeasured ?? '-' }}</td>--}}
-{{--                            </tr>--}}
-{{--                            <tr>--}}
-{{--                                <td>Head</td>--}}
-{{--                                <td>{{ $item->fanHeadRated ?? '-' }}</td>--}}
-{{--                                <td>{{ $item->fanHeadMeasured ?? '-' }}</td>--}}
-{{--                            </tr>--}}
-{{--                            <tr>--}}
-{{--                                <td>Voltage</td>--}}
-{{--                                <td>{{ $item->fanVoltageRated ?? '-' }}</td>--}}
-{{--                                <td>{{ $item->fanVoltageMeasured ?? '-' }}</td>--}}
-{{--                            </tr>--}}
-{{--                            <tr>--}}
-{{--                                <td>Current</td>--}}
-{{--                                <td>{{ $item->fanCurrentRated ?? '-' }}</td>--}}
-{{--                                <td>{{ $item->fanCurrentMeasured ?? '-' }}</td>--}}
-{{--                            </tr>--}}
-{{--                            <tr>--}}
-{{--                                <td>Power Factor</td>--}}
-{{--                                <td>{{ $item->fanPowerFactorRated ?? '-' }}</td>--}}
-{{--                                <td>{{ $item->fanPowerFactorMeasured ?? '-' }}</td>--}}
-{{--                            </tr>--}}
-{{--                            <tr>--}}
-{{--                                <td>Motor Power</td>--}}
-{{--                                <td>{{ $item->fanMotorPowerRated ?? '-' }}</td>--}}
-{{--                                <td>{{ $item->fanMotorPowerMeasured ?? '-' }}</td>--}}
-{{--                            </tr>--}}
-{{--                            <tr>--}}
-{{--                                <td>Motor Efficiency</td>--}}
-{{--                                <td>{{ $item->fanMotorEfficiencyRated ?? '-' }}</td>--}}
-{{--                                <td>{{ $item->fanMotorEfficiencyMeasured ?? '-' }}</td>--}}
-{{--                            </tr>--}}
-{{--                            <tr>--}}
-{{--                                <td>Motor Efficiency Class</td>--}}
-{{--                                <td>{{ $item->fanMotorEfficiencyClassRated ?? '-' }}</td>--}}
-{{--                                <td>{{ $item->fanMotorEfficiencyClassMeasured ?? '-' }}</td>--}}
-{{--                            </tr>--}}
-{{--                            <tr>--}}
-{{--                                <td>Motor Frame Size</td>--}}
-{{--                                <td>{{ $item->fanMotorFrameSizeRated ?? '-' }}</td>--}}
-{{--                                <td>{{ $item->fanMotorFrameSizeMeasured ?? '-' }}</td>--}}
-{{--                            </tr>--}}
-{{--                            <tr>--}}
-{{--                                <td>Insulation Class</td>--}}
-{{--                                <td>{{ $item->fanInsulationClassRated ?? '-' }}</td>--}}
-{{--                                <td>{{ $item->fanInsulationClassMeasured ?? '-' }}</td>--}}
-{{--                            </tr>--}}
-{{--                            <tr>--}}
-{{--                                <td>Suction Duct Size</td>--}}
-{{--                                <td>{{ $item->fanSuctionDuctSizeRated ?? '-' }}</td>--}}
-{{--                                <td>{{ $item->fanSuctionDuctSizeMeasured ?? '-' }}</td>--}}
-{{--                            </tr>--}}
-{{--                            <tr>--}}
-{{--                                <td>Suction Static Pressure</td>--}}
-{{--                                <td>{{ $item->fanSuctionStaticPressureRated ?? '-' }}</td>--}}
-{{--                                <td>{{ $item->fanSuctionStaticPressureMeasured ?? '-' }}</td>--}}
-{{--                            </tr>--}}
-{{--                            <tr>--}}
-{{--                                <td>Suction Velocity Pressure</td>--}}
-{{--                                <td>{{ $item->fanSuctionVelocityPressureRated ?? '-' }}</td>--}}
-{{--                                <td>{{ $item->fanSuctionVelocityPressureMeasured ?? '-' }}</td>--}}
-{{--                            </tr>--}}
-{{--                            <tr>--}}
-{{--                                <td>Discharge Duct Size</td>--}}
-{{--                                <td>{{ $item->fanDischargeDuctSizeRated ?? '-' }}</td>--}}
-{{--                                <td>{{ $item->fanDischargeDuctSizeMeasured ?? '-' }}</td>--}}
-{{--                            </tr>--}}
-{{--                            <tr>--}}
-{{--                                <td>Discharge Static Pressure</td>--}}
-{{--                                <td>{{ $item->fanDischargeStaticPressureRated ?? '-' }}</td>--}}
-{{--                                <td>{{ $item->fanDischargeStaticPressureMeasured ?? '-' }}</td>--}}
-{{--                            </tr>--}}
-{{--                            <tr>--}}
-{{--                                <td>Discharge Velocity Pressure</td>--}}
-{{--                                <td>{{ $item->fanDischargeVelocityPressureRated ?? '-' }}</td>--}}
-{{--                                <td>{{ $item->fanDischargeVelocityPressureMeasured ?? '-' }}</td>--}}
-{{--                            </tr>--}}
-{{--                            <tr>--}}
-{{--                                <td>Efficiency</td>--}}
-{{--                                <td>{{ $item->fanEfficiencyRated ?? '-' }}</td>--}}
-{{--                                <td>{{ $item->fanEfficiencyMeasured ?? '-' }}</td>--}}
-{{--                            </tr>--}}
-
-{{--                        @elseif($item->itemType === 'Air Compressor')--}}
-{{--                            <!-- Air Compressor Specifications -->--}}
-{{--                            <tr>--}}
-{{--                                <td>Year of Installation</td>--}}
-{{--                                <td>{{ $item->airCompressorYearOfInstallationRated ?? '-' }}</td>--}}
-{{--                                <td>{{ $item->airCompressorYearOfInstallationMeasured ?? '-' }}</td>--}}
-{{--                            </tr>--}}
-{{--                            <tr>--}}
-{{--                                <td>Flow</td>--}}
-{{--                                <td>{{ $item->airCompressorFlowRated ?? '-' }}</td>--}}
-{{--                                <td>{{ $item->airCompressorFlowMeasured ?? '-' }}</td>--}}
-{{--                            </tr>--}}
-{{--                            <tr>--}}
-{{--                                <td>Pressure</td>--}}
-{{--                                <td>{{ $item->airCompressorPressureRated ?? '-' }}</td>--}}
-{{--                                <td>{{ $item->airCompressorPressureMeasured ?? '-' }}</td>--}}
-{{--                            </tr>--}}
-{{--                            <tr>--}}
-{{--                                <td>Voltage</td>--}}
-{{--                                <td>{{ $item->airCompressorVoltageRated ?? '-' }}</td>--}}
-{{--                                <td>{{ $item->airCompressorVoltageMeasured ?? '-' }}</td>--}}
-{{--                            </tr>--}}
-{{--                            <tr>--}}
-{{--                                <td>Current</td>--}}
-{{--                                <td>{{ $item->airCompressorCurrentRated ?? '-' }}</td>--}}
-{{--                                <td>{{ $item->airCompressorCurrentMeasured ?? '-' }}</td>--}}
-{{--                            </tr>--}}
-{{--                            <tr>--}}
-{{--                                <td>Power Factor</td>--}}
-{{--                                <td>{{ $item->airCompressorPowerFactorRated ?? '-' }}</td>--}}
-{{--                                <td>{{ $item->airCompressorPowerFactorMeasured ?? '-' }}</td>--}}
-{{--                            </tr>--}}
-{{--                            <tr>--}}
-{{--                                <td>Motor Power</td>--}}
-{{--                                <td>{{ $item->airCompressorMotorPowerRated ?? '-' }}</td>--}}
-{{--                                <td>{{ $item->airCompressorMotorPowerMeasured ?? '-' }}</td>--}}
-{{--                            </tr>--}}
-{{--                            <tr>--}}
-{{--                                <td>Motor Efficiency</td>--}}
-{{--                                <td>{{ $item->airCompressorMotorEfficiencyRated ?? '-' }}</td>--}}
-{{--                                <td>{{ $item->airCompressorMotorEfficiencyMeasured ?? '-' }}</td>--}}
-{{--                            </tr>--}}
-{{--                            <tr>--}}
-{{--                                <td>Motor Efficiency Class</td>--}}
-{{--                                <td>{{ $item->airCompressorMotorEfficiencyClassRated ?? '-' }}</td>--}}
-{{--                                <td>{{ $item->airCompressorMotorEfficiencyClassMeasured ?? '-' }}</td>--}}
-{{--                            </tr>--}}
-{{--                            <tr>--}}
-{{--                                <td>Motor Frame Size</td>--}}
-{{--                                <td>{{ $item->airCompressorMotorFrameSizeRated ?? '-' }}</td>--}}
-{{--                                <td>{{ $item->airCompressorMotorFrameSizeMeasured ?? '-' }}</td>--}}
-{{--                            </tr>--}}
-{{--                            <tr>--}}
-{{--                                <td>Insulation Class</td>--}}
-{{--                                <td>{{ $item->airCompressorInsulationClassRated ?? '-' }}</td>--}}
-{{--                                <td>{{ $item->airCompressorInsulationClassMeasured ?? '-' }}</td>--}}
-{{--                            </tr>--}}
-{{--                            <tr>--}}
-{{--                                <td>Load Pressure</td>--}}
-{{--                                <td>{{ $item->airCompressorLoadPressureRated ?? '-' }}</td>--}}
-{{--                                <td>{{ $item->airCompressorLoadPressureMeasured ?? '-' }}</td>--}}
-{{--                            </tr>--}}
-{{--                            <tr>--}}
-{{--                                <td>UnLoad Pressure</td>--}}
-{{--                                <td>{{ $item->airCompressorUnLoadPressureRated ?? '-' }}</td>--}}
-{{--                                <td>{{ $item->airCompressorUnLoadPressureMeasured ?? '-' }}</td>--}}
-{{--                            </tr>--}}
-{{--                            <tr>--}}
-{{--                                <td>Receiver Size</td>--}}
-{{--                                <td>{{ $item->airCompressorRecieverSizeRated ?? '-' }}</td>--}}
-{{--                                <td>{{ $item->airCompressorRecieverSizeMeasured ?? '-' }}</td>--}}
-{{--                            </tr>--}}
-{{--                            <tr>--}}
-{{--                                <td>Initial Pressure</td>--}}
-{{--                                <td>{{ $item->airCompressorInitialPressureRated ?? '-' }}</td>--}}
-{{--                                <td>{{ $item->airCompressorInitialPressureMeasured ?? '-' }}</td>--}}
-{{--                            </tr>--}}
-{{--                            <tr>--}}
-{{--                                <td>Final Pressure</td>--}}
-{{--                                <td>{{ $item->airCompressorFinalPressureRated ?? '-' }}</td>--}}
-{{--                                <td>{{ $item->airCompressorFinalPressureMeasured ?? '-' }}</td>--}}
-{{--                            </tr>--}}
-{{--                            <tr>--}}
-{{--                                <td>Time to Reach Final Pressure</td>--}}
-{{--                                <td>{{ $item->airCompressorTimeToReachFinalPressureRated ?? '-' }}</td>--}}
-{{--                                <td>{{ $item->airCompressorTimeToReachFinalPressureMeasured ?? '-' }}</td>--}}
-{{--                            </tr>--}}
-{{--                            <tr>--}}
-{{--                                <td>Temperature</td>--}}
-{{--                                <td>{{ $item->airCompressorTemperatureRated ?? '-' }}</td>--}}
-{{--                                <td>{{ $item->airCompressorTemperatureMeasured ?? '-' }}</td>--}}
-{{--                            </tr>--}}
-{{--                            <tr>--}}
-{{--                                <td>Compressor SEC</td>--}}
-{{--                                <td>{{ $item->airCompressorCompressorSECRated ?? '-' }}</td>--}}
-{{--                                <td>{{ $item->airCompressorCompressorSECMeasured ?? '-' }}</td>--}}
-{{--                            </tr>--}}
-{{--                            <!-- Leakage Test -->--}}
-{{--                            <tr>--}}
-{{--                                <td>Load Time Reading One</td>--}}
-{{--                                <td colspan="2">{{ $item->airCompressorLoadTimeReadingOne ?? '-' }}</td>--}}
-{{--                            </tr>--}}
-{{--                            <tr>--}}
-{{--                                <td>Load Time Reading Two</td>--}}
-{{--                                <td colspan="2">{{ $item->airCompressorLoadTimeReadingTwo ?? '-' }}</td>--}}
-{{--                            </tr>--}}
-{{--                            <tr>--}}
-{{--                                <td>UnLoad Time Reading One</td>--}}
-{{--                                <td colspan="2">{{ $item->airCompressorUnLoadTimeReadingOne ?? '-' }}</td>--}}
-{{--                            </tr>--}}
-{{--                            <tr>--}}
-{{--                                <td>UnLoad Time Reading Two</td>--}}
-{{--                                <td colspan="2">{{ $item->airCompressorUnLoadTimeReadingTwo ?? '-' }}</td>--}}
-{{--                            </tr>--}}
-
-{{--                        @elseif($item->itemType === 'Chiller')--}}
-{{--                            <!-- Chiller Specifications -->--}}
-{{--                            <tr>--}}
-{{--                                <td>Year of Installation</td>--}}
-{{--                                <td>{{ $item->chillerYearOfInstallationRated ?? '-' }}</td>--}}
-{{--                                <td>{{ $item->chillerYearOfInstallationMeasured ?? '-' }}</td>--}}
-{{--                            </tr>--}}
-{{--                            <tr>--}}
-{{--                                <td>Capacity</td>--}}
-{{--                                <td>{{ $item->chillerCapacityRated ?? '-' }}</td>--}}
-{{--                                <td>{{ $item->chillerCapacityMeasured ?? '-' }}</td>--}}
-{{--                            </tr>--}}
-{{--                            <tr>--}}
-{{--                                <td>Voltage</td>--}}
-{{--                                <td>{{ $item->chillerVoltageRated ?? '-' }}</td>--}}
-{{--                                <td>{{ $item->chillerVoltageMeasured ?? '-' }}</td>--}}
-{{--                            </tr>--}}
-{{--                            <tr>--}}
-{{--                                <td>Current</td>--}}
-{{--                                <td>{{ $item->chillerCurrentRated ?? '-' }}</td>--}}
-{{--                                <td>{{ $item->chillerCurrentMeasured ?? '-' }}</td>--}}
-{{--                            </tr>--}}
-{{--                            <tr>--}}
-{{--                                <td>Power Factor</td>--}}
-{{--                                <td>{{ $item->chillerPowerFactorRated ?? '-' }}</td>--}}
-{{--                                <td>{{ $item->chillerPowerFactorMeasured ?? '-' }}</td>--}}
-{{--                            </tr>--}}
-{{--                            <tr>--}}
-{{--                                <td>Motor Power</td>--}}
-{{--                                <td>{{ $item->chillerMotorPowerRated ?? '-' }}</td>--}}
-{{--                                <td>{{ $item->chillerMotorPowerMeasured ?? '-' }}</td>--}}
-{{--                            </tr>--}}
-{{--                            <tr>--}}
-{{--                                <td>Motor Efficiency</td>--}}
-{{--                                <td>{{ $item->chillerMotorEfficiencyRated ?? '-' }}</td>--}}
-{{--                                <td>{{ $item->chillerMotorEfficiencyMeasured ?? '-' }}</td>--}}
-{{--                            </tr>--}}
-{{--                            <tr>--}}
-{{--                                <td>Motor Efficiency Class</td>--}}
-{{--                                <td>{{ $item->chillerMotorEfficiencyClassRated ?? '-' }}</td>--}}
-{{--                                <td>{{ $item->chillerMotorEfficiencyClassMeasured ?? '-' }}</td>--}}
-{{--                            </tr>--}}
-{{--                            <tr>--}}
-{{--                                <td>Motor Frame Size</td>--}}
-{{--                                <td>{{ $item->chillerMotorFrameSizeRated ?? '-' }}</td>--}}
-{{--                                <td>{{ $item->chillerMotorFrameSizeMeasured ?? '-' }}</td>--}}
-{{--                            </tr>--}}
-{{--                            <tr>--}}
-{{--                                <td>Supply Temp</td>--}}
-{{--                                <td>{{ $item->chillerSupplyTempRated ?? '-' }}</td>--}}
-{{--                                <td>{{ $item->chillerSupplyTempMeasured ?? '-' }}</td>--}}
-{{--                            </tr>--}}
-{{--                            <tr>--}}
-{{--                                <td>Return Temp</td>--}}
-{{--                                <td>{{ $item->chillerReturnTempRated ?? '-' }}</td>--}}
-{{--                                <td>{{ $item->chillerReturnTempMeasured ?? '-' }}</td>--}}
-{{--                            </tr>--}}
-{{--                            <tr>--}}
-{{--                                <td>Flow</td>--}}
-{{--                                <td>{{ $item->chillerFlowRated ?? '-' }}</td>--}}
-{{--                                <td>{{ $item->chillerFlowMeasured ?? '-' }}</td>--}}
-{{--                            </tr>--}}
-{{--                            <tr>--}}
-{{--                                <td>Chiller SEC</td>--}}
-{{--                                <td>{{ $item->chillerChillerSECRated ?? '-' }}</td>--}}
-{{--                                <td>{{ $item->chillerChillerSECMeasured ?? '-' }}</td>--}}
-{{--                            </tr>--}}
-{{--                            <tr>--}}
-{{--                                <td>Condenser Approach</td>--}}
-{{--                                <td>{{ $item->chillerCondenserApprochRated ?? '-' }}</td>--}}
-{{--                                <td>{{ $item->chillerCondenserApprochMeasured ?? '-' }}</td>--}}
-{{--                            </tr>--}}
-
-{{--                        @elseif($item->itemType === 'Motor')--}}
-{{--                            <!-- Motor Specifications -->--}}
-{{--                            <tr>--}}
-{{--                                <td>Year of Installation</td>--}}
-{{--                                <td>{{ $item->motorYearOfInstallationRated ?? '-' }}</td>--}}
-{{--                                <td>{{ $item->motorYearOfInstallationMeasured ?? '-' }}</td>--}}
-{{--                            </tr>--}}
-{{--                            <tr>--}}
-{{--                                <td>Name of Equipment</td>--}}
-{{--                                <td>{{ $item->motorNameOfEquipmentRated ?? '-' }}</td>--}}
-{{--                                <td>{{ $item->motorNameOfEquipmentMeasured ?? '-' }}</td>--}}
-{{--                            </tr>--}}
-{{--                            <tr>--}}
-{{--                                <td>Voltage</td>--}}
-{{--                                <td>{{ $item->motorVoltageRated ?? '-' }}</td>--}}
-{{--                                <td>{{ $item->motorVoltageMeasured ?? '-' }}</td>--}}
-{{--                            </tr>--}}
-{{--                            <tr>--}}
-{{--                                <td>Current</td>--}}
-{{--                                <td>{{ $item->motorCurrentRated ?? '-' }}</td>--}}
-{{--                                <td>{{ $item->motorCurrentMeasured ?? '-' }}</td>--}}
-{{--                            </tr>--}}
-{{--                            <tr>--}}
-{{--                                <td>Power Factor</td>--}}
-{{--                                <td>{{ $item->motorPowerFactorRated ?? '-' }}</td>--}}
-{{--                                <td>{{ $item->motorPowerFactorMeasured ?? '-' }}</td>--}}
-{{--                            </tr>--}}
-{{--                            <tr>--}}
-{{--                                <td>Motor Power</td>--}}
-{{--                                <td>{{ $item->motorMotorPowerRated ?? '-' }}</td>--}}
-{{--                                <td>{{ $item->motorMotorPowerMeasured ?? '-' }}</td>--}}
-{{--                            </tr>--}}
-{{--                            <tr>--}}
-{{--                                <td>Motor Efficiency</td>--}}
-{{--                                <td>{{ $item->motorMotorEfficiencyRated ?? '-' }}</td>--}}
-{{--                                <td>{{ $item->motorMotorEfficiencyMeasured ?? '-' }}</td>--}}
-{{--                            </tr>--}}
-{{--                            <tr>--}}
-{{--                                <td>Motor Efficiency Class</td>--}}
-{{--                                <td>{{ $item->motorMotorEfficiencyClassRated ?? '-' }}</td>--}}
-{{--                                <td>{{ $item->motorMotorEfficiencyClassMeasured ?? '-' }}</td>--}}
-{{--                            </tr>--}}
-{{--                            <tr>--}}
-{{--                                <td>Motor Frame Size</td>--}}
-{{--                                <td>{{ $item->motorMotorFrameSizeRated ?? '-' }}</td>--}}
-{{--                                <td>{{ $item->motorMotorFrameSizeMeasured ?? '-' }}</td>--}}
-{{--                            </tr>--}}
-{{--                        @endif--}}
-{{--                        </tbody>--}}
-{{--                    </table>--}}
-{{--                </div>--}}
-{{--            </div>--}}
-{{--        </div>--}}
-
-{{--        <!-- Checklist Section -->--}}
-{{--        <div class="card data-card">--}}
-{{--            <div class="card-header header-section">--}}
-{{--                <h4>Checklist</h4>--}}
-{{--            </div>--}}
-{{--            <div class="card-body">--}}
-{{--                <div class="table-responsive">--}}
-{{--                    <table class="table table-striped table-hover">--}}
-{{--                        <thead>--}}
-{{--                        <tr>--}}
-{{--                            <th>Check Item</th>--}}
-{{--                            <th>Value/Status</th>--}}
-{{--                        </tr>--}}
-{{--                        </thead>--}}
-{{--                        <tbody>--}}
-{{--                        @if($item->itemType === 'Pump')--}}
-{{--                            <!-- Pump Checklist -->--}}
-{{--                            <tr>--}}
-{{--                                <td>VFD or Not</td>--}}
-{{--                                <td>{{ $item->pumpVFDorNot ?? '-' }}</td>--}}
-{{--                            </tr>--}}
-{{--                            <tr>--}}
-{{--                                <td>VFD Setting</td>--}}
-{{--                                <td>{{ $item->pumpVFDSetting ?? '-' }}</td>--}}
-{{--                            </tr>--}}
-{{--                            <tr>--}}
-{{--                                <td>Throttling</td>--}}
-{{--                                <td>{{ $item->pumpThrottling ?? '-' }}</td>--}}
-{{--                            </tr>--}}
-{{--                            <tr>--}}
-{{--                                <td>Flow Modulation Required</td>--}}
-{{--                                <td>{{ $item->pumpFlowModulationRequired ?? '-' }}</td>--}}
-{{--                            </tr>--}}
-{{--                            <tr>--}}
-{{--                                <td>Parallel Pump Operation</td>--}}
-{{--                                <td>{{ $item->pumpParallelPumpOperation ?? '-' }}</td>--}}
-{{--                            </tr>--}}
-{{--                            <tr>--}}
-{{--                                <td>No. of Rewinding of Motor</td>--}}
-{{--                                <td>{{ $item->pumpNosOfRewidingOfMotor ?? '-' }}</td>--}}
-{{--                            </tr>--}}
-{{--                            <tr>--}}
-{{--                                <td>Check Cavitation</td>--}}
-{{--                                <td>{{ $item->pumpCheckCavitation ?? '-' }}</td>--}}
-{{--                            </tr>--}}
-{{--                            <tr>--}}
-{{--                                <td>Operating Hours</td>--}}
-{{--                                <td>{{ $item->pumpOperatingHours ?? '-' }}</td>--}}
-{{--                            </tr>--}}
-
-{{--                        @elseif($item->itemType === 'Fan')--}}
-{{--                            <!-- Fan Checklist -->--}}
-{{--                            <tr>--}}
-{{--                                <td>VFD or Not</td>--}}
-{{--                                <td>{{ $item->fanVFDorNot ?? '-' }}</td>--}}
-{{--                            </tr>--}}
-{{--                            <tr>--}}
-{{--                                <td>VFD Setting</td>--}}
-{{--                                <td>{{ $item->fanVFDSetting ?? '-' }}</td>--}}
-{{--                            </tr>--}}
-{{--                            <tr>--}}
-{{--                                <td>Opening</td>--}}
-{{--                                <td>{{ $item->fanOpening ?? '-' }}</td>--}}
-{{--                            </tr>--}}
-{{--                            <tr>--}}
-{{--                                <td>Flow Modulation Required</td>--}}
-{{--                                <td>{{ $item->fanFlowModulationRequired ?? '-' }}</td>--}}
-{{--                            </tr>--}}
-{{--                            <tr>--}}
-{{--                                <td>Parallel Fan Operation</td>--}}
-{{--                                <td>{{ $item->fanParallelFanOperation ?? '-' }}</td>--}}
-{{--                            </tr>--}}
-{{--                            <tr>--}}
-{{--                                <td>No. of Rewinding of Motor</td>--}}
-{{--                                <td>{{ $item->fanNosOfRewidingOfMotor ?? '-' }}</td>--}}
-{{--                            </tr>--}}
-{{--                            <tr>--}}
-{{--                                <td>Operating Hours</td>--}}
-{{--                                <td>{{ $item->fanOperatingHours ?? '-' }}</td>--}}
-{{--                            </tr>--}}
-
-{{--                        @elseif($item->itemType === 'Air Compressor')--}}
-{{--                            <!-- Air Compressor Checklist -->--}}
-{{--                            <tr>--}}
-{{--                                <td>VFD or Not</td>--}}
-{{--                                <td>{{ $item->airCompressorVFDorNot ?? '-' }}</td>--}}
-{{--                            </tr>--}}
-{{--                            <tr>--}}
-{{--                                <td>No. of Rewinding of Motor</td>--}}
-{{--                                <td>{{ $item->airCompressorNosOfRewidingOfMotor ?? '-' }}</td>--}}
-{{--                            </tr>--}}
-{{--                            <tr>--}}
-{{--                                <td>Check Required Pressure</td>--}}
-{{--                                <td>{{ $item->airCompressorCheckRequiredpressure ?? '-' }}</td>--}}
-{{--                            </tr>--}}
-{{--                            <tr>--}}
-{{--                                <td>Check Pressure Drop</td>--}}
-{{--                                <td>{{ $item->airCompressorCheckPressureDrop ?? '-' }}</td>--}}
-{{--                            </tr>--}}
-{{--                            <tr>--}}
-{{--                                <td>Operating Hours</td>--}}
-{{--                                <td>{{ $item->airCompressorOperatingHours ?? '-' }}</td>--}}
-{{--                            </tr>--}}
-
-{{--                        @elseif($item->itemType === 'Chiller')--}}
-{{--                            <!-- Chiller Checklist -->--}}
-{{--                            <tr>--}}
-{{--                                <td>VFD or Not</td>--}}
-{{--                                <td>{{ $item->chillerVFDorNot ?? '-' }}</td>--}}
-{{--                            </tr>--}}
-{{--                            <tr>--}}
-{{--                                <td>Set Temp</td>--}}
-{{--                                <td>{{ $item->chillerSetTemp ?? '-' }}</td>--}}
-{{--                            </tr>--}}
-{{--                            <tr>--}}
-{{--                                <td>Check Condenser Condition</td>--}}
-{{--                                <td>{{ $item->chillerCheckCondenserCondition ?? '-' }}</td>--}}
-{{--                            </tr>--}}
-{{--                            <tr>--}}
-{{--                                <td>Operating Hours</td>--}}
-{{--                                <td>{{ $item->chillerOperatingHours ?? '-' }}</td>--}}
-{{--                            </tr>--}}
-
-{{--                        @elseif($item->itemType === 'Motor')--}}
-{{--                            <!-- Motor Checklist -->--}}
-{{--                            <tr>--}}
-{{--                                <td>VFD or Not</td>--}}
-{{--                                <td>{{ $item->motorVFDorNot ?? '-' }}</td>--}}
-{{--                            </tr>--}}
-{{--                            <tr>--}}
-{{--                                <td>Check Per Phase Current</td>--}}
-{{--                                <td>{{ $item->motorCheckPerPhaseCurrent ?? '-' }}</td>--}}
-{{--                            </tr>--}}
-{{--                            <tr>--}}
-{{--                                <td>Check Phasor</td>--}}
-{{--                                <td>{{ $item->motorCheckPhasor ?? '-' }}</td>--}}
-{{--                            </tr>--}}
-{{--                            <tr>--}}
-{{--                                <td>No. of Rewinding of Motor</td>--}}
-{{--                                <td>{{ $item->motorNosOfRewidingOfMotor ?? '-' }}</td>--}}
-{{--                            </tr>--}}
-{{--                            <tr>--}}
-{{--                                <td>Operating Hours</td>--}}
-{{--                                <td>{{ $item->motorOperatingHours ?? '-' }}</td>--}}
-{{--                            </tr>--}}
-{{--                        @endif--}}
-{{--                        </tbody>--}}
-{{--                    </table>--}}
-{{--                </div>--}}
-{{--            </div>--}}
-{{--        </div>--}}
     </div>
 
 @endsection

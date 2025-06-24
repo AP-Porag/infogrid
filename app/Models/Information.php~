@@ -57,8 +57,4 @@ class Information extends Model
     {
         return $this->hasOne(Cooling::class,'information_id');
     }
-    public function ahu()
-    {
-        return $this->hasOne(Ahu::class,'information_id');
-    }
 }

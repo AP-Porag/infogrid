@@ -28,8 +28,6 @@ return new class extends Migration
             $table->text('fanPowerFactorMeasured')->nullable();
             $table->text('fanMotorPowerRated')->nullable();
             $table->text('fanMotorPowerMeasured')->nullable();
-            $table->text('fanSpeedRated')->nullable();
-            $table->text('fanSpeedMeasured')->nullable();
             $table->text('fanMotorEfficiencyRated')->nullable();
             $table->text('fanMotorEfficiencyMeasured')->nullable();
             $table->text('fanMotorEfficiencyClassRated')->nullable();

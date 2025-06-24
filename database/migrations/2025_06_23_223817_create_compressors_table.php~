@@ -75,7 +75,6 @@ return new class extends Migration
 
             // Air Compressor checklist
             $table->text('airCompressorVFDorNot')->nullable();
-            $table->text('airCompressorVFDSetting')->nullable();
             $table->text('airCompressorNosOfRewidingOfMotor')->nullable();
             $table->text('airCompressorCheckRequiredpressure')->nullable();
             $table->text('airCompressorCheckPressureDrop')->nullable();

@@ -7,8 +7,11 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\InformationRequest;
 use App\Models\Gallery;
 use App\Models\Information;
+use App\Services\AhuService;
+use App\Services\BoilerService;
 use App\Services\ChillerService;
 use App\Services\CompressorService;
+use App\Services\CoolingService;
 use App\Services\FanService;
 use App\Services\InformationService;
 use App\Services\MotorService;
@@ -16,6 +19,7 @@ use App\Services\PumpService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
 
 class InformationController extends Controller
@@ -26,9 +30,22 @@ class InformationController extends Controller
     protected $compressorService;
     protected $chillerService;
     protected $motorService;
+    protected $coolingService;
+    protected $boilerService;
+    protected $ahuService;
 
 
-    public function __construct(InformationService $informationService,PumpService $pumpService,FanService $fanService,CompressorService $compressorService,ChillerService $chillerService,MotorService $motorService)
+    public function __construct(
+        InformationService $informationService,
+        PumpService $pumpService,
+        FanService $fanService,
+        CompressorService $compressorService,
+        ChillerService $chillerService,
+        MotorService $motorService,
+        BoilerService $boilerService,
+        CoolingService $coolingService,
+        AhuService $ahuService
+    )
     {
         $this->informationService = $informationService;
         $this->pumpService = $pumpService;
@@ -36,6 +53,9 @@ class InformationController extends Controller
         $this->compressorService = $compressorService;
         $this->chillerService = $chillerService;
         $this->motorService = $motorService;
+        $this->boilerService = $boilerService;
+        $this->coolingService = $coolingService;
+        $this->ahuService = $ahuService;
     }
 
     public function index(InformationDataTable $dataTable)
@@ -52,107 +72,142 @@ class InformationController extends Controller
         return view('admin.information.create',compact('project_id'));
     }
 
-    public function store(InformationRequest $request)
+    public function store(Request $request)
     {
+        \DB::beginTransaction();
 
         try {
-//            $data = $request->validated();
             $data = $request->all();
-            // Authenticated user ID
             $userId = Auth::id();
-
-            // Generate unique SKU
             $sku = $this->generateSku();
 
-            // Append user_id and sku to data array
-            $dataToSave = array_merge($data, [
-                'user_id' => $userId,
-                'sku' => $sku,
-                'images' => count($data['images']),
+            // Step 1: Validate request data
+            $validator = Validator::make($data, [
+                'project_id' => 'required|integer',
+                'itemType' => 'required|string',
+                'images' => 'nullable|array',
             ]);
-            $pumpData = $data['pump'];
-            $fanData = $data['fan'];
-            $compressorData = $data['compressor'];
-            $chillerData = $data['chiller'];
-            $motorData = $data['motor'];
 
+            if ($validator->fails()) {
+                return response()->json([
+                    'status' => 400,
+                    'errors' => $validator->errors()
+                ], 400);
+            }
 
-            $information = $this->informationService->storeOrUpdate($dataToSave, null);
+            // Step 2: Create main Information record
+            $information = Information::create([
+                'user_id' => $userId,
+                'project_id' => $data['project_id'],
+                'sku' => $sku,
+                'itemType' => $data['itemType'], // Ensure this column exists in the DB
+                'observations' => $data['observations'] ?? null,
+                'name_location' => $data['name_location'] ?? null,
+                'make_model' => $data['make_model'] ?? null,
+                'images' => isset($data['images']) ? count($data['images']) : 0,
+            ]);
 
-            if ($information){
-                if ($data['itemType'] == 'Pump') {
-                    $dataToSave = array_merge($pumpData, [
-                        'information_id' => $information->id,
-                    ]);
-                    $this->pumpService->storeOrUpdate($dataToSave, null);
-                }
+            if (!$information) {
+                throw new \Exception("Failed to create information record");
+            }
 
-                if ($data['itemType'] == 'Fan') {
-                    $dataToSave = array_merge($fanData, [
-                        'information_id' => $information->id,
-                    ]);
-                    $this->fanService->storeOrUpdate($dataToSave, null);
-                }
-                if ($data['itemType'] == 'Air Compressor') {
-                    $dataToSave = array_merge($compressorData, [
-                        'information_id' => $information->id,
-                    ]);
-                    $this->compressorService->storeOrUpdate($dataToSave, null);
-                }
-                if ($data['itemType'] == 'Chiller') {
-                    $dataToSave = array_merge($chillerData, [
-                        'information_id' => $information->id,
-                    ]);
-                    $this->chillerService->storeOrUpdate($dataToSave, null);
-                }
-                if ($data['itemType'] == 'Motors') {
-                    $dataToSave = array_merge($motorData, [
-                        'information_id' => $information->id,
-                    ]);
-                    $this->motorService->storeOrUpdate($dataToSave, null);
+            // Step 3: Store Equipment Data based on itemType
+            $itemType = $data['itemType'];
+
+            $equipmentTypeMap = [
+                'Pump' => 'pump',
+                'Fan' => 'fan',
+                'Air Compressor' => 'compressor',
+                'Chiller' => 'chiller',
+                'Motors' => 'motor',
+                'Boiler' => 'boiler',
+                'Cooling Tower' => 'cooling',
+                'Motors' => 'motor',
+            ];
+
+            $equipmentKey = $equipmentTypeMap[$itemType] ?? null;
+            $equipmentData = $equipmentKey ? ($data[$equipmentKey] ?? null) : null;
+
+            if ($equipmentData) {
+                $serviceMethod = match ($itemType) {
+                    'Pump' => $this->pumpService,
+                    'Fan' => $this->fanService,
+                    'Air Compressor' => $this->compressorService,
+                    'Chiller' => $this->chillerService,
+                    'Motors' => $this->motorService,
+                    default => null,
+                };
+
+                if ($serviceMethod) {
+                    $equipmentData['information_id'] = $information->id;
+                    $result = $serviceMethod->storeOrUpdate($equipmentData, null);
+
+                    if (!$result) {
+                        throw new \Exception("Failed to save {$itemType} data");
+                    }
+                } else {
+                    \Log::warning("No service found for itemType: {$itemType}");
                 }
             }
 
-            if (!empty($data['images'])) {
+            // Step 4: Process Images (if any)
+            if (!empty($data['images']) && is_array($data['images'])) {
+                $uploadedImages = [];
+
                 foreach ($data['images'] as $base64Image) {
-                    // Extract and clean base64 string
-                    if (str_contains($base64Image, 'data:image/png;base64,')) {
-                        $base64Image = str_replace('data:image/png;base64,', '', $base64Image);
-                        $extension = 'png';
-                    } elseif (str_contains($base64Image, 'data:image/jpeg;base64,')) {
-                        $base64Image = str_replace('data:image/jpeg;base64,', '', $base64Image);
-                        $extension = 'jpg';
-                    } else {
-                        continue; // Skip unsupported formats
+                    $imageData = $this->processBase64Image($base64Image);
+
+                    if (!$imageData) {
+                        continue;
                     }
 
-                    $base64Image = str_replace(' ', '+', $base64Image);
-
                     try {
-                        $imageContent = base64_decode($base64Image);
-                        if ($imageContent === false) {
-                            continue; // Skip invalid base64
+                        $imageName = Str::random(40) . '.' . $imageData['extension'];
+                        $storagePath = 'equipment/images/' . date('Y/m/d');
+                        $fullPath = $storagePath . '/' . $imageName;
+
+                        // Ensure directory exists
+                        Storage::disk('public')->makeDirectory($storagePath);
+
+                        // Store the image
+                        $stored = Storage::disk('public')->put($fullPath, $imageData['content']);
+
+                        if ($stored) {
+                            $uploadedImages[] = [
+                                'information_id' => $information->id,
+                                'image' => $fullPath,
+                                'created_at' => now(),
+                                'updated_at' => now(),
+                            ];
                         }
-
-                        $imageName = Str::random(15) . '.' . $extension;
-                        Storage::disk('public')->put('uploaded/' . $imageName, $imageContent);
-
-                        $gallery = Gallery::create([
-                            'information_id' => $information->id,
-                            'image' => 'uploaded/' . $imageName,
-                        ]);
                     } catch (\Exception $e) {
-                        \Log::error("Image upload failed: " . $e->getMessage());
+                        \Log::error('Image storage failed: ' . $e->getMessage());
                         continue;
                     }
                 }
+
+                if (!empty($uploadedImages)) {
+                    Gallery::insert($uploadedImages);
+                }
             }
 
+            \DB::commit(); // Commit transaction
 
-            $response = ['status' => 200, 'message' => 'Success', 'data' => $information];
-            return response()->json($response);
+            return response()->json([
+                'status' => 200,
+                'message' => 'Information stored successfully.',
+                'data' => $information->load(['pump', 'fan', 'compressor', 'motor', 'chiller', 'gallery'])
+            ]);
         } catch (\Exception $e) {
+            \DB::rollBack(); // Rollback on failure
 
+            \Log::error('Store Information Failed: ' . $e->getMessage());
+
+            return response()->json([
+                'status' => 500,
+                'message' => 'An error occurred while saving information.',
+                'error' => $e->getMessage()
+            ], 500);
         }
         return back();
     }
@@ -223,5 +278,53 @@ class InformationController extends Controller
 
         $newNumber = str_pad($lastNumber + 1, 6, '0', STR_PAD_LEFT);
         return "EEF-{$year}{$newNumber}";
+    }
+
+    protected function processBase64Image(string $base64Image): ?array
+    {
+        try {
+            // Check if the string is a valid base64 image
+            if (!preg_match('/^data:image\/(\w+);base64,/', $base64Image, $matches)) {
+                \Log::warning('Invalid base64 image format');
+                return null;
+            }
+
+            $extension = $matches[1];
+            $allowedExtensions = ['jpeg', 'jpg', 'png', 'gif'];
+
+            // Validate image type
+            if (!in_array(strtolower($extension), $allowedExtensions)) {
+                \Log::warning('Unsupported image type: ' . $extension);
+                return null;
+            }
+
+            // Remove the data URL part
+            $base64String = substr($base64Image, strpos($base64Image, ',') + 1);
+            $base64String = str_replace(' ', '+', $base64String);
+
+            // Decode the image
+            $imageContent = base64_decode($base64String);
+
+            if ($imageContent === false) {
+                \Log::warning('Failed to decode base64 image');
+                return null;
+            }
+
+            // Validate the image content
+            if (!getimagesizefromstring($imageContent)) {
+                \Log::warning('Invalid image content');
+                return null;
+            }
+
+            return [
+                'extension' => $extension,
+                'content' => $imageContent,
+                'mime_type' => 'image/' . $extension
+            ];
+
+        } catch (\Exception $e) {
+            \Log::error('Image processing error: ' . $e->getMessage());
+            return null;
+        }
     }
 }
