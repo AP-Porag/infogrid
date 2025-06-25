@@ -14,11 +14,17 @@ return new class extends Migration
         Schema::create('boilers', function (Blueprint $table) {
             $table->id();
             $table->foreignId('information_id');
+
+            // Rated fields
             $table->text('boilerYearOfInstallationRated')->nullable();
             $table->text('boilerTypeOfBoilerRated')->nullable();
             $table->text('boilerCapacityRated')->nullable();
             $table->text('boilerTypeOfFuelRated')->nullable();
             $table->text('boilerTypeOfBurnerRated')->nullable();
+            $table->text('boilerOperatingTempRated')->nullable();
+            $table->text('boilerOperatingPressureRated')->nullable();
+
+            // Measured fields
             $table->text('boilerAverageQuantityOfFuelFiredInADayMeasured')->nullable();
             $table->text('boilerAnalysisOfFuelMeasured')->nullable();
             $table->text('boilerAshMeasured')->nullable();
@@ -45,6 +51,8 @@ return new class extends Migration
             $table->text('boilerGCVOfBottomAshMeasured')->nullable();
             $table->text('boilerOperatingTempMeasured')->nullable();
             $table->text('boilerOperatingPressureMeasured')->nullable();
+
+            // Checklist fields
             $table->text('boilerVFDOnIdFan')->nullable();
             $table->text('boilerVFDOnFdFan')->nullable();
             $table->text('boilerMaximumTempCanSustain')->nullable();
@@ -60,6 +68,7 @@ return new class extends Migration
             $table->text('boilerWaterSteamFlowMeterReading')->nullable();
             $table->text('boilerFuelFlowMeterReading')->nullable();
             $table->text('boilerOperatingHours')->nullable();
+
             $table->timestamps();
         });
     }

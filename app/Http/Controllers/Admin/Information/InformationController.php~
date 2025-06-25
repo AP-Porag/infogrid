@@ -78,6 +78,7 @@ class InformationController extends Controller
 
         try {
             $data = $request->all();
+            dd($data);
             $userId = Auth::id();
             $sku = $this->generateSku();
 
@@ -122,7 +123,7 @@ class InformationController extends Controller
                 'Motors' => 'motor',
                 'Boiler' => 'boiler',
                 'Cooling Tower' => 'cooling',
-                'Motors' => 'motor',
+                'AHU' => 'ahu',
             ];
 
             $equipmentKey = $equipmentTypeMap[$itemType] ?? null;
@@ -135,6 +136,9 @@ class InformationController extends Controller
                     'Air Compressor' => $this->compressorService,
                     'Chiller' => $this->chillerService,
                     'Motors' => $this->motorService,
+                    'Boiler' => $this->boilerService,
+                    'Cooling Tower' => $this->coolingService,
+                    'AHU' => $this->ahuService,
                     default => null,
                 };
 

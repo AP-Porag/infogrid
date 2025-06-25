@@ -14,14 +14,19 @@ return new class extends Migration
         Schema::create('coolings', function (Blueprint $table) {
             $table->id();
             $table->foreignId('information_id');
+
+            // Rated fields
             $table->text('coolingYearOfInstallationRated')->nullable();
             $table->text('coolingCapacityRated')->nullable();
             $table->text('coolingTypeOfCoolingTowerRated')->nullable();
-            $table->text('coolingEnteringWaterTempRated')->nullable();
-            $table->text('coolingLeavingWaterTempRated')->nullable();
             $table->text('coolingFanPowerRated')->nullable();
-            $table->text('coolingFanPowerMeasured')->nullable();
             $table->text('coolingNumberOfCellsRated')->nullable();
+
+            // Measured fields
+            $table->text('coolingCapacityMeasured')->nullable();
+            $table->text('coolingEnteringWaterTempMeasured')->nullable();
+            $table->text('coolingLeavingWaterTempMeasured')->nullable();
+            $table->text('coolingFanPowerMeasured')->nullable();
             $table->text('coolingNumberOfCellsMeasured')->nullable();
             $table->text('coolingEnteringAirTempDBTMeasured')->nullable();
             $table->text('coolingEnteringAirTempWBTMeasured')->nullable();
@@ -30,13 +35,16 @@ return new class extends Migration
             $table->text('coolingFlowOfWaterMeasured')->nullable();
             $table->text('coolingAirVelocityMeasured')->nullable();
             $table->text('coolingAreaOfFanOfCTMeasured')->nullable();
-                    //checklist
+
+            // Checklist
             $table->text('coolingVFDOnFanOrNot')->nullable();
             $table->text('coolingVFDSettingFan')->nullable();
             $table->text('coolingVFDOnPumpOrNot')->nullable();
+            $table->text('coolingVFDSettingPump')->nullable(); // ✅ Added missing field
             $table->text('coolingDriftLossVisible')->nullable();
             $table->text('coolingNosOfRewidingOfFanMotor')->nullable();
             $table->text('coolingOperatingHours')->nullable();
+
             $table->timestamps();
         });
     }

@@ -13,17 +13,22 @@ return new class extends Migration
     {
         Schema::create('ahus', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
             $table->foreignId('information_id');
+
+            // Rated fields
             $table->text('ahuYearOfInstallationRated')->nullable();
             $table->text('ahuCapacityRated')->nullable();
-            $table->text('ahuCapacityMeasured')->nullable();
             $table->text('ahuTypeOfAHURated')->nullable();
+            $table->text('ahuFanPowerRated')->nullable();
+            $table->text('ahuNumberOfCellsRated')->nullable();
+            $table->text('ahuStaticPressureRated')->nullable();
+            $table->text('ahuAHUDPRated')->nullable();
+
+            // Measured fields
+            $table->text('ahuCapacityMeasured')->nullable();
             $table->text('ahuEnteringWaterTempMeasured')->nullable();
             $table->text('ahuLeavingWaterTempMeasured')->nullable();
-            $table->text('ahuFanPowerRated')->nullable();
             $table->text('ahuFanPowerMeasured')->nullable();
-            $table->text('ahuNumberOfCellsRated')->nullable();
             $table->text('ahuNumberOfCellsMeasured')->nullable();
             $table->text('ahuEnteringAirTempDBTMeasured')->nullable();
             $table->text('ahuEnteringAirTempWBTMeasured')->nullable();
@@ -32,11 +37,10 @@ return new class extends Migration
             $table->text('ahuFlowOfWaterMeasured')->nullable();
             $table->text('ahuAirVelocityMeasured')->nullable();
             $table->text('ahuAirAreaOfDuctMeasured')->nullable();
-            $table->text('ahuStaticPressureRated')->nullable();
             $table->text('ahuStaticPressureMeasured')->nullable();
-            $table->text('ahuAHUDPRated')->nullable();
             $table->text('ahuAHUDPMeasured')->nullable();
-                    //checklist
+
+            // Checklist fields
             $table->text('ahuVFDOnFanOrNot')->nullable();
             $table->text('ahuVFDSettingFan')->nullable();
             $table->text('ahuDamperPosition')->nullable();
@@ -44,6 +48,8 @@ return new class extends Migration
             $table->text('ahuModulatingValve')->nullable();
             $table->text('ahuSetTemp')->nullable();
             $table->text('ahuOperatingHours')->nullable();
+
+            $table->timestamps();
         });
     }
 

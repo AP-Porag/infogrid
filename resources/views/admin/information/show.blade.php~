@@ -2,8 +2,10 @@
 
 @section('content')
     <div class="container py-4">
-        <div class="flex justify-content-end py-4">
-            <a href="{{route('admin.project.show', $item->project->id)}}" class="btn btn-sm btn-dark text-capitalize" style="padding-top: 8px;">Back</a>
+        <div class="d-flex justify-content-end py-4">
+            <a href="{{ route('admin.project.show', $item->project->id) }}" class="btn btn-sm btn-dark text-capitalize">
+                Back
+            </a>
         </div>
         <div class="row">
             <div class="col-md-8">
