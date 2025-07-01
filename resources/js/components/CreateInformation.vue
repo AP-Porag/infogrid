@@ -1049,11 +1049,11 @@
                                                     Year of installation
                                                 </label>
                                                 <div class="col-md-6">
-                                                    <label class="form-label w-100">
-                                                        Rated Parameter
-                                                    </label>
+<!--                                                    <label class="form-label w-100">-->
+<!--                                                        Rated Parameter-->
+<!--                                                    </label>-->
                                                     <input
-                                                        type="number"
+                                                        type="text"
                                                         class="form-control"
                                                         placeholder=""
                                                         v-model.trim="form_data.pump.pumpYearOfInstallationRated"
@@ -1079,7 +1079,7 @@
                                                     </label>
                                                     <div class="d-flex justify-content-between">
                                                         <input
-                                                            type="number"
+                                                            type="text"
                                                             class="form-control"
                                                             placeholder=""
                                                             v-model.trim="form_data.pump.pumpFlowRated"
@@ -1093,7 +1093,7 @@
                                                     </label>
                                                     <div class="d-flex justify-content-between">
                                                         <input
-                                                            type="number"
+                                                            type="text"
                                                             class="form-control"
                                                             placeholder=""
                                                             v-model.trim="form_data.pump.pumpFlowMeasured"
@@ -1121,7 +1121,7 @@
                                                     </label>
                                                     <div class="d-flex justify-content-between">
                                                         <input
-                                                            type="number"
+                                                            type="text"
                                                             class="form-control"
                                                             placeholder=""
                                                             v-model.trim="form_data.pump.pumpHeadRated"
@@ -1135,7 +1135,7 @@
                                                     </label>
                                                     <div class="d-flex justify-content-between">
                                                         <input
-                                                            type="number"
+                                                            type="text"
                                                             class="form-control"
                                                             placeholder=""
                                                             v-model.trim="form_data.pump.pumpHeadMeasured"
@@ -1163,7 +1163,7 @@
                                                     </label>
                                                     <div class="d-flex justify-content-between">
                                                         <input
-                                                            type="number"
+                                                            type="text"
                                                             class="form-control"
                                                             placeholder=""
                                                             v-model.trim="form_data.pump.pumpVoltageRated"
@@ -1177,7 +1177,7 @@
                                                     </label>
                                                     <div class="d-flex justify-content-between">
                                                         <input
-                                                            type="number"
+                                                            type="text"
                                                             class="form-control"
                                                             placeholder=""
                                                             v-model.trim="form_data.pump.pumpVoltageMeasured"
@@ -1205,7 +1205,7 @@
                                                     </label>
                                                     <div class="d-flex justify-content-between">
                                                         <input
-                                                            type="number"
+                                                            type="text"
                                                             class="form-control"
                                                             placeholder=""
                                                             v-model.trim="form_data.pump.pumpCurrentRated"
@@ -1219,7 +1219,7 @@
                                                     </label>
                                                     <div class="d-flex justify-content-between">
                                                         <input
-                                                            type="number"
+                                                            type="text"
                                                             class="form-control"
                                                             placeholder=""
                                                             v-model.trim="form_data.pump.pumpCurrentMeasured"
@@ -1247,7 +1247,7 @@
                                                     </label>
                                                     <div class="d-flex justify-content-between">
                                                         <input
-                                                            type="number"
+                                                            type="text"
                                                             class="form-control"
                                                             placeholder=""
                                                             v-model.trim="form_data.pump.pumpPowerFactorRated"
@@ -1260,7 +1260,7 @@
                                                     </label>
                                                     <div class="d-flex justify-content-between">
                                                         <input
-                                                            type="number"
+                                                            type="text"
                                                             class="form-control"
                                                             placeholder=""
                                                             v-model.trim="form_data.pump.pumpPowerFactorMeasured"
@@ -1287,7 +1287,7 @@
                                                     </label>
                                                     <div class="d-flex justify-content-between">
                                                         <input
-                                                            type="number"
+                                                            type="text"
                                                             class="form-control"
                                                             placeholder=""
                                                             v-model.trim="form_data.pump.pumpMotorPowerRated"
@@ -1301,7 +1301,7 @@
                                                     </label>
                                                     <div class="d-flex justify-content-between">
                                                         <input
-                                                            type="number"
+                                                            type="text"
                                                             class="form-control"
                                                             placeholder=""
                                                             v-model.trim="form_data.pump.pumpMotorPowerMeasured"
@@ -1371,7 +1371,7 @@
                                                     </label>
                                                     <div class="d-flex justify-content-between">
                                                         <input
-                                                            type="number"
+                                                            type="text"
                                                             class="form-control"
                                                             placeholder=""
                                                             v-model.trim="form_data.pump.pumpMotorEfficiencyRated"
@@ -1427,7 +1427,7 @@
                                                     </label>
                                                     <div class="d-flex justify-content-between">
                                                         <input
-                                                            type="number"
+                                                            type="text"
                                                             class="form-control"
                                                             placeholder=""
                                                             v-model.trim="form_data.pump.pumpMotorFrameSizeRated"
@@ -1454,7 +1454,7 @@
                                                     </label>
                                                     <div class="d-flex justify-content-between">
                                                         <input
-                                                            type="number"
+                                                            type="txet"
                                                             class="form-control"
                                                             placeholder=""
                                                             v-model.trim="form_data.pump.pumpInsulationClassRated"
@@ -1481,7 +1481,7 @@
                                                     </label>
                                                     <div class="d-flex justify-content-between">
                                                         <input
-                                                            type="number"
+                                                            type="text"
                                                             class="form-control"
                                                             placeholder=""
                                                             v-model.trim="form_data.pump.pumpSuctionHeadMeasured"
@@ -1509,7 +1509,7 @@
                                                     </label>
                                                     <div class="d-flex justify-content-between">
                                                         <input
-                                                            type="number"
+                                                            type="text"
                                                             class="form-control"
                                                             placeholder=""
                                                             v-model.trim="form_data.pump.pumpDischargeHeadMeasured"
@@ -1537,7 +1537,7 @@
                                                     </label>
                                                     <div class="d-flex justify-content-between">
                                                         <input
-                                                            type="number"
+                                                            type="text"
                                                             class="form-control"
                                                             placeholder=""
                                                             v-model.trim="form_data.pump.pumpEfficiencyRated"
@@ -1550,7 +1550,7 @@
                                                     </label>
                                                     <div class="d-flex justify-content-between">
                                                         <input
-                                                            type="number"
+                                                            type="text"
                                                             class="form-control"
                                                             placeholder=""
                                                             v-model.trim="form_data.pump.pumpEfficiencyMeasured"
@@ -1576,11 +1576,11 @@
                                                     Year of installation
                                                 </label>
                                                 <div class="col-md-6">
-                                                    <label class="form-label w-100">
-                                                        Rated Parameter
-                                                    </label>
+<!--                                                    <label class="form-label w-100">-->
+<!--                                                        Rated Parameter-->
+<!--                                                    </label>-->
                                                     <input
-                                                        type="number"
+                                                        type="text"
                                                         class="form-control"
                                                         placeholder=""
                                                         v-model.trim="form_data.fan.fanYearOfInstallationRated"
@@ -1617,7 +1617,7 @@
                                                     </label>
                                                     <div class="d-flex justify-content-between">
                                                         <input
-                                                            type="number"
+                                                            type="text"
                                                             class="form-control"
                                                             placeholder=""
                                                             v-model.trim="form_data.fan.fanFlowRated"
@@ -1631,7 +1631,7 @@
                                                     </label>
                                                     <div class="d-flex justify-content-between">
                                                         <input
-                                                            type="number"
+                                                            type="text"
                                                             class="form-control"
                                                             placeholder=""
                                                             v-model.trim="form_data.fan.fanFlowMeasured"
@@ -1659,7 +1659,7 @@
                                                     </label>
                                                     <div class="d-flex justify-content-between">
                                                         <input
-                                                            type="number"
+                                                            type="text"
                                                             class="form-control"
                                                             placeholder=""
                                                             v-model.trim="form_data.fan.fanHeadRated"
@@ -1701,7 +1701,7 @@
                                                     </label>
                                                     <div class="d-flex justify-content-between">
                                                         <input
-                                                            type="number"
+                                                            type="text"
                                                             class="form-control"
                                                             placeholder=""
                                                             v-model.trim="form_data.fan.fanVoltageRated"
@@ -1715,7 +1715,7 @@
                                                     </label>
                                                     <div class="d-flex justify-content-between">
                                                         <input
-                                                            type="number"
+                                                            type="text"
                                                             class="form-control"
                                                             placeholder=""
                                                             v-model.trim="form_data.fan.fanVoltageMeasured"
@@ -1743,7 +1743,7 @@
                                                     </label>
                                                     <div class="d-flex justify-content-between">
                                                         <input
-                                                            type="number"
+                                                            type="text"
                                                             class="form-control"
                                                             placeholder=""
                                                             v-model.trim="form_data.fan.fanCurrentRated"
@@ -1757,7 +1757,7 @@
                                                     </label>
                                                     <div class="d-flex justify-content-between">
                                                         <input
-                                                            type="number"
+                                                            type="text"
                                                             class="form-control"
                                                             placeholder=""
                                                             v-model.trim="form_data.fan.fanCurrentMeasured"
@@ -1785,7 +1785,7 @@
                                                     </label>
                                                     <div class="d-flex justify-content-between">
                                                         <input
-                                                            type="number"
+                                                            type="text"
                                                             class="form-control"
                                                             placeholder=""
                                                             v-model.trim="form_data.fan.fanPowerFactorRated"
@@ -1798,7 +1798,7 @@
                                                     </label>
                                                     <div class="d-flex justify-content-between">
                                                         <input
-                                                            type="number"
+                                                            type="text"
                                                             class="form-control"
                                                             placeholder=""
                                                             v-model.trim="form_data.fan.fanPowerFactorMeasured"
@@ -1825,7 +1825,7 @@
                                                     </label>
                                                     <div class="d-flex justify-content-between">
                                                         <input
-                                                            type="number"
+                                                            type="text"
                                                             class="form-control"
                                                             placeholder=""
                                                             v-model.trim="form_data.fan.fanMotorPowerRated"
@@ -1839,7 +1839,7 @@
                                                     </label>
                                                     <div class="d-flex justify-content-between">
                                                         <input
-                                                            type="number"
+                                                            type="text"
                                                             class="form-control"
                                                             placeholder=""
                                                             v-model.trim="form_data.fan.fanMotorPowerMeasured"
@@ -1867,7 +1867,7 @@
                                                     </label>
                                                     <div class="d-flex justify-content-between">
                                                         <input
-                                                            type="number"
+                                                            type="text"
                                                             class="form-control"
                                                             placeholder=""
                                                             v-model.trim="form_data.fan.fanSpeedRated"
@@ -1881,7 +1881,7 @@
                                                     </label>
                                                     <div class="d-flex justify-content-between">
                                                         <input
-                                                            type="number"
+                                                            type="text"
                                                             class="form-control"
                                                             placeholder=""
                                                             v-model.trim="form_data.fan.fanSpeedMeasured"
@@ -1909,7 +1909,7 @@
                                                     </label>
                                                     <div class="d-flex justify-content-between">
                                                         <input
-                                                            type="number"
+                                                            type="text"
                                                             class="form-control"
                                                             placeholder=""
                                                             v-model.trim="form_data.fan.fanMotorEfficiencyRated"
@@ -1993,7 +1993,7 @@
                                                     </label>
                                                     <div class="d-flex justify-content-between">
                                                         <input
-                                                            type="number"
+                                                            type="text"
                                                             class="form-control"
                                                             placeholder=""
                                                             v-model.trim="form_data.fan.fanMotorFrameSizeRated"
@@ -2033,7 +2033,7 @@
                                                     </label>
                                                     <div class="d-flex justify-content-between">
                                                         <input
-                                                            type="number"
+                                                            type="text"
                                                             class="form-control"
                                                             placeholder=""
                                                             v-model.trim="form_data.fan.fanInsulationClassRated"
@@ -2087,7 +2087,7 @@
                                                     </label>
                                                     <div class="d-flex justify-content-between">
                                                         <input
-                                                            type="number"
+                                                            type="text"
                                                             class="form-control"
                                                             placeholder=""
                                                             v-model.trim="form_data.fan.fanSuctionDuctSizeMeasured"
@@ -2109,29 +2109,30 @@
                                                 <label class="form-label w-100">
                                                     Suction Static pressure
                                                 </label>
-<!--                                                <div class="col-md-6">-->
-<!--                                                    <label class="form-label w-100">-->
-<!--                                                        Rated Parameter-->
-<!--                                                    </label>-->
-<!--                                                    <div class="d-flex justify-content-between">-->
-<!--                                                        <input-->
-<!--                                                            type="number"-->
-<!--                                                            class="form-control"-->
-<!--                                                            placeholder=""-->
-<!--                                                            v-model.trim="form_data.fan.fanSuctionStaticPressureRated"-->
-<!--                                                        />-->
-<!--                                                    </div>-->
-<!--                                                </div>-->
                                                 <div class="col-md-6">
                                                     <label class="form-label w-100">
                                                         Measured Parameter
                                                     </label>
                                                     <div class="d-flex justify-content-between">
                                                         <input
-                                                            type="number"
+                                                            type="text"
                                                             class="form-control"
                                                             placeholder=""
                                                             v-model.trim="form_data.fan.fanSuctionStaticPressureMeasured"
+                                                        />
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label class="form-label w-100">
+                                                        Average
+                                                    </label>
+                                                    <div class="d-flex justify-content-between">
+                                                        <input
+                                                            type="number"
+                                                            class="form-control"
+                                                            placeholder=""
+                                                            v-model.trim="form_data.fan.fanSuctionStaticPressureAverage"
+                                                            readonly
                                                         />
                                                     </div>
                                                 </div>
@@ -2149,29 +2150,30 @@
                                                 <label class="form-label w-100">
                                                     Suction Velocity pressure
                                                 </label>
-<!--                                                <div class="col-md-6">-->
-<!--                                                    <label class="form-label w-100">-->
-<!--                                                        Rated Parameter-->
-<!--                                                    </label>-->
-<!--                                                    <div class="d-flex justify-content-between">-->
-<!--                                                        <input-->
-<!--                                                            type="number"-->
-<!--                                                            class="form-control"-->
-<!--                                                            placeholder=""-->
-<!--                                                            v-model.trim="form_data.fan.fanSuctionVelocityPressureRated"-->
-<!--                                                        />-->
-<!--                                                    </div>-->
-<!--                                                </div>-->
                                                 <div class="col-md-6">
                                                     <label class="form-label w-100">
                                                         Measured Parameter
                                                     </label>
                                                     <div class="d-flex justify-content-between">
                                                         <input
-                                                            type="number"
+                                                            type="text"
                                                             class="form-control"
                                                             placeholder=""
                                                             v-model.trim="form_data.fan.fanSuctionVelocityPressureMeasured"
+                                                        />
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label class="form-label w-100">
+                                                        Average
+                                                    </label>
+                                                    <div class="d-flex justify-content-between">
+                                                        <input
+                                                            type="number"
+                                                            class="form-control"
+                                                            placeholder=""
+                                                            v-model.trim="form_data.fan.fanSuctionVelocityPressureAverage"
+                                                            readonly
                                                         />
                                                     </div>
                                                 </div>
@@ -2209,7 +2211,7 @@
                                                     </label>
                                                     <div class="d-flex justify-content-between">
                                                         <input
-                                                            type="number"
+                                                            type="text"
                                                             class="form-control"
                                                             placeholder=""
                                                             v-model.trim="form_data.fan.fanDischargeDuctSizeMeasured"
@@ -2231,29 +2233,30 @@
                                                 <label class="form-label w-100">
                                                     Discharge Static pressure
                                                 </label>
-<!--                                                <div class="col-md-6">-->
-<!--                                                    <label class="form-label w-100">-->
-<!--                                                        Rated Parameter-->
-<!--                                                    </label>-->
-<!--                                                    <div class="d-flex justify-content-between">-->
-<!--                                                        <input-->
-<!--                                                            type="number"-->
-<!--                                                            class="form-control"-->
-<!--                                                            placeholder=""-->
-<!--                                                            v-model.trim="form_data.fan.fanDischargeStaticPressureRated"-->
-<!--                                                        />-->
-<!--                                                    </div>-->
-<!--                                                </div>-->
                                                 <div class="col-md-6">
                                                     <label class="form-label w-100">
                                                         Measured Parameter
                                                     </label>
                                                     <div class="d-flex justify-content-between">
                                                         <input
-                                                            type="number"
+                                                            type="text"
                                                             class="form-control"
                                                             placeholder=""
                                                             v-model.trim="form_data.fan.fanDischargeStaticPressureMeasured"
+                                                        />
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label class="form-label w-100">
+                                                        Average
+                                                    </label>
+                                                    <div class="d-flex justify-content-between">
+                                                        <input
+                                                            type="number"
+                                                            class="form-control"
+                                                            placeholder=""
+                                                            v-model.trim="form_data.fan.fanDischargeStaticPressureAverage"
+                                                            readonly
                                                         />
                                                     </div>
                                                 </div>
@@ -2271,29 +2274,30 @@
                                                 <label class="form-label w-100">
                                                     Discharge Velocity pressure
                                                 </label>
-<!--                                                <div class="col-md-6">-->
-<!--                                                    <label class="form-label w-100">-->
-<!--                                                        Rated Parameter-->
-<!--                                                    </label>-->
-<!--                                                    <div class="d-flex justify-content-between">-->
-<!--                                                        <input-->
-<!--                                                            type="number"-->
-<!--                                                            class="form-control"-->
-<!--                                                            placeholder=""-->
-<!--                                                            v-model.trim="form_data.fan.fanDischargeVelocityPressureRated"-->
-<!--                                                        />-->
-<!--                                                    </div>-->
-<!--                                                </div>-->
                                                 <div class="col-md-6">
                                                     <label class="form-label w-100">
                                                         Measured Parameter
                                                     </label>
                                                     <div class="d-flex justify-content-between">
                                                         <input
-                                                            type="number"
+                                                            type="text"
                                                             class="form-control"
                                                             placeholder=""
                                                             v-model.trim="form_data.fan.fanDischargeVelocityPressureMeasured"
+                                                        />
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label class="form-label w-100">
+                                                        Average
+                                                    </label>
+                                                    <div class="d-flex justify-content-between">
+                                                        <input
+                                                            type="number"
+                                                            class="form-control"
+                                                            placeholder=""
+                                                            v-model.trim="form_data.fan.fanDischargeVelocityPressureAverage"
+                                                            readonly
                                                         />
                                                     </div>
                                                 </div>
@@ -2311,29 +2315,30 @@
                                                 <label class="form-label w-100">
                                                     Discharge Velocity
                                                 </label>
-                                                <!--                                                <div class="col-md-6">-->
-                                                <!--                                                    <label class="form-label w-100">-->
-                                                <!--                                                        Rated Parameter-->
-                                                <!--                                                    </label>-->
-                                                <!--                                                    <div class="d-flex justify-content-between">-->
-                                                <!--                                                        <input-->
-                                                <!--                                                            type="number"-->
-                                                <!--                                                            class="form-control"-->
-                                                <!--                                                            placeholder=""-->
-                                                <!--                                                            v-model.trim="form_data.fan.fanDischargeVelocityPressureRated"-->
-                                                <!--                                                        />-->
-                                                <!--                                                    </div>-->
-                                                <!--                                                </div>-->
                                                 <div class="col-md-6">
                                                     <label class="form-label w-100">
                                                         Measured Parameter
                                                     </label>
                                                     <div class="d-flex justify-content-between">
                                                         <input
-                                                            type="number"
+                                                            type="text"
                                                             class="form-control"
                                                             placeholder=""
                                                             v-model.trim="form_data.fan.fanDischargeVelocityMeasured"
+                                                        />
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label class="form-label w-100">
+                                                        Average
+                                                    </label>
+                                                    <div class="d-flex justify-content-between">
+                                                        <input
+                                                            type="number"
+                                                            class="form-control"
+                                                            placeholder=""
+                                                            v-model.trim="form_data.fan.fanDischargeVelocityAverage"
+                                                            readonly
                                                         />
                                                     </div>
                                                 </div>
@@ -2357,7 +2362,7 @@
                                                     </label>
                                                     <div class="d-flex justify-content-between">
                                                         <input
-                                                            type="number"
+                                                            type="text"
                                                             class="form-control"
                                                             placeholder=""
                                                             v-model.trim="form_data.fan.fanEfficiencyRated"
@@ -2396,9 +2401,9 @@
                                                     Year of installation
                                                 </label>
                                                 <div class="col-md-6">
-                                                    <label class="form-label w-100">
-                                                        Rated Parameter
-                                                    </label>
+<!--                                                    <label class="form-label w-100">-->
+<!--                                                        Rated Parameter-->
+<!--                                                    </label>-->
                                                     <input
                                                         type="text"
                                                         class="form-control"
@@ -2437,7 +2442,7 @@
                                                     </label>
                                                     <div class="d-flex justify-content-between">
                                                         <input
-                                                            type="number"
+                                                            type="text"
                                                             class="form-control"
                                                             placeholder=""
                                                             v-model.trim="form_data.compressor.airCompressorFlowRated"
@@ -2451,7 +2456,7 @@
                                                     </label>
                                                     <div class="d-flex justify-content-between">
                                                         <input
-                                                            type="number"
+                                                            type="text"
                                                             class="form-control"
                                                             placeholder=""
                                                             v-model.trim="form_data.compressor.airCompressorFlowMeasured"
@@ -2480,7 +2485,7 @@
                                                     </label>
                                                     <div class="d-flex justify-content-between">
                                                         <input
-                                                            type="number"
+                                                            type="text"
                                                             class="form-control"
                                                             placeholder=""
                                                             v-model.trim="form_data.compressor.airCompressorPressureRated"
@@ -2494,7 +2499,7 @@
                                                     </label>
                                                     <div class="d-flex justify-content-between">
                                                         <input
-                                                            type="number"
+                                                            type="text"
                                                             class="form-control"
                                                             placeholder=""
                                                             v-model.trim="form_data.compressor.airCompressorPressureMeasured"
@@ -2522,7 +2527,7 @@
                                                     </label>
                                                     <div class="d-flex justify-content-between">
                                                         <input
-                                                            type="number"
+                                                            type="text"
                                                             class="form-control"
                                                             placeholder=""
                                                             v-model.trim="form_data.compressor.airCompressorVoltageRated"
@@ -2536,7 +2541,7 @@
                                                     </label>
                                                     <div class="d-flex justify-content-between">
                                                         <input
-                                                            type="number"
+                                                            type="text"
                                                             class="form-control"
                                                             placeholder=""
                                                             v-model.trim="form_data.compressor.airCompressorVoltageMeasured"
@@ -2564,7 +2569,7 @@
                                                     </label>
                                                     <div class="d-flex justify-content-between">
                                                         <input
-                                                            type="number"
+                                                            type="text"
                                                             class="form-control"
                                                             placeholder=""
                                                             v-model.trim="form_data.compressor.airCompressorCurrentRated"
@@ -2578,7 +2583,7 @@
                                                     </label>
                                                     <div class="d-flex justify-content-between">
                                                         <input
-                                                            type="number"
+                                                            type="text"
                                                             class="form-control"
                                                             placeholder=""
                                                             v-model.trim="form_data.compressor.airCompressorCurrentMeasured"
@@ -2606,7 +2611,7 @@
                                                     </label>
                                                     <div class="d-flex justify-content-between">
                                                         <input
-                                                            type="number"
+                                                            type="text"
                                                             class="form-control"
                                                             placeholder=""
                                                             v-model.trim="form_data.compressor.airCompressorPowerFactorRated"
@@ -2619,7 +2624,7 @@
                                                     </label>
                                                     <div class="d-flex justify-content-between">
                                                         <input
-                                                            type="number"
+                                                            type="text"
                                                             class="form-control"
                                                             placeholder=""
                                                             v-model.trim="form_data.compressor.airCompressorPowerFactorMeasured"
@@ -2646,7 +2651,7 @@
                                                     </label>
                                                     <div class="d-flex justify-content-between">
                                                         <input
-                                                            type="number"
+                                                            type="text"
                                                             class="form-control"
                                                             placeholder=""
                                                             v-model.trim="form_data.compressor.airCompressorMotorPowerRated"
@@ -2660,7 +2665,7 @@
                                                     </label>
                                                     <div class="d-flex justify-content-between">
                                                         <input
-                                                            type="number"
+                                                            type="text"
                                                             class="form-control"
                                                             placeholder=""
                                                             v-model.trim="form_data.compressor.airCompressorMotorPowerMeasured"
@@ -2688,7 +2693,7 @@
                                                     </label>
                                                     <div class="d-flex justify-content-between">
                                                         <input
-                                                            type="number"
+                                                            type="text"
                                                             class="form-control"
                                                             placeholder=""
                                                             v-model.trim="form_data.compressor.airCompressorSpeedRated"
@@ -2702,7 +2707,7 @@
                                                     </label>
                                                     <div class="d-flex justify-content-between">
                                                         <input
-                                                            type="number"
+                                                            type="text"
                                                             class="form-control"
                                                             placeholder=""
                                                             v-model.trim="form_data.compressor.airCompressorSpeedMeasured"
@@ -2730,7 +2735,7 @@
                                                     </label>
                                                     <div class="d-flex justify-content-between">
                                                         <input
-                                                            type="number"
+                                                            type="text"
                                                             class="form-control"
                                                             placeholder=""
                                                             v-model.trim="form_data.compressor.airCompressorMotorEfficiencyRated"
@@ -2814,7 +2819,7 @@
                                                     </label>
                                                     <div class="d-flex justify-content-between">
                                                         <input
-                                                            type="number"
+                                                            type="text"
                                                             class="form-control"
                                                             placeholder=""
                                                             v-model.trim="form_data.compressor.airCompressorMotorFrameSizeRated"
@@ -2854,7 +2859,7 @@
                                                     </label>
                                                     <div class="d-flex justify-content-between">
                                                         <input
-                                                            type="number"
+                                                            type="text"
                                                             class="form-control"
                                                             placeholder=""
                                                             v-model.trim="form_data.compressor.airCompressorInsulationClassRated"
@@ -2908,7 +2913,7 @@
                                                     </label>
                                                     <div class="d-flex justify-content-between">
                                                         <input
-                                                            type="number"
+                                                            type="text"
                                                             class="form-control"
                                                             placeholder=""
                                                             v-model.trim="form_data.compressor.airCompressorLoadPressureMeasured"
@@ -2928,7 +2933,7 @@
                                         <div class="col-md-12">
                                             <div class="row mb-3">
                                                 <label class="form-label w-100">
-                                                    Unnload Pressure
+                                                    Unload Pressure
                                                 </label>
 <!--                                                <div class="col-md-6">-->
 <!--                                                    <label class="form-label w-100">-->
@@ -2950,7 +2955,7 @@
                                                     </label>
                                                     <div class="d-flex justify-content-between">
                                                         <input
-                                                            type="number"
+                                                            type="text"
                                                             class="form-control"
                                                             placeholder=""
                                                             v-model.trim="form_data.compressor.airCompressorUnLoadPressureMeasured"
@@ -2970,7 +2975,7 @@
                                         <div class="col-md-12">
                                             <div class="row mb-3">
                                                 <label class="form-label w-100">
-                                                    Reciever Size
+                                                    Receiver Size
                                                 </label>
 <!--                                                <div class="col-md-6">-->
 <!--                                                    <label class="form-label w-100">-->
@@ -2992,7 +2997,7 @@
                                                     </label>
                                                     <div class="d-flex justify-content-between">
                                                         <input
-                                                            type="number"
+                                                            type="text"
                                                             class="form-control"
                                                             placeholder=""
                                                             v-model.trim="form_data.compressor.airCompressorRecieverSizeMeasured"
@@ -3034,7 +3039,7 @@
                                                     </label>
                                                     <div class="d-flex justify-content-between">
                                                         <input
-                                                            type="number"
+                                                            type="text"
                                                             class="form-control"
                                                             placeholder=""
                                                             v-model.trim="form_data.compressor.airCompressorPipeVolumeMeasured"
@@ -3076,7 +3081,7 @@
                                                     </label>
                                                     <div class="d-flex justify-content-between">
                                                         <input
-                                                            type="number"
+                                                            type="text"
                                                             class="form-control"
                                                             placeholder=""
                                                             v-model.trim="form_data.compressor.airCompressorInitialPressureMeasured"
@@ -3118,7 +3123,7 @@
                                                     </label>
                                                     <div class="d-flex justify-content-between">
                                                         <input
-                                                            type="number"
+                                                            type="text"
                                                             class="form-control"
                                                             placeholder=""
                                                             v-model.trim="form_data.compressor.airCompressorFinalPressureMeasured"
@@ -3160,7 +3165,7 @@
                                                     </label>
                                                     <div class="d-flex justify-content-between">
                                                         <input
-                                                            type="number"
+                                                            type="text"
                                                             class="form-control"
                                                             placeholder=""
                                                             v-model.trim="form_data.compressor.airCompressorTimeToReachFinalPressureMeasured"
@@ -3202,7 +3207,7 @@
                                                     </label>
                                                     <div class="d-flex justify-content-between">
                                                         <input
-                                                            type="number"
+                                                            type="text"
                                                             class="form-control"
                                                             placeholder=""
                                                             v-model.trim="form_data.compressor.airCompressorTemperatureMeasured"
@@ -3230,7 +3235,7 @@
                                                     </label>
                                                     <div class="d-flex justify-content-between">
                                                         <input
-                                                            type="number"
+                                                            type="text"
                                                             class="form-control"
                                                             placeholder=""
                                                             v-model.trim="form_data.compressor.airCompressorCompressorSECRated"
@@ -3244,7 +3249,7 @@
                                                     </label>
                                                     <div class="d-flex justify-content-between">
                                                         <input
-                                                            type="number"
+                                                            type="text"
                                                             class="form-control"
                                                             placeholder=""
                                                             v-model.trim="form_data.compressor.airCompressorCompressorSECMeasured"
@@ -3526,9 +3531,9 @@
                                                     Year of installation
                                                 </label>
                                                 <div class="col-md-6">
-                                                    <label class="form-label w-100">
-                                                        Rated Parameter
-                                                    </label>
+<!--                                                    <label class="form-label w-100">-->
+<!--                                                        Rated Parameter-->
+<!--                                                    </label>-->
                                                     <input
                                                         type="text"
                                                         class="form-control"
@@ -3562,9 +3567,9 @@
                                                     Type of chiller
                                                 </label>
                                                 <div class="col-md-6">
-                                                    <label class="form-label w-100">
-                                                        Rated Parameter
-                                                    </label>
+<!--                                                    <label class="form-label w-100">-->
+<!--                                                        Rated Parameter-->
+<!--                                                    </label>-->
                                                     <input
                                                         type="text"
                                                         class="form-control"
@@ -3639,7 +3644,7 @@
                                                     </label>
                                                     <div class="d-flex justify-content-between">
                                                         <input
-                                                            type="number"
+                                                            type="text"
                                                             class="form-control"
                                                             placeholder=""
                                                             v-model.trim="form_data.chiller.chillerCapacityRated"
@@ -3653,7 +3658,7 @@
                                                     </label>
                                                     <div class="d-flex justify-content-between">
                                                         <input
-                                                            type="number"
+                                                            type="text"
                                                             class="form-control"
                                                             placeholder=""
                                                             v-model.trim="form_data.chiller.chillerCapacityMeasured"
@@ -3681,7 +3686,7 @@
                                                     </label>
                                                     <div class="d-flex justify-content-between">
                                                         <input
-                                                            type="number"
+                                                            type="text"
                                                             class="form-control"
                                                             placeholder=""
                                                             v-model.trim="form_data.chiller.chillerVoltageRated"
@@ -3695,7 +3700,7 @@
                                                     </label>
                                                     <div class="d-flex justify-content-between">
                                                         <input
-                                                            type="number"
+                                                            type="text"
                                                             class="form-control"
                                                             placeholder=""
                                                             v-model.trim="form_data.chiller.chillerVoltageMeasured"
@@ -3723,7 +3728,7 @@
                                                     </label>
                                                     <div class="d-flex justify-content-between">
                                                         <input
-                                                            type="number"
+                                                            type="text"
                                                             class="form-control"
                                                             placeholder=""
                                                             v-model.trim="form_data.chiller.chillerCurrentRated"
@@ -3737,7 +3742,7 @@
                                                     </label>
                                                     <div class="d-flex justify-content-between">
                                                         <input
-                                                            type="number"
+                                                            type="text"
                                                             class="form-control"
                                                             placeholder=""
                                                             v-model.trim="form_data.chiller.chillerCurrentMeasured"
@@ -3765,7 +3770,7 @@
                                                     </label>
                                                     <div class="d-flex justify-content-between">
                                                         <input
-                                                            type="number"
+                                                            type="text"
                                                             class="form-control"
                                                             placeholder=""
                                                             v-model.trim="form_data.chiller.chillerPowerFactorRated"
@@ -3778,7 +3783,7 @@
                                                     </label>
                                                     <div class="d-flex justify-content-between">
                                                         <input
-                                                            type="number"
+                                                            type="text"
                                                             class="form-control"
                                                             placeholder=""
                                                             v-model.trim="form_data.chiller.chillerPowerFactorMeasured"
@@ -3805,7 +3810,7 @@
                                                     </label>
                                                     <div class="d-flex justify-content-between">
                                                         <input
-                                                            type="number"
+                                                            type="text"
                                                             class="form-control"
                                                             placeholder=""
                                                             v-model.trim="form_data.chiller.chillerSpeedRated"
@@ -3818,7 +3823,7 @@
                                                     </label>
                                                     <div class="d-flex justify-content-between">
                                                         <input
-                                                            type="number"
+                                                            type="text"
                                                             class="form-control"
                                                             placeholder=""
                                                             v-model.trim="form_data.chiller.chillerSpeedMeasured"
@@ -3845,7 +3850,7 @@
                                                     </label>
                                                     <div class="d-flex justify-content-between">
                                                         <input
-                                                            type="number"
+                                                            type="text"
                                                             class="form-control"
                                                             placeholder=""
                                                             v-model.trim="form_data.chiller.chillerMotorPowerRated"
@@ -3859,7 +3864,7 @@
                                                     </label>
                                                     <div class="d-flex justify-content-between">
                                                         <input
-                                                            type="number"
+                                                            type="text"
                                                             class="form-control"
                                                             placeholder=""
                                                             v-model.trim="form_data.chiller.chillerMotorPowerMeasured"
@@ -3887,7 +3892,7 @@
                                                     </label>
                                                     <div class="d-flex justify-content-between">
                                                         <input
-                                                            type="number"
+                                                            type="text"
                                                             class="form-control"
                                                             placeholder=""
                                                             v-model.trim="form_data.chiller.chillerMotorEfficiencyRated"
@@ -3971,7 +3976,7 @@
                                                     </label>
                                                     <div class="d-flex justify-content-between">
                                                         <input
-                                                            type="number"
+                                                            type="text"
                                                             class="form-control"
                                                             placeholder=""
                                                             v-model.trim="form_data.chiller.chillerMotorFrameSizeRated"
@@ -4024,7 +4029,7 @@
                                                                                                     </label>
                                                                                                     <div class="d-flex justify-content-between">
                                                                                                         <input
-                                                                                                            type="number"
+                                                                                                            type="text"
                                                                                                             class="form-control"
                                                                                                             placeholder=""
                                                                                                             v-model.trim="form_data.chiller.chillerChillerLoadingMeasured"
@@ -4065,7 +4070,7 @@
                                                     </label>
                                                     <div class="d-flex justify-content-between">
                                                         <input
-                                                            type="number"
+                                                            type="text"
                                                             class="form-control"
                                                             placeholder=""
                                                             v-model.trim="form_data.chiller.chillerSupplyTempMeasured"
@@ -4107,7 +4112,7 @@
                                                     </label>
                                                     <div class="d-flex justify-content-between">
                                                         <input
-                                                            type="number"
+                                                            type="text"
                                                             class="form-control"
                                                             placeholder=""
                                                             v-model.trim="form_data.chiller.chillerReturnTempMeasured"
@@ -4129,13 +4134,13 @@
                                                 <label class="form-label w-100">
                                                     Flow
                                                 </label>
-                                                <div class="col-md-6">
+                                                <div class="col-md-4">
                                                     <label class="form-label w-100">
                                                         Rated Parameter
                                                     </label>
                                                     <div class="d-flex justify-content-between">
                                                         <input
-                                                            type="number"
+                                                            type="text"
                                                             class="form-control"
                                                             placeholder=""
                                                             v-model.trim="form_data.chiller.chillerFlowRated"
@@ -4143,16 +4148,31 @@
                                                         <span class="mt-2" style="margin-left: .5rem;">m3/hr</span>
                                                     </div>
                                                 </div>
-                                                <div class="col-md-6">
+                                                <div class="col-md-4">
                                                     <label class="form-label w-100">
                                                         Measured Parameter
                                                     </label>
                                                     <div class="d-flex justify-content-between">
                                                         <input
-                                                            type="number"
+                                                            type="text"
                                                             class="form-control"
                                                             placeholder=""
                                                             v-model.trim="form_data.chiller.chillerFlowMeasured"
+                                                        />
+                                                        <span class="mt-2" style="margin-left: .5rem;">m3/hr</span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <label class="form-label w-100">
+                                                        Measured Average
+                                                    </label>
+                                                    <div class="d-flex justify-content-between">
+                                                        <input
+                                                            type="text"
+                                                            class="form-control"
+                                                            placeholder=""
+                                                            v-model.trim="form_data.chiller.chillerFlowMeasuredAverage"
+                                                            readonly
                                                         />
                                                         <span class="mt-2" style="margin-left: .5rem;">m3/hr</span>
                                                     </div>
@@ -4177,7 +4197,7 @@
                                                     </label>
                                                     <div class="d-flex justify-content-between">
                                                         <input
-                                                            type="number"
+                                                            type="text"
                                                             class="form-control"
                                                             placeholder=""
                                                             v-model.trim="form_data.chiller.chillerChillerSECRated"
@@ -4191,7 +4211,7 @@
                                                     </label>
                                                     <div class="d-flex justify-content-between">
                                                         <input
-                                                            type="number"
+                                                            type="text"
                                                             class="form-control"
                                                             placeholder=""
                                                             v-model.trim="form_data.chiller.chillerChillerSECMeasured"
@@ -4211,7 +4231,7 @@
                                         <div class="col-md-12">
                                             <div class="row mb-3">
                                                 <label class="form-label w-100">
-                                                    Condenser Approch
+                                                    Condenser Approach
                                                 </label>
                                                 <div class="col-md-6">
                                                     <label class="form-label w-100">
@@ -4219,7 +4239,7 @@
                                                     </label>
                                                     <div class="d-flex justify-content-between">
                                                         <input
-                                                            type="number"
+                                                            type="text"
                                                             class="form-control"
                                                             placeholder=""
                                                             v-model.trim="form_data.chiller.chillerCondenserApprochRated"
@@ -4233,7 +4253,7 @@
                                                     </label>
                                                     <div class="d-flex justify-content-between">
                                                         <input
-                                                            type="number"
+                                                            type="text"
                                                             class="form-control"
                                                             placeholder=""
                                                             v-model.trim="form_data.chiller.chillerCondenserApprochMeasured"
@@ -4260,9 +4280,9 @@
                                                     Year of installation
                                                 </label>
                                                 <div class="col-md-6">
-                                                    <label class="form-label w-100">
-                                                        Rated Parameter
-                                                    </label>
+<!--                                                    <label class="form-label w-100">-->
+<!--                                                        Rated Parameter-->
+<!--                                                    </label>-->
                                                     <input
                                                         type="text"
                                                         class="form-control"
@@ -4341,7 +4361,7 @@
                                                     </label>
                                                     <div class="d-flex justify-content-between">
                                                         <input
-                                                            type="number"
+                                                            type="text"
                                                             class="form-control"
                                                             placeholder=""
                                                             v-model.trim="form_data.motor.motorVoltageRated"
@@ -4355,7 +4375,7 @@
                                                     </label>
                                                     <div class="d-flex justify-content-between">
                                                         <input
-                                                            type="number"
+                                                            type="text"
                                                             class="form-control"
                                                             placeholder=""
                                                             v-model.trim="form_data.motor.motorVoltageMeasured"
@@ -4383,7 +4403,7 @@
                                                     </label>
                                                     <div class="d-flex justify-content-between">
                                                         <input
-                                                            type="number"
+                                                            type="text"
                                                             class="form-control"
                                                             placeholder=""
                                                             v-model.trim="form_data.motor.motorCurrentRated"
@@ -4397,7 +4417,7 @@
                                                     </label>
                                                     <div class="d-flex justify-content-between">
                                                         <input
-                                                            type="number"
+                                                            type="text"
                                                             class="form-control"
                                                             placeholder=""
                                                             v-model.trim="form_data.motor.motorCurrentMeasured"
@@ -4425,7 +4445,7 @@
                                                     </label>
                                                     <div class="d-flex justify-content-between">
                                                         <input
-                                                            type="number"
+                                                            type="text"
                                                             class="form-control"
                                                             placeholder=""
                                                             v-model.trim="form_data.motor.motorPowerFactorRated"
@@ -4438,7 +4458,7 @@
                                                     </label>
                                                     <div class="d-flex justify-content-between">
                                                         <input
-                                                            type="number"
+                                                            type="text"
                                                             class="form-control"
                                                             placeholder=""
                                                             v-model.trim="form_data.motor.motorPowerFactorMeasured"
@@ -4465,7 +4485,7 @@
                                                     </label>
                                                     <div class="d-flex justify-content-between">
                                                         <input
-                                                            type="number"
+                                                            type="text"
                                                             class="form-control"
                                                             placeholder=""
                                                             v-model.trim="form_data.motor.motorSpeedRated"
@@ -4478,7 +4498,7 @@
                                                     </label>
                                                     <div class="d-flex justify-content-between">
                                                         <input
-                                                            type="number"
+                                                            type="text"
                                                             class="form-control"
                                                             placeholder=""
                                                             v-model.trim="form_data.motor.motorSpeedMeasured"
@@ -4518,7 +4538,7 @@
                                                     </label>
                                                     <div class="d-flex justify-content-between">
                                                         <input
-                                                            type="number"
+                                                            type="text"
                                                             class="form-control"
                                                             placeholder=""
                                                             v-model.trim="form_data.motor.motorTempMeasured"
@@ -4545,7 +4565,7 @@
                                                     </label>
                                                     <div class="d-flex justify-content-between">
                                                         <input
-                                                            type="number"
+                                                            type="text"
                                                             class="form-control"
                                                             placeholder=""
                                                             v-model.trim="form_data.motor.motorMotorPowerRated"
@@ -4559,7 +4579,7 @@
                                                     </label>
                                                     <div class="d-flex justify-content-between">
                                                         <input
-                                                            type="number"
+                                                            type="text"
                                                             class="form-control"
                                                             placeholder=""
                                                             v-model.trim="form_data.motor.motorMotorPowerMeasured"
@@ -4587,7 +4607,7 @@
                                                     </label>
                                                     <div class="d-flex justify-content-between">
                                                         <input
-                                                            type="number"
+                                                            type="text"
                                                             class="form-control"
                                                             placeholder=""
                                                             v-model.trim="form_data.motor.motorMotorEfficiencyRated"
@@ -4671,7 +4691,7 @@
                                                     </label>
                                                     <div class="d-flex justify-content-between">
                                                         <input
-                                                            type="number"
+                                                            type="text"
                                                             class="form-control"
                                                             placeholder=""
                                                             v-model.trim="form_data.motor.motorMotorFrameSizeRated"
@@ -4710,11 +4730,11 @@
                                                     Year of installation
                                                 </label>
                                                 <div class="col-md-6">
-                                                    <label class="form-label w-100">
-                                                        Rated Parameter
-                                                    </label>
+<!--                                                    <label class="form-label w-100">-->
+<!--                                                        Rated Parameter-->
+<!--                                                    </label>-->
                                                     <input
-                                                        type="number"
+                                                        type="text"
                                                         class="form-control"
                                                         placeholder=""
                                                         v-model.trim="form_data.boiler.boilerYearOfInstallationRated"
@@ -4732,15 +4752,15 @@
                                         <div class="col-md-12">
                                             <div class="row mb-3">
                                                 <label class="form-label w-100">
-                                                    Tyep of boiler
+                                                    Type of boiler
                                                 </label>
                                                 <div class="col-md-6">
-                                                    <label class="form-label w-100">
-                                                        Rated Parameter
-                                                    </label>
+<!--                                                    <label class="form-label w-100">-->
+<!--                                                        Rated Parameter-->
+<!--                                                    </label>-->
                                                     <div class="d-flex justify-content-between">
                                                         <input
-                                                            type="number"
+                                                            type="text"
                                                             class="form-control"
                                                             placeholder=""
                                                             v-model.trim="form_data.boiler.boilerTypeOfBoilerRated"
@@ -4782,7 +4802,7 @@
                                                     </label>
                                                     <div class="d-flex justify-content-between">
                                                         <input
-                                                            type="number"
+                                                            type="text"
                                                             class="form-control"
                                                             placeholder=""
                                                             v-model.trim="form_data.boiler.boilerCapacityRated"
@@ -4824,7 +4844,7 @@
                                                     </label>
                                                     <div class="d-flex justify-content-between">
                                                         <input
-                                                            type="number"
+                                                            type="text"
                                                             class="form-control"
                                                             placeholder=""
                                                             v-model.trim="form_data.boiler.boilerTypeOfFuelRated"
@@ -4866,7 +4886,7 @@
                                                     </label>
                                                     <div class="d-flex justify-content-between">
                                                         <input
-                                                            type="number"
+                                                            type="text"
                                                             class="form-control"
                                                             placeholder=""
                                                             v-model.trim="form_data.boiler.boilerTypeOfBurnerRated"
@@ -4921,7 +4941,7 @@
                                                     </label>
                                                     <div class="d-flex justify-content-between">
                                                         <input
-                                                            type="number"
+                                                            type="text"
                                                             class="form-control"
                                                             placeholder=""
                                                             v-model.trim="form_data.boiler.boilerAverageQuantityOfFuelFiredInADayMeasured"
@@ -4962,7 +4982,7 @@
                                                     </label>
                                                     <div class="d-flex justify-content-between">
                                                         <input
-                                                            type="number"
+                                                            type="text"
                                                             class="form-control"
                                                             placeholder=""
                                                             v-model.trim="form_data.boiler.boilerAnalysisOfFuelMeasured"
@@ -5032,7 +5052,7 @@
                                                     </label>
                                                     <div class="d-flex justify-content-between">
                                                         <input
-                                                            type="number"
+                                                            type="text"
                                                             class="form-control"
                                                             placeholder=""
                                                             v-model.trim="form_data.boiler.boilerMoistureMeasured"
@@ -5059,7 +5079,7 @@
                                                     </label>
                                                     <div class="d-flex justify-content-between">
                                                         <input
-                                                            type="number"
+                                                            type="text"
                                                             class="form-control"
                                                             placeholder=""
                                                             v-model.trim="form_data.boiler.boilerCarbonMeasured"
@@ -5086,7 +5106,7 @@
                                                     </label>
                                                     <div class="d-flex justify-content-between">
                                                         <input
-                                                            type="number"
+                                                            type="text"
                                                             class="form-control"
                                                             placeholder=""
                                                             v-model.trim="form_data.boiler.boilerHydrogenMeasured"
@@ -5113,7 +5133,7 @@
                                                     </label>
                                                     <div class="d-flex justify-content-between">
                                                         <input
-                                                            type="number"
+                                                            type="text"
                                                             class="form-control"
                                                             placeholder=""
                                                             v-model.trim="form_data.boiler.boilerNitrogenMeasured"
@@ -5141,7 +5161,7 @@
                                                     </label>
                                                     <div class="d-flex justify-content-between">
                                                         <input
-                                                            type="number"
+                                                            type="text"
                                                             class="form-control"
                                                             placeholder=""
                                                             v-model.trim="form_data.boiler.boilerOxygenMeasured"
@@ -5169,7 +5189,7 @@
                                                     </label>
                                                     <div class="d-flex justify-content-between">
                                                         <input
-                                                            type="number"
+                                                            type="text"
                                                             class="form-control"
                                                             placeholder=""
                                                             v-model.trim="form_data.boiler.boilerSulphurMeasured"
@@ -5209,7 +5229,7 @@
                                                     </label>
                                                     <div class="d-flex justify-content-between">
                                                         <input
-                                                            type="number"
+                                                            type="text"
                                                             class="form-control"
                                                             placeholder=""
                                                             v-model.trim="form_data.boiler.boilerGrossCalorificValueOfFuelMeasured"
@@ -5236,7 +5256,7 @@
                                                     </label>
                                                     <div class="d-flex justify-content-between">
                                                         <input
-                                                            type="number"
+                                                            type="text"
                                                             class="form-control"
                                                             placeholder=""
                                                             v-model.trim="form_data.boiler.boilerNetCalorificValueOfFuelMeasured"
@@ -5263,7 +5283,7 @@
                                                     </label>
                                                     <div class="d-flex justify-content-between">
                                                         <input
-                                                            type="number"
+                                                            type="text"
                                                             class="form-control"
                                                             placeholder=""
                                                             v-model.trim="form_data.boiler.boilerFlueGasAnalysisCO2Measured"
@@ -5290,7 +5310,7 @@
                                                     </label>
                                                     <div class="d-flex justify-content-between">
                                                         <input
-                                                            type="number"
+                                                            type="text"
                                                             class="form-control"
                                                             placeholder=""
                                                             v-model.trim="form_data.boiler.boilerFlueGasAnalysisCOMeasured"
@@ -5317,7 +5337,7 @@
                                                     </label>
                                                     <div class="d-flex justify-content-between">
                                                         <input
-                                                            type="number"
+                                                            type="text"
                                                             class="form-control"
                                                             placeholder=""
                                                             v-model.trim="form_data.boiler.boilerFlueGasAnalysisOxygenMeasured"
@@ -5344,7 +5364,7 @@
                                                     </label>
                                                     <div class="d-flex justify-content-between">
                                                         <input
-                                                            type="number"
+                                                            type="text"
                                                             class="form-control"
                                                             placeholder=""
                                                             v-model.trim="form_data.boiler.boilerFlueGasTemperatureMeasured"
@@ -5371,7 +5391,7 @@
                                                     </label>
                                                     <div class="d-flex justify-content-between">
                                                         <input
-                                                            type="number"
+                                                            type="text"
                                                             class="form-control"
                                                             placeholder=""
                                                             v-model.trim="form_data.boiler.boilerAmbientTemperatureMeasured"
@@ -5398,7 +5418,7 @@
                                                     </label>
                                                     <div class="d-flex justify-content-between">
                                                         <input
-                                                            type="number"
+                                                            type="text"
                                                             class="form-control"
                                                             placeholder=""
                                                             v-model.trim="form_data.boiler.boilerHumidityInAirKgOfDryAirMeasured"
@@ -5425,7 +5445,7 @@
                                                     </label>
                                                     <div class="d-flex justify-content-between">
                                                         <input
-                                                            type="number"
+                                                            type="text"
                                                             class="form-control"
                                                             placeholder=""
                                                             v-model.trim="form_data.boiler.boilerTotalSurfaceAreaOfBoilerMeasured"
@@ -5452,7 +5472,7 @@
                                                     </label>
                                                     <div class="d-flex justify-content-between">
                                                         <input
-                                                            type="number"
+                                                            type="text"
                                                             class="form-control"
                                                             placeholder=""
                                                             v-model.trim="form_data.boiler.boilerVelocityOfWindAroundTheBoilerMeasured"
@@ -5479,7 +5499,7 @@
                                                     </label>
                                                     <div class="d-flex justify-content-between">
                                                         <input
-                                                            type="number"
+                                                            type="text"
                                                             class="form-control"
                                                             placeholder=""
                                                             v-model.trim="form_data.boiler.boilerAverageSurfaceTemperatureMeasured"
@@ -5506,7 +5526,7 @@
                                                     </label>
                                                     <div class="d-flex justify-content-between">
                                                         <input
-                                                            type="number"
+                                                            type="text"
                                                             class="form-control"
                                                             placeholder=""
                                                             v-model.trim="form_data.boiler.boilerAverageQuantityOfFuelFiredPerHourMeasured"
@@ -5533,7 +5553,7 @@
                                                     </label>
                                                     <div class="d-flex justify-content-between">
                                                         <input
-                                                            type="number"
+                                                            type="text"
                                                             class="form-control"
                                                             placeholder=""
                                                             v-model.trim="form_data.boiler.boilerGCVOfFlyAshMeasured"
@@ -5560,7 +5580,7 @@
                                                     </label>
                                                     <div class="d-flex justify-content-between">
                                                         <input
-                                                            type="number"
+                                                            type="text"
                                                             class="form-control"
                                                             placeholder=""
                                                             v-model.trim="form_data.boiler.boilerFlyAshKgOfFuelMeasured"
@@ -5587,7 +5607,7 @@
                                                     </label>
                                                     <div class="d-flex justify-content-between">
                                                         <input
-                                                            type="number"
+                                                            type="text"
                                                             class="form-control"
                                                             placeholder=""
                                                             v-model.trim="form_data.boiler.boilerGCVOfBottomAshMeasured"
@@ -5614,7 +5634,7 @@
                                                     </label>
                                                     <div class="d-flex justify-content-between">
                                                         <input
-                                                            type="number"
+                                                            type="text"
                                                             class="form-control"
                                                             placeholder=""
                                                             v-model.trim="form_data.boiler.boilerOperatingTempRated"
@@ -5627,7 +5647,7 @@
                                                     </label>
                                                     <div class="d-flex justify-content-between">
                                                         <input
-                                                            type="number"
+                                                            type="text"
                                                             class="form-control"
                                                             placeholder=""
                                                             v-model.trim="form_data.boiler.boilerOperatingTempMeasured"
@@ -5654,7 +5674,7 @@
                                                     </label>
                                                     <div class="d-flex justify-content-between">
                                                         <input
-                                                            type="number"
+                                                            type="text"
                                                             class="form-control"
                                                             placeholder=""
                                                             v-model.trim="form_data.boiler.boilerOperatingPressureRated"
@@ -5667,7 +5687,7 @@
                                                     </label>
                                                     <div class="d-flex justify-content-between">
                                                         <input
-                                                            type="number"
+                                                            type="text"
                                                             class="form-control"
                                                             placeholder=""
                                                             v-model.trim="form_data.boiler.boilerOperatingPressureMeasured"
@@ -5693,11 +5713,11 @@
                                                     Year of installation
                                                 </label>
                                                 <div class="col-md-6">
-                                                    <label class="form-label w-100">
-                                                        Rated Parameter
-                                                    </label>
+<!--                                                    <label class="form-label w-100">-->
+<!--                                                        Rated Parameter-->
+<!--                                                    </label>-->
                                                     <input
-                                                        type="number"
+                                                        type="text"
                                                         class="form-control"
                                                         placeholder=""
                                                         v-model.trim="form_data.cooling.coolingYearOfInstallationRated"
@@ -5723,7 +5743,7 @@
                                                     </label>
                                                     <div class="d-flex justify-content-between">
                                                         <input
-                                                            type="number"
+                                                            type="text"
                                                             class="form-control"
                                                             placeholder=""
                                                             v-model.trim="form_data.cooling.coolingCapacityRated"
@@ -5737,7 +5757,7 @@
                                                     </label>
                                                     <div class="d-flex justify-content-between">
                                                         <input
-                                                            type="number"
+                                                            type="text"
                                                             class="form-control"
                                                             placeholder=""
                                                             v-model.trim="form_data.cooling.coolingCapacityMeasured"
@@ -5765,7 +5785,7 @@
                                                     </label>
                                                     <div class="d-flex justify-content-between">
                                                         <input
-                                                            type="number"
+                                                            type="text"
                                                             class="form-control"
                                                             placeholder=""
                                                             v-model.trim="form_data.cooling.coolingTypeOfCoolingTowerRated"
@@ -5793,7 +5813,7 @@
                                                     </label>
                                                     <div class="d-flex justify-content-between">
                                                         <input
-                                                            type="number"
+                                                            type="text"
                                                             class="form-control"
                                                             placeholder=""
                                                             v-model.trim="form_data.cooling.coolingEnteringWaterTempMeasured"
@@ -5821,7 +5841,7 @@
                                                     </label>
                                                     <div class="d-flex justify-content-between">
                                                         <input
-                                                            type="number"
+                                                            type="text"
                                                             class="form-control"
                                                             placeholder=""
                                                             v-model.trim="form_data.cooling.coolingLeavingWaterTempMeasured"
@@ -5849,7 +5869,7 @@
                                                     </label>
                                                     <div class="d-flex justify-content-between">
                                                         <input
-                                                            type="number"
+                                                            type="text"
                                                             class="form-control"
                                                             placeholder=""
                                                             v-model.trim="form_data.cooling.coolingFanPowerRated"
@@ -5862,7 +5882,7 @@
                                                     </label>
                                                     <div class="d-flex justify-content-between">
                                                         <input
-                                                            type="number"
+                                                            type="text"
                                                             class="form-control"
                                                             placeholder=""
                                                             v-model.trim="form_data.cooling.coolingFanPowerMeasured"
@@ -5889,7 +5909,7 @@
                                                     </label>
                                                     <div class="d-flex justify-content-between">
                                                         <input
-                                                            type="number"
+                                                            type="text"
                                                             class="form-control"
                                                             placeholder=""
                                                             v-model.trim="form_data.cooling.coolingNumberOfCellsRated"
@@ -5903,7 +5923,7 @@
                                                     </label>
                                                     <div class="d-flex justify-content-between">
                                                         <input
-                                                            type="number"
+                                                            type="text"
                                                             class="form-control"
                                                             placeholder=""
                                                             v-model.trim="form_data.cooling.coolingNumberOfCellsMeasured"
@@ -5959,7 +5979,7 @@
                                                     </label>
                                                     <div class="d-flex justify-content-between">
                                                         <input
-                                                            type="number"
+                                                            type="text"
                                                             class="form-control"
                                                             placeholder=""
                                                             v-model.trim="form_data.cooling.coolingEnteringAirTempWBTMeasured"
@@ -5986,7 +6006,7 @@
                                                     </label>
                                                     <div class="d-flex justify-content-between">
                                                         <input
-                                                            type="number"
+                                                            type="text"
                                                             class="form-control"
                                                             placeholder=""
                                                             v-model.trim="form_data.cooling.coolingLeavingAirTempDBTMeasured"
@@ -6013,7 +6033,7 @@
                                                     </label>
                                                     <div class="d-flex justify-content-between">
                                                         <input
-                                                            type="number"
+                                                            type="text"
                                                             class="form-control"
                                                             placeholder=""
                                                             v-model.trim="form_data.cooling.coolingLeavingAirTempWBTMeasured"
@@ -6040,7 +6060,7 @@
                                                     </label>
                                                     <div class="d-flex justify-content-between">
                                                         <input
-                                                            type="number"
+                                                            type="text"
                                                             class="form-control"
                                                             placeholder=""
                                                             v-model.trim="form_data.cooling.coolingFlowOfWaterMeasured"
@@ -6068,7 +6088,7 @@
                                                     </label>
                                                     <div class="d-flex justify-content-between">
                                                         <input
-                                                            type="number"
+                                                            type="text"
                                                             class="form-control"
                                                             placeholder=""
                                                             v-model.trim="form_data.cooling.coolingAirVelocityMeasured"
@@ -6096,7 +6116,7 @@
                                                     </label>
                                                     <div class="d-flex justify-content-between">
                                                         <input
-                                                            type="number"
+                                                            type="text"
                                                             class="form-control"
                                                             placeholder=""
                                                             v-model.trim="form_data.cooling.coolingAreaOfFanOfCTMeasured"
@@ -6122,11 +6142,11 @@
                                                     Year of installation
                                                 </label>
                                                 <div class="col-md-6">
-                                                    <label class="form-label w-100">
-                                                        Rated Parameter
-                                                    </label>
+<!--                                                    <label class="form-label w-100">-->
+<!--                                                        Rated Parameter-->
+<!--                                                    </label>-->
                                                     <input
-                                                        type="number"
+                                                        type="text"
                                                         class="form-control"
                                                         placeholder=""
                                                         v-model.trim="form_data.ahu.ahuYearOfInstallationRated"
@@ -6152,7 +6172,7 @@
                                                     </label>
                                                     <div class="d-flex justify-content-between">
                                                         <input
-                                                            type="number"
+                                                            type="text"
                                                             class="form-control"
                                                             placeholder=""
                                                             v-model.trim="form_data.ahu.ahuCapacityRated"
@@ -6166,7 +6186,7 @@
                                                     </label>
                                                     <div class="d-flex justify-content-between">
                                                         <input
-                                                            type="number"
+                                                            type="text"
                                                             class="form-control"
                                                             placeholder=""
                                                             v-model.trim="form_data.ahu.ahuCapacityMeasured"
@@ -6194,7 +6214,7 @@
                                                     </label>
                                                     <div class="d-flex justify-content-between">
                                                         <input
-                                                            type="number"
+                                                            type="text"
                                                             class="form-control"
                                                             placeholder=""
                                                             v-model.trim="form_data.ahu.ahuTypeOfAHURated"
@@ -6222,7 +6242,7 @@
                                                     </label>
                                                     <div class="d-flex justify-content-between">
                                                         <input
-                                                            type="number"
+                                                            type="text"
                                                             class="form-control"
                                                             placeholder=""
                                                             v-model.trim="form_data.ahu.ahuEnteringWaterTempMeasured"
@@ -6250,7 +6270,7 @@
                                                     </label>
                                                     <div class="d-flex justify-content-between">
                                                         <input
-                                                            type="number"
+                                                            type="text"
                                                             class="form-control"
                                                             placeholder=""
                                                             v-model.trim="form_data.ahu.ahuLeavingWaterTempMeasured"
@@ -6278,7 +6298,7 @@
                                                     </label>
                                                     <div class="d-flex justify-content-between">
                                                         <input
-                                                            type="number"
+                                                            type="text"
                                                             class="form-control"
                                                             placeholder=""
                                                             v-model.trim="form_data.ahu.ahuFanPowerRated"
@@ -6291,7 +6311,7 @@
                                                     </label>
                                                     <div class="d-flex justify-content-between">
                                                         <input
-                                                            type="number"
+                                                            type="text"
                                                             class="form-control"
                                                             placeholder=""
                                                             v-model.trim="form_data.ahu.ahuFanPowerMeasured"
@@ -6318,7 +6338,7 @@
                                                     </label>
                                                     <div class="d-flex justify-content-between">
                                                         <input
-                                                            type="number"
+                                                            type="text"
                                                             class="form-control"
                                                             placeholder=""
                                                             v-model.trim="form_data.ahu.ahuNumberOfCellsRated"
@@ -6332,7 +6352,7 @@
                                                     </label>
                                                     <div class="d-flex justify-content-between">
                                                         <input
-                                                            type="number"
+                                                            type="text"
                                                             class="form-control"
                                                             placeholder=""
                                                             v-model.trim="form_data.ahu.ahuNumberOfCellsMeasured"
@@ -6388,7 +6408,7 @@
                                                     </label>
                                                     <div class="d-flex justify-content-between">
                                                         <input
-                                                            type="number"
+                                                            type="text"
                                                             class="form-control"
                                                             placeholder=""
                                                             v-model.trim="form_data.ahu.ahuEnteringAirTempWBTMeasured"
@@ -6415,7 +6435,7 @@
                                                     </label>
                                                     <div class="d-flex justify-content-between">
                                                         <input
-                                                            type="number"
+                                                            type="text"
                                                             class="form-control"
                                                             placeholder=""
                                                             v-model.trim="form_data.ahu.ahuLeavingAirTempDBTMeasured"
@@ -6442,7 +6462,7 @@
                                                     </label>
                                                     <div class="d-flex justify-content-between">
                                                         <input
-                                                            type="number"
+                                                            type="text"
                                                             class="form-control"
                                                             placeholder=""
                                                             v-model.trim="form_data.ahu.ahuLeavingAirTempWBTMeasured"
@@ -6469,7 +6489,7 @@
                                                     </label>
                                                     <div class="d-flex justify-content-between">
                                                         <input
-                                                            type="number"
+                                                            type="text"
                                                             class="form-control"
                                                             placeholder=""
                                                             v-model.trim="form_data.ahu.ahuFlowOfWaterMeasured"
@@ -6497,7 +6517,7 @@
                                                     </label>
                                                     <div class="d-flex justify-content-between">
                                                         <input
-                                                            type="number"
+                                                            type="text"
                                                             class="form-control"
                                                             placeholder=""
                                                             v-model.trim="form_data.ahu.ahuAirVelocityMeasured"
@@ -6525,7 +6545,7 @@
                                                     </label>
                                                     <div class="d-flex justify-content-between">
                                                         <input
-                                                            type="number"
+                                                            type="text"
                                                             class="form-control"
                                                             placeholder=""
                                                             v-model.trim="form_data.ahu.ahuAirAreaOfDuctMeasured"
@@ -6552,7 +6572,7 @@
                                                     </label>
                                                     <div class="d-flex justify-content-between">
                                                         <input
-                                                            type="number"
+                                                            type="text"
                                                             class="form-control"
                                                             placeholder=""
                                                             v-model.trim="form_data.ahu.ahuStaticPressureRated"
@@ -6565,7 +6585,7 @@
                                                     </label>
                                                     <div class="d-flex justify-content-between">
                                                         <input
-                                                            type="number"
+                                                            type="text"
                                                             class="form-control"
                                                             placeholder=""
                                                             v-model.trim="form_data.ahu.ahuStaticPressureMeasured"
@@ -6592,7 +6612,7 @@
                                                     </label>
                                                     <div class="d-flex justify-content-between">
                                                         <input
-                                                            type="number"
+                                                            type="text"
                                                             class="form-control"
                                                             placeholder=""
                                                             v-model.trim="form_data.ahu.ahuAHUDPRated"
@@ -6605,7 +6625,7 @@
                                                     </label>
                                                     <div class="d-flex justify-content-between">
                                                         <input
-                                                            type="number"
+                                                            type="text"
                                                             class="form-control"
                                                             placeholder=""
                                                             v-model.trim="form_data.ahu.ahuAHUDPMeasured"
@@ -6656,7 +6676,7 @@
 <!--                                                    <span class="error">*</span>-->
                                                 </label>
                                                 <input
-                                                    type="text"
+                                                    type="number"
                                                     class="form-control"
                                                     placeholder=""
                                                     v-model.trim="form_data.pump.pumpVFDSetting"
@@ -6723,11 +6743,11 @@
                                         <div class="col-md-6">
                                             <div class="mb-3">
                                                 <label class="form-label w-100 text-capitalize">
-                                                    Nos. of rewiding of motor
+                                                    Nos. of rewinding of motor
 <!--                                                    <span class="error">*</span>-->
                                                 </label>
                                                 <input
-                                                    type="text"
+                                                    type="number"
                                                     class="form-control"
                                                     placeholder=""
                                                     v-model.trim="form_data.pump.pumpNosOfRewidingOfMotor"
@@ -6763,7 +6783,7 @@
 <!--                                                    <span class="error">*</span>-->
                                                 </label>
                                                 <input
-                                                    type="text"
+                                                    type="number"
                                                     class="form-control"
                                                     placeholder=""
                                                     v-model.trim="form_data.pump.pumpOperatingHours"
@@ -6867,7 +6887,7 @@
                                         <div class="col-md-6">
                                             <div class="mb-3">
                                                 <label class="form-label w-100 text-capitalize">
-                                                    Nos. of rewiding of motor
+                                                    Nos. of rewinding of motor
 <!--                                                    <span class="error">*</span>-->
                                                 </label>
                                                 <input
@@ -6939,7 +6959,7 @@
                                         <div class="col-md-6">
                                             <div class="mb-3">
                                                 <label class="form-label w-100 text-capitalize">
-                                                    Nos. of rewiding of motor
+                                                    Nos. of rewinding of motor
 <!--                                                    <span class="error">*</span>-->
                                                 </label>
                                                 <input
@@ -7308,7 +7328,7 @@
                                         <div class="col-md-6">
                                             <div class="mb-3">
                                                 <label class="form-label w-100 text-capitalize">
-                                                    Nos. of rewiding of motor
+                                                    Nos. of rewinding of motor
 <!--                                                    <span class="error">*</span>-->
                                                 </label>
                                                 <input
@@ -7360,6 +7380,23 @@
                                                 <!--                                                </div>-->
                                             </div>
                                         </div>
+                                        <div class="col-md-6" v-if="form_data.boiler.boilerVFDOnIdFan === 'yes'">
+                                            <div class="mb-3">
+                                                <label class="form-label w-100 text-capitalize">
+                                                    VFD setting
+                                                    <!--                                                    <span class="error">*</span>-->
+                                                </label>
+                                                <input
+                                                    type="number"
+                                                    class="form-control"
+                                                    placeholder=""
+                                                    v-model.trim="form_data.boiler.boilerVFDOnIdFanVFDSetting"
+                                                />
+                                                <!--                                                <div class="error" v-if="v$.form_data.itemType.required.$invalid && show_error_eleven">-->
+                                                <!--                                                    Item type is required-->
+                                                <!--                                                </div>-->
+                                            </div>
+                                        </div>
                                         <div class="col-md-6">
                                             <div class="mb-3">
                                                 <label class="form-label w-100 text-capitalize">
@@ -7377,7 +7414,24 @@
                                                 <!--                                                </div>-->
                                             </div>
                                         </div>
-                                        <div class="col-md-6" v-if="form_data.motor.motorVFDorNot === 'yes'">
+                                        <div class="col-md-6" v-if="form_data.boiler.boilerVFDOnFdFan === 'yes'">
+                                            <div class="mb-3">
+                                                <label class="form-label w-100 text-capitalize">
+                                                    VFD setting
+                                                    <!--                                                    <span class="error">*</span>-->
+                                                </label>
+                                                <input
+                                                    type="number"
+                                                    class="form-control"
+                                                    placeholder=""
+                                                    v-model.trim="form_data.boiler.boilerVFDOnFdFanVFDSetting"
+                                                />
+                                                <!--                                                <div class="error" v-if="v$.form_data.itemType.required.$invalid && show_error_eleven">-->
+                                                <!--                                                    Item type is required-->
+                                                <!--                                                </div>-->
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
                                             <div class="mb-3">
                                                 <label class="form-label w-100 text-capitalize">
                                                     Maximum temp. can sustain
@@ -7489,7 +7543,7 @@
                                                     <!--                                                    <span class="error">*</span>-->
                                                 </label>
                                                 <input
-                                                    type="text"
+                                                    type="number"
                                                     class="form-control"
                                                     placeholder=""
                                                     v-model.trim="form_data.boiler.boilerBurnerAirMaxTempCapacity"
@@ -7594,7 +7648,7 @@
                                                     <!--                                                    <span class="error">*</span>-->
                                                 </label>
                                                 <input
-                                                    type="text"
+                                                    type="number"
                                                     class="form-control"
                                                     placeholder=""
                                                     v-model.trim="form_data.boiler.boilerOperatingHours"
@@ -7700,7 +7754,7 @@
                                         <div class="col-md-6">
                                             <div class="mb-3">
                                                 <label class="form-label w-100 text-capitalize">
-                                                    Nos. of rewiding of fan motor
+                                                    Nos. of rewinding of fan motor
                                                     <!--                                                    <span class="error">*</span>-->
                                                 </label>
                                                 <input
@@ -8164,15 +8218,20 @@ export default {
                     fanSuctionDuctSizeMeasured:'',
                     fanSuctionStaticPressureRated:'',
                     fanSuctionStaticPressureMeasured:'',
+                    fanSuctionStaticPressureAverage:'',
                     fanSuctionVelocityPressureRated:'',
+                    fanSuctionVelocityPressureAverage:'',
                     fanSuctionVelocityPressureMeasured:'',
                     fanDischargeDuctSizeRated:'',
                     fanDischargeDuctSizeMeasured:'',
                     fanDischargeStaticPressureRated:'',
+                    fanDischargeStaticPressureAverage:'',
                     fanDischargeStaticPressureMeasured:'',
                     fanDischargeVelocityPressureRated:'',
+                    fanDischargeVelocityPressureAverage:'',
                     fanDischargeVelocityPressureMeasured:'',
                     fanDischargeVelocityRated:'',
+                    fanDischargeVelocityAverage:'',
                     fanDischargeVelocityMeasured:'',
                     fanEfficiencyRated:'',
                     fanEfficiencyMeasured:'',
@@ -8292,6 +8351,7 @@ export default {
                     chillerReturnTempMeasured:'',
                     chillerFlowRated:'',
                     chillerFlowMeasured:'',
+                    chillerFlowMeasuredAverage:'',
                     chillerChillerSECRated:'',
                     chillerChillerSECMeasured:'',
                     chillerCondenserApprochRated:'',
@@ -8373,7 +8433,9 @@ export default {
                     boilerOperatingPressureMeasured:'',
                     //checklist
                     boilerVFDOnIdFan:'',
+                    boilerVFDOnIdFanVFDSetting:'',
                     boilerVFDOnFdFan:'',
+                    boilerVFDOnFdFanVFDSetting:'',
                     boilerMaximumTempCanSustain:'',
                     boilerAlternateFuelPossibility:'',
                     boilerBlowDownControl:'',
@@ -8550,7 +8612,7 @@ export default {
         },
         cancel(){
             // window.location.assign("/admin/information");
-            window.location.assign(`/admin/project/${self.project_id}`);
+            window.location.assign(`/admin/project/${this.project_id}`);
         },
         itemTypeChangeEvent(){
             if (this.form_data.itemType == 'Pump'){
@@ -8844,6 +8906,91 @@ export default {
             // Multiply before dividing to improve precision
             return (load * 100) / total
         },
+        //counting avarage
+        fanSuctionStaticPressureAverage() {
+            const raw = this.form_data.fan.fanSuctionStaticPressureMeasured;
+
+            // Clean and parse the input string to numbers
+            const values = raw
+                .split(',')
+                .map(v => parseFloat(v.trim()))
+                .filter(v => !isNaN(v));
+
+            if (values.length === 0) return 0;
+
+            const sum = values.reduce((a, b) => a + b, 0);
+            return sum / values.length;
+        },
+        fanSuctionVelocityPressureAverage() {
+            const raw = this.form_data.fan.fanSuctionVelocityPressureMeasured;
+
+            // Clean and parse the input string to numbers
+            const values = raw
+                .split(',')
+                .map(v => parseFloat(v.trim()))
+                .filter(v => !isNaN(v));
+
+            if (values.length === 0) return 0;
+
+            const sum = values.reduce((a, b) => a + b, 0);
+            return sum / values.length;
+        },
+        fanDischargeStaticPressureAverage() {
+            const raw = this.form_data.fan.fanDischargeStaticPressureMeasured;
+
+            // Clean and parse the input string to numbers
+            const values = raw
+                .split(',')
+                .map(v => parseFloat(v.trim()))
+                .filter(v => !isNaN(v));
+
+            if (values.length === 0) return 0;
+
+            const sum = values.reduce((a, b) => a + b, 0);
+            return sum / values.length;
+        },
+        fanDischargeVelocityPressureAverage() {
+            const raw = this.form_data.fan.fanDischargeVelocityPressureMeasured;
+
+            // Clean and parse the input string to numbers
+            const values = raw
+                .split(',')
+                .map(v => parseFloat(v.trim()))
+                .filter(v => !isNaN(v));
+
+            if (values.length === 0) return 0;
+
+            const sum = values.reduce((a, b) => a + b, 0);
+            return sum / values.length;
+        },
+        fanDischargeVelocityAverage() {
+            const raw = this.form_data.fan.fanDischargeVelocityMeasured;
+
+            // Clean and parse the input string to numbers
+            const values = raw
+                .split(',')
+                .map(v => parseFloat(v.trim()))
+                .filter(v => !isNaN(v));
+
+            if (values.length === 0) return 0;
+
+            const sum = values.reduce((a, b) => a + b, 0);
+            return sum / values.length;
+        },
+        chillerFlowMeasuredAverage() {
+            const raw = this.form_data.chiller.chillerFlowMeasured;
+
+            // Clean and parse the input string to numbers
+            const values = raw
+                .split(',')
+                .map(v => parseFloat(v.trim()))
+                .filter(v => !isNaN(v));
+
+            if (values.length === 0) return 0;
+
+            const sum = values.reduce((a, b) => a + b, 0);
+            return sum / values.length;
+        },
     },
     watch: {
         pumpEfficiency(newVal) {
@@ -8863,6 +9010,26 @@ export default {
         },
         leakagePercentageThree(newVal) {
             this.form_data.compressor.airCompressorLeakageReadingThree = parseFloat(newVal.toFixed(2));
+        },
+
+        //counting average
+        fanSuctionStaticPressureAverage(newVal) {
+            this.form_data.fan.fanSuctionStaticPressureAverage = parseFloat(newVal.toFixed(2));
+        },
+        fanSuctionVelocityPressureAverage(newVal) {
+            this.form_data.fan.fanSuctionVelocityPressureAverage = parseFloat(newVal.toFixed(2));
+        },
+        fanDischargeStaticPressureAverage(newVal) {
+            this.form_data.fan.fanDischargeStaticPressureAverage = parseFloat(newVal.toFixed(2));
+        },
+        fanDischargeVelocityPressureAverage(newVal) {
+            this.form_data.fan.fanDischargeVelocityPressureAverage = parseFloat(newVal.toFixed(2));
+        },
+        fanDischargeVelocityAverage(newVal) {
+            this.form_data.fan.fanDischargeVelocityAverage = parseFloat(newVal.toFixed(2));
+        },
+        chillerFlowMeasuredAverage(newVal) {
+            this.form_data.chiller.chillerFlowMeasuredAverage = parseFloat(newVal.toFixed(2));
         },
         immediate: true // To set initial value
     },

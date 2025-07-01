@@ -28,6 +28,8 @@ return new class extends Migration
             $table->text('fanPowerFactorMeasured')->nullable();
             $table->text('fanMotorPowerRated')->nullable();
             $table->text('fanMotorPowerMeasured')->nullable();
+            $table->text('fanSpeedRated')->nullable();
+            $table->text('fanSpeedMeasured')->nullable();
             $table->text('fanMotorEfficiencyRated')->nullable();
             $table->text('fanMotorEfficiencyMeasured')->nullable();
             $table->text('fanMotorEfficiencyClassRated')->nullable();
@@ -39,14 +41,18 @@ return new class extends Migration
             $table->text('fanSuctionDuctSizeRated')->nullable();
             $table->text('fanSuctionDuctSizeMeasured')->nullable();
             $table->text('fanSuctionStaticPressureRated')->nullable();
+            $table->text('fanSuctionStaticPressureAverage')->nullable();
             $table->text('fanSuctionStaticPressureMeasured')->nullable();
             $table->text('fanSuctionVelocityPressureRated')->nullable();
+            $table->text('fanSuctionVelocityPressureAverage')->nullable();
             $table->text('fanSuctionVelocityPressureMeasured')->nullable();
             $table->text('fanDischargeDuctSizeRated')->nullable();
             $table->text('fanDischargeDuctSizeMeasured')->nullable();
             $table->text('fanDischargeStaticPressureRated')->nullable();
+            $table->text('fanDischargeStaticPressureAverage')->nullable();
             $table->text('fanDischargeStaticPressureMeasured')->nullable();
             $table->text('fanDischargeVelocityPressureRated')->nullable();
+            $table->text('fanDischargeVelocityPressureAverage')->nullable();
             $table->text('fanDischargeVelocityPressureMeasured')->nullable();
             $table->text('fanDischargeVelocityRated')->nullable();
             $table->text('fanDischargeVelocityMeasured')->nullable();

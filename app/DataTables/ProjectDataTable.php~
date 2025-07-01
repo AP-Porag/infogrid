@@ -46,17 +46,6 @@ class ProjectDataTable extends DataTable
 
     }
 
-    protected $projectId;
-
-    // Method to receive the user_id
-    public function with($key, $value)
-    {
-        if ($key === 'project_id') {
-            $this->$projectId = $value;
-        }
-        return parent::with($key, $value);
-    }
-
     /**
      * Get the query source of dataTable.
      */

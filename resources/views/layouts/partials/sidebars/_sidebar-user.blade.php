@@ -13,6 +13,11 @@
                         <i class="fa fa-home"></i><span> Dashboard </span>
                     </a>
                 </li>
+                <li class="{{ request()->is('user/project*') ? 'mm-active' : '' }}">
+                    <a href="{{route('user.project.index')}}" class="waves-effect {{ (request()->routeIs('user.project.index') || request()->routeIs('user.project.create') || request()->routeIs('user.project.edit')) ? 'active' : '' }}">
+                        <i class="fa fa-boxes"></i><span> Project </span>
+                    </a>
+                </li>
                 <li class="{{ request()->is('user/information*') ? 'mm-active' : '' }}">
                     <a href="{{route('user.information.index')}}" class="waves-effect {{ (request()->routeIs('user.information.index') || request()->routeIs('user.information.create') || request()->routeIs('user.information.edit')) ? 'active' : '' }}">
                         <i class="fa fa-book-open"></i><span> Data Collection </span>

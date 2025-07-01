@@ -54,7 +54,9 @@ return new class extends Migration
 
             // Checklist fields
             $table->text('boilerVFDOnIdFan')->nullable();
+            $table->text('boilerVFDOnIdFanVFDSetting')->nullable();
             $table->text('boilerVFDOnFdFan')->nullable();
+            $table->text('boilerVFDOnFdFanVFDSetting')->nullable();
             $table->text('boilerMaximumTempCanSustain')->nullable();
             $table->text('boilerAlternateFuelPossibility')->nullable();
             $table->text('boilerBlowDownControl')->nullable();

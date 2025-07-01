@@ -4,6 +4,7 @@ namespace App\DataTables;
 
 use App\Models\Project;
 use Illuminate\Database\Eloquent\Builder as QueryBuilder;
+use Illuminate\Support\Facades\Auth;
 use Yajra\DataTables\EloquentDataTable;
 use Yajra\DataTables\Html\Builder as HtmlBuilder;
 use Yajra\DataTables\Html\Button;
@@ -25,14 +26,16 @@ class ProjectDataTable extends DataTable
             ->addColumn('action', function ($item) {
                 $buttons = '';
                 $buttons .= '<a class="dropdown-item" href="' . route('admin.project.show', $item->id) . '" title="Show"><i class="mdi mdi-eye-check-outline"></i> Data Collection </a>';
-                $buttons .= '<a class="dropdown-item" href="' . route('admin.project.edit', $item->id) . '" title="Edit"><i class="mdi mdi-square-edit-outline"></i> Edit </a>';
+                if (Auth::user()->user_type == 'admin') {
+                    $buttons .= '<a class="dropdown-item" href="' . route('admin.project.edit', $item->id) . '" title="Edit"><i class="mdi mdi-square-edit-outline"></i> Edit </a>';
 
-                // TO-DO: need to chnage the super admin ID to 1, while Super admin ID will 1
-                $buttons .= '<form action="' . route('admin.project.destroy', $item->id) . '"  id="delete-form-' . $item->id . '" method="post" style="">
+                    // TO-DO: need to chnage the super admin ID to 1, while Super admin ID will 1
+                    $buttons .= '<form action="' . route('admin.project.destroy', $item->id) . '"  id="delete-form-' . $item->id . '" method="post" style="">
                         <input type="hidden" name="_token" value="' . csrf_token() . '">
                         <input type="hidden" name="_method" value="DELETE">
                         <button class="dropdown-item text-danger" onclick="return makeDeleteRequest(event, ' . $item->id . ')"  type="submit" title="Delete"><i class="mdi mdi-trash-can-outline"></i> Delete</button></form>
                         ';
+                }
 
                 return '<div class="btn-group dropleft">
                 <a href="#" onclick="return false;" class="btn btn-sm btn-dark text-white dropdown-toggle dropdown" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-ellipsis-v"></i></a>

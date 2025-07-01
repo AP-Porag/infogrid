@@ -63,6 +63,9 @@ Route::prefix('admin')->as('admin.')->group(function () {
 //all routes for manager
 Route::prefix('user')->as('user.')->group(function () {
 
+    // PROJECT
+    Route::resource('project', ProjectController::class);
+
     // INFORMATION
     Route::resource('information', InformationController::class);
 });
