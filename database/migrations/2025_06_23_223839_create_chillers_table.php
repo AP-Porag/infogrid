@@ -59,6 +59,9 @@ return new class extends Migration
             $table->text('chillerCheckCondenserCondition')->nullable();
             $table->text('chillerTakeChillerHMIData')->nullable();
             $table->text('chillerOperatingHours')->nullable();
+
+            $table->text('chillerCapacityUnit')->nullable();
+            $table->text('chillerFlowUnit')->nullable();
             $table->timestamps();
         });
     }

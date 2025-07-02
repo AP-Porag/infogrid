@@ -71,6 +71,16 @@ return new class extends Migration
             $table->text('boilerFuelFlowMeterReading')->nullable();
             $table->text('boilerOperatingHours')->nullable();
 
+            $table->text('boilerCapacityUnit')->nullable();
+            $table->text('boilerAverageQuantityOfFuelFiredInADayUnit')->nullable();
+            $table->text('boilerGrossCalorificValueOfFuelUnit')->nullable();
+            $table->text('boilerNetCalorificValueOfFuelUnit')->nullable();
+            $table->text('boilerHumidityInAirKgOfDryAirUnit')->nullable();
+            $table->text('boilerAverageQuantityOfFuelFiredPerHourUnit')->nullable();
+            $table->text('boilerGCVOfFlyAshUnit')->nullable();
+            $table->text('boilerGCVOfBottomAshUnit')->nullable();
+            $table->text('boilerOperatingPressureUnit')->nullable();
+
             $table->timestamps();
         });
     }

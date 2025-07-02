@@ -54,6 +54,7 @@ return new class extends Migration
             $table->text('pumpNosOfRewidingOfMotor')->nullable();
             $table->text('pumpCheckCavitation')->nullable();
             $table->text('pumpOperatingHours')->nullable();
+            $table->text('pumpFlowUnit')->nullable();
             $table->timestamps();
         });
     }

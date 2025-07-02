@@ -46,6 +46,7 @@ return new class extends Migration
             $table->text('chillerReturnTempMeasured')->nullable();
             $table->text('chillerFlowRated')->nullable();
             $table->text('chillerFlowMeasured')->nullable();
+            $table->text('chillerFlowMeasuredAverage')->nullable();
             $table->text('chillerChillerSECRated')->nullable();
             $table->text('chillerChillerSECMeasured')->nullable();
             $table->text('chillerCondenserApprochRated')->nullable();

@@ -49,6 +49,11 @@ return new class extends Migration
             $table->text('ahuSetTemp')->nullable();
             $table->text('ahuOperatingHours')->nullable();
 
+            $table->text('ahuCapacityUnit')->nullable();
+            $table->text('ahuFlowOfWaterUnit')->nullable();
+            $table->text('ahuStaticPressureUnit')->nullable();
+            $table->text('ahuAHUDPUnit')->nullable();
+
             $table->timestamps();
         });
     }

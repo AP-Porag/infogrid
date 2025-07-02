@@ -40,10 +40,13 @@ return new class extends Migration
             $table->text('coolingVFDOnFanOrNot')->nullable();
             $table->text('coolingVFDSettingFan')->nullable();
             $table->text('coolingVFDOnPumpOrNot')->nullable();
-            $table->text('coolingVFDSettingPump')->nullable(); // ✅ Added missing field
+            $table->text('coolingVFDSettingPump')->nullable();
             $table->text('coolingDriftLossVisible')->nullable();
             $table->text('coolingNosOfRewidingOfFanMotor')->nullable();
             $table->text('coolingOperatingHours')->nullable();
+
+            $table->text('coolingCapacityUnit')->nullable();
+            $table->text('coolingFlowOfWaterUnit')->nullable();
 
             $table->timestamps();
         });

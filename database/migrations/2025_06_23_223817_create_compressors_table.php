@@ -87,6 +87,7 @@ return new class extends Migration
             $table->text('airCompressorCheckRunHours')->nullable();
             $table->text('airCompressorCheckAmbientTemp')->nullable();
             $table->text('airCompressorOperatingHours')->nullable();
+            $table->text('airCompressorFlowUnit')->nullable();
             $table->timestamps();
         });
     }

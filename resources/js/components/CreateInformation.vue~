@@ -6923,7 +6923,7 @@
                                                             type="text"
                                                             class="form-control"
                                                             placeholder=""
-                                                            v-model.trim="form_data.ahu.ahuAHUDPUnit"
+                                                            v-model.trim="form_data.pump.pumpFlowUnit"
                                                         />
                                                     </div>
                                                 </div>
