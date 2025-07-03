@@ -8288,7 +8288,7 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        <button class="btn btn-secondary" @click="openCamera" type="button">
+                        <button class="btn btn-warning" @click="openCamera" type="button">
                             Open Camera
                         </button>
                         <h4 class="text-warning mt-3">OR</h4>
@@ -8344,6 +8344,9 @@
                         <canvas ref="canvas" style="display: none;"></canvas>
                     </div>
                     <div class="modal-footer">
+                        <button class="btn btn-warning" @click="switchCamera">
+                            Switch Camera
+                        </button>
                         <button
                             type="button"
                             @click="snapshot"
@@ -8384,6 +8387,8 @@ export default {
     setup: () => ({ v$: useVuelidate() }),
     data(){
         return{
+            cameraStream: null,
+            currentFacingMode: 'environment',// 'user' for front, 'environment' for rear
             maxDate: "",
             show_error_one: false,
             isReadonly:false,
@@ -9053,6 +9058,30 @@ export default {
         },
 
         // Show camera modal and open camera
+        // openCamera() {
+        //     // Close other modal if open
+        //     $('#openPopUpModal').modal('hide');
+        //
+        //     // Show camera modal
+        //     $('#openCameraModal').modal('show');
+        //
+        //     // Once modal is fully visible, start the camera
+        //     $('#openCameraModal').off('shown.bs.modal').on('shown.bs.modal', async () => {
+        //         const constraints = { video: true };
+        //         try {
+        //             this.cameraStream = await navigator.mediaDevices.getUserMedia(constraints);
+        //             const video = this.$refs.video;
+        //             if (video) {
+        //                 video.srcObject = this.cameraStream;
+        //                 video.play();
+        //             }
+        //         } catch (error) {
+        //             console.error("Error accessing camera:", error);
+        //             alert("Could not access camera. Please allow camera permissions.");
+        //             $('#openCameraModal').modal('hide');
+        //         }
+        //     });
+        // },
         openCamera() {
             // Close other modal if open
             $('#openPopUpModal').modal('hide');
@@ -9061,21 +9090,48 @@ export default {
             $('#openCameraModal').modal('show');
 
             // Once modal is fully visible, start the camera
-            $('#openCameraModal').off('shown.bs.modal').on('shown.bs.modal', async () => {
-                const constraints = { video: true };
-                try {
-                    this.cameraStream = await navigator.mediaDevices.getUserMedia(constraints);
-                    const video = this.$refs.video;
-                    if (video) {
-                        video.srcObject = this.cameraStream;
-                        video.play();
-                    }
-                } catch (error) {
-                    console.error("Error accessing camera:", error);
+            $('#openCameraModal').off('shown.bs.modal').on('shown.bs.modal', () => {
+                this.startCamera();
+            });
+        },
+        async startCamera() {
+            // Stop existing stream
+            if (this.cameraStream) {
+                this.cameraStream.getTracks().forEach(track => track.stop());
+            }
+
+            const constraints = {
+                video: {
+                    facingMode: { exact: this.currentFacingMode }
+                }
+            };
+
+            try {
+                this.cameraStream = await navigator.mediaDevices.getUserMedia(constraints);
+                const video = this.$refs.video;
+                if (video) {
+                    video.srcObject = this.cameraStream;
+                    video.play();
+                }
+            } catch (error) {
+                console.error("Error accessing camera:", error);
+
+                // Fallback: try front camera if rear fails
+                if (this.currentFacingMode === 'environment') {
+                    this.currentFacingMode = 'user';
+                    this.startCamera();
+                } else {
                     alert("Could not access camera. Please allow camera permissions.");
                     $('#openCameraModal').modal('hide');
                 }
-            });
+            }
+        },
+
+        //switch camera
+        switchCamera() {
+            this.currentFacingMode = this.currentFacingMode === 'user' ? 'environment' : 'user';
+            this.startCamera(); // restart camera with new facingMode
+            console.log(this.currentFacingMode);
         },
 
         // Capture image from camera

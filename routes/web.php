@@ -60,7 +60,7 @@ Route::prefix('admin')->as('admin.')->group(function () {
 
 });
 
-//all routes for manager
+//all routes for user
 Route::prefix('user')->as('user.')->group(function () {
 
     // PROJECT
