@@ -60,6 +60,8 @@ return new class extends Migration
             $table->text('airCompressorDryerTypeMeasured')->nullable();
             $table->text('airCompressorDryerMakeModelRated')->nullable();
             $table->text('airCompressorDryerMakeModelMeasured')->nullable();
+            $table->text('airCompressorFrequencyRated')->nullable();
+            $table->text('airCompressorFrequencyMeasured')->nullable();
 
 
             // Air Compressor Leakage test

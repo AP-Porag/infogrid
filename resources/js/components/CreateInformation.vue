@@ -1328,6 +1328,47 @@
                                         <div class="col-md-12">
                                             <div class="row mb-3">
                                                 <label class="form-label w-100">
+                                                    Frequency
+                                                </label>
+                                                <div class="col-md-6">
+                                                    <label class="form-label w-100">
+                                                        Rated Parameter
+                                                    </label>
+                                                    <div class="d-flex justify-content-between">
+                                                        <input
+                                                            type="text"
+                                                            class="form-control"
+                                                            placeholder=""
+                                                            v-model.trim="form_data.pump.pumpFrequencyRated"
+                                                        />
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label class="form-label w-100">
+                                                        Measured Parameter
+                                                    </label>
+                                                    <div class="d-flex justify-content-between">
+                                                        <input
+                                                            type="text"
+                                                            class="form-control"
+                                                            placeholder=""
+                                                            v-model.trim="form_data.pump.pumpFrequencyMeasured"
+                                                        />
+                                                        <span class="mt-2" style="margin-left: .5rem;">Hz</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card shipping_address_card">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="row mb-3">
+                                                <label class="form-label w-100">
                                                     Speed
                                                 </label>
                                                 <div class="col-md-6">
@@ -1407,6 +1448,7 @@
                                                         <select class="form-select mb-text-only" aria-label="Default select example"
                                                                 v-model.trim="form_data.pump.pumpMotorEfficiencyClassRated"
                                                         >
+                                                            <option value="not_available">Not Available</option>
                                                             <option value="IE2">IE2</option>
                                                             <option value="IE3">IE3</option>
                                                             <option value="IE4">IE4</option>
@@ -1561,6 +1603,7 @@
                                                             class="form-control"
                                                             placeholder=""
                                                             v-model.trim="form_data.pump.pumpEfficiencyMeasured"
+                                                            readonly
                                                         />
                                                     </div>
                                                 </div>
@@ -1874,6 +1917,47 @@
                                         <div class="col-md-12">
                                             <div class="row mb-3">
                                                 <label class="form-label w-100">
+                                                    Frequency
+                                                </label>
+                                                <div class="col-md-6">
+                                                    <label class="form-label w-100">
+                                                        Rated Parameter
+                                                    </label>
+                                                    <div class="d-flex justify-content-between">
+                                                        <input
+                                                            type="text"
+                                                            class="form-control"
+                                                            placeholder=""
+                                                            v-model.trim="form_data.fan.fanFrequencyRated"
+                                                        />
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label class="form-label w-100">
+                                                        Measured Parameter
+                                                    </label>
+                                                    <div class="d-flex justify-content-between">
+                                                        <input
+                                                            type="text"
+                                                            class="form-control"
+                                                            placeholder=""
+                                                            v-model.trim="form_data.fan.fanFrequencyMeasured"
+                                                        />
+                                                        <span class="mt-2" style="margin-left: .5rem;">Hz</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card shipping_address_card">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="row mb-3">
+                                                <label class="form-label w-100">
                                                     Speed
                                                 </label>
                                                 <div class="col-md-6">
@@ -1966,6 +2050,7 @@
                                                         <select class="form-select mb-text-only" aria-label="Default select example"
                                                                 v-model.trim="form_data.fan.fanMotorEfficiencyClassRated"
                                                         >
+                                                            <option value="not_available">Not Available</option>
                                                             <option value="IE2">IE2</option>
                                                             <option value="IE3">IE3</option>
                                                             <option value="IE4">IE4</option>
@@ -2760,6 +2845,47 @@
                                         <div class="col-md-12">
                                             <div class="row mb-3">
                                                 <label class="form-label w-100">
+                                                    Frequency
+                                                </label>
+                                                <div class="col-md-6">
+                                                    <label class="form-label w-100">
+                                                        Rated Parameter
+                                                    </label>
+                                                    <div class="d-flex justify-content-between">
+                                                        <input
+                                                            type="text"
+                                                            class="form-control"
+                                                            placeholder=""
+                                                            v-model.trim="form_data.compressor.airCompressorFrequencyRated"
+                                                        />
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label class="form-label w-100">
+                                                        Measured Parameter
+                                                    </label>
+                                                    <div class="d-flex justify-content-between">
+                                                        <input
+                                                            type="text"
+                                                            class="form-control"
+                                                            placeholder=""
+                                                            v-model.trim="form_data.compressor.airCompressorFrequencyMeasured"
+                                                        />
+                                                        <span class="mt-2" style="margin-left: .5rem;">Hz</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card shipping_address_card">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="row mb-3">
+                                                <label class="form-label w-100">
                                                     Speed
                                                 </label>
                                                 <div class="col-md-6">
@@ -2852,6 +2978,7 @@
                                                         <select class="form-select mb-text-only" aria-label="Default select example"
                                                                 v-model.trim="form_data.compressor.airCompressorMotorEfficiencyClassRated"
                                                         >
+                                                            <option value="not_available">Not Available</option>
                                                             <option value="IE2">IE2</option>
                                                             <option value="IE3">IE3</option>
                                                             <option value="IE4">IE4</option>
@@ -3885,6 +4012,47 @@
                                         <div class="col-md-12">
                                             <div class="row mb-3">
                                                 <label class="form-label w-100">
+                                                    Frequency
+                                                </label>
+                                                <div class="col-md-6">
+                                                    <label class="form-label w-100">
+                                                        Rated Parameter
+                                                    </label>
+                                                    <div class="d-flex justify-content-between">
+                                                        <input
+                                                            type="text"
+                                                            class="form-control"
+                                                            placeholder=""
+                                                            v-model.trim="form_data.chiller.chillerFrequencyRated"
+                                                        />
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label class="form-label w-100">
+                                                        Measured Parameter
+                                                    </label>
+                                                    <div class="d-flex justify-content-between">
+                                                        <input
+                                                            type="text"
+                                                            class="form-control"
+                                                            placeholder=""
+                                                            v-model.trim="form_data.chiller.chillerFrequencyMeasured"
+                                                        />
+                                                        <span class="mt-2" style="margin-left: .5rem;">Hz</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card shipping_address_card">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="row mb-3">
+                                                <label class="form-label w-100">
                                                     Speed
                                                 </label>
                                                 <div class="col-md-6">
@@ -4018,6 +4186,7 @@
                                                         <select class="form-select mb-text-only" aria-label="Default select example"
                                                                 v-model.trim="form_data.chiller.chillerMotorEfficiencyClassRated"
                                                         >
+                                                            <option value="not_available">Not Available</option>
                                                             <option value="IE2">IE2</option>
                                                             <option value="IE3">IE3</option>
                                                             <option value="IE4">IE4</option>
@@ -4691,6 +4860,47 @@
                                         <div class="col-md-12">
                                             <div class="row mb-3">
                                                 <label class="form-label w-100">
+                                                    Frequency
+                                                </label>
+                                                <div class="col-md-6">
+                                                    <label class="form-label w-100">
+                                                        Rated Parameter
+                                                    </label>
+                                                    <div class="d-flex justify-content-between">
+                                                        <input
+                                                            type="text"
+                                                            class="form-control"
+                                                            placeholder=""
+                                                            v-model.trim="form_data.motor.motorFrequencyRated"
+                                                        />
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label class="form-label w-100">
+                                                        Measured Parameter
+                                                    </label>
+                                                    <div class="d-flex justify-content-between">
+                                                        <input
+                                                            type="text"
+                                                            class="form-control"
+                                                            placeholder=""
+                                                            v-model.trim="form_data.motor.motorFrequencyMeasured"
+                                                        />
+                                                        <span class="mt-2" style="margin-left: .5rem;">Hz</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card shipping_address_card">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="row mb-3">
+                                                <label class="form-label w-100">
                                                     Motor efficiency
                                                 </label>
                                                 <div class="col-md-6">
@@ -4741,6 +4951,7 @@
                                                         <select class="form-select mb-text-only" aria-label="Default select example"
                                                                 v-model.trim="form_data.motor.motorMotorEfficiencyClassRated"
                                                         >
+                                                            <option value="not_available">Not Available</option>
                                                             <option value="IE2">IE2</option>
                                                             <option value="IE3">IE3</option>
                                                             <option value="IE4">IE4</option>
@@ -6336,6 +6547,20 @@
                                                             placeholder=""
                                                             v-model.trim="form_data.cooling.coolingAirVelocityMeasured"
                                                         />
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label class="form-label w-100">
+                                                        Average
+                                                    </label>
+                                                    <div class="d-flex justify-content-between">
+                                                        <input
+                                                            type="text"
+                                                            class="form-control"
+                                                            placeholder=""
+                                                            v-model.trim="form_data.cooling.coolingAirVelocityMeasuredAverage"
+                                                            readonly
+                                                        />
                                                         <span class="mt-2" style="margin-left: .5rem;">m/s</span>
                                                     </div>
                                                 </div>
@@ -6790,6 +7015,20 @@
                                                             placeholder=""
                                                             v-model.trim="form_data.ahu.ahuAirVelocityMeasured"
                                                         />
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label class="form-label w-100">
+                                                        Average
+                                                    </label>
+                                                    <div class="d-flex justify-content-between">
+                                                        <input
+                                                            type="text"
+                                                            class="form-control"
+                                                            placeholder=""
+                                                            v-model.trim="form_data.ahu.ahuAirVelocityMeasuredAverage"
+                                                            readonly
+                                                        />
                                                         <span class="mt-2" style="margin-left: .5rem;">m/s</span>
                                                     </div>
                                                 </div>
@@ -6835,7 +7074,7 @@
                                                 <label class="form-label w-100">
                                                     Static pressure
                                                 </label>
-                                                <div class="col-md-4">
+                                                <div class="col-md-3">
                                                     <label class="form-label w-100">
                                                         Rated Parameter
                                                     </label>
@@ -6848,7 +7087,7 @@
                                                         />
                                                     </div>
                                                 </div>
-                                                <div class="col-md-4">
+                                                <div class="col-md-3">
                                                     <label class="form-label w-100">
                                                         Measured Parameter
                                                     </label>
@@ -6861,7 +7100,21 @@
                                                         />
                                                     </div>
                                                 </div>
-                                                <div class="col-md-4">
+                                                <div class="col-md-3">
+                                                    <label class="form-label w-100">
+                                                        Average
+                                                    </label>
+                                                    <div class="d-flex justify-content-between">
+                                                        <input
+                                                            type="text"
+                                                            class="form-control"
+                                                            placeholder=""
+                                                            v-model.trim="form_data.ahu.ahuStaticPressureMeasuredAverage"
+                                                            readonly
+                                                        />
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
                                                     <label class="form-label w-100">
                                                         Unit
                                                     </label>
@@ -6888,7 +7141,7 @@
                                                 <label class="form-label w-100">
                                                     AHU DP
                                                 </label>
-                                                <div class="col-md-4">
+                                                <div class="col-md-3">
                                                     <label class="form-label w-100">
                                                         Rated Parameter
                                                     </label>
@@ -6901,7 +7154,7 @@
                                                         />
                                                     </div>
                                                 </div>
-                                                <div class="col-md-4">
+                                                <div class="col-md-3">
                                                     <label class="form-label w-100">
                                                         Measured Parameter
                                                     </label>
@@ -6914,7 +7167,21 @@
                                                         />
                                                     </div>
                                                 </div>
-                                                <div class="col-md-4">
+                                                <div class="col-md-3">
+                                                    <label class="form-label w-100">
+                                                        Average
+                                                    </label>
+                                                    <div class="d-flex justify-content-between">
+                                                        <input
+                                                            type="text"
+                                                            class="form-control"
+                                                            placeholder=""
+                                                            v-model.trim="form_data.ahu.ahuAHUDPMeasuredAverage"
+                                                            readonly
+                                                        />
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
                                                     <label class="form-label w-100">
                                                         Unit
                                                     </label>
@@ -8478,6 +8745,8 @@ export default {
                     pumpDischargeHeadMeasured:'',
                     pumpEfficiencyRated:'',
                     pumpEfficiencyMeasured:'',
+                    pumpFrequencyRated:'',
+                    pumpFrequencyMeasured:'',
                     //checklist
                     pumpVFDorNot:'',
                     pumpVFDSetting:'',
@@ -8537,6 +8806,8 @@ export default {
                     fanDischargeVelocityMeasured:'',
                     fanEfficiencyRated:'',
                     fanEfficiencyMeasured:'',
+                    fanFrequencyRated:'',
+                    fanFrequencyMeasured:'',
                     //checklist
                     fanVFDorNot:'',
                     fanVFDSetting:'',
@@ -8600,6 +8871,8 @@ export default {
                     airCompressorDryerTypeMeasured:'',
                     airCompressorDryerMakeModelRated:'',
                     airCompressorDryerMakeModelMeasured:'',
+                    airCompressorFrequencyRated:'',
+                    airCompressorFrequencyMeasured:'',
                     //Leakage test
                     airCompressorLoadTimeReadingOne:'',
                     airCompressorLoadTimeReadingTwo:'',
@@ -8666,6 +8939,8 @@ export default {
                     chillerChillerSECMeasured:'',
                     chillerCondenserApprochRated:'',
                     chillerCondenserApprochMeasured:'',
+                    chillerFrequencyRated:'',
+                    chillerFrequencyMeasured:'',
                     //checklist
                     chillerVFDorNot:'',
                     chillerVFDSetting:'',
@@ -8701,6 +8976,8 @@ export default {
                     motorMotorEfficiencyClassMeasured:'',
                     motorMotorFrameSizeRated:'',
                     motorMotorFrameSizeMeasured:'',
+                    motorFrequencyRated:'',
+                    motorFrequencyMeasured:'',
                     //checklist
                     motorVFDorNot:'',
                     motorVFDSetting:'',
@@ -8791,6 +9068,7 @@ export default {
                     coolingLeavingAirTempWBTMeasured:'',
                     coolingFlowOfWaterMeasured:'',
                     coolingAirVelocityMeasured:'',
+                    coolingAirVelocityMeasuredAverage:'',
                     coolingAreaOfFanOfCTMeasured:'',
                     //checklist
                     coolingVFDOnFanOrNot:'',
@@ -8822,11 +9100,15 @@ export default {
                     ahuLeavingAirTempWBTMeasured:'',
                     ahuFlowOfWaterMeasured:'',
                     ahuAirVelocityMeasured:'',
+                    ahuAirVelocityMeasuredAverage:'',
+                    ahuAreaOfFanOfAHUMeasured:'',
                     ahuAirAreaOfDuctMeasured:'',
                     ahuStaticPressureRated:'',
                     ahuStaticPressureMeasured:'',
+                    ahuStaticPressureMeasuredAverage:'',
                     ahuAHUDPRated:'',
                     ahuAHUDPMeasured:'',
+                    ahuAHUDPMeasuredAverage:'',
                     //checklist
                     ahuVFDOnFanOrNot:'',
                     ahuVFDSettingFan:'',
@@ -8841,32 +9123,6 @@ export default {
                     ahuStaticPressureUnit: '',
                     ahuAHUDPUnit: '',
                 },
-
-                //units
-                // pumpFlowUnit: '',
-                // fanFlowUnit: '',
-                // fanSuctionStaticPressureUnit: '',
-                // fanSuctionVelocityPressureUnit: '',
-                // fanDischargeStaticPressureUnit: '',
-                // fanDischargeVelocityPressureUnit: '',
-                // airCompressorFlowUnit: '',
-                // chillerCapacityUnit: '',
-                // chillerFlowUnit: '',
-                // boilerCapacityUnit: '',
-                // boilerAverageQuantityOfFuelFiredInADayUnit: '',
-                // boilerGrossCalorificValueOfFuelUnit: '',
-                // boilerNetCalorificValueOfFuelUnit: '',
-                // boilerHumidityInAirKgOfDryAirUnit: '',
-                // boilerAverageQuantityOfFuelFiredPerHourUnit: '',
-                // boilerGCVOfFlyAshUnit: '',
-                // boilerGCVOfBottomAshUnit: '',
-                // boilerOperatingPressureUnit: '',
-                // coolingCapacityUnit: '',
-                // coolingFlowOfWaterUnit: '',
-                // ahuCapacityUnit: '',
-                // ahuFlowOfWaterUnit: '',
-                // ahuStaticPressureUnit: '',
-                // ahuAHUDPUnit: '',
             },
 
         }
@@ -9398,6 +9654,62 @@ export default {
             const sum = values.reduce((a, b) => a + b, 0);
             return sum / values.length;
         },
+        coolingAirVelocityMeasuredAverage() {
+            const raw = this.form_data.cooling.coolingAirVelocityMeasured;
+
+            // Clean and parse the input string to numbers
+            const values = raw
+                .split(',')
+                .map(v => parseFloat(v.trim()))
+                .filter(v => !isNaN(v));
+
+            if (values.length === 0) return 0;
+
+            const sum = values.reduce((a, b) => a + b, 0);
+            return sum / values.length;
+        },
+        ahuAirVelocityMeasuredAverage() {
+            const raw = this.form_data.ahu.ahuAirVelocityMeasured;
+
+            // Clean and parse the input string to numbers
+            const values = raw
+                .split(',')
+                .map(v => parseFloat(v.trim()))
+                .filter(v => !isNaN(v));
+
+            if (values.length === 0) return 0;
+
+            const sum = values.reduce((a, b) => a + b, 0);
+            return sum / values.length;
+        },
+        ahuStaticPressureMeasuredAverage() {
+            const raw = this.form_data.ahu.ahuStaticPressureMeasured;
+
+            // Clean and parse the input string to numbers
+            const values = raw
+                .split(',')
+                .map(v => parseFloat(v.trim()))
+                .filter(v => !isNaN(v));
+
+            if (values.length === 0) return 0;
+
+            const sum = values.reduce((a, b) => a + b, 0);
+            return sum / values.length;
+        },
+        ahuAHUDPMeasuredAverage() {
+            const raw = this.form_data.ahu.ahuAHUDPMeasured;
+
+            // Clean and parse the input string to numbers
+            const values = raw
+                .split(',')
+                .map(v => parseFloat(v.trim()))
+                .filter(v => !isNaN(v));
+
+            if (values.length === 0) return 0;
+
+            const sum = values.reduce((a, b) => a + b, 0);
+            return sum / values.length;
+        },
     },
     watch: {
         pumpEfficiency(newVal) {
@@ -9437,6 +9749,18 @@ export default {
         },
         chillerFlowMeasuredAverage(newVal) {
             this.form_data.chiller.chillerFlowMeasuredAverage = parseFloat(newVal.toFixed(2));
+        },
+        coolingAirVelocityMeasuredAverage(newVal) {
+            this.form_data.cooling.coolingAirVelocityMeasuredAverage = parseFloat(newVal.toFixed(2));
+        },
+        ahuAirVelocityMeasuredAverage(newVal) {
+            this.form_data.ahu.ahuAirVelocityMeasuredAverage = parseFloat(newVal.toFixed(2));
+        },
+        ahuStaticPressureMeasuredAverage(newVal) {
+            this.form_data.ahu.ahuStaticPressureMeasuredAverage = parseFloat(newVal.toFixed(2));
+        },
+        ahuAHUDPMeasuredAverage(newVal) {
+            this.form_data.ahu.ahuAHUDPMeasuredAverage = parseFloat(newVal.toFixed(2));
         },
         immediate: true // To set initial value
     },

@@ -44,6 +44,8 @@ return new class extends Migration
             $table->text('pumpDischargeHeadMeasured')->nullable();
             $table->text('pumpEfficiencyRated')->nullable();
             $table->text('pumpEfficiencyMeasured')->nullable();
+            $table->text('pumpFrequencyRated')->nullable();
+            $table->text('pumpFrequencyMeasured')->nullable();
 
             // Pump checklist
             $table->text('pumpVFDorNot')->nullable();

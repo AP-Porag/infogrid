@@ -36,9 +36,12 @@ return new class extends Migration
             $table->text('ahuLeavingAirTempWBTMeasured')->nullable();
             $table->text('ahuFlowOfWaterMeasured')->nullable();
             $table->text('ahuAirVelocityMeasured')->nullable();
+            $table->text('ahuAirVelocityMeasuredAverage')->nullable();
             $table->text('ahuAirAreaOfDuctMeasured')->nullable();
             $table->text('ahuStaticPressureMeasured')->nullable();
+            $table->text('ahuStaticPressureMeasuredAverage')->nullable();
             $table->text('ahuAHUDPMeasured')->nullable();
+            $table->text('ahuAHUDPMeasuredAverage')->nullable();
 
             // Checklist fields
             $table->text('ahuVFDOnFanOrNot')->nullable();

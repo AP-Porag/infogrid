@@ -68,6 +68,8 @@ return new class extends Migration
             $table->text('fanParallelFanOperation')->nullable();
             $table->text('fanNosOfRewidingOfMotor')->nullable();
             $table->text('fanOperatingHours')->nullable();
+            $table->text('fanFrequencyRated')->nullable();
+            $table->text('fanFrequencyMeasured')->nullable();
 
             //units
             $table->text('fanFlowUnit')->nullable();

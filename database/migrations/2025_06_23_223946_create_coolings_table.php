@@ -34,6 +34,7 @@ return new class extends Migration
             $table->text('coolingLeavingAirTempWBTMeasured')->nullable();
             $table->text('coolingFlowOfWaterMeasured')->nullable();
             $table->text('coolingAirVelocityMeasured')->nullable();
+            $table->text('coolingAirVelocityMeasuredAverage')->nullable();
             $table->text('coolingAreaOfFanOfCTMeasured')->nullable();
 
             // Checklist

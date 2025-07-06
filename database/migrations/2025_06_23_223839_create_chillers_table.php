@@ -52,6 +52,9 @@ return new class extends Migration
             $table->text('chillerCondenserApprochRated')->nullable();
             $table->text('chillerCondenserApprochMeasured')->nullable();
 
+            $table->text('chillerFrequencyRated')->nullable();
+            $table->text('chillerFrequencyMeasured')->nullable();
+
             // Chiller checklist
             $table->text('chillerVFDorNot')->nullable();
             $table->text('chillerVFDSetting')->nullable();

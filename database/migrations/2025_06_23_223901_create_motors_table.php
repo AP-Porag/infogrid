@@ -37,6 +37,8 @@ return new class extends Migration
             $table->text('motorMotorEfficiencyClassMeasured')->nullable();
             $table->text('motorMotorFrameSizeRated')->nullable();
             $table->text('motorMotorFrameSizeMeasured')->nullable();
+            $table->text('motorFrequencyRated')->nullable();
+            $table->text('motorFrequencyMeasured')->nullable();
 
             // Motor checklist
             $table->text('motorVFDorNot')->nullable();
