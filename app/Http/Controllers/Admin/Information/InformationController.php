@@ -3,6 +3,9 @@
 namespace App\Http\Controllers\Admin\Information;
 
 use App\DataTables\InformationDataTable;
+use App\Models\Project;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Exports\EquipmentExport;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\InformationRequest;
 use App\Models\Gallery;
@@ -261,6 +264,26 @@ class InformationController extends Controller
         } catch (\Exception $e) {
             return back();
         }
+    }
+
+    public function export(Request $request)
+    {
+//        $itemType = $request->input('itemType');
+//        $projectId = $request->input('project_id');
+
+        $request->validate([
+            'project_id' => 'required|integer',
+            'itemType' => 'required|string'
+        ], [
+            'itemType.required' => 'The item type is required.',
+        ]);
+
+        $projectId = $request->project_id;
+        $itemType = $request->itemType;
+        $project = Project::find($projectId);
+
+
+        return Excel::download(new EquipmentExport($itemType, $projectId), $project->name.'_'.ucfirst($itemType) . '_Data_'.now()->format('Y-m-d') .'.xlsx');
     }
 
     private function generateSku(): string

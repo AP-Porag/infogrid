@@ -49,6 +49,7 @@ Route::prefix('admin')->as('admin.')->group(function () {
 
     // INFORMATION
     Route::resource('information', InformationController::class);
+    Route::post('/export-equipment', [InformationController::class, 'export'])->name('information.export.equipment');
 
 
 
