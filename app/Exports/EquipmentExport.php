@@ -33,7 +33,35 @@ class EquipmentExport implements FromCollection, WithHeadings, WithMapping, With
                     $q->where('project_id', $this->projectId);
                 })->with('information')->get();
 
-            // Add more cases for other itemTypes...
+            case 'compressor':
+                return Compressor::whereHas('information', function ($q) {
+                    $q->where('project_id', $this->projectId);
+                })->with('information')->get();
+
+            case 'chiller':
+                return Chiller::whereHas('information', function ($q) {
+                    $q->where('project_id', $this->projectId);
+                })->with('information')->get();
+
+            case 'Motor':
+                return Motor::whereHas('information', function ($q) {
+                    $q->where('project_id', $this->projectId);
+                })->with('information')->get();
+
+            case 'boiler':
+                return Boiler::whereHas('information', function ($q) {
+                    $q->where('project_id', $this->projectId);
+                })->with('information')->get();
+
+            case 'cooling':
+                return Cooling::whereHas('information', function ($q) {
+                    $q->where('project_id', $this->projectId);
+                })->with('information')->get();
+
+            case 'ahu':
+                return Ahu::whereHas('information', function ($q) {
+                    $q->where('project_id', $this->projectId);
+                })->with('information')->get();
 
             default:
                 return collect();
@@ -45,17 +73,68 @@ class EquipmentExport implements FromCollection, WithHeadings, WithMapping, With
         switch ($this->itemType) {
             case 'pump':
                 return [
-                    'Project Name','Equipment', 'Location', 'Make & Model', 'Observations',
-                    'Year Of Installation Rated', 'Year Of Installation Measured', 'Flow Rated', 'Flow Measured',
-                    'Head Rated', 'Head Measured', 'Voltage Rated', 'Voltage Measured',
-                    'Current Rated', 'Current Measured', 'Power Factor Rated', 'Power Factor Measured'
-                    // Add remaining fields manually...
+                    'Project Name',
+                    'Equipment',
+                    'Location',
+                    'Make & Model',
+                    'Year Of Installation',
+                    'Flow Rated',
+                    'Flow Measured',
+                    'UOM',
+                    'Head Rated',
+                    'Head Measured',
+                    'UOM',
+                    'Voltage Rated',
+                    'Voltage Measured',
+                    'UOM',
+                    'Current Rated',
+                    'Current Measured',
+                    'UOM',
+                    'Power Factor Rated',
+                    'Power Factor Measured',
+                    'Motor Power Rated',
+                    'Motor Power Measured',
+                    'UOM',
+                    'Frequency Rated',
+                    'Frequency Measured',
+                    'UOM',
+                    'Speed Rated',
+                    'Speed Measured',
+                    'UOM',
+                    'Motor Efficiency Rated',
+                    'UOM',
+                    'Motor Efficiency Class Rated',
+                    'Motor Frame Size Rated',
+                    'Insulation Class Rated',
+                    'Suction Head Measured',
+                    'UOM',
+                    'Discharge Head Measured',
+                    'UOM',
+                    'Pump Efficiency Rated',
+                    'Pump Efficiency Measured',
+                    '',
+                    'VFD or Not',
+                    'VFD setting in Hz',
+                    'Pump throttling',
+                    'Flow Modulation required',
+                    'Parallel pump operation',
+                    'Nos. of rewinding of motor',
+                    'Check cavitation',
+                    'Operating Hours in day',
+                    'Observations',
                 ];
 
             case 'fan':
                 return [
-                    'Project Name','Equipment','Location', 'Make & Model', 'Observations',
-                    'Year Of Installation Rated', 'Year Of Installation Measured', 'Flow Rated', 'Flow Measured'
+                    'Project Name',
+                    'Equipment',
+                    'Location',
+                    'Make & Model',
+                    'Year Of Installation Rated',
+                    'Year Of Installation Measured',
+                    'Flow Rated',
+                    'Flow Measured',
+                    'Observations',
                     // Add remaining fields manually...
                 ];
 
@@ -72,20 +151,51 @@ class EquipmentExport implements FromCollection, WithHeadings, WithMapping, With
                     'Pump',
                     $equipment->information->name_location ?? '',
                     $equipment->information->make_model ?? '',
-                    $equipment->information->observations ?? '',
                     $equipment->pumpYearOfInstallationRated,
-                    $equipment->pumpYearOfInstallationMeasured,
                     $equipment->pumpFlowRated,
                     $equipment->pumpFlowMeasured,
+                    $equipment->pumpFlowUnit,
                     $equipment->pumpHeadRated,
                     $equipment->pumpHeadMeasured,
+                    'm',
                     $equipment->pumpVoltageRated,
                     $equipment->pumpVoltageMeasured,
+                    'V',
                     $equipment->pumpCurrentRated,
                     $equipment->pumpCurrentMeasured,
+                    'A',
                     $equipment->pumpPowerFactorRated,
-                    $equipment->pumpPowerFactorMeasured
-                    // Map the rest manually...
+                    $equipment->pumpPowerFactorMeasured,
+                    $equipment->pumpMotorPowerRated,
+                    $equipment->pumpMotorPowerMeasured,
+                    'kW',
+                    $equipment->pumpFrequencyRated,
+                    $equipment->pumpFrequencyMeasured,
+                    'Hz',
+                    $equipment->pumpSpeedRated,
+                    $equipment->pumpSpeedMeasured,
+                    'rpm',
+                    $equipment->pumpMotorEfficiencyRated,
+                    '%',
+                    $equipment->pumpMotorEfficiencyClassRated,
+                    $equipment->pumpMotorFrameSizeRated,
+                    $equipment->pumpInsulationClassRated,
+                    $equipment->pumpSuctionHeadMeasured,
+                    'm',
+                    $equipment->pumpDischargeHeadMeasured,
+                    'm',
+                    $equipment->pumpEfficiencyRated,
+                    $equipment->pumpEfficiencyMeasured,
+                    '',
+                    $equipment->pumpVFD,
+                    $equipment->pumpVFDsetting,
+                    $equipment->pumpThrottling,
+                    $equipment->pumpFlowModulationRequired,
+                    $equipment->pumpParallelPumpOperation,
+                    $equipment->pumpNosOfRewidingOfMotor,
+                    $equipment->pumpCheckCavitation,
+                    $equipment->pumpOperatingHours,
+                    $equipment->information->observations ?? '',
                 ];
 
             case 'fan':
@@ -94,11 +204,11 @@ class EquipmentExport implements FromCollection, WithHeadings, WithMapping, With
                     'Fan',
                     $equipment->information->name_location ?? '',
                     $equipment->information->make_model ?? '',
-                    $equipment->information->observations ?? '',
                     $equipment->fanYearOfInstallationRated,
                     $equipment->fanYearOfInstallationMeasured,
                     $equipment->fanFlowRated,
-                    $equipment->fanFlowMeasured
+                    $equipment->fanFlowMeasured,
+                    $equipment->information->observations ?? '',
                     // Map the rest manually...
                 ];
 

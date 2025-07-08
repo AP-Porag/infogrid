@@ -282,7 +282,6 @@ class InformationController extends Controller
         $itemType = $request->itemType;
         $project = Project::find($projectId);
 
-
         return Excel::download(new EquipmentExport($itemType, $projectId), $project->name.'_'.ucfirst($itemType) . '_Data_'.now()->format('Y-m-d') .'.xlsx');
     }
 

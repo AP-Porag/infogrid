@@ -47,6 +47,12 @@
                                 <option selected="" disabled>Open this select menu to select item</option>
                                 <option value="pump">Pump</option>
                                 <option value="fan">Fan</option>
+                                <option value="compressor">Air Compressor</option>
+                                <option value="chiller">Chiller</option>
+                                <option value="motor">Motor</option>
+                                <option value="boiler">Boiler</option>
+                                <option value="cooling">Cooling Tower</option>
+                                <option value="ahu">AHU</option>
                             </select>
                             @error('itemType')
                             <p class="error">{{ $message }}</p>
