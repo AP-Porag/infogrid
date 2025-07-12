@@ -9101,7 +9101,7 @@ export default {
                     ahuFlowOfWaterMeasured:'',
                     ahuAirVelocityMeasured:'',
                     ahuAirVelocityMeasuredAverage:'',
-                    ahuAreaOfFanOfAHUMeasured:'',
+                    //ahuAreaOfFanOfAHUMeasured:'',
                     ahuAirAreaOfDuctMeasured:'',
                     ahuStaticPressureRated:'',
                     ahuStaticPressureMeasured:'',

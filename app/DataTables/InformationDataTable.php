@@ -5,6 +5,7 @@ namespace App\DataTables;
 use App\Models\Information;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Builder as QueryBuilder;
+use Illuminate\Support\Facades\Auth;
 use Yajra\DataTables\EloquentDataTable;
 use Yajra\DataTables\Html\Builder as HtmlBuilder;
 use Yajra\DataTables\Html\Button;
@@ -26,7 +27,9 @@ class InformationDataTable extends DataTable
         return (new EloquentDataTable($query))
             ->addColumn('action', function ($item) {
                 $buttons = '';
-//                $buttons .= '<a class="dropdown-item" href="' . route('admin.information.edit', $item->id) . '" title="Edit"><i class="mdi mdi-square-edit-outline"></i> Edit </a>';
+                if (Auth::user()->user_type == 'admin' || Auth::user()->id == $item->user_id) {
+                    $buttons .= '<a class="dropdown-item" href="' . route('admin.information.edit', $item->id) . '" title="Edit"><i class="mdi mdi-square-edit-outline"></i> Edit </a>';
+                }
                 $buttons .= '<a class="dropdown-item" href="' . route('admin.information.show', $item->id) . '" title="Show"><i class="mdi mdi-eye-check-outline"></i> Show </a>';
 
                 // TO-DO: need to chnage the super admin ID to 1, while Super admin ID will 1

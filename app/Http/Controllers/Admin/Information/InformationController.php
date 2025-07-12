@@ -3,7 +3,15 @@
 namespace App\Http\Controllers\Admin\Information;
 
 use App\DataTables\InformationDataTable;
+use App\Models\Ahu;
+use App\Models\Boiler;
+use App\Models\Chiller;
+use App\Models\Compressor;
+use App\Models\Cooling;
+use App\Models\Fan;
+use App\Models\Motor;
 use App\Models\Project;
+use App\Models\Pump;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Exports\EquipmentExport;
 use App\Http\Controllers\Controller;
@@ -228,9 +236,49 @@ class InformationController extends Controller
     public function edit($id)
     {
         try {
-            set_page_meta('Edit User');
-            $user = $this->userService->get($id);
-            return view('admin.users.edit', compact('user'));
+            set_page_meta('Edit Information');
+            $information = $this->informationService->get($id);
+            $pump = null;
+            $fan = null;
+            $compressor = null;
+            $chiller = null;
+            $motor = null;
+            $boiler = null;
+            $cooling = null;
+            $ahu = null;
+
+            if ($information->itemType === 'Pump') {
+                $pump = Pump::where('information_id', $information->id)->first();
+            }
+            if ($information->itemType === 'Fan') {
+                $fan = Fan::where('information_id', $information->id)->first();
+            }
+
+            if ($information->itemType === 'Air Compressor') {
+                $compressor = Compressor::where('information_id', $information->id)->first();
+            }
+
+            if ($information->itemType === 'Chiller') {
+                $chiller = Chiller::where('information_id', $information->id)->first();
+            }
+
+            if ($information->itemType === 'Motors') {
+                $motor = Motor::where('information_id', $information->id)->first();
+            }
+
+            if ($information->itemType === 'Boiler') {
+                $boiler = Boiler::where('information_id', $information->id)->first();
+            }
+
+            if ($information->itemType === 'Cooling Tower') {
+                $cooling = Cooling::where('information_id', $information->id)->first();
+            }
+
+            if ($information->itemType === 'AHU') {
+                $ahu = Ahu::where('information_id', $information->id)->first();
+            }
+            return view('admin.users.edit', compact('information','pump', 'fan', 'compressor', 'chiller', 'motor', 'boiler', 'cooling', 'ahu'));
+
         } catch (\Exception $e) {
             log_error($e);
         }
