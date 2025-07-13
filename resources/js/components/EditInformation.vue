@@ -7965,12 +7965,19 @@
                                                     VFD on FD Fan
                                                     <!--                                                    <span class="error">*</span>-->
                                                 </label>
-                                                <input
-                                                    type="number"
-                                                    class="form-control"
-                                                    placeholder=""
-                                                    v-model.trim="form_data.boiler.boilerVFDOnFdFan"
-                                                />
+<!--                                                <input-->
+<!--                                                    type="number"-->
+<!--                                                    class="form-control"-->
+<!--                                                    placeholder=""-->
+<!--                                                    v-model.trim="form_data.boiler.boilerVFDOnFdFan"-->
+<!--                                                />-->
+                                                <select class="form-select mb-text-only" aria-label="Default select example"
+                                                        v-model.trim="form_data.boiler.boilerVFDOnFdFan"
+                                                >
+                                                    <option selected disabled>Open this select menu</option>
+                                                    <option value="yes">Yes</option>
+                                                    <option value="no">No</option>
+                                                </select>
                                                 <!--                                                <div class="error" v-if="v$.form_data.itemType.required.$invalid && show_error_eleven">-->
                                                 <!--                                                    Item type is required-->
                                                 <!--                                                </div>-->
@@ -8656,6 +8663,7 @@ export default {
         return{
             cameraStream: null,
             currentFacingMode: 'environment',// 'user' for front, 'environment' for rear
+            image_container:[],
             maxDate: "",
             show_error_one: false,
             isReadonly:false,
@@ -9486,6 +9494,38 @@ export default {
                     });
                 }
             });
+        },
+
+        showGalleryImage(){
+            for (let i=0; i<this.information.gallery.length; i++){
+                let image = this.information.gallery[i]
+                //this.formData.images.push("/storage/" +image.image)
+                this.image_container.push("/storage/" +image.image)
+            }
+
+            for (let i=0; i < this.image_container.length; i++){
+                let image = this.image_container[i]
+                //console.log(image)
+                this.convertImgToBase64('http://infogrid.test'+image)
+                // this.convertImgToBase64('https://inventory.furnituremanagementsolutions.com'+image)
+            }
+        },
+        convertImgToBase64(url){
+            var canvas = document.createElement('CANVAS');
+            var ctx = canvas.getContext('2d');
+            var img = new Image;
+            img.crossOrigin = 'Anonymous';
+            let self = this;
+            img.onload = function(){
+                canvas.height = img.height;
+                canvas.width = img.width;
+                ctx.drawImage(img,0,0);
+                var dataURL = canvas.toDataURL('image/png');
+                canvas = null;
+                self.form_data.images.push(dataURL)
+            };
+            img.src = url;
+
         }
     },
     mounted() {
@@ -9495,7 +9535,7 @@ export default {
     created() {
         this.form_data.project_id = this.project_id;
         this.form_data.itemType = this.information.itemType;
-        this.form_data.images=this.information.gallery;
+        // this.form_data.images=this.information.gallery.map(item => item.image);
         this.form_data.name_location = this.information.name_location;
         this.form_data.make_model = this.information.make_model;
         this.form_data.observations = this.information.observations;
@@ -9628,10 +9668,7 @@ export default {
             this.form_data.pump.pumpFlowUnit = this.information.pump.pumpFlowUnit;
         }
 
-
-
             //initialize fan form data
-
         if(this.form_data.itemType == 'Fan'){
             this.form_data.fan.fanYearOfInstallationRated = this.information.fan.fanYearOfInstallationRated;
             this.form_data.fan.fanYearOfInstallationMeasured  = this.information.fan.fanYearOfInstallationMeasured;
@@ -9695,6 +9732,318 @@ export default {
                 this.form_data.fan.fanDischargeStaticPressureUnit = this.information.fan.fanDischargeStaticPressureUnit;
                 this.form_data.fan.fanDischargeVelocityPressureUnit  = this.information.fan.fanDischargeVelocityPressureUnit;
         }
+
+        //initialize compressor form data
+        if(this.form_data.itemType == 'Air Compressor'){
+            this.form_data.compressor.airCompressorYearOfInstallationRated = this.information.compressor.airCompressorYearOfInstallationRated;
+                this.form_data.compressor.airCompressorYearOfInstallationMeasured = this.information.compressor.airCompressorYearOfInstallationMeasured;
+                this.form_data.compressor.airCompressorFlowRated = this.information.compressor.airCompressorFlowRated;
+                this.form_data.compressor.airCompressorFlowMeasured = this.information.compressor.airCompressorFlowMeasured;
+                this.form_data.compressor.airCompressorPressureRated = this.information.compressor.airCompressorPressureRated;
+                this.form_data.compressor.airCompressorPressureMeasured = this.information.compressor.airCompressorPressureMeasured;
+                this.form_data.compressor.airCompressorVoltageRated = this.information.compressor.airCompressorVoltageRated;
+                this.form_data.compressor.airCompressorVoltageMeasured = this.information.compressor.airCompressorVoltageMeasured;
+                this.form_data.compressor.airCompressorCurrentRated = this.information.compressor.airCompressorCurrentRated;
+                this.form_data.compressor.airCompressorCurrentMeasured = this.information.compressor.airCompressorCurrentMeasured;
+                this.form_data.compressor.airCompressorPowerFactorRated = this.information.compressor.airCompressorPowerFactorRated;
+                this.form_data.compressor.airCompressorPowerFactorMeasured = this.information.compressor.airCompressorPowerFactorMeasured;
+                this.form_data.compressor.airCompressorMotorPowerRated = this.information.compressor.airCompressorMotorPowerRated;
+                this.form_data.compressor.airCompressorMotorPowerMeasured = this.information.compressor.airCompressorMotorPowerMeasured;
+                this.form_data.compressor.airCompressorSpeedRated = this.information.compressor.airCompressorSpeedRated;
+                this.form_data.compressor.airCompressorSpeedMeasured = this.information.compressor.airCompressorSpeedMeasured;
+                this.form_data.compressor.airCompressorMotorEfficiencyRated = this.information.compressor.airCompressorMotorEfficiencyRated;
+                this.form_data.compressor.airCompressorMotorEfficiencyMeasured = this.information.compressor.airCompressorMotorEfficiencyMeasured;
+                this.form_data.compressor.airCompressorMotorEfficiencyClassRated = this.information.compressor.airCompressorMotorEfficiencyClassRated;
+                this.form_data.compressor.airCompressorMotorEfficiencyClassMeasured = this.information.compressor.airCompressorMotorEfficiencyClassMeasured;
+                this.form_data.compressor.airCompressorMotorFrameSizeRated = this.information.compressor.airCompressorMotorFrameSizeRated;
+                this.form_data.compressor.airCompressorMotorFrameSizeMeasured = this.information.compressor.airCompressorMotorFrameSizeMeasured;
+                this.form_data.compressor.airCompressorInsulationClassRated = this.information.compressor.airCompressorInsulationClassRated;
+                this.form_data.compressor.airCompressorInsulationClassMeasured = this.information.compressor.airCompressorInsulationClassMeasured;
+                this.form_data.compressor.airCompressorLoadPressureRated = this.information.compressor.airCompressorLoadPressureRated;
+                this.form_data.compressor.airCompressorLoadPressureMeasured = this.information.compressor.airCompressorLoadPressureMeasured;
+                this.form_data.compressor.airCompressorUnLoadPressureRated = this.information.compressor.airCompressorUnLoadPressureRated;
+                this.form_data.compressor.airCompressorUnLoadPressureMeasured = this.information.compressor.airCompressorUnLoadPressureMeasured;
+                this.form_data.compressor.airCompressorRecieverSizeRated = this.information.compressor.airCompressorRecieverSizeRated;
+                this.form_data.compressor.airCompressorRecieverSizeMeasured = this.information.compressor.airCompressorRecieverSizeMeasured;
+                this.form_data.compressor.airCompressorPipeVolumeRated = this.information.compressor.airCompressorPipeVolumeRated;
+                this.form_data.compressor.airCompressorPipeVolumeMeasured = this.information.compressor.airCompressorPipeVolumeMeasured;
+                this.form_data.compressor.airCompressorInitialPressureRated = this.information.compressor.airCompressorInitialPressureRated;
+                this.form_data.compressor.airCompressorInitialPressureMeasured = this.information.compressor.airCompressorInitialPressureMeasured;
+                this.form_data.compressor.airCompressorFinalPressureRated = this.information.compressor.airCompressorFinalPressureRated;
+                this.form_data.compressor.airCompressorFinalPressureMeasured = this.information.compressor.airCompressorFinalPressureMeasured;
+                this.form_data.compressor.airCompressorTimeToReachFinalPressureRated = this.information.compressor.airCompressorTimeToReachFinalPressureRated;
+                this.form_data.compressor.airCompressorTimeToReachFinalPressureMeasured = this.information.compressor.airCompressorTimeToReachFinalPressureMeasured;
+                this.form_data.compressor.airCompressorTemperatureRated = this.information.compressor.airCompressorTemperatureRated;
+                this.form_data.compressor.airCompressorTemperatureMeasured = this.information.compressor.airCompressorTemperatureMeasured;
+                this.form_data.compressor.airCompressorCompressorSECRated = this.information.compressor.airCompressorCompressorSECRated;
+                this.form_data.compressor.airCompressorCompressorSECMeasured = this.information.compressor.airCompressorCompressorSECMeasured;
+                this.form_data.compressor.airCompressorDryerTypeRated = this.information.compressor.airCompressorDryerTypeRated;
+                this.form_data.compressor.airCompressorDryerTypeMeasured = this.information.compressor.airCompressorDryerTypeMeasured;
+                this.form_data.compressor.airCompressorDryerMakeModelRated = this.information.compressor.airCompressorDryerMakeModelRated;
+                this.form_data.compressor.airCompressorDryerMakeModelMeasured = this.information.compressor.airCompressorDryerMakeModelMeasured;
+                this.form_data.compressor.airCompressorFrequencyRated = this.information.compressor.airCompressorFrequencyRated;
+                this.form_data.compressor.airCompressorFrequencyMeasured = this.information.compressor.airCompressorFrequencyMeasured;
+                //Leakage test
+                this.form_data.compressor.airCompressorLoadTimeReadingOne = this.information.compressor.airCompressorLoadTimeReadingOne;
+                this.form_data.compressor.airCompressorLoadTimeReadingTwo = this.information.compressor.airCompressorLoadTimeReadingTwo;
+                this.form_data.compressor.airCompressorLoadTimeReadingThree = this.information.compressor.airCompressorLoadTimeReadingThree;
+                this.form_data.compressor.airCompressorUnLoadTimeReadingOne = this.information.compressor.airCompressorUnLoadTimeReadingOne;
+                this.form_data.compressor.airCompressorUnLoadTimeReadingTwo = this.information.compressor.airCompressorUnLoadTimeReadingTwo;
+                this.form_data.compressor.airCompressorUnLoadTimeReadingThree = this.information.compressor.airCompressorUnLoadTimeReadingThree;
+                this.form_data.compressor.airCompressorLeakageReadingOne = this.information.compressor.airCompressorLeakageReadingOne;
+                this.form_data.compressor.airCompressorLeakageReadingTwo = this.information.compressor.airCompressorLeakageReadingTwo;
+                this.form_data.compressor.airCompressorLeakageReadingThree = this.information.compressor.airCompressorLeakageReadingThree;
+                //checklist
+                this.form_data.compressor.airCompressorVFDorNot = this.information.compressor.airCompressorVFDorNot;
+                this.form_data.compressor.airCompressorVFDSetting = this.information.compressor.airCompressorVFDSetting;
+                this.form_data.compressor.airCompressorNosOfRewidingOfMotor = this.information.compressor.airCompressorNosOfRewidingOfMotor;
+                this.form_data.compressor.airCompressorCheckRequiredpressure = this.information.compressor.airCompressorCheckRequiredpressure;
+                this.form_data.compressor.airCompressorCheckPressureDrop   = this.information.compressor.airCompressorCheckPressureDrop;
+                this.form_data.compressor.airCompressorCheckEndUsePointPressure = this.information.compressor.airCompressorCheckEndUsePointPressure;
+                this.form_data.compressor.airCompressorCheckInletAirFilterDp = this.information.compressor.airCompressorCheckInletAirFilterDp;
+                this.form_data.compressor.airCompressorCheckLoadTime = this.information.compressor.airCompressorCheckLoadTime;
+                this.form_data.compressor.airCompressorCheckUnLoadTime = this.information.compressor.airCompressorCheckUnLoadTime;
+                this.form_data.compressor.airCompressorCheckLoadHours = this.information.compressor.airCompressorCheckLoadHours;
+                this.form_data.compressor.airCompressorCheckRunHours = this.information.compressor.airCompressorCheckRunHours;
+                this.form_data.compressor.airCompressorCheckAmbientTemp = this.information.compressor.airCompressorCheckAmbientTemp;
+                this.form_data.compressor.airCompressorOperatingHours = this.information.compressor.airCompressorOperatingHours;
+                //units
+                this.form_data.compressor.airCompressorFlowUnit = this.information.compressor.airCompressorFlowUnit;
+        }
+
+        //initialize chiller form data
+        if(this.form_data.itemType == 'Chiller'){
+            this.form_data.chiller.chillerYearOfInstallationRated = this.information.chiller.chillerYearOfInstallationRated;
+                this.form_data.chiller.chillerYearOfInstallationMeasured = this.information.chiller.chillerYearOfInstallationMeasured;
+                this.form_data.chiller.chillerTypeOfChillerRated = this.information.chiller.chillerTypeOfChillerRated;
+                this.form_data.chiller.chillerTypeOfChillerMeasured = this.information.chiller.chillerTypeOfChillerMeasured;
+                this.form_data.chiller.chillerNosOfCompressorRated = this.information.chiller.chillerNosOfCompressorRated;
+                this.form_data.chiller.chillerNosOfCompressorMeasured = this.information.chiller.chillerNosOfCompressorMeasured;
+                this.form_data.chiller.chillerCapacityRated = this.information.chiller.chillerCapacityRated;
+                this.form_data.chiller.chillerCapacityMeasured = this.information.chiller.chillerCapacityMeasured;
+                this.form_data.chiller.chillerVoltageRated = this.information.chiller.chillerVoltageRated;
+                this.form_data.chiller.chillerVoltageMeasured = this.information.chiller.chillerVoltageMeasured;
+                this.form_data.chiller.chillerCurrentRated = this.information.chiller.chillerCurrentRated;
+                this.form_data.chiller.chillerCurrentMeasured = this.information.chiller.chillerCurrentMeasured;
+                this.form_data.chiller.chillerPowerFactorRated = this.information.chiller.chillerPowerFactorRated;
+                this.form_data.chiller.chillerPowerFactorMeasured = this.information.chiller.chillerPowerFactorMeasured;
+                this.form_data.chiller.chillerSpeedRated = this.information.chiller.chillerSpeedRated;
+                this.form_data.chiller.chillerSpeedMeasured = this.information.chiller.chillerSpeedMeasured;
+                this.form_data.chiller.chillerMotorPowerRated = this.information.chiller.chillerMotorPowerRated;
+                this.form_data.chiller.chillerMotorPowerMeasured = this.information.chiller.chillerMotorPowerMeasured;
+                this.form_data.chiller.chillerMotorEfficiencyRated = this.information.chiller.chillerMotorEfficiencyRated;
+                this.form_data.chiller.chillerMotorEfficiencyMeasured = this.information.chiller.chillerMotorEfficiencyMeasured;
+                this.form_data.chiller.chillerMotorEfficiencyClassRated = this.information.chiller.chillerMotorEfficiencyClassRated;
+                this.form_data.chiller.chillerMotorEfficiencyClassMeasured = this.information.chiller.chillerMotorEfficiencyClassMeasured;
+                this.form_data.chiller.chillerMotorFrameSizeRated = this.information.chiller.chillerMotorFrameSizeRated;
+                this.form_data.chiller.chillerMotorFrameSizeMeasured = this.information.chiller.chillerMotorFrameSizeMeasured;
+                this.form_data.chiller.chillerChillerLoadingRated = this.information.chiller.chillerChillerLoadingRated;
+                this.form_data.chiller.chillerChillerLoadingMeasured = this.information.chiller.chillerChillerLoadingMeasured;
+                this.form_data.chiller.chillerSupplyTempRated = this.information.chiller.chillerSupplyTempRated;
+                this.form_data.chiller.chillerSupplyTempMeasured = this.information.chiller.chillerSupplyTempMeasured;
+                this.form_data.chiller.chillerReturnTempRated = this.information.chiller.chillerReturnTempRated;
+                this.form_data.chiller.chillerReturnTempMeasured = this.information.chiller.chillerReturnTempMeasured;
+                this.form_data.chiller.chillerFlowRated = this.information.chiller.chillerFlowRated;
+                this.form_data.chiller.chillerFlowMeasured = this.information.chiller.chillerFlowMeasured;
+                this.form_data.chiller.chillerFlowMeasuredAverage = this.information.chiller.chillerFlowMeasuredAverage;
+                this.form_data.chiller.chillerChillerSECRated = this.information.chiller.chillerChillerSECRated;
+                this.form_data.chiller.chillerChillerSECMeasured = this.information.chiller.chillerChillerSECMeasured;
+                this.form_data.chiller.chillerCondenserApprochRated = this.information.chiller.chillerCondenserApprochRated;
+                this.form_data.chiller.chillerCondenserApprochMeasured = this.information.chiller.chillerCondenserApprochMeasured;
+                this.form_data.chiller.chillerFrequencyRated = this.information.chiller.chillerFrequencyRated;
+                this.form_data.chiller.chillerFrequencyMeasured = this.information.chiller.chillerFrequencyMeasured;
+                //checklist
+                this.form_data.chiller.chillerVFDorNot = this.information.chiller.chillerVFDorNot;
+                this.form_data.chiller.chillerVFDSetting = this.information.chiller.chillerVFDSetting;
+                this.form_data.chiller.chillerSetTemp = this.information.chiller.chillerSetTemp;
+                this.form_data.chiller.chillerCheckCondenserCondition = this.information.chiller.chillerCheckCondenserCondition;
+                this.form_data.chiller.chillerTakeChillerHMIData = this.information.chiller.chillerTakeChillerHMIData;
+                this.form_data.chiller.chillerOperatingHours = this.information.chiller.chillerOperatingHours;
+                //units
+                this.form_data.chiller.chillerCapacityUnit = this.information.chiller.chillerCapacityUnit;
+                this.form_data.chiller.chillerFlowUnit = this.information.chiller.chillerFlowUnit;
+        }
+
+        //initialize motor form data
+        if(this.form_data.itemType == 'Motors'){
+            this.form_data.motor.motorYearOfInstallationRated = this.information.motor.motorYearOfInstallationRated;
+                this.form_data.motor.motorYearOfInstallationMeasured = this.information.motor.motorYearOfInstallationMeasured;
+                // motorNameOfEquipmentRated:'',
+                // motorNameOfEquipmentMeasured:'',
+                this.form_data.motor.motorVoltageRated = this.information.motor.motorVoltageRated;
+                this.form_data.motor.motorVoltageMeasured = this.information.motor.motorVoltageMeasured;
+                this.form_data.motor.motorCurrentRated = this.information.motor.motorCurrentRated;
+                this.form_data.motor.motorCurrentMeasured = this.information.motor.motorCurrentMeasured;
+                this.form_data.motor.motorPowerFactorRated = this.information.motor.motorPowerFactorRated;
+                this.form_data.motor.motorPowerFactorMeasured = this.information.motor.motorPowerFactorMeasured;
+                this.form_data.motor.motorSpeedRated = this.information.motor.motorSpeedRated;
+                this.form_data.motor.motorSpeedMeasured = this.information.motor.motorSpeedMeasured;
+                this.form_data.motor.motorTempRated = this.information.motor.motorTempRated;
+                this.form_data.motor.motorTempMeasured = this.information.motor.motorTempMeasured;
+                this.form_data.motor.motorMotorPowerRated = this.information.motor.motorMotorPowerRated;
+                this.form_data.motor.motorMotorPowerMeasured = this.information.motor.motorMotorPowerMeasured;
+                this.form_data.motor.motorMotorEfficiencyRated = this.information.motor.motorMotorEfficiencyRated;
+                this.form_data.motor.motorMotorEfficiencyMeasured = this.information.motor.motorMotorEfficiencyMeasured;
+                this.form_data.motor.motorMotorEfficiencyClassRated = this.information.motor.motorMotorEfficiencyClassRated;
+                this.form_data.motor.motorMotorEfficiencyClassMeasured = this.information.motor.motorMotorEfficiencyClassMeasured;
+                this.form_data.motor.motorMotorFrameSizeRated = this.information.motor.motorMotorFrameSizeRated;
+                this.form_data.motor.motorMotorFrameSizeMeasured = this.information.motor.motorMotorFrameSizeMeasured;
+                this.form_data.motor.motorFrequencyRated = this.information.motor.motorFrequencyRated;
+                this.form_data.motor.motorFrequencyMeasured = this.information.motor.motorFrequencyMeasured;
+                //checklist
+                this.form_data.motor.motorVFDorNot = this.information.motor.motorVFDorNot;
+                this.form_data.motor.motorVFDSetting = this.information.motor.motorVFDSetting;
+                this.form_data.motor.motorCheckPerPhaseCurrent = this.information.motor.motorCheckPerPhaseCurrent;
+                this.form_data.motor.motorCheckPhasor = this.information.motor.motorCheckPhasor;
+                this.form_data.motor.motorNosOfRewidingOfMotor = this.information.motor.motorNosOfRewidingOfMotor;
+                this.form_data.motor.motorOperatingHours = this.information.motor.motorOperatingHours;
+        }
+
+        //initialize boiler form data
+        if(this.form_data.itemType == 'Boiler'){
+            this.form_data.boiler.boilerYearOfInstallationRated = this.information.boiler.boilerYearOfInstallationRated;
+                this.form_data.boiler.boilerTypeOfBoilerRated = this.information.boiler.boilerTypeOfBoilerRated;
+                this.form_data.boiler.boilerCapacityRated = this.information.boiler.boilerCapacityRated;
+                this.form_data.boiler.boilerTypeOfFuelRated = this.information.boiler.boilerTypeOfFuelRated;
+                this.form_data.boiler.boilerTypeOfBurnerRated = this.information.boiler.boilerTypeOfBurnerRated;
+                this.form_data.boiler.boilerAverageQuantityOfFuelFiredInADayMeasured = this.information.boiler.boilerAverageQuantityOfFuelFiredInADayMeasured;
+                this.form_data.boiler.boilerAnalysisOfFuelMeasured = this.information.boiler.boilerAnalysisOfFuelMeasured;
+                this.form_data.boiler.boilerAshMeasured = this.information.boiler.boilerAshMeasured;
+                this.form_data.boiler.boilerMoistureMeasured = this.information.boiler.boilerMoistureMeasured;
+                this.form_data.boiler.boilerCarbonMeasured = this.information.boiler.boilerCarbonMeasured;
+                this.form_data.boiler.boilerHydrogenMeasured = this.information.boiler.boilerHydrogenMeasured;
+                this.form_data.boiler.boilerNitrogenMeasured = this.information.boiler.boilerNitrogenMeasured;
+                this.form_data.boiler.boilerOxygenMeasured = this.information.boiler.boilerOxygenMeasured;
+                this.form_data.boiler.boilerSulphurMeasured = this.information.boiler.boilerSulphurMeasured;
+                this.form_data.boiler.boilerGrossCalorificValueOfFuelMeasured = this.information.boiler.boilerGrossCalorificValueOfFuelMeasured;
+                this.form_data.boiler.boilerNetCalorificValueOfFuelMeasured = this.information.boiler.boilerNetCalorificValueOfFuelMeasured;
+                this.form_data.boiler.boilerFlueGasAnalysisCO2Measured = this.information.boiler.boilerFlueGasAnalysisCO2Measured;
+                this.form_data.boiler.boilerFlueGasAnalysisCOMeasured = this.information.boiler.boilerFlueGasAnalysisCOMeasured;
+                this.form_data.boiler.boilerFlueGasAnalysisOxygenMeasured = this.information.boiler.boilerFlueGasAnalysisOxygenMeasured;
+                this.form_data.boiler.boilerFlueGasTemperatureMeasured = this.information.boiler.boilerFlueGasTemperatureMeasured;
+                this.form_data.boiler.boilerAmbientTemperatureMeasured = this.information.boiler.boilerAmbientTemperatureMeasured;
+                this.form_data.boiler.boilerHumidityInAirKgOfDryAirMeasured = this.information.boiler.boilerHumidityInAirKgOfDryAirMeasured;
+                this.form_data.boiler.boilerTotalSurfaceAreaOfBoilerMeasured = this.information.boiler.boilerTotalSurfaceAreaOfBoilerMeasured;
+                this.form_data.boiler.boilerVelocityOfWindAroundTheBoilerMeasured = this.information.boiler.boilerVelocityOfWindAroundTheBoilerMeasured;
+                this.form_data.boiler.boilerAverageSurfaceTemperatureMeasured = this.information.boiler.boilerAverageSurfaceTemperatureMeasured;
+                this.form_data.boiler.boilerAverageQuantityOfFuelFiredPerHourMeasured = this.information.boiler.boilerAverageQuantityOfFuelFiredPerHourMeasured;
+                this.form_data.boiler.boilerGCVOfFlyAshMeasured = this.information.boiler.boilerGCVOfFlyAshMeasured;
+                this.form_data.boiler.boilerFlyAshKgOfFuelMeasured = this.information.boiler.boilerFlyAshKgOfFuelMeasured;
+                this.form_data.boiler.boilerGCVOfBottomAshMeasured = this.information.boiler.boilerGCVOfBottomAshMeasured;
+                this.form_data.boiler.boilerOperatingTempRated = this.information.boiler.boilerOperatingTempRated;
+                this.form_data.boiler.boilerOperatingTempMeasured = this.information.boiler.boilerOperatingTempMeasured;
+                this.form_data.boiler.boilerOperatingPressureRated = this.information.boiler.boilerOperatingPressureRated;
+                this.form_data.boiler.boilerOperatingPressureMeasured = this.information.boiler.boilerOperatingPressureMeasured;
+                //checklist
+                this.form_data.boiler.boilerVFDOnIdFan = this.information.boiler.boilerVFDOnIdFan;
+                this.form_data.boiler.boilerVFDOnIdFanVFDSetting = this.information.boiler.boilerVFDOnIdFanVFDSetting;
+                this.form_data.boiler.boilerVFDOnFdFan = this.information.boiler.boilerVFDOnFdFan;
+                this.form_data.boiler.boilerVFDOnFdFanVFDSetting = this.information.boiler.boilerVFDOnFdFanVFDSetting;
+                this.form_data.boiler.boilerMaximumTempCanSustain = this.information.boiler.boilerMaximumTempCanSustain;
+                this.form_data.boiler.boilerAlternateFuelPossibility = this.information.boiler.boilerAlternateFuelPossibility;
+                this.form_data.boiler.boilerBlowDownControl = this.information.boiler.boilerBlowDownControl;
+                this.form_data.boiler.boilerCollectFeedWaterTestReport = this.information.boiler.boilerCollectFeedWaterTestReport;
+                this.form_data.boiler.boilerBlowDownWaterTDSvalue = this.information.boiler.boilerBlowDownWaterTDSvalue;
+                this.form_data.boiler.boilerWasteHeatRecovery  = this.information.boiler.boilerWasteHeatRecovery;
+                this.form_data.boiler.boilerBurnerAirMaxTempCapacity  = this.information.boiler.boilerBurnerAirMaxTempCapacity;
+                this.form_data.boiler.boilerCheckSteamTraps  = this.information.boiler.boilerCheckSteamTraps;
+                this.form_data.boiler.boilerFlueGasMonitoring  = this.information.boiler.boilerFlueGasMonitoring;
+                this.form_data.boiler.boilerOnlineMonitoringControl  = this.information.boiler.boilerOnlineMonitoringControl;
+                this.form_data.boiler.boilerWaterSteamFlowMeterReading  = this.information.boiler.boilerWaterSteamFlowMeterReading;
+                this.form_data.boiler.boilerFuelFlowMeterReading  = this.information.boiler.boilerFuelFlowMeterReading;
+                this.form_data.boiler.boilerOperatingHours  = this.information.boiler.boilerOperatingHours;
+                //units
+                this.form_data.boiler.boilerCapacityUnit = this.information.boiler.boilerCapacityUnit;
+                this.form_data.boiler.boilerAverageQuantityOfFuelFiredInADayUnit = this.information.boiler.boilerAverageQuantityOfFuelFiredInADayUnit;
+                this.form_data.boiler.boilerGrossCalorificValueOfFuelUnit = this.information.boiler.boilerGrossCalorificValueOfFuelUnit;
+                this.form_data.boiler.boilerNetCalorificValueOfFuelUnit = this.information.boiler.boilerNetCalorificValueOfFuelUnit;
+                this.form_data.boiler.boilerHumidityInAirKgOfDryAirUnit = this.information.boiler.boilerHumidityInAirKgOfDryAirUnit;
+                this.form_data.boiler.boilerAverageQuantityOfFuelFiredPerHourUnit = this.information.boiler.boilerAverageQuantityOfFuelFiredPerHourUnit;
+                this.form_data.boiler.boilerGCVOfFlyAshUnit = this.information.boiler.boilerGCVOfFlyAshUnit;
+                this.form_data.boiler.boilerGCVOfBottomAshUnit = this.information.boiler.boilerGCVOfBottomAshUnit;
+                this.form_data.boiler.boilerOperatingPressureUnit = this.information.boiler.boilerOperatingPressureUnit;
+        }
+
+        //initialize cooling tower form data
+        if(this.form_data.itemType == 'Cooling Tower'){
+            this.form_data.cooling.coolingYearOfInstallationRated = this.information.cooling.coolingYearOfInstallationRated;
+                this.form_data.cooling.coolingCapacityRated = this.information.cooling.coolingCapacityRated;
+                this.form_data.cooling.coolingCapacityMeasured = this.information.cooling.coolingCapacityMeasured;
+                this.form_data.cooling.coolingTypeOfCoolingTowerRated = this.information.cooling.coolingTypeOfCoolingTowerRated;
+                this.form_data.cooling.coolingEnteringWaterTempMeasured = this.information.cooling.coolingEnteringWaterTempMeasured;
+                this.form_data.cooling.coolingLeavingWaterTempMeasured = this.information.cooling.coolingLeavingWaterTempMeasured;
+                this.form_data.cooling.coolingFanPowerRated = this.information.cooling.coolingFanPowerRated;
+                this.form_data.cooling.coolingFanPowerMeasured = this.information.cooling.coolingFanPowerMeasured;
+                this.form_data.cooling.coolingNumberOfCellsRated = this.information.cooling.coolingNumberOfCellsRated;
+                this.form_data.cooling.coolingNumberOfCellsMeasured = this.information.cooling.coolingNumberOfCellsMeasured;
+                this.form_data.cooling.coolingEnteringAirTempDBTMeasured = this.information.cooling.coolingEnteringAirTempDBTMeasured;
+                this.form_data.cooling.coolingEnteringAirTempWBTMeasured = this.information.cooling.coolingEnteringAirTempWBTMeasured;
+                this.form_data.cooling.coolingLeavingAirTempDBTMeasured = this.information.cooling.coolingLeavingAirTempDBTMeasured;
+                this.form_data.cooling.coolingLeavingAirTempWBTMeasured = this.information.cooling.coolingLeavingAirTempWBTMeasured;
+                this.form_data.cooling.coolingFlowOfWaterMeasured = this.information.cooling.coolingFlowOfWaterMeasured;
+                this.form_data.cooling.coolingAirVelocityMeasured = this.information.cooling.coolingAirVelocityMeasured;
+                this.form_data.cooling.coolingAirVelocityMeasuredAverage = this.information.cooling.coolingAirVelocityMeasuredAverage;
+                this.form_data.cooling.coolingAreaOfFanOfCTMeasured = this.information.cooling.coolingAreaOfFanOfCTMeasured;
+                //checklist
+                this.form_data.cooling.coolingVFDOnFanOrNot = this.information.cooling.coolingVFDOnFanOrNot;
+                this.form_data.cooling.coolingVFDSettingFan = this.information.cooling.coolingVFDSettingFan;
+                this.form_data.cooling.coolingVFDSettingPump = this.information.cooling.coolingVFDSettingPump;
+                this.form_data.cooling.coolingVFDOnPumpOrNot = this.information.cooling.coolingVFDOnPumpOrNot;
+                this.form_data.cooling.coolingDriftLossVisible = this.information.cooling.coolingDriftLossVisible;
+                this.form_data.cooling.coolingNosOfRewidingOfFanMotor = this.information.cooling.coolingNosOfRewidingOfFanMotor;
+                this.form_data.cooling.coolingOperatingHours = this.information.cooling.coolingOperatingHours;
+                //units
+                this.form_data.cooling.coolingCapacityUnit = this.information.cooling.coolingCapacityUnit;
+                this.form_data.cooling.coolingFlowOfWaterUnit = this.information.cooling.coolingFlowOfWaterUnit;
+        }
+
+        //initialize AHU form data
+        if(this.form_data.itemType == 'AHU'){
+            this.form_data.ahu.ahuYearOfInstallationRated = this.information.ahu.ahuYearOfInstallationRated;
+                this.form_data.ahu.ahuCapacityRated = this.information.ahu.ahuCapacityRated;
+                this.form_data.ahu.ahuCapacityMeasured = this.information.ahu.ahuCapacityMeasured;
+                this.form_data.ahu.ahuTypeOfAHURated = this.information.ahu.ahuTypeOfAHURated;
+                this.form_data.ahu.ahuEnteringWaterTempMeasured = this.information.ahu.ahuEnteringWaterTempMeasured;
+                this.form_data.ahu.ahuLeavingWaterTempMeasured = this.information.ahu.ahuLeavingWaterTempMeasured;
+                this.form_data.ahu.ahuFanPowerRated = this.information.ahu.ahuFanPowerRated;
+                this.form_data.ahu.ahuFanPowerMeasured = this.information.ahu.ahuFanPowerMeasured;
+                this.form_data.ahu.ahuNumberOfCellsRated = this.information.ahu.ahuNumberOfCellsRated;
+                this.form_data.ahu.ahuNumberOfCellsMeasured = this.information.ahu.ahuNumberOfCellsMeasured;
+                this.form_data.ahu.ahuEnteringAirTempDBTMeasured = this.information.ahu.ahuEnteringAirTempDBTMeasured;
+                this.form_data.ahu.ahuEnteringAirTempWBTMeasured = this.information.ahu.ahuEnteringAirTempWBTMeasured;
+                this.form_data.ahu.ahuLeavingAirTempDBTMeasured = this.information.ahu.ahuLeavingAirTempDBTMeasured;
+                this.form_data.ahu.ahuLeavingAirTempWBTMeasured = this.information.ahu.ahuLeavingAirTempWBTMeasured;
+                this.form_data.ahu.ahuFlowOfWaterMeasured = this.information.ahu.ahuFlowOfWaterMeasured;
+                this.form_data.ahu.ahuAirVelocityMeasured = this.information.ahu.ahuAirVelocityMeasured;
+                this.form_data.ahu.ahuAirVelocityMeasuredAverage = this.information.ahu.ahuAirVelocityMeasuredAverage;
+                //ahuAreaOfFanOfAHUMeasured:'',
+                this.form_data.ahu.ahuAirAreaOfDuctMeasured = this.information.ahu.ahuAirAreaOfDuctMeasured;
+                this.form_data.ahu.ahuStaticPressureRated = this.information.ahu.ahuStaticPressureRated;
+                this.form_data.ahu.ahuStaticPressureMeasured = this.information.ahu.ahuStaticPressureMeasured;
+                this.form_data.ahu.ahuStaticPressureMeasuredAverage = this.information.ahu.ahuStaticPressureMeasuredAverage;
+                this.form_data.ahu.ahuAHUDPRated = this.information.ahu.ahuAHUDPRated;
+                this.form_data.ahu.ahuAHUDPMeasured = this.information.ahu.ahuAHUDPMeasured;
+                this.form_data.ahu.ahuAHUDPMeasuredAverage = this.information.ahu.ahuAHUDPMeasuredAverage;
+                //checklist
+                this.form_data.ahu.ahuVFDOnFanOrNot = this.information.ahu.ahuVFDOnFanOrNot;
+                this.form_data.ahu.ahuVFDSettingFan = this.information.ahu.ahuVFDSettingFan;
+                this.form_data.ahu.ahuDamperPosition = this.information.ahu.ahuDamperPosition;
+                this.form_data.ahu.ahuConnectedWithBMS = this.information.ahu.ahuConnectedWithBMS;
+                this.form_data.ahu.ahuModulatingValve = this.information.ahu.ahuModulatingValve;
+                this.form_data.ahu.ahuSetTemp = this.information.ahu.ahuSetTemp;
+                this.form_data.ahu.ahuOperatingHours = this.information.ahu.ahuOperatingHours;
+                //units
+                this.form_data.ahu.ahuCapacityUnit = this.information.ahu.ahuCapacityUnit;
+                this.form_data.ahu.ahuFlowOfWaterUnit = this.information.ahu.ahuFlowOfWaterUnit;
+                this.form_data.ahu.ahuStaticPressureUnit = this.information.ahu.ahuStaticPressureUnit;
+                this.form_data.ahu.ahuAHUDPUnit = this.information.ahu.ahuAHUDPUnit;
+        }
+
+        if (this.information.gallery != null){
+            this.image_container.push("/storage/" + this.information.gallery.map(item => item.image));
+        }
+        this.showGalleryImage();
+
 
     },
     computed: {
