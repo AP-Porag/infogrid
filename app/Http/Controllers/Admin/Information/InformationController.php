@@ -237,47 +237,52 @@ class InformationController extends Controller
     {
         try {
             set_page_meta('Edit Information');
-            $information = $this->informationService->get($id);
-            $pump = null;
-            $fan = null;
-            $compressor = null;
-            $chiller = null;
-            $motor = null;
-            $boiler = null;
-            $cooling = null;
-            $ahu = null;
+//            $information = $this->informationService->get($id);
 
-            if ($information->itemType === 'Pump') {
-                $pump = Pump::where('information_id', $information->id)->first();
-            }
-            if ($information->itemType === 'Fan') {
-                $fan = Fan::where('information_id', $information->id)->first();
-            }
+            $information = Information::with('pump', 'fan', 'compressor', 'motor', 'chiller', 'boiler', 'cooling', 'ahu', 'gallery')->find($id);
 
-            if ($information->itemType === 'Air Compressor') {
-                $compressor = Compressor::where('information_id', $information->id)->first();
-            }
-
-            if ($information->itemType === 'Chiller') {
-                $chiller = Chiller::where('information_id', $information->id)->first();
-            }
-
-            if ($information->itemType === 'Motors') {
-                $motor = Motor::where('information_id', $information->id)->first();
-            }
-
-            if ($information->itemType === 'Boiler') {
-                $boiler = Boiler::where('information_id', $information->id)->first();
-            }
-
-            if ($information->itemType === 'Cooling Tower') {
-                $cooling = Cooling::where('information_id', $information->id)->first();
-            }
-
-            if ($information->itemType === 'AHU') {
-                $ahu = Ahu::where('information_id', $information->id)->first();
-            }
-            return view('admin.users.edit', compact('information','pump', 'fan', 'compressor', 'chiller', 'motor', 'boiler', 'cooling', 'ahu'));
+            $project_id = $information->project_id;
+//            return $information;
+//            $pump = null;
+//            $fan = null;
+//            $compressor = null;
+//            $chiller = null;
+//            $motor = null;
+//            $boiler = null;
+//            $cooling = null;
+//            $ahu = null;
+//
+//            if ($information->itemType === 'Pump') {
+//                $pump = Pump::where('information_id', $information->id)->first();
+//            }
+//            if ($information->itemType === 'Fan') {
+//                $fan = Fan::where('information_id', $information->id)->first();
+//            }
+//
+//            if ($information->itemType === 'Air Compressor') {
+//                $compressor = Compressor::where('information_id', $information->id)->first();
+//            }
+//
+//            if ($information->itemType === 'Chiller') {
+//                $chiller = Chiller::where('information_id', $information->id)->first();
+//            }
+//
+//            if ($information->itemType === 'Motors') {
+//                $motor = Motor::where('information_id', $information->id)->first();
+//            }
+//
+//            if ($information->itemType === 'Boiler') {
+//                $boiler = Boiler::where('information_id', $information->id)->first();
+//            }
+//
+//            if ($information->itemType === 'Cooling Tower') {
+//                $cooling = Cooling::where('information_id', $information->id)->first();
+//            }
+//
+//            if ($information->itemType === 'AHU') {
+//                $ahu = Ahu::where('information_id', $information->id)->first();
+//            }
+            return view('admin.information.edit', compact('information','project_id'));
 
         } catch (\Exception $e) {
             log_error($e);

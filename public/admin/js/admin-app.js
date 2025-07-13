@@ -25448,7 +25448,7 @@ module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"P
 /******/ 		// This function allow to reference async chunks
 /******/ 		__webpack_require__.u = (chunkId) => {
 /******/ 			// return url for filenames not based on template
-/******/ 			if ({"resources_js_components_ExampleComponent_vue":1,"resources_js_components_CreateInformation_vue":1}[chunkId]) return "js/" + chunkId + ".js";
+/******/ 			if ({"resources_js_components_ExampleComponent_vue":1,"resources_js_components_CreateInformation_vue":1,"resources_js_components_EditInformation_vue":1}[chunkId]) return "js/" + chunkId + ".js";
 /******/ 			// return url for filenames based on template
 /******/ 			return undefined;
 /******/ 		};
@@ -25674,6 +25674,9 @@ Vue.component("example-component", function () {
 });
 Vue.component("create-information", function () {
   return __webpack_require__.e(/*! import() */ "resources_js_components_CreateInformation_vue").then(__webpack_require__.bind(__webpack_require__, /*! ./components/CreateInformation.vue */ "./resources/js/components/CreateInformation.vue"));
+});
+Vue.component("edit-information", function () {
+  return __webpack_require__.e(/*! import() */ "resources_js_components_EditInformation_vue").then(__webpack_require__.bind(__webpack_require__, /*! ./components/EditInformation.vue */ "./resources/js/components/EditInformation.vue"));
 });
 
 // Global mixin

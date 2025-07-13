@@ -22,6 +22,10 @@ Vue.component("create-information", () =>
     import("./components/CreateInformation.vue")
 );
 
+Vue.component("edit-information", () =>
+    import("./components/EditInformation.vue")
+);
+
 
 
 // Global mixin
