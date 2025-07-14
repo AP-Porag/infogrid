@@ -43,7 +43,7 @@ class EquipmentExport implements FromCollection, WithHeadings, WithMapping, With
                     $q->where('project_id', $this->projectId);
                 })->with('information')->get();
 
-            case 'Motor':
+            case 'motor':
                 return Motor::whereHas('information', function ($q) {
                     $q->where('project_id', $this->projectId);
                 })->with('information')->get();
@@ -130,15 +130,121 @@ class EquipmentExport implements FromCollection, WithHeadings, WithMapping, With
                     'Equipment',
                     'Location',
                     'Make & Model',
-                    'Year Of Installation Rated',
-                    'Year Of Installation Measured',
+                    'Year Of Installation',
                     'Flow Rated',
                     'Flow Measured',
+                    'UOM',
+                    'Head Rated',
+                    'UOM',
+                    'Voltage Rated',
+                    'Voltage Measured',
+                    'UOM',
+                    'Current Rated',
+                    'Current Measured',
+                    'UOM',
+                    'Power Factor Rated',
+                    'Power Factor Measured',
+                    'Motor Power Rated',
+                    'Motor Power Measured',
+                    'UOM',
+                    'Frequency Rated',
+                    'Frequency Measured',
+                    'UOM',
+                    'Speed Rated',
+                    'Speed Measured',
+                    'UOM',
+                    'Motor Efficiency Rated',
+                    'UOM',
+                    'Motor Efficiency Class Rated',
+                    'Motor Frame Size Rated',
+                    'Insulation Class Rated',
+                    'Suction Duct Size Measured',
+                    'UOM',
+                    'Suction Static Pressure Measured',
+                    'Suction Static Pressure Average',
+                    'UOM',
+                    'Suction Velocity pressure Measured',
+                    'Suction Velocity pressure Average',
+                    'UOM',
+                    'Discharge Duct Size Measured',
+                    'UOM',
+                    'Discharge Static pressure Measured',
+                    'Discharge Static pressure Average',
+                    'UOM',
+                    'Discharge Velocity Pressure Measured',
+                    'Discharge Velocity Pressure Average',
+                    'UOM',
+                    'Discharge Velocity Measured',
+                    'Discharge Velocity Average',
+                    'UOM',
+                    'Fan Efficiency Rated',
+                    '',
+                    'VFD or Not',
+                    'VFD setting',
+                    'Damper opening %',
+                    'Flow Modulation Required',
+                    'Parallel fan operation',
+                    'Nos. of rewinding of motor',
+                    'Operating Hours',
                     'Observations',
-                    // Add remaining fields manually...
                 ];
 
-            // Add headings for other models...
+            case 'compressor':
+                return [
+                    'Project Name',
+                    'Equipment',
+                    'Location',
+                    'Make & Model',
+                    'Year Of Installation',
+                ];
+
+            case 'chiller':
+                return [
+                    'Project Name',
+                    'Equipment',
+                    'Location',
+                    'Make & Model',
+                    'Year Of Installation',
+                ];
+
+            case 'motor':
+                return [
+                    'Project Name',
+                    'Equipment',
+                    'Location',
+                    'Make & Model',
+                    'Year Of Installation',
+                ];
+
+            case 'boiler':
+                return [
+                    'Project Name',
+                    'Equipment',
+                    'Location',
+                    'Make & Model',
+                    'Year Of Installation',
+                ];
+
+            case 'cooling':
+                return [
+                    'Project Name',
+                    'Equipment',
+                    'Location',
+                    'Make & Model',
+                    'Year Of Installation',
+                ];
+
+            case 'ahu':
+                return [
+                    'Project Name',
+                    'Equipment',
+                    'Location',
+                    'Make & Model',
+                    'Year Of Installation',
+                ];
+
+            default:
+                return [];
         }
     }
 
@@ -205,14 +311,120 @@ class EquipmentExport implements FromCollection, WithHeadings, WithMapping, With
                     $equipment->information->name_location ?? '',
                     $equipment->information->make_model ?? '',
                     $equipment->fanYearOfInstallationRated,
-                    $equipment->fanYearOfInstallationMeasured,
                     $equipment->fanFlowRated,
                     $equipment->fanFlowMeasured,
+                    $equipment->fanFlowUnit,
+                    $equipment->fanHeadMeasured,
+                    'm',
+                    $equipment->fanVoltageRated,
+                    $equipment->fanVoltageMeasured,
+                    'V',
+                    $equipment->fanCurrentRated,
+                    $equipment->fanCurrentMeasured,
+                    'A',
+                    $equipment->fanPowerFactorRated,
+                    $equipment->fanPowerFactorMeasured,
+                    $equipment->fanMotorPowerRated,
+                    $equipment->fanMotorPowerMeasured,
+                    'kW',
+                    $equipment->fanFrequencyRated,
+                    $equipment->fanFrequencyMeasured,
+                    'Hz',
+                    $equipment->fanSpeedRated,
+                    $equipment->fanSpeedMeasured,
+                    'rpm',
+                    $equipment->fanMotorEfficiencyRated,
+                    '%',
+                    $equipment->fanMotorEfficiencyClassRated,
+                    $equipment->fanMotorFrameSizeRated,
+                    $equipment->fanInsulationClassRated,
+                    $equipment->fanSuctionDuctSizeMeasured,
+                    'm2',
+                    $equipment->fanSuctionStaticPressureMeasured,
+                    $equipment->fanSuctionStaticPressureAverage,
+                    $equipment->fanSuctionStaticPressureUnit,
+                    $equipment->fanSuctionVelocityPressureMeasured,
+                    $equipment->fanSuctionVelocityPressureAverage,
+                    $equipment->fanSuctionVelocityPressureUnit,
+                    $equipment->fanDischargeDuctSizeMeasured,
+                    'm2',
+                    $equipment->fanDischargeStaticPressureMeasured,
+                    $equipment->fanDischargeStaticPressureAverage,
+                    $equipment->fanDischargeStaticPressureUnit,
+                    $equipment->fanDischargeVelocityMeasured,
+                    $equipment->fanDischargeVelocityAverage,
+                    $equipment->fanDischargeVelocityUnit,
+                    $equipment->fanDischargeVelocityMeasured,
+                    $equipment->fanDischargeVelocityAverage,
+                    'm/s',
+                    $equipment->fanEfficiencyRated,
+                    '',
+                    $equipment->fanVFDorNot,
+                    $equipment->fanVFDsetting,
+                    $equipment->fanOpening,
+                    $equipment->fanFlowModulationRequired,
+                    $equipment->fanParallelFanOperation,
+                    $equipment->fanNosOfRewidingOfMotor,
+                    $equipment->fanOperatingHours,
                     $equipment->information->observations ?? '',
-                    // Map the rest manually...
                 ];
 
-            // Add mapping for other itemTypes...
+            case 'compressor':
+                return [
+                    $equipment->information->project->name ?? '',
+                    'Air Compressor',
+                    $equipment->information->name_location ?? '',
+                    $equipment->information->make_model ?? '',
+                    $equipment->fanYearOfInstallationRated,
+                ];
+            case 'chiller':
+                return [
+                    $equipment->information->project->name ?? '',
+                    'Chiller',
+                    $equipment->information->name_location ?? '',
+                    $equipment->information->make_model ?? '',
+                    $equipment->fanYearOfInstallationRated,
+                ];
+
+            case 'motor':
+                return [
+                    $equipment->information->project->name ?? '',
+                    'Motor',
+                    $equipment->information->name_location ?? '',
+                    $equipment->information->make_model ?? '',
+                    $equipment->fanYearOfInstallationRated,
+                ];
+
+            case 'boiler':
+                return [
+                    $equipment->information->project->name ?? '',
+                    'Boiler',
+                    $equipment->information->name_location ?? '',
+                    $equipment->information->make_model ?? '',
+                    $equipment->fanYearOfInstallationRated,
+                ];
+
+            case 'cooling':
+                return [
+                    $equipment->information->project->name ?? '',
+                    'Cooling Tower',
+                    $equipment->information->name_location ?? '',
+                    $equipment->information->make_model ?? '',
+                    $equipment->fanYearOfInstallationRated,
+                ];
+
+            case 'ahu':
+                return [
+                    $equipment->information->project->name ?? '',
+                    'AHU',
+                    $equipment->information->name_location ?? '',
+                    $equipment->information->make_model ?? '',
+                    $equipment->fanYearOfInstallationRated,
+                ];
+
+            default:
+                return [];
+
         }
     }
 

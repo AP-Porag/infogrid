@@ -526,7 +526,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                   // window.location.href = `/admin/entries/10`;
                   // Submit form
 
-                  axios.post("/admin/information", _this.form_data).then(function (response) {
+                  axios.put("/admin/information/".concat(_this.information.id), _this.form_data).then(function (response) {
                     console.log(response);
                     Swal.fire("Saved!", "", "success").then(function (result) {
                       if (result.isConfirmed) {
@@ -903,8 +903,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       for (var _i = 0; _i < this.image_container.length; _i++) {
         var _image = this.image_container[_i];
         //console.log(image)
-        this.convertImgToBase64('http://infogrid.test' + _image);
-        // this.convertImgToBase64('https://inventory.furnituremanagementsolutions.com'+image)
+        // this.convertImgToBase64('http://infogrid.test'+image)
+        this.convertImgToBase64('https://infogrid.madbrain.dev' + _image);
       }
     },
     convertImgToBase64: function convertImgToBase64(url) {
