@@ -526,7 +526,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                   // window.location.href = `/admin/entries/10`;
                   // Submit form
 
-                  axios.put("/admin/information/".concat(_this.information.id), _this.form_data).then(function (response) {
+                  axios
+                  // .post("/admin/information", this.form_data)
+                  .put("/admin/information/".concat(_this.information.id), _this.form_data).then(function (response) {
                     console.log(response);
                     Swal.fire("Saved!", "", "success").then(function (result) {
                       if (result.isConfirmed) {
@@ -903,8 +905,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       for (var _i = 0; _i < this.image_container.length; _i++) {
         var _image = this.image_container[_i];
         //console.log(image)
-        // this.convertImgToBase64('http://infogrid.test'+image)
-        this.convertImgToBase64('https://infogrid.madbrain.dev' + _image);
+        this.convertImgToBase64('http://infogrid.test' + _image);
+        // this.convertImgToBase64('https://inventory.furnituremanagementsolutions.com'+image)
       }
     },
     convertImgToBase64: function convertImgToBase64(url) {
@@ -1433,12 +1435,12 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       this.form_data.ahu.ahuStaticPressureUnit = this.information.ahu.ahuStaticPressureUnit;
       this.form_data.ahu.ahuAHUDPUnit = this.information.ahu.ahuAHUDPUnit;
     }
-    if (this.information.gallery != null) {
-      this.image_container.push("/storage/" + this.information.gallery.map(function (item) {
-        return item.image;
-      }));
-    }
+
+    // if (this.information.gallery != null){
+    //     this.image_container.push("/storage/" + this.information.gallery.map(item => item.image));
+    // }
     this.showGalleryImage();
+    console.log(this.form_data.images);
   },
   computed: {
     pumpEfficiency: function pumpEfficiency() {

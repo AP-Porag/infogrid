@@ -9157,6 +9157,7 @@ export default {
                         // Submit form
 
                         axios
+                            // .post("/admin/information", this.form_data)
                             .put(`/admin/information/${this.information.id}`, this.form_data)
                             .then(function (response) {
                                 console.log(response)
@@ -9506,8 +9507,8 @@ export default {
             for (let i=0; i < this.image_container.length; i++){
                 let image = this.image_container[i]
                 //console.log(image)
-                // this.convertImgToBase64('http://infogrid.test'+image)
-                this.convertImgToBase64('https://infogrid.madbrain.dev'+image)
+                this.convertImgToBase64('http://infogrid.test'+image)
+                // this.convertImgToBase64('https://inventory.furnituremanagementsolutions.com'+image)
             }
         },
         convertImgToBase64(url){
@@ -10039,10 +10040,13 @@ export default {
                 this.form_data.ahu.ahuAHUDPUnit = this.information.ahu.ahuAHUDPUnit;
         }
 
-        if (this.information.gallery != null){
-            this.image_container.push("/storage/" + this.information.gallery.map(item => item.image));
-        }
+        // if (this.information.gallery != null){
+        //     this.image_container.push("/storage/" + this.information.gallery.map(item => item.image));
+        // }
         this.showGalleryImage();
+
+        console.log(this.form_data.images)
+
 
     },
     computed: {
