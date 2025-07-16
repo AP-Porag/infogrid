@@ -5165,20 +5165,20 @@
                                                         />
                                                     </div>
                                                 </div>
-<!--                                                <div class="col-md-6">-->
-<!--                                                    <label class="form-label w-100">-->
-<!--                                                        Measured Parameter-->
-<!--                                                    </label>-->
-<!--                                                    <div class="d-flex justify-content-between">-->
-<!--                                                        <input-->
-<!--                                                            type="number"-->
-<!--                                                            class="form-control"-->
-<!--                                                            placeholder=""-->
-<!--                                                            v-model.trim="form_data.pump.pumpVoltageMeasured"-->
-<!--                                                        />-->
-<!--                                                        <span class="mt-2" style="margin-left: .5rem;">V</span>-->
-<!--                                                    </div>-->
-<!--                                                </div>-->
+                                                <div class="col-md-6">
+                                                    <label class="form-label w-100">
+                                                        Measured Parameter
+                                                    </label>
+                                                    <div class="d-flex justify-content-between">
+                                                        <input
+                                                            type="number"
+                                                            class="form-control"
+                                                            placeholder=""
+                                                            v-model.trim="form_data.boiler.boilerTypeOfFuelMeasured"
+                                                        />
+                                                        <span class="mt-2" style="margin-left: .5rem;">V</span>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
 
@@ -8503,7 +8503,7 @@
                                                     Images
                                                 </p>
                                                 <div id="images" class="row">
-                                                    <div class="col-md-4" v-for="(image, index ) in form_data.images"
+                                                    <div class="col-md-4 mb-3" v-for="(image, index ) in form_data.images"
                                                          :key="index">
                                                         <div class="position-relative">
                                                             <button class="ïc--close" @click.prevent="cancelImage(index)"><i class="ti-close"></i></button>
@@ -9000,6 +9000,7 @@ export default {
                     boilerTypeOfBoilerRated:'',
                     boilerCapacityRated:'',
                     boilerTypeOfFuelRated:'',
+                    boilerTypeOfFuelMeasured:'',
                     boilerTypeOfBurnerRated:'',
                     boilerAverageQuantityOfFuelFiredInADayMeasured:'',
                     boilerAnalysisOfFuelMeasured:'',
@@ -9906,6 +9907,7 @@ export default {
                 this.form_data.boiler.boilerTypeOfBoilerRated = this.information.boiler.boilerTypeOfBoilerRated;
                 this.form_data.boiler.boilerCapacityRated = this.information.boiler.boilerCapacityRated;
                 this.form_data.boiler.boilerTypeOfFuelRated = this.information.boiler.boilerTypeOfFuelRated;
+                this.form_data.boiler.boilerTypeOfFuelMeasured = this.information.boiler.boilerTypeOfFuelMeasured;
                 this.form_data.boiler.boilerTypeOfBurnerRated = this.information.boiler.boilerTypeOfBurnerRated;
                 this.form_data.boiler.boilerAverageQuantityOfFuelFiredInADayMeasured = this.information.boiler.boilerAverageQuantityOfFuelFiredInADayMeasured;
                 this.form_data.boiler.boilerAnalysisOfFuelMeasured = this.information.boiler.boilerAnalysisOfFuelMeasured;

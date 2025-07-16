@@ -5165,20 +5165,20 @@
                                                         />
                                                     </div>
                                                 </div>
-<!--                                                <div class="col-md-6">-->
-<!--                                                    <label class="form-label w-100">-->
-<!--                                                        Measured Parameter-->
-<!--                                                    </label>-->
-<!--                                                    <div class="d-flex justify-content-between">-->
-<!--                                                        <input-->
-<!--                                                            type="number"-->
-<!--                                                            class="form-control"-->
-<!--                                                            placeholder=""-->
-<!--                                                            v-model.trim="form_data.pump.pumpVoltageMeasured"-->
-<!--                                                        />-->
-<!--                                                        <span class="mt-2" style="margin-left: .5rem;">V</span>-->
-<!--                                                    </div>-->
-<!--                                                </div>-->
+                                                <div class="col-md-6">
+                                                    <label class="form-label w-100">
+                                                        Measured Parameter
+                                                    </label>
+                                                    <div class="d-flex justify-content-between">
+                                                        <input
+                                                            type="number"
+                                                            class="form-control"
+                                                            placeholder=""
+                                                            v-model.trim="form_data.boiler.boilerTypeOfFuelMeasured"
+                                                        />
+                                                        <span class="mt-2" style="margin-left: .5rem;">V</span>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
 
@@ -8496,7 +8496,7 @@
                                                     Images
                                                 </p>
                                                 <div id="images" class="row">
-                                                    <div class="col-md-4" v-for="(image, index ) in form_data.images"
+                                                    <div class="col-md-4 mb-3" v-for="(image, index ) in form_data.images"
                                                          :key="index">
                                                         <div class="position-relative">
                                                             <button class="ïc--close" @click.prevent="cancelImage(index)"><i class="ti-close"></i></button>
@@ -8992,6 +8992,7 @@ export default {
                     boilerTypeOfBoilerRated:'',
                     boilerCapacityRated:'',
                     boilerTypeOfFuelRated:'',
+                    boilerTypeOfFuelMeasured:'',
                     boilerTypeOfBurnerRated:'',
                     boilerAverageQuantityOfFuelFiredInADayMeasured:'',
                     boilerAnalysisOfFuelMeasured:'',

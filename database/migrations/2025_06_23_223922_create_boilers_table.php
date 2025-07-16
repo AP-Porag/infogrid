@@ -25,6 +25,7 @@ return new class extends Migration
             $table->text('boilerOperatingPressureRated')->nullable();
 
             // Measured fields
+            $table->text('boilerTypeOfFuelMeasured')->nullable();
             $table->text('boilerAverageQuantityOfFuelFiredInADayMeasured')->nullable();
             $table->text('boilerAnalysisOfFuelMeasured')->nullable();
             $table->text('boilerAshMeasured')->nullable();
@@ -71,6 +72,7 @@ return new class extends Migration
             $table->text('boilerFuelFlowMeterReading')->nullable();
             $table->text('boilerOperatingHours')->nullable();
 
+            // Unit fields
             $table->text('boilerCapacityUnit')->nullable();
             $table->text('boilerAverageQuantityOfFuelFiredInADayUnit')->nullable();
             $table->text('boilerGrossCalorificValueOfFuelUnit')->nullable();
