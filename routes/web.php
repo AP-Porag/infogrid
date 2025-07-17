@@ -30,7 +30,9 @@ Route::get('/execute-command', function () {
     Artisan::call('view:clear');
     Artisan::call('route:clear');
     Artisan::call('optimize');
-    Artisan::call('migrate:fresh --seed');
+    Artisan::call('config:clear');
+    Artisan::call('optimize:clear');
+    //Artisan::call('migrate:fresh --seed');
     dd('All commands executed successfully');
 });
 

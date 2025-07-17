@@ -906,8 +906,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       for (var _i = 0; _i < this.image_container.length; _i++) {
         var _image = this.image_container[_i];
         //console.log(image)
-        this.convertImgToBase64('http://infogrid.test' + _image);
-        // this.convertImgToBase64('https://inventory.furnituremanagementsolutions.com'+image)
+        //this.convertImgToBase64('http://infogrid.test'+image)
+        this.convertImgToBase64('https://infogrid.madbrain.dev' + _image);
       }
     },
     convertImgToBase64: function convertImgToBase64(url) {

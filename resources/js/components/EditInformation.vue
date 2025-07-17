@@ -9508,8 +9508,8 @@ export default {
             for (let i=0; i < this.image_container.length; i++){
                 let image = this.image_container[i]
                 //console.log(image)
-                this.convertImgToBase64('http://infogrid.test'+image)
-                // this.convertImgToBase64('https://inventory.furnituremanagementsolutions.com'+image)
+                //this.convertImgToBase64('http://infogrid.test'+image)
+                this.convertImgToBase64('https://infogrid.madbrain.dev'+image)
             }
         },
         convertImgToBase64(url){
