@@ -197,8 +197,8 @@ class EquipmentExport implements FromCollection, WithHeadings, WithMapping, With
                     'Make & Model',
                     'Year Of Installation',
                     'Flow Rated',
-                    'Flow Measured
-                    UOM',
+                    'Flow Measured',
+                    'UOM',
                     'Pressure Rated',
                     'Pressure Measured',
                     'UOM',
@@ -747,6 +747,7 @@ class EquipmentExport implements FromCollection, WithHeadings, WithMapping, With
                     $equipment->airCompressorCompressorSECRated,
                     $equipment->airCompressorCompressorSECMeasured,
                     'kW/CFM',
+                    '',
                     $equipment->airCompressorDryerTypeRated,
                     $equipment->airCompressorDryerMakeModelRated,
                     '',
