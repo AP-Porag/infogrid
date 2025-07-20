@@ -606,6 +606,372 @@
                                                         <td>{{ $item->motor->motorMotorFrameSizeMeasured ?? '-' }}</td>
                                                         <td>{{ '-' }}</td>
                                                     </tr>
+                                                @elseif($item->itemType === 'Boiler')
+                                                    <!-- Boiler Specifications -->
+                                                    <tr>
+                                                        <td>Year of Installation</td>
+                                                        <td>{{ $item->boiler->boilerYearOfInstallationRated ?? '-' }}</td>
+                                                        <td>{{ '-' }}</td>
+                                                        <td>{{ '-' }}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Type of boiler</td>
+                                                        <td>{{ $item->boiler->boilerTypeOfBoilerRated ?? '-' }}</td>
+                                                        <td>{{ '-' }}</td>
+                                                        <td>{{ '-' }}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Capacity</td>
+                                                        <td>{{ $item->boiler->boilerCapacityRated ?? '-' }}</td>
+                                                        <td>{{ '-' }}</td>
+                                                        <td>{{ $item->boiler->boilerCapacityUnit ?? '-' }}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Type of fuel</td>
+                                                        <td>{{ $item->boiler->boilerTypeOfFuelRated ?? '-' }}</td>
+                                                        <td>{{ $item->boiler->boilerTypeOfFuelMeasured ?? '-' }}</td>
+                                                        <td>{{ '-' }}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Type of burner</td>
+                                                        <td>{{ $item->boiler->boilerTypeOfBurnerRated ?? '-' }}</td>
+                                                        <td>{{ '-' }}</td>
+                                                        <td>{{ '-' }}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Average Quantity of Fuel Fired in a day</td>
+                                                        <td>{{ '-' }}</td>
+                                                        <td>{{ $item->boiler->boilerAverageQuantityOfFuelFiredInADayMeasured ?? '-' }}</td>
+                                                        <td>{{ $item->boiler->boilerAverageQuantityOfFuelFiredInADayUnit ?? '-' }}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Ash</td>
+                                                        <td>{{ '-' }}</td>
+                                                        <td>{{ $item->boiler->boilerAshMeasured ?? '-' }}</td>
+                                                        <td>{{ '%' }}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Moisture</td>
+                                                        <td>{{ '-' }}</td>
+                                                        <td>{{ $item->boiler->boilerMoistureMeasured ?? '-' }}</td>
+                                                        <td>{{ '%' }}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Carbon</td>
+                                                        <td>{{ '-' }}</td>
+                                                        <td>{{ $item->boiler->boilerCarbonMeasured ?? '-' }}</td>
+                                                        <td>{{ '%' }}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Hydrogen</td>
+                                                        <td>{{ '-' }}</td>
+                                                        <td>{{ $item->boiler->boilerHydrogenMeasured ?? '-' }}</td>
+                                                        <td>{{ '%' }}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Nitrogen</td>
+                                                        <td>{{ '-' }}</td>
+                                                        <td>{{ $item->boiler->boilerNitrogenMeasured ?? '-' }}</td>
+                                                        <td>{{ '%' }}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Oxygen</td>
+                                                        <td>{{ '-' }}</td>
+                                                        <td>{{ $item->boiler->boilerOxygenMeasured ?? '-' }}</td>
+                                                        <td>{{ '%' }}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Sulphur</td>
+                                                        <td>{{ '-' }}</td>
+                                                        <td>{{ $item->boiler->boilerSulphurMeasured ?? '-' }}</td>
+                                                        <td>{{ '%' }}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Gross Calorific value of Fuel</td>
+                                                        <td>{{ '-' }}</td>
+                                                        <td>{{ $item->boiler->boilerGrossCalorificValueOfFuelMeasured ?? '-' }}</td>
+                                                        <td>{{ $item->boiler->boilerGrossCalorificValueOfFuelUnit ?? '-' }}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Net Calorific value of Fuel</td>
+                                                        <td>{{ '-' }}</td>
+                                                        <td>{{ $item->boiler->boilerNetCalorificValueOfFuelMeasured ?? '-' }}</td>
+                                                        <td>{{ $item->boiler->boilerNetCalorificValueOfFuelUnit ?? '-' }}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Flue gas Analysis CO2</td>
+                                                        <td>{{ '-' }}</td>
+                                                        <td>{{ $item->boiler->boilerFlueGasAnalysisCO2Measured ?? '-' }}</td>
+                                                        <td>{{ '%' }}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Flue gas Analysis CO</td>
+                                                        <td>{{ '-' }}</td>
+                                                        <td>{{ $item->boiler->boilerFlueGasAnalysisCOMeasured ?? '-' }}</td>
+                                                        <td>{{ 'ppm' }}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Flue gas Analysis Oxygen</td>
+                                                        <td>{{ '-' }}</td>
+                                                        <td>{{ $item->boiler->boilerFlueGasAnalysisOxygenMeasured ?? '-' }}</td>
+                                                        <td>{{ '%' }}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Flue Gas Temperature</td>
+                                                        <td>{{ '-' }}</td>
+                                                        <td>{{ $item->boiler->boilerFlueGasTemperatureMeasured ?? '-' }}</td>
+                                                        <td>{{ 'C' }}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Ambient Temperature</td>
+                                                        <td>{{ '-' }}</td>
+                                                        <td>{{ $item->boiler->boilerAmbientTemperatureMeasured ?? '-' }}</td>
+                                                        <td>{{ 'C' }}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Humidity in Air / Kg of Dry Air</td>
+                                                        <td>{{ '-' }}</td>
+                                                        <td>{{ $item->boiler->boilerHumidityInAirKgOfDryAirMeasured ?? '-' }}</td>
+                                                        <td>{{ $item->boiler->boilerHumidityInAirKgOfDryAirUnit ?? '-' }}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Total Surface Area of Boiler</td>
+                                                        <td>{{ '-' }}</td>
+                                                        <td>{{ $item->boiler->boilerTotalSurfaceAreaOfBoilerMeasured ?? '-' }}</td>
+                                                        <td>{{ 'm2' }}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Velocity of Wind Around the Boiler</td>
+                                                        <td>{{ '-' }}</td>
+                                                        <td>{{ $item->boiler->boilerVelocityOfWindAroundTheBoilerMeasured ?? '-' }}</td>
+                                                        <td>{{ 'm/s' }}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Average Surface Temperature</td>
+                                                        <td>{{ '-' }}</td>
+                                                        <td>{{ $item->boiler->boilerAverageSurfaceTemperatureMeasured ?? '-' }}</td>
+                                                        <td>{{ 'C' }}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Average Quantity of Fuel Fired per hour</td>
+                                                        <td>{{ '-' }}</td>
+                                                        <td>{{ $item->boiler->boilerAverageQuantityOfFuelFiredPerHourMeasured ?? '-' }}</td>
+                                                        <td>{{ $item->boiler->boilerAverageQuantityOfFuelFiredPerHourUnit ?? '-' }}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>GCV of Fly-Ash</td>
+                                                        <td>{{ '-' }}</td>
+                                                        <td>{{ $item->boiler->boilerGCVOfFlyAshMeasured ?? '-' }}</td>
+                                                        <td>{{ $item->boiler->boilerGCVOfFlyAshUnit ?? '-' }}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>% of Fly-Ash / kg of Fuel</td>
+                                                        <td>{{ '-' }}</td>
+                                                        <td>{{ $item->boiler->boilerFlyAshKgOfFuelMeasured ?? '-' }}</td>
+                                                        <td>{{ '%' }}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>GCV of Bottom-Ash</td>
+                                                        <td>{{ '-' }}</td>
+                                                        <td>{{ $item->boiler->boilerGCVOfBottomAshMeasured ?? '-' }}</td>
+                                                        <td>{{ $item->boiler->boilerGCVOfBottomAshUnit ?? '-' }}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Operating Temp.</td>
+                                                        <td>{{ $item->boiler->boilerOperatingTempRated ?? '-' }}</td>
+                                                        <td>{{ $item->boiler->boilerOperatingTempMeasured ?? '-' }}</td>
+                                                        <td>{{ 'C' }}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Operating Pressure</td>
+                                                        <td>{{ $item->boiler->boilerOperatingPressureRated ?? '-' }}</td>
+                                                        <td>{{ $item->boiler->boilerOperatingPressureMeasured ?? '-' }}</td>
+                                                        <td>{{ $item->boiler->boilerOperatingPressureUnit ?? '-' }}</td>
+                                                    </tr>
+                                                @elseif($item->itemType === 'Cooling Tower')
+                                                    <!-- Cooling Tower Specifications -->
+                                                    <tr>
+                                                        <td>Year of Installation</td>
+                                                        <td>{{ $item->cooling->coolingYearOfInstallationRated ?? '-' }}</td>
+                                                        <td>{{ '-' }}</td>
+                                                        <td>{{ '-' }}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Capacity</td>
+                                                        <td>{{ $item->cooling->coolingCapacityRated ?? '-' }}</td>
+                                                        <td>{{ $item->cooling->coolingCapacityMeasured ?? '-' }}</td>
+                                                        <td>{{ $item->cooling->coolingCapacityUnit ?? '-' }}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Type of cooling tower</td>
+                                                        <td>{{ $item->cooling->coolingTypeOfCoolingTowerRated ?? '-' }}</td>
+                                                        <td>{{ '-' }}</td>
+                                                        <td>{{ '-' }}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Entering Water temp.</td>
+                                                        <td>{{ '-' }}</td>
+                                                        <td>{{ $item->cooling->coolingEnteringWaterTempMeasured ?? '-' }}</td>
+                                                        <td>{{ 'C' }}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Leaving Water temp.</td>
+                                                        <td>{{ '-' }}</td>
+                                                        <td>{{ $item->cooling->coolingLeavingWaterTempMeasured ?? '-' }}</td>
+                                                        <td>{{ 'C' }}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Fan Power</td>
+                                                        <td>{{ $item->cooling->coolingFanPowerRated ?? '-' }}</td>
+                                                        <td>{{ $item->cooling->coolingFanPowerMeasured ?? '-' }}</td>
+                                                        <td>{{ 'KW' }}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Number of cells </td>
+                                                        <td>{{ $item->cooling->coolingNumberOfCellsRated ?? '-' }}</td>
+                                                        <td>{{ $item->cooling->coolingNumberOfCellsMeasured ?? '-' }}</td>
+                                                        <td>{{ '-' }}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Entering air temp. (DBT)</td>
+                                                        <td>{{ '-' }}</td>
+                                                        <td>{{ $item->cooling->coolingEnteringAirTempDBTMeasured ?? '-' }}</td>
+                                                        <td>{{ 'C' }}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Entering air temp. (WBT)</td>
+                                                        <td>{{ '-' }}</td>
+                                                        <td>{{ $item->cooling->coolingEnteringAirTempWBTMeasured ?? '-' }}</td>
+                                                        <td>{{ 'C' }}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Leaving air temp. (DBT)</td>
+                                                        <td>{{ '-' }}</td>
+                                                        <td>{{ $item->cooling->coolingLeavingAirTempDBTMeasured ?? '-' }}</td>
+                                                        <td>{{ 'C' }}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Leaving air temp. (WBT)</td>
+                                                        <td>{{ '-' }}</td>
+                                                        <td>{{ $item->cooling->coolingLeavingAirTempWBTMeasured ?? '-' }}</td>
+                                                        <td>{{ '-' }}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Flow of water</td>
+                                                        <td>{{ '-' }}</td>
+                                                        <td>{{ $item->cooling->coolingFlowOfWaterMeasured ?? '-' }}</td>
+                                                        <td>{{ $item->cooling->coolingFlowOfWaterUnit ?? '-' }}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Air velocity</td>
+                                                        <td>{{ '-' }}</td>
+                                                        <td>{{ $item->cooling->coolingAirVelocityMeasured ?? '-' }} || Average : {{ $item->cooling->coolingAirVelocityMeasuredAverage ?? '0' }}</td>
+                                                        <td>{{ 'ms' }}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Area of fan of CT</td>
+                                                        <td>{{ '-' }}</td>
+                                                        <td>{{ $item->cooling->coolingAreaOfFanOfCTMeasured ?? '-' }}</td>
+                                                        <td>{{ 'm2' }}</td>
+                                                    </tr>
+                                                @elseif($item->itemType === 'AHU')
+                                                    <!-- AHU Specifications -->
+                                                    <tr>
+                                                        <td>Year of Installation</td>
+                                                        <td>{{ $item->ahu->ahuYearOfInstallationRated ?? '-' }}</td>
+                                                        <td>{{ '-' }}</td>
+                                                        <td>{{ '-' }}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Capacity</td>
+                                                        <td>{{ $item->ahu->ahuCapacityRated ?? '-' }}</td>
+                                                        <td>{{ $item->ahu->ahuCapacityMeasured ?? '-' }}</td>
+                                                        <td>{{ $item->ahu->ahuCapacityUnit ?? '-' }}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Type of AHU</td>
+                                                        <td>{{ $item->ahu->ahuTypeOfAHURated ?? '-' }}</td>
+                                                        <td>{{ $item->ahu->motorYearOfInstallationMeasured ?? '-' }}</td>
+                                                        <td>{{ '-' }}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Entering Water temp.</td>
+                                                        <td>{{ '-' }}</td>
+                                                        <td>{{ $item->ahu->ahuEnteringWaterTempMeasured ?? '-' }}</td>
+                                                        <td>{{ 'C' }}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Leaving Water temp.</td>
+                                                        <td>{{ '-' }}</td>
+                                                        <td>{{ $item->ahu->ahuLeavingWaterTempMeasured ?? '-' }}</td>
+                                                        <td>{{ 'C' }}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Fan Power</td>
+                                                        <td>{{ $item->ahu->ahuFanPowerRated ?? '-' }}</td>
+                                                        <td>{{ $item->ahu->ahuFanPowerMeasured ?? '-' }}</td>
+                                                        <td>{{ 'KW' }}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Number of cells </td>
+                                                        <td>{{ $item->ahu->ahuNumberOfCellsRated ?? '-' }}</td>
+                                                        <td>{{ $item->ahu->ahuNumberOfCellsMeasured ?? '-' }}</td>
+                                                        <td>{{ '-' }}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Entering air temp. (DBT)</td>
+                                                        <td>{{ '-' }}</td>
+                                                        <td>{{ $item->ahu->ahuEnteringAirTempDBTMeasured ?? '-' }}</td>
+                                                        <td>{{ 'C' }}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Entering air temp. (WBT)</td>
+                                                        <td>{{ '-' }}</td>
+                                                        <td>{{ $item->ahu->ahuEnteringAirTempWBTMeasured ?? '-' }}</td>
+                                                        <td>{{ 'C' }}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Leaving air temp. (DBT)</td>
+                                                        <td>{{ '-' }}</td>
+                                                        <td>{{ $item->ahu->ahuLeavingAirTempDBTMeasured ?? '-' }}</td>
+                                                        <td>{{ 'C' }}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Leaving air temp. (WBT)</td>
+                                                        <td>{{ '-' }}</td>
+                                                        <td>{{ $item->ahu->ahuLeavingAirTempWBTMeasured ?? '-' }}</td>
+                                                        <td>{{ 'C' }}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Flow of water</td>
+                                                        <td>{{ '-' }}</td>
+                                                        <td>{{ $item->ahu->ahuFlowOfWaterMeasured ?? '-' }}</td>
+                                                        <td>{{ $item->ahu->ahuFlowOfWaterUnit ?? '-' }}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Air velocity</td>
+                                                        <td>{{ '-' }}</td>
+                                                        <td>{{ $item->ahu->ahuAirVelocityMeasured ?? '-' }} || Average : {{ $item->ahu->ahuAirVelocityMeasuredAverage ?? '0' }}</td>
+                                                        <td>{{ 'm/s' }}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Area of duct</td>
+                                                        <td>{{ '-' }}</td>
+                                                        <td>{{ $item->ahu->ahuAirAreaOfDuctMeasured ?? '-' }}</td>
+                                                        <td>{{ 'm2' }}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Static pressure</td>
+                                                        <td>{{ $item->ahu->ahuStaticPressureRated ?? '-' }}</td>
+                                                        <td>{{ $item->ahu->ahuStaticPressureMeasured ?? '-' }} || Average : {{ $item->ahu->ahuStaticPressureMeasuredAverage ?? '0' }}</td>
+                                                        <td>{{ $item->ahu->ahuStaticPressureUnit ?? '-' }}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>AHU DP</td>
+                                                        <td>{{ $item->ahu->ahuAHUDPRated ?? '-' }}</td>
+                                                        <td>{{ $item->ahu->ahuAHUDPMeasured ?? '-' }} || Average : {{ $item->ahu->ahuAHUDPMeasuredAverage ?? '0' }}</td>
+                                                        <td>{{ $item->ahu->ahuAHUDPUnit ?? '-' }}</td>
+                                                    </tr>
                                                 @endif
                                                 </tbody>
                                             </table>
@@ -869,6 +1235,136 @@
                                             <tr>
                                                 <td>Operating Hours</td>
                                                 <td>{{ $item->motor->motorOperatingHours ?? '-' }}</td>
+                                            </tr>
+                                        @elseif($item->itemType === 'Boiler')
+                                            <!-- Boiler Checklist -->
+                                            <tr>
+                                                <td>VFD on ID Fan</td>
+                                                <td>{{ $item->boiler->boilerVFDOnIdFan ?? '-' }}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>VFD setting</td>
+                                                <td>{{ $item->boiler->boilerVFDOnIdFanVFDSetting ?? '-' }}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>VFD on FD Fan</td>
+                                                <td>{{ $item->boiler->boilerVFDOnFdFan ?? '-' }}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>VFD setting</td>
+                                                <td>{{ $item->boiler->boilerVFDOnFdFanVFDSetting ?? '-' }}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Maximum temp. can sustain</td>
+                                                <td>{{ $item->boiler->boilerMaximumTempCanSustain ?? '-' }}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Alternate fuel possibility</td>
+                                                <td>{{ $item->boiler->boilerAlternateFuelPossibility ?? '-' }}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Blow down control</td>
+                                                <td>{{ $item->boiler->boilerBlowDownControl ?? '-' }}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Collect Feed water test report</td>
+                                                <td>{{ $item->boiler->boilerCollectFeedWaterTestReport ?? '-' }}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Blow down water TDS value</td>
+                                                <td>{{ $item->boiler->boilerBlowDownWaterTDSvalue ?? '-' }}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Waste heat recovery </td>
+                                                <td>{{ $item->boiler->boilerWasteHeatRecovery ?? '-' }}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Burner air max. temp. capacity</td>
+                                                <td>{{ $item->boiler->boilerBurnerAirMaxTempCapacity ?? '-' }}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Check steam traps</td>
+                                                <td>{{ $item->boiler->boilerCheckSteamTraps ?? '-' }}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Flue gas monitoring</td>
+                                                <td>{{ $item->boiler->boilerFlueGasMonitoring ?? '-' }}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Online monitoring & control</td>
+                                                <td>{{ $item->boiler->boilerOnlineMonitoringControl ?? '-' }}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Water/steam Flow meter reading</td>
+                                                <td>{{ $item->boiler->boilerWaterSteamFlowMeterReading ?? '-' }}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Fuel Flow meter reading</td>
+                                                <td>{{ $item->boiler->boilerFuelFlowMeterReading ?? '-' }}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Operating Hours</td>
+                                                <td>{{ $item->boiler->boilerOperatingHours ?? '-' }}</td>
+                                            </tr>
+                                        @elseif($item->itemType === 'Cooling Tower')
+                                            <!-- Cooling Tower Checklist -->
+                                            <tr>
+                                                <td>VFD on fan or not</td>
+                                                <td>{{ $item->cooling->coolingVFDOnFanOrNot ?? '-' }}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>VFD setting</td>
+                                                <td>{{ $item->cooling->coolingVFDSettingFan ?? '-' }}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>VFD on pump or not</td>
+                                                <td>{{ $item->cooling->coolingVFDOnPumpOrNot ?? '-' }}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>VFD setting</td>
+                                                <td>{{ $item->cooling->coolingVFDSettingPump ?? '-' }}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Drift loss visible</td>
+                                                <td>{{ $item->cooling->coolingDriftLossVisible ?? '-' }}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Nos. of rewinding of fan motor</td>
+                                                <td>{{ $item->cooling->coolingNosOfRewidingOfFanMotor ?? '-' }}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Operating Hours</td>
+                                                <td>{{ $item->cooling->coolingOperatingHours ?? '-' }}</td>
+                                            </tr>
+                                        @elseif($item->itemType === 'AHU')
+                                            <!-- AHU Checklist -->
+                                            <tr>
+                                                <td>VFD on fan or not</td>
+                                                <td>{{ $item->ahu->ahuVFDOnFanOrNot ?? '-' }}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>VFD setting</td>
+                                                <td>{{ $item->ahu->ahuVFDSettingFan ?? '-' }}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Damper position</td>
+                                                <td>{{ $item->ahu->ahuDamperPosition ?? '-' }}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Connected with BMS</td>
+                                                <td>{{ $item->ahu->ahuConnectedWithBMS ?? '-' }}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Modulating valve is 2 way or 3 way</td>
+                                                <td>{{ $item->ahu->ahuModulatingValve ?? '-' }}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Set Temp.</td>
+                                                <td>{{ $item->ahu->ahuSetTemp ?? '-' }}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Operating Hours</td>
+                                                <td>{{ $item->ahu->ahuOperatingHours ?? '-' }}</td>
                                             </tr>
                                         @endif
                                         </tbody>
