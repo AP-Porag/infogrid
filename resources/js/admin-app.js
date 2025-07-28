@@ -25,7 +25,20 @@ Vue.component("create-information", () =>
 Vue.component("edit-information", () =>
     import("./components/EditInformation.vue")
 );
+Vue.component("project-contribution", () =>
+    import("./components/ProjectContribution.vue")
+);
+Vue.component("user-contribution", () =>
+    import("./components/UserContribution.vue")
+);
 
+Vue.component("user-project-contribution-line-chart", () =>
+    import("./components/UserProjectContributionLineChart.vue")
+);
+
+Vue.component("auth-user-project-contribution-line-chart", () =>
+    import("./components/AuthUserProjectContributionLineChart.vue")
+);
 
 
 // Global mixin

@@ -14,4 +14,5 @@ class Project extends Model
     {
         return $this->hasMany(Information::class,'project_id');
     }
+
 }

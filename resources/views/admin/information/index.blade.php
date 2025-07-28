@@ -14,11 +14,9 @@
 
                         @if($project)
                             <div class="">
-                                @if(auth()->user()->user_type == 'admin')
                                     <button type="button" class="btn btn-dark btn-sm" style="padding-top: 6px;padding-bottom: 6px;margin-right: 15px;" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                                         Open To Download Excel
                                     </button>
-                                @endif
                                 <a href="{{route('admin.information.create', ['project_id' => $project->id])}}" class="btn btn-sm btn-primary text-capitalize" style="padding-top: 8px;">Collect New Data</a>
                             </div>
                         @endif
@@ -28,7 +26,7 @@
             </div>
         </div>
 
-        @if($project && auth()->user()->user_type == 'admin')
+        @if($project)
             {{--        excel download modal start--}}
             <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" style="display: none;" aria-hidden="true">
                 <div class="modal-dialog">

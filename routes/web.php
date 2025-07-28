@@ -46,7 +46,14 @@ Route::prefix('admin')->as('admin.')->group(function () {
     // USER
     Route::resource('users', UsersController::class);
 
-    // PROJECT
+     //PROJECT
+    // Project-specific additional routes
+    Route::get('/project/all-projects', [ProjectController::class, 'allProjects']);
+    Route::get('/project/contributions/all', [ProjectController::class, 'allContributions']);
+    Route::get('/project/{id}/contributions', [ProjectController::class, 'userContributions']);
+    Route::get('/project/user-daily-contributions', [ProjectController::class, 'dailyUserContributions']);
+
+    // Resource route for CRUD
     Route::resource('project', ProjectController::class);
 
     // INFORMATION
@@ -66,6 +73,8 @@ Route::prefix('admin')->as('admin.')->group(function () {
 //all routes for user
 Route::prefix('user')->as('user.')->group(function () {
 
+    Route::get('/project/project-contribution', [ProjectController::class, 'userProjectContribution']);
+    Route::get('/project/user-contributions', [ProjectController::class, 'userContributionsEntries']);
     // PROJECT
     Route::resource('project', ProjectController::class);
 

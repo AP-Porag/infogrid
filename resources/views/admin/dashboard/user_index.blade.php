@@ -2,7 +2,14 @@
 
 
 @section('content')
-<h1>User Dashboard</h1>
+    <div class="">
+        <div class="">
+            <auth-user-project-contribution-line-chart/>
+        </div>
+        <div class="">
+            <user-contribution/>
+        </div>
+    </div>
 @endsection
 
 @push('style')

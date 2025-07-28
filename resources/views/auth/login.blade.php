@@ -63,7 +63,7 @@
                                                 </label>
                                             </div>
                                         </div>
-                                        <div class="offset-6 col-sm-6 text-end">
+                                        <div class="offset-md-6 col-sm-6 text-end pt-4">
                                             <button class="btn btn-primary w-md waves-effect waves-light" type="submit">Log In</button>
                                         </div>
                                     </div>
@@ -91,3 +91,19 @@
         </div>
     </div>
 @endsection
+
+@push('style')
+    <style>
+        @media (max-width: 991px) {
+
+            .accountbg {
+                display: none;
+            }
+
+            .account-page-full {
+                width: 100%
+            }
+
+        }
+    </style>
+@endpush
