@@ -262,14 +262,15 @@ class ProjectController extends Controller
 
         // Prepare labels for last 3 months (all dates)
         $labels = [];
+        $displayLabels = [];
         $period = new \DatePeriod(
             new \DateTime($threeMonthsAgo),
             new \DateInterval('P1D'),
             new \DateTime(now()->addDay()) // include today
         );
         foreach ($period as $date) {
-//            $labels[] = $date->format('Y-m-d');
-            $labels[] = $date->format('d-m-Y');
+            $labels[] = $date->format('Y-m-d'); // for internal use
+            $displayLabels[] = $date->format('d-m-Y'); // for chart display
         }
 
         // Map counts by date
@@ -284,7 +285,7 @@ class ProjectController extends Controller
         $totalEntries = array_sum($data);
 
         $chartData = [
-            'labels' => $labels,
+            'labels' => $displayLabels,
             'datasets' => [
                 [
                     'label' => $user->first_name . ' ' . $user->last_name,
